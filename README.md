@@ -1,6 +1,6 @@
 Wosci eCommerce System
 =====
-Wosci is simple, user friendly, responsive and modern eCommerce System for Wordpress.
+Wosci is simple, user friendly, responsive and modern e-commerce system for Wordpress.
 
 Files contains Wordpress theme and required plugins set
 
