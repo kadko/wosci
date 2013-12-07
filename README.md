@@ -45,6 +45,5 @@ Color : Blue
 
 
 Filters displayed to user allowing them to filter products while browsing by category, by search or by author products
-=========
 
 
