@@ -1,3 +1,7 @@
 wosci
 =====
-Wosci Shopping Cart
+Wosci Shopping Cart. Contains wordpress theme and required plugins set
+
+
+Installation
+=====
