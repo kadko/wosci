@@ -37,9 +37,9 @@ Optional Custom Field
 Tax (Custom filed value is tax ID to be added to product)
 
 =========
-FILTERS
+Custom Field Filters
 
-You can add filter(s) to your products such as color, size , model etc...
+You can add custom fields as filter to your products such as color, size , model etc...
 
 Color : Blue
 
