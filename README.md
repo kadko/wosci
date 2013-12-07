@@ -7,7 +7,7 @@ Files contains Wordpress theme, required plugins set and sample product images
 
 Installation
 =====
-1- Install wordpress
+1- Install Wordpress
 
 2- Activate "Wosci Install Plugin" and deactivate after page load
 
