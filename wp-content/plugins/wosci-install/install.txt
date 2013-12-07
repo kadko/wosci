@@ -1,0 +1,8 @@
+1- Install wordpress
+2- Plugins > Activate > Wosci Install Plugin
+3- Appearance > Themes > Activate Wosci theme
+4- Click Settings > Permalinks section
+5- Completed!
+
+
+Note: After completion you can deactivate Wosci Install Plugin

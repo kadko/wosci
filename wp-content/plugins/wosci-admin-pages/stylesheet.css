@@ -1,0 +1,25 @@
+#adminmenu .toplevel_page_shop_configuration div.wp-menu-image, #adminmenu .toplevel_page_orders div.wp-menu-image, #adminmenu .toplevel_page_currencies div.wp-menu-image, #adminmenu .toplevel_page_tax div.wp-menu-image, #adminmenu .toplevel_page_product_attributes div.wp-menu-image {
+	background-image: url(images/menu.png);
+	background-position: -359px -33px;
+
+}
+
+#adminmenu .toplevel_page_shop_configuration:hover div.wp-menu-image, #adminmenu .toplevel_page_orders:hover div.wp-menu-image, #adminmenu .toplevel_page_currencies:hover div.wp-menu-image, #adminmenu .toplevel_page_tax:hover div.wp-menu-image, #adminmenu .toplevel_page_product_attributes:hover div.wp-menu-image { 
+	background-image: url(images/menu.png);
+	background-position: -359px -1px;
+ } 
+ 
+ 
+ 
+ 
+#adminmenu .toplevel_page_modules_menu div.wp-menu-image {
+	background-image: url(images/menu.png);
+	background-position: -359px -33px;
+
+}
+
+#adminmenu .toplevel_page_modules_menu:hover div.wp-menu-image { 
+	background-image: url(images/menu.png);
+	background-position: -359px -1px;
+ } 
+  

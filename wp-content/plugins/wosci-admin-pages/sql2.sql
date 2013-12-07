@@ -1,0 +1,37 @@
+CREATE DEFINER=`root`@`localhost` FUNCTION `HexColorDistance2`(Q_r INT, Q_g INT, Q_b INT, DB_r1 INT, DB_g1 INT, DB_b1 INT,DB_r2 INT, DB_g2 INT, DB_b2 INT,DB_r3 INT, DB_g3 INT, DB_b3 INT) RETURNS int(11)
+BEGIN
+
+DECLARE ONE INT;
+DECLARE TWO INT;
+DECLARE THREE INT;
+DECLARE PERCENT INT;
+
+SET ONE = ROUND((( ( 1-( ABS((( DB_r1/255)) - ABS((Q_r/255)))) ) + ( 1-(ABS(((DB_g1/255)) - ABS((Q_g/255)))) )  + ( 1-(ABS(((DB_b1/255)) - ABS((Q_b/255)))) ) ) /3*100), 0);
+SET TWO = ROUND((( ( 1-( ABS((( DB_r2/255)) - ABS((Q_r/255)))) ) + ( 1-(ABS(((DB_g2/255)) - ABS((Q_g/255)))) )  + ( 1-(ABS(((DB_b2/255)) - ABS((Q_b/255)))) ) ) /3*100), 0);
+SET THREE = ROUND((( ( 1-( ABS((( DB_r3/255)) - ABS((Q_r/255)))) ) + ( 1-(ABS(((DB_g3/255)) - ABS((Q_g/255)))) )  + ( 1-(ABS(((DB_b3/255)) - ABS((Q_b/255)))) ) ) /3*100), 0);
+
+
+IF  ONE > 99 THEN SET ONE = ONE-1; 
+END IF;
+
+IF  ONE < 9  THEN SET ONE = ONE+(10-ONE); 
+END IF;
+
+IF  TWO > 99 THEN SET TWO = TWO-1; 
+END IF;
+
+IF  TWO < 9  THEN SET TWO = TWO+(10-TWO); 
+END IF;
+
+IF  THREE > 99 THEN SET THREE = THREE-1; 
+END IF;
+
+IF  THREE < 9  THEN SET THREE = THREE+(10-THREE); 
+END IF;
+SET PERCENT = CONCAT(ONE,TWO,THREE);
+
+
+RETURN PERCENT;
+
+END
+
