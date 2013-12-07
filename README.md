@@ -17,3 +17,26 @@ Installation
 
 5- Completed!
 
+
+Add Product
+=====
+When adding product some custom field required as follow
+
+Price  (Custom filed value is product price)
+Currency  (Custom filed value is Curreny of product , USD  for Dollar )
+Quantity  (Custom filed value is stock quantity of product)
+
+Optional Custom Field
+
+Tax (Custom filed value is tax ID to be added to product)
+
+
+You can add filter(s) to your products such as color, size , model etc...
+
+Color : Blue
+
+
+Filters displayed to user allowing them to filter products while browsing by category, by search or by author products
+
+
+
