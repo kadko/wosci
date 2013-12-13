@@ -91,76 +91,9 @@ function removeborder(resnum){
 		</hgroup>
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<!--<h3 class="menu-toggle"><?php _e( 'Menu', 'twentytwelve' ); ?></h3>-->
-			<!--<a class="assistive-text" href="#content" title="<?php esc_attr_e( 'Skip to content', 'twentytwelve' ); ?>"><?php _e( 'Skip to content', 'twentytwelve' ); ?></a>-->
+			<!--<h3 class="menu-toggle"><?php _e( 'Menu', 'wosci' ); ?></h3>-->
+			<!--<a class="assistive-text" href="#content" title="<?php esc_attr_e( 'Skip to content', 'wosci' ); ?>"><?php _e( 'Skip to content', 'wosci' ); ?></a>-->
 			<?php //wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-<?php
-/*		
-		
-    <nav class="navbar navbar-default" role="navigation">
-  <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="#">Brand</a>
-  </div>
-
-  <!-- Collect the nav links, forms, and other content for toggling -->
-  <div class="collapse navbar-collapse navbar-ex1-collapse">
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Link</a></li>
-      <li><a href="#">Link</a></li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li><a href="#">Separated link</a></li>
-          <li><a href="#">One more separated link</a></li>
-        </ul>
-      </li>
-    </ul>
-    <form class="navbar-form navbar-left" role="search" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-      <div class="form-group">
-        <input type="text" name="s" id="s" class="form-control" placeholder="Search">
-      </div>
-      <!--<button type="submit" class="btn btn-default">Submit</button>-->
-    </form>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="#">Link</a></li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li><a href="#">Separated link</a></li>
-        </ul>
-      </li>
-    </ul>
-  </div><!-- /.navbar-collapse -->
-</nav>
-     
-
-
-*/
-?>
-
-
 
 
 
@@ -207,12 +140,12 @@ function removeborder(resnum){
             
             
     <ul class="nav navbar-nav navbar-right"> 
-      <li><a id="popoverId" href="#">Shopping Cart <span class="badge"><small id="cartcount"><?php global $cart; echo $cart->count_contents();?></small></span></a></li> 
+      <li><a id="popoverId" href="#"><?php echo __('Shopping Cart' ,'wosci-language' ); ?> <span class="badge"><small id="cartcount"><?php global $cart; echo $cart->count_contents();?></small></span></a></li> 
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo __('Account','wosci-language'); ?> <b class="caret"></b></a>
         <ul class="dropdown-menu">
-          <li><?php echo '<a href="' . tep_href_link('account-history', '', 'SSL') . '">' . __('Order History','wosci-language') . '</a>'; ?></li>
-          <li><?php echo ' <a href="' . tep_href_link('wp-admin/profile.php', '', 'SSL') . '">' . __('Profile','wosci-language') . '</a>'; ?></li>
+          <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>account-history"><?php echo __('Order History','wosci-language'); ?></a></li>
+          <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>wp-admin/profile.php"><?php echo  __('Profile','wosci-language'); ?></a></li>
           <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>address-book"><?php echo __('Address Book','wosci-language'); ?></a></li>
           <li class="divider"></li>
           <li><a href=" <?php echo wp_logout_url(  ); ?> "><?php echo __('Log Out','wosci-language'); ?></a></li>
@@ -240,13 +173,13 @@ function removeborder(resnum){
 	
 	
 	if ($cart->count_contents() < 1) {
-	$popovercart .= 'Your shopping cart is empty.';
+	$popovercart .= __('Your shopping cart is empty.' ,'wosci-language' );
 	}else{
-	$popovercart .='<br><div style="display:inline;"><a href="'. esc_url( home_url( '/' ) ).'cart" class="btn btn-primary btn-xs">' . __('Edit Cart','wosci-translation') . '</a><a  href="'. esc_url( home_url( '/' ) ).'shipping-payment" class="btn btn-success btn-xs" style="float:right;">' . __('Checkout','wosci-translation') . '</a></div>';
+	$popovercart .='<br><div style="display:inline;"><a href="'. esc_url( home_url( '/' ) ).'cart" class="btn btn-primary btn-xs">' . __('Edit Cart','wosci-language') . '</a><a  href="'. esc_url( home_url( '/' ) ).'shipping-payment" class="btn btn-success btn-xs" style="float:right;">' . __('Checkout','wosci-language') . '</a></div>';
 	}
 ?>
 
-<div id="popoverContent" class="hide"><?php echo $popovercart; ?></div>
+<div id="popoverContent" class="hide"><?php echo ''.$popovercart; ?></div>
 
 
 <?php /* ?>
@@ -316,9 +249,18 @@ jQuery(".alert .close").click(function () {
 <?php  if( is_page('order-confirmation')  ) { ?>
  <script type="text/javascript">   
 jQuery(document).ready(function() {
-
+jQuery('.btn-success').prop('disabled', true);
 jQuery(".btn-success").click(function () {
 setTimeout(function() { jQuery('.btn-success').prop('disabled', true); }, 10);
+});
+
+
+jQuery("#ruaglabel").click(function () {
+if( jQuery('#ruagcheck').is(":checked") ) {
+jQuery('.btn-success').prop('disabled', false);
+} else {
+jQuery('.btn-success').prop('disabled', true);
+}
 });
 
 });

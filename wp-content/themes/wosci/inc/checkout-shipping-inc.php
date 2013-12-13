@@ -7,7 +7,7 @@
 
 
 
-                      <!-- Modal -->
+  <!-- Modal -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -126,14 +126,25 @@
 </div><!-- /.row -->
 
 <div class="margin-top"></div>
- <?php echo '<a data-target="#myModal" role="button"  data-toggle="modal" href="'.esc_url( home_url( '/' ) ).'new-shipping-address/?from=New_Shipping_Address" id="yeni_adres_ekle" class="btn-sm btn-primary btn-success" style=""><span class="glyphicon glyphicon-plus"></span> ' . _('New Shipping Address') . '</a>'; ?>      
+ <?php echo '<a data-target="#myModal" role="button"  data-toggle="modal" href="'.esc_url( home_url( '/' ) ).'new-shipping-address/?from=New_Shipping_Address" id="yeni_adres_ekle" class="btn-sm btn-primary btn-success" style=""><span class="glyphicon glyphicon-plus"></span> ' . __('New Shipping Address', 'wosci-language') . '</a>'; ?>      
 
 <div class="margin-top"></div>
       
 
 
-<div class="row">
+<div class="row"><div id="loading_shipping_modules" style="display:none;position: absolute; top: 50%; right: 50%;"> <img style="background-color:transparent;" src="<?php echo get_bloginfo('template_url');?>/loading.gif"> </div>
+
+
+
+<div class="row" id="shipping_modules_loaded"  style="z-index:100;display:none;width:100%;position: absolute; top: 50%;">
+  <div class="col-xs-3 col-md-2"></div>
+  <div class="col-xs-12 col-md-8"><div class="alert alert-success"><b><?php echo __('Shipping modules and costs updated!', 'wosci-language'); ?></b></div></div>
+  <div class="col-xs-3 col-md-2"></div>
+</div>
+
+
   <div class="col-lg-12" id="shipping_modules">
+  
    <table width="100%">
 <?php
   if (tep_count_shipping_modules() > 0) {
@@ -488,8 +499,8 @@
 ?>
 <div class="row">
                 
-                <div class="col-xs-6 col-lg-10" style="line-height:32px;text-align:middle;" style="margin-right:20%;" align="right"><small><?php echo _('Continue to order confirmation page'); ?></small></div>
-                <div class="col-xs-6 col-lg-2" style="float:right;" ><?php echo '<button type="submit" class="btn btn-primary btn-success" type="submit">'; ?> <span class="glyphicon glyphicon-arrow-right"></span> <?php echo __('Continue Checkout', 'wosci-language');?></button></div>
+                <div class="col-xs-6 col-lg-9" style="line-height:32px;text-align:middle;" style="margin-right:20%;" align="right"><small><?php echo __('Please select above shipping and payment method and continue to order confirmation page', 'wosci-language'); ?></small></div>
+                <div class="col-xs-6 col-lg-3"  ><?php echo '<button type="submit" class="btn btn-primary btn-success" style="float:right;" type="submit">'; ?> <span class="glyphicon glyphicon-arrow-right"></span> <?php echo __('Continue Checkout', 'wosci-language');?></button></div>
                
 </div>      
      

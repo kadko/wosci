@@ -32,7 +32,7 @@ function rowOutEffect(object) {
         <td><br><table border="0" cellspacing="0" cellpadding="2">
           <tr>
             <td class="main"><h3><?php _e('Latest Orders','wosci-language'); ?></h2></td>
-            <td style="text-align:center;width:20px;">—</td><td class="main"><h4><?php echo '<a href="' . tep_href_link('account-history', '', 'SSL') . '"><u>' . _('View All') . '</u></a>'; ?></h3></td>
+            <td style="text-align:center;width:20px;">—</td><td class="main"><h4><a href="<?php echo esc_url( home_url( '/' ) ); ?>account-history"><?php echo __('View All', 'wosci-language'); ?></a></h3></td>
           </tr>
         </table></td>
       </tr>
@@ -54,14 +54,26 @@ function rowOutEffect(object) {
         $order_country = $orders['billing_country'];
       }
 ?>
-                  <tr class="moduleRow" onMouseOver="rowOverEffect(this)" onMouseOut="rowOutEffect(this)" onClick="document.location.href='<?php echo tep_href_link('account-history-info', 'order_id=' . $orders['orders_id'], 'SSL'); ?>'">
+                  <tr class="moduleRow">
                     <td class="main" width="80"><?php echo tep_date_short($orders['date_purchased']); ?></td>
                     <td class="main"><?php echo '#' . $orders['orders_id']; ?></td>
                     <td class="main"><?php echo tep_output_string_protected($order_name) . ', ' . $order_country; ?></td>
                     <td class="main"><?php echo $orders['orders_status_name']; ?></td>
                     <td class="main" align="right"><?php echo $orders['order_total']; ?></td>
-                    <td style="line-height:30px;" align="right"><?php echo '<a target="_blank" href="' . tep_href_link('pdf-invoice', 'order_id=' . $orders['orders_id'], 'SSL') . '" class="btn btn-xs btn-primary">';?><?php _e('Printable Invoice','wosci-language'); ?><?php echo '</a>'; ?>&nbsp;<?php echo '<a href="' . tep_href_link('account-history-info', 'order_id=' . $orders['orders_id'], 'SSL') . '" class="btn btn-xs btn-info">';?><?php _e('View', 'wosci-language'); ?><?php echo '</a>'; ?></td>
-                  </tr>
+                    <td style="line-height:30px;" align="right">
+                    
+                    <div class="btn-group"><a class="btn btn-sm btn-primary" href="<?php echo esc_url( home_url( '/' ) ); ?>pdf-invoice?order_id=<?php echo $orders['orders_id']; ?>" target="_blank"><span class="glyphicon glyphicon-file"></span> <?php echo __('Printable Invoice','wosci-language'); ?></a>
+                  
+<a class="btn btn-sm btn-info" href="<?php echo esc_url( home_url( '/' ) ); ?>account-history-info?order_id=<?php echo $orders['orders_id']; ?>" target="_blank"><span class="glyphicon glyphicon-eye-open"></span> <?php echo __('View', 'wosci-language'); ?></a>  
+
+                    </td>
+
+
+                
+
+</div>
+
+    </tr>
 <?php
     }
 ?>
@@ -93,9 +105,9 @@ function rowOutEffect(object) {
                 <td width="10"></td>
                 <td><ul>
                  
-                    <li><h4 style="font-weight:normal;"><?php echo ' <a href="' . tep_href_link('wp-admin/profile.php', '', 'SSL') . '">' . _('Edit Profile') . '</a>'; ?></h4></li>
+                    <li><h4 style="font-weight:normal;"><a href="<?php echo esc_url( home_url( '/' ) ); ?>wp-admin/profile.php"><?php echo  __('Edit Profile','wosci-language'); ?></a></h4></li>
                   
-                   <li><h4 style="font-weight:normal;"><?php echo ' <a href="' . tep_href_link('address-book', '', 'SSL') . '">' . _('Address Book') . '</a>'; ?></h4></li>
+                   <li><h4 style="font-weight:normal;"><a href="<?php echo esc_url( home_url( '/' ) ); ?>address-book"><?php echo __('Address Book','wosci-language'); ?></a></h4></li>
                   
                    
                   

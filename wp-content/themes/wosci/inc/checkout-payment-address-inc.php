@@ -2,7 +2,7 @@
 
 function loadXMLDocNewPAXX(key, key2) {
 
- jQuery('#statesNPA').html('<img style="vertical-align:middle" src="<?php echo bloginfo('template_url'); ?>/loading-line.gif">&nbsp;&nbsp;<?php _e('Yükleniyor...', 'wosci-language');?>');
+ jQuery('#statesNPA').html('<img style="vertical-align:middle" src="<?php echo bloginfo('template_url'); ?>/loading-line.gif">&nbsp;&nbsp;<?php _e('Loading...', 'wosci-language');?>');
    
 
 var request = jQuery.ajax({
@@ -313,7 +313,7 @@ jQuery('#save_new_payment_address')
         <div></div>
       </div>
       <div>
-        <div><?php echo '<a href="' . tep_href_link(FILENAME_CHECKOUT_PAYMENT_ADDRESS, '', 'SSL') . '" class="sbutton big bo">' . _('Back') . '</a>'; ?></div>
+        <div><?php echo '<a href="" class="sbutton big bo">' . __('Back', 'wosci-language') . '</a>'; ?></div>
       </div>
 <?php
   }

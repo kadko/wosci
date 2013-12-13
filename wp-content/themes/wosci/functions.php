@@ -34,13 +34,13 @@ $wordpress_path = substr($dir, 0, strpos($dir, 'wp-content'));
 require_once( $wordpress_path . '/wp-load.php' ); //not sure if this line is needed
 //activate_plugin() is here:
 require_once(  $wordpress_path . '/wp-admin/includes/plugin.php');
-$plugins = array("custom-post-type-ui/custom-post-type-ui", "wosci-widgets/wosci-widgets", "wosci-install/wosci-install", "wosci-admin-pages/wosci-admin-pages", "breadcrumb-navxt/breadcrumb_navxt_admin","wp-pagenavi/wp-pagenavi");
+$plugins = array("custom-post-type-ui/custom-post-type-ui", "wosci-widgets/wosci-widgets", "wosci-install/wosci-install", "wosci-admin-pages/wosci-admin-pages", "breadcrumb-navxt/breadcrumb_navxt_admin","wp-pagenavi/wp-pagenavi","wosci-chart/graph_dash_widget");
 
 foreach ($plugins as $plugin){
 $plugin_path = $wordpress_path.'wp-content/plugins/'.$plugin.'.php';
 
 
-if(!is_plugin_active($my_plugin) && is_plugin_active('wosci-install/wosci-install.php')) {
+if(!is_plugin_active($plugin_path) && is_plugin_active('wosci-install/wosci-install.php')) {
  activate_plugin($plugin_path);
 }
  

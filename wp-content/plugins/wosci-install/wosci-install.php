@@ -52,7 +52,7 @@ function wosci_sql_import() {
 	  'ping_status'    => 'open' , 
 	  'post_author'    => 1 , 
 	  'post_content'   => '',
-	  'post_parent'    => $post_id,
+	  'post_parent'    => '',
 	  'post_excerpt'   => '', 
 	  'post_name'      => sanitize_title_with_dashes($names[$i]), 
 	  'post_status'    => 'publish',

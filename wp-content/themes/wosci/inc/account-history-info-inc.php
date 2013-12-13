@@ -165,8 +165,8 @@
   $statuses_query = tep_db_query("select os.orders_status_name, osh.date_added, osh.comments from " . TABLE_ORDERS_STATUS . " os, " . TABLE_ORDERS_STATUS_HISTORY . " osh where osh.orders_id = '" . (int)$_GET['order_id'] . "' and osh.orders_status_id = os.orders_status_id and os.language_id = '" . (int)$languages_id . "' and os.public_flag = '1' order by osh.date_added");
   while ($statuses = tep_db_fetch_array($statuses_query)) {
     echo '              <tr>' . "\n" .
-         '                <td class="main" valign="top" width="70">' . tep_date_short($statuses['date_added']) . '</td>' . "\n" .
-         '                <td class="main" valign="top" width="70">' . $statuses['orders_status_name'] . '</td>' . "\n" .
+         '                <td class="main" valign="top" width="80">' . tep_date_short($statuses['date_added']) . '</td>' . "\n" .
+         '                <td class="main" valign="top" width="10%"> — ' . $statuses['orders_status_name'] . '</td>' . "\n" .
          '                <td class="main" valign="top">' . (empty($statuses['comments']) ? '&nbsp;' : nl2br(tep_output_string_protected($statuses['comments']))) . '</td>' . "\n" .
          '              </tr>' . "\n";
   }
@@ -187,7 +187,7 @@
             <div><div border="0" width="100%" cellspacing="0" cellpadding="2">
               <div>
                 <div width="10">&nbsp;</div>
-                <div><?php echo '<a href="' . tep_href_link('account-history', tep_get_all_get_params(array('order_id')), 'SSL') . '" class="btn btn-success">' . _('Back') . '</a>'; ?></div>
+                <div><a class="btn btn-success" href="<?php echo esc_url( home_url( '/' ) ); ?>account-history"><?php echo __('Back','wosci-language'); ?></a></div>
                 <div width="10"></div>
               </div>
             </div></div>

@@ -10,13 +10,13 @@
   Released under the GNU General Public License
 */
 
-  define('MODULE_PAYMENT_PSIGATE_TEXT_TITLE', 'PSiGate');
-  define('MODULE_PAYMENT_PSIGATE_TEXT_DESCRIPTION', 'Credit Card Test Info:<br><br>CC#: 4111111111111111<br>Expiry: Any');
-  define('MODULE_PAYMENT_PSIGATE_TEXT_CREDIT_CARD_OWNER', 'Credit Card Owner:');
-  define('MODULE_PAYMENT_PSIGATE_TEXT_CREDIT_CARD_NUMBER', 'Credit Card Number:');
-  define('MODULE_PAYMENT_PSIGATE_TEXT_CREDIT_CARD_EXPIRES', 'Credit Card Expiry Date:');
-  define('MODULE_PAYMENT_PSIGATE_TEXT_TYPE', 'Type:');
-  define('MODULE_PAYMENT_PSIGATE_TEXT_JS_CC_NUMBER', '* The credit card number must be at least ' . CC_NUMBER_MIN_LENGTH . ' characters.\n');
-  define('MODULE_PAYMENT_PSIGATE_TEXT_ERROR_MESSAGE', 'There has been an error processing your credit card. Please try again.');
-  define('MODULE_PAYMENT_PSIGATE_TEXT_ERROR', 'Credit Card Error!');
+  define('MODULE_PAYMENT_PSIGATE_TEXT_TITLE', __( 'PSiGate','wosci-translation' ) );
+  define('MODULE_PAYMENT_PSIGATE_TEXT_DESCRIPTION', __( 'Credit Card Test Info:<br><br>CC#: 4111111111111111<br>Expiry: Any','wosci-translation' ) );
+  define('MODULE_PAYMENT_PSIGATE_TEXT_CREDIT_CARD_OWNER', __( 'Credit Card Owner:','wosci-translation' ) );
+  define('MODULE_PAYMENT_PSIGATE_TEXT_CREDIT_CARD_NUMBER', __( 'Credit Card Number:','wosci-translation' ) );
+  define('MODULE_PAYMENT_PSIGATE_TEXT_CREDIT_CARD_EXPIRES', __( 'Credit Card Expiry Date:','wosci-translation' ) );
+  define('MODULE_PAYMENT_PSIGATE_TEXT_TYPE', __( 'Type:','wosci-translation' ) );
+  define('MODULE_PAYMENT_PSIGATE_TEXT_JS_CC_NUMBER', __( '* The credit card number must be at least ' . CC_NUMBER_MIN_LENGTH . ' characters.\n','wosci-translation' ) );
+  define('MODULE_PAYMENT_PSIGATE_TEXT_ERROR_MESSAGE', __( 'There has been an error processing your credit card. Please try again.','wosci-translation' ) );
+  define('MODULE_PAYMENT_PSIGATE_TEXT_ERROR', __( 'Credit Card Error!','wosci-translation' ) );
 ?>

@@ -69,7 +69,7 @@
 // set the application parameters
   $configuration_query = tep_db_query('select configuration_key as cfgKey, configuration_value as cfgValue from ' . TABLE_CONFIGURATION);
   while ($configuration = tep_db_fetch_array($configuration_query)) {
-    define($configuration['cfgKey'], $configuration['cfgValue']);
+    if( !defined($configuration['cfgKey']) ) { define($configuration['cfgKey'], $configuration['cfgValue']);  }
   }
 
 // if gzip_compression is enabled, start to buffer the output
@@ -125,7 +125,7 @@
   require(  'classes/shopping_cart.php');
 
 // include navigation history class
-  require( 'classes/navigation_history.php');
+//  require( 'classes/navigation_history.php');
 
 // check if sessions are supported, otherwise use the php3 compatible session class
   if (!function_exists('session_start')) {
@@ -273,7 +273,7 @@
   require( 'classes/email.php');
 
 // set the language
-  if (!tep_session_is_registered('language') || isset($_GET['language'])) {
+/*  if (!tep_session_is_registered('language') || isset($_GET['language'])) {
     if (!tep_session_is_registered('language')) {
       tep_session_register('language');
       tep_session_register('languages_id');
@@ -291,8 +291,16 @@
     $language = 'english';
     $languages_id = 1;
   }
-  $language = 'english';
-  $languages_id = 1;
+  */
+  
+    if (!tep_session_is_registered('language')) {
+	$language = 'english';
+	$languages_id = 1;
+	tep_session_register('language');
+	tep_session_register('languages_id');
+    }
+
+
 // include the language translations
   require('languages/' . $language . '.php');
 
@@ -311,6 +319,7 @@
   }
 
 // navigation history
+/*
   if (is_object($navigation)) {
     if (PHP_VERSION < 4) {
       $broken_navigation = $navigation;
@@ -322,7 +331,7 @@
     $navigation = new navigationHistory;
   }
   $navigation->add_current_page();
-
+*/
 // Shopping cart actions
   if (isset($_GET['action'])) {
 // redirect the customer to a friendly cookie-must-be-enabled page if cookies are disabled
@@ -452,8 +461,8 @@
 
 
 // auto expire special products
-  require('functions/specials.php');
-  tep_expire_specials();
+//  require('functions/specials.php');
+//  tep_expire_specials();
 
 // calculate category path
   if (isset($_GET['cPath'])) {
@@ -473,20 +482,20 @@
   }
 
 // include the breadcrumb class and start the breadcrumb trail
-  require('classes/breadcrumb.php');
-  $breadcrumb = new breadcrumb;
+//  require('classes/breadcrumb.php');
+//  $breadcrumb = new breadcrumb;
 
-  $breadcrumb->add(HEADER_TITLE_TOP, HTTP_SERVER);
-  $breadcrumb->add(HEADER_TITLE_CATALOG, tep_href_link(FILENAME_DEFAULT));
+//  $breadcrumb->add(HEADER_TITLE_TOP, HTTP_SERVER);
+//  $breadcrumb->add(HEADER_TITLE_CATALOG, FILENAME_DEFAULT);
 
 /*** Begin Header Tags SEO ***/  
 // add category names or the manufacturer name to the breadcrumb trail
-  if (isset($cPath_array)) {
+/*  if (isset($cPath_array)) {
     for ($i=0, $n=sizeof($cPath_array); $i<$n; $i++) {
       $categories_query = tep_db_query("select categories_htc_title_tag from " . TABLE_CATEGORIES_DESCRIPTION . " where categories_id = '" . (int)$cPath_array[$i] . "' and language_id = '" . (int)$languages_id . "' LIMIT 1");
       if (tep_db_num_rows($categories_query) > 0) {
         $categories = tep_db_fetch_array($categories_query);
-        $breadcrumb->add($categories['categories_htc_title_tag'], tep_href_link(FILENAME_DEFAULT, 'cPath=' . implode('_', array_slice($cPath_array, 0, ($i+1)))));
+       // $breadcrumb->add($categories['categories_htc_title_tag'], tep_href_link(FILENAME_DEFAULT, 'cPath=' . implode('_', array_slice($cPath_array, 0, ($i+1)))));
       } else {
         break;
       }
@@ -495,10 +504,10 @@
     $manufacturers_query = tep_db_query("select manufacturers_htc_title_tag from " . TABLE_MANUFACTURERS_INFO . " where manufacturers_id = '" . (int)$_GET['manufacturers_id'] . "' AND languages_id = '" . (int)$languages_id . "' LIMIT 1");
     if (tep_db_num_rows($manufacturers_query)) {
       $manufacturers = tep_db_fetch_array($manufacturers_query);
-      $breadcrumb->add($manufacturers['manufacturers_htc_title_tag'], tep_href_link(FILENAME_DEFAULT, 'manufacturers_id=' . $_GET['manufacturers_id']));
+     // $breadcrumb->add($manufacturers['manufacturers_htc_title_tag'], tep_href_link(FILENAME_DEFAULT, 'manufacturers_id=' . $_GET['manufacturers_id']));
     }
   }
-
+*/
 // add the products name to the breadcrumb trail
  if (isset($_GET['products_id'])) {
   $products_query = tep_db_query("select pd.products_head_title_tag from " . TABLE_PRODUCTS . " p left join " . TABLE_PRODUCTS_DESCRIPTION . " pd on p.products_id = pd.products_id where p.products_id = '" . (int)$_GET['products_id'] . "' and pd.language_id ='" .  (int)$languages_id . "' LIMIT 1");
@@ -508,6 +517,10 @@
   }
  } 
 /*** End Header Tags SEO ***/
+// setup our boxes
+  require('classes/table_block.php');
+  require('classes/box.php');
+  require('classes/object_info.php');
 
 // initialize the message stack for output messages
   require('classes/message_stack.php');
@@ -519,4 +532,8 @@ $cart->restore_contents();
   define('WARN_SESSION_DIRECTORY_NOT_WRITEABLE', 'true');
   define('WARN_SESSION_AUTO_START', 'true');
   define('WARN_DOWNLOAD_DIRECTORY_NOT_READABLE', 'true');
+  
+  define('CURRENCY_SERVER_PRIMARY', 'tcmb'); 
+  define('CURRENCY_SERVER_BACKUP', 'oanda');
+  define('CURRENCY_SERVER_BACKUP2', 'xe');
 ?>

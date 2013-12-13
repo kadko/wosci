@@ -100,15 +100,15 @@
 // class constructor
     function zones() {
       $this->code = 'zones';
-      $this->title = __('Zone Rates', 'wosci-translation');
-      $this->description = __('Zone Based Rates', 'wosci-translation');
+      $this->title = MODULE_SHIPPING_ZONES_TEXT_TITLE;
+      $this->description = MODULE_SHIPPING_ZONES_TEXT_DESCRIPTION;
       $this->sort_order = MODULE_SHIPPING_ZONES_SORT_ORDER;
       $this->icon = '';
       $this->tax_class = MODULE_SHIPPING_ZONES_TAX_CLASS;
       $this->enabled = ((MODULE_SHIPPING_ZONES_STATUS == 'True') ? true : false);
 
       // CUSTOMIZE THIS SETTING FOR THE NUMBER OF ZONES NEEDED
-      $this->num_zones = 5;
+      $this->num_zones = 4;
     }
 
 // class methods
@@ -136,24 +136,27 @@
 
         $zones_table = split("[:,]" , $zones_cost);
         $size = sizeof($zones_table);
+        $state_query = tep_db_query("select * from " . TABLE_ZONES . " where zone_id = '" . $order->delivery['zone_id'] . "'");
+        $zonedata = tep_db_fetch_array($state_query);
+
         for ($i=0; $i<$size; $i+=2) {
           if ($shipping_weight <= $zones_table[$i]) {
             $shipping = $zones_table[$i+1];
-            $shipping_method = __('Shipping to', 'wosci-translation') . ' ' . $order->delivery['state']. ' : ' . $shipping_weight . ' ' . __('lb(s)', 'wosci-translation');
+            $shipping_method = MODULE_SHIPPING_ZONES_TEXT_WAY . ' : <b>' . $zonedata['zone_name']. /*$order->delivery['state'].*/ '</b> ▶ '.__('Weight', 'wosci-language') . ' : '.$shipping_weight . ' ' . MODULE_SHIPPING_ZONES_TEXT_UNITS;
             break;
           }
         }
 
         if ($shipping == -1) {
           $shipping_cost = 0;
-          $shipping_method = __('The shipping rate cannot be determined at this time', 'wosci-translation');
+          $shipping_method = MODULE_SHIPPING_ZONES_UNDEFINED_RATE;
         } else {
           $shipping_cost = ($shipping * $shipping_num_boxes) + constant('MODULE_SHIPPING_ZONES_HANDLING_' . $dest_zone);
         }
       }
 
       $this->quotes = array('id' => $this->code,
-                            'module' => __('Zone Rates','wosci-translation'),
+                            'module' => MODULE_SHIPPING_ZONES_TEXT_TITLE,
                             'methods' => array(array('id' => $this->code,
                                                      'title' => $shipping_method,
                                                      'cost' => $shipping_cost)));
@@ -162,9 +165,9 @@
         $this->quotes['tax'] = tep_get_tax_rate($this->tax_class, $order->delivery['country']['id'], $order->delivery['zone_id']);
       }
 
-      if (tep_not_null($this->icon)) $this->quotes['icon'] = tep_image($this->icon, $this->title);
+      if (tep_not_null($this->icon)) $this->quotes['icon'] = '<img src="'.$this->icon.'" title="'.$this->title.'"/>';
 
-      if ($error == true) $this->quotes['error'] = __('No shipping available to the selected country', 'wosci-translation');
+      if ($error == true) $this->quotes['error'] = MODULE_SHIPPING_ZONES_INVALID_ZONE;
 
       return $this->quotes;
     }
@@ -178,17 +181,17 @@
     }
 
     function install() {
-      tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, set_function, date_added) VALUES ('Şehir Bazında Tablo Oranları - (Bölge Şehirleri Bazında, Türkiye ve Dünya Geneli)', 'MODULE_SHIPPING_ZONES_STATUS', 'True', 'Bölge şehirleri bazında kargo etkinleştirilsin mi?', '6', '0', 'tep_cfg_select_option(array(\'True\', \'False\'), ', now())");
-      tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, use_function, set_function, date_added) values ('Vergi', 'MODULE_SHIPPING_ZONES_TAX_CLASS', '0', 'Kargo fiyatına aşağıdaki vergiyi ekle.', '6', '0', 'tep_get_tax_class_title', 'tep_cfg_pull_down_tax_classes(', now())");
-      tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('Sıralama Düzeni', 'MODULE_SHIPPING_ZONES_SORT_ORDER', '0', 'Görüntüleme için sıralama düzeni.', '6', '0', now())");
+      tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, set_function, date_added) VALUES ('Şehir Bölgeleri Bazında Kargo - (Uzaklıklara Göre Bölgelere Ayrılmış Şehirler Bazında)', 'MODULE_SHIPPING_ZONES_STATUS', 'True', 'Bölge şehirleri bazında kargo etkinleştirilsin mi?', '6', '0', 'tep_cfg_select_option(array(\'True\', \'False\'), ', now())");
+      tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, use_function, set_function, date_added) values ('Vergi', 'MODULE_SHIPPING_ZONES_TAX_CLASS', '0', 'Kargo fiyatına vergi eklemek için seçiniz.', '6', '0', 'tep_get_tax_class_title', 'tep_cfg_pull_down_tax_classes(', now())");
+      tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('Sort Order', 'MODULE_SHIPPING_ZONES_SORT_ORDER', '0', 'Sort order of display.', '6', '0', now())");
       for ($i = 1; $i <= $this->num_zones; $i++) {
         $default_countries = '';
         if ($i == 1) {
-          $default_countries = '192,193,237';
+          $default_countries = 'US,CA';
         }
-        tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('Bolge " . $i ." Sehirleri', 'MODULE_SHIPPING_ZONES_COUNTRIES_" . $i ."', '" . $default_countries . "', 'Virgullerle ayrilmis bolge sehirleri. Her numara sehir ID sini temsil etmektedir. Sehir ID leri Sehirler/Bolgeler kismindan kontrol edilebilir. Bolge - " . $i . ".', '6', '0', now())");
-        tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('Bolge " . $i ." e ait fiyat tablosu', 'MODULE_SHIPPING_ZONES_COST_" . $i ."', '1:4.09,2:4.11,3:4.58,4:5.07,5:5.66,6:6.35,7:7.03,8:7.76,9:8.51,10:9.27', 'Bu fiyat tablosu Bolge " . $i . " sehirlerine uygulanacak fiyatlari gosterir. Maksimum siparis agirligina gore hesaplanir. Ornek yazim: 3:8.50,7:10.50,... Bu ornekte 3 ve altindaki siparis agirliklari 8.5 olarak fiyatlandirilir. Bolge - " . $i . " sehirleri icindir.', '6', '0', now())");
-        tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('Bolge " . $i ." siparis hazirlik ucreti', 'MODULE_SHIPPING_ZONES_HANDLING_" . $i."', '0', 'Siparis hazirlama ucreti varsa giriniz', '6', '0', now())");
+        tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('Bölge " . $i ." Şehirleri', 'MODULE_SHIPPING_ZONES_COUNTRIES_" . $i ."', '" . $default_countries . "', 'Virgüllerle ayrılmış olarak bölge-" . $i ." şehir IDleri bu kutuya yazılmalıdır. Her numara şehir IDsini temsil etmektedir. Şehir ID leri Şehirler/Bölgeler kısmından kontrol edilebilir (zones tablosunda zone_id). Bölge - " . $i . ".', '6', '0', now())");
+        tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('Bölge " . $i ." e ait fiyat tablosu', 'MODULE_SHIPPING_ZONES_COST_" . $i ."', '3:8.50,7:10.50,99:20.00', 'Bu fiyat tablosu Bölge " . $i . " şehirlerine uygulanacak fiyatları gosterir. Maksimum sipariş ağırlığına veya desi miktarına göre hesaplanır. Örnek yazım: 3:8.50,7:10.50,... Bu örnekte 3 ve altındaki sipariş ağırlıkları 8.5 olarak fiyatlandırılır. Bölge - " . $i . " şehirleri içindir.', '6', '0', now())");
+        tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('Bölge " . $i ." Sipariş Hazırlama Ücreti', 'MODULE_SHIPPING_ZONES_HANDLING_" . $i."', '0', 'Sipariş hazırlama ücreti varsa giriniz', '6', '0', now())");
       }
     }
 

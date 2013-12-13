@@ -11,7 +11,6 @@
 */
 
   if ( $current_user->ID == '0' ) {
-    $navigation->set_snapshot();
     wp_redirect(tep_href_link(FILENAME_LOGIN, 'redirect_to=account-history', 'SSL'));
   }
   

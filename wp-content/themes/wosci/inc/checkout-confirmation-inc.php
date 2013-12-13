@@ -1,5 +1,22 @@
+  <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!--<div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title"><?php echo __('Sales And Purchase Agreement', 'wosci-language'); ?></h4>
+        </div>-->
+        <div class="modal-body">
+        
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal"><?php echo __('Close', 'wosci-language'); ?></button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->   
+  
 <div class="well">
-<h1><?php _e('Siparişi Onayla', 'wosci-language'); ?></h1>
+<h1><?php _e('Confirm Order', 'wosci-language'); ?></h1>
 <div class="margin-top"></div>
 <table border="0" width="100%" cellspacing="0" cellpadding="0">
       <tr>
@@ -210,9 +227,28 @@
     echo $payment_modules->process_button();
   }
 
-  //echo '<input value="'._('Siparişi Onayla').'" class="btn btn-primary btn-large btn-success" type="submit">' . "\n";
+  //echo '<input value="'.__('Confirm Order', 'wosci-language').'" class="btn btn-primary btn-large btn-success" type="submit">' . "\n";
 ?>
-<?php echo '<button type="submit" class="btn btn-primary btn-success" type="submit">'; ?> <span class="glyphicon glyphicon-ok"></span> <?php echo __('Confirm Order', 'wosci-language'); ?></button>
+
+
+
+
+
+
+<div class="row">
+<div class="col-xs-14 col-md-10" style="line-height:40px;vertical-align:middle;" >
+
+  
+
+        <label id="ruaglabel" style="font-weight:normal;">
+          <input id="ruagcheck" type="checkbox"> <?php echo __('I read, understand and agreed <a id="ruag"  data-target="#myModal2" role="button" data-toggle="modal"  href="">agreement</a>', 'wosci-language'); ?>
+        </label>
+     
+
+</div>
+<div class="col-xs-4 col-md-2"><?php echo '<button type="submit" class="btn btn-primary btn-success" type="submit">'; ?> <span class="glyphicon glyphicon-ok"></span> <?php echo __('Confirm Order', 'wosci-language'); ?></button></div>
+</div>
+
 
             </td>
           </tr>

@@ -250,7 +250,7 @@ $phone = get_user_meta($current_user->ID, 'phone');
                               'suburb' => $customer_address['entry_suburb'],
                               'city' => $customer_address['entry_city'],
                               'postcode' => $customer_address['entry_postcode'],
-                              'state' => ((tep_not_null($customer_address['entry_state'])) ? $customer_address['entry_state'] : $customer_address['zone_name']),
+                              'state' => $customer_address['zone_name'],//((tep_not_null($customer_address['entry_state'])) ? $customer_address['entry_state'] : $customer_address['zone_name']),
                               'zone_id' => $customer_address['entry_zone_id'],
                               'country' => array('id' => $customer_address['countries_id'], 'title' => $customer_address['countries_name'], 'iso_code_2' => $customer_address['countries_iso_code_2'], 'iso_code_3' => $customer_address['countries_iso_code_3']),
                               'format_id' => $customer_address['address_format_id'],
@@ -264,12 +264,13 @@ $phone = get_user_meta($current_user->ID, 'phone');
                               'suburb' => $shipping_address['entry_suburb'],
                               'city' => $shipping_address['entry_city'],
                               'postcode' => $shipping_address['entry_postcode'],
-                              'state' => ((tep_not_null($shipping_address['entry_state'])) ? $shipping_address['entry_state'] : $shipping_address['zone_name']),
+                              'state' => $shipping_address['zone_name'],//((tep_not_null($shipping_address['entry_state'])) ? $shipping_address['entry_state'] : $shipping_address['zone_name']),
                               'zone_id' => $shipping_address['entry_zone_id'],
                               'country' => array('id' => $shipping_address['countries_id'], 'title' => $shipping_address['countries_name'], 'iso_code_2' => $shipping_address['countries_iso_code_2'], 'iso_code_3' => $shipping_address['countries_iso_code_3']),
                               'country_id' => $shipping_address['entry_country_id'],
                               'format_id' => $shipping_address['address_format_id']);
-
+	
+	
       $this->billing = array('firstname' => $billing_address['entry_firstname'],
                              'lastname' => $billing_address['entry_lastname'],
                              'company' => $billing_address['entry_company'],
@@ -277,7 +278,7 @@ $phone = get_user_meta($current_user->ID, 'phone');
                              'suburb' => $billing_address['entry_suburb'],
                              'city' => $billing_address['entry_city'],
                              'postcode' => $billing_address['entry_postcode'],
-                             'state' => ((tep_not_null($billing_address['entry_state'])) ? $billing_address['entry_state'] : $billing_address['zone_name']),
+                             'state' => $billing_address['zone_name'],//((tep_not_null($billing_address['entry_state'])) ? $billing_address['entry_state'] : $billing_address['zone_name']),
                              'zone_id' => $billing_address['entry_zone_id'],
                              'country' => array('id' => $billing_address['countries_id'], 'title' => $billing_address['countries_name'], 'iso_code_2' => $billing_address['countries_iso_code_2'], 'iso_code_3' => $billing_address['countries_iso_code_3']),
                              'country_id' => $billing_address['entry_country_id'],

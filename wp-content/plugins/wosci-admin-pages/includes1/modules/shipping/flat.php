@@ -1,6 +1,6 @@
 <?php
 /*
-  $Id: flat.php.tortoise.removed,v 1.1 2008/12/26 13:10:22 kako Exp $
+  $Id$
 
   osCommerce, Open Source E-Commerce Solutions
   http://www.oscommerce.com
@@ -18,8 +18,8 @@
       global $order;
 
       $this->code = 'flat';
-      $this->title = __('Flat Rate', 'wosci-language');
-      $this->description = __('Flat Rate', 'wosci-language');
+      $this->title = MODULE_SHIPPING_FLAT_TEXT_TITLE;
+      $this->description = MODULE_SHIPPING_FLAT_TEXT_DESCRIPTION;
       $this->sort_order = MODULE_SHIPPING_FLAT_SORT_ORDER;
       $this->icon = '';
       $this->tax_class = MODULE_SHIPPING_FLAT_TAX_CLASS;
@@ -49,9 +49,9 @@
       global $order;
 
       $this->quotes = array('id' => $this->code,
-                            'module' => __('Flat Rate', 'wosci-language'),
+                            'module' => MODULE_SHIPPING_FLAT_TEXT_TITLE,
                             'methods' => array(array('id' => $this->code,
-                                                     'title' => __('Best Way', 'wosci-language'),
+                                                     'title' => MODULE_SHIPPING_FLAT_TEXT_WAY,
                                                      'cost' => MODULE_SHIPPING_FLAT_COST)));
 
       if ($this->tax_class > 0) {
@@ -72,11 +72,11 @@
     }
 
     function install() {
-      tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, set_function, date_added) values ('Sabit Kargo Ücreti', 'MODULE_SHIPPING_FLAT_STATUS', 'True', 'Sabit kargo ücreti aktif edilsin mi?', '6', '0', 'tep_cfg_select_option(array(\'True\', \'False\'), ', now())");
-      tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('Kargo Ücreti', 'MODULE_SHIPPING_FLAT_COST', '5.00', 'Bu kargo metodu ile yapılacak siparişler için sabit kargo tutarı.', '6', '0', now())");
-      tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, use_function, set_function, date_added) values ('Vergi (KDV)', 'MODULE_SHIPPING_FLAT_TAX_CLASS', '0', 'Sabit kargo ücretine aşağıdaki vergi oranını ekle.', '6', '0', 'tep_get_tax_class_title', 'tep_cfg_pull_down_tax_classes(', now())");
-      tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, use_function, set_function, date_added) values ('Kargo Bölgesi', 'MODULE_SHIPPING_FLAT_ZONE', '0', 'Bölge seçildiğinde sadeçe seçilen bölgede bu kargo şekli aktif olacaktır.', '6', '0', 'tep_get_zone_class_title', 'tep_cfg_pull_down_zone_classes(', now())");
-      tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('Sıralama Düzeni', 'MODULE_SHIPPING_FLAT_SORT_ORDER', '0', 'Görüntüleme için sıralama düzeni.', '6', '0', now())");
+      tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, set_function, date_added) values ('Enable Flat Shipping', 'MODULE_SHIPPING_FLAT_STATUS', 'True', 'Do you want to offer flat rate shipping?', '6', '0', 'tep_cfg_select_option(array(\'True\', \'False\'), ', now())");
+      tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('Shipping Cost', 'MODULE_SHIPPING_FLAT_COST', '5.00', 'The shipping cost for all orders using this shipping method.', '6', '0', now())");
+      tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, use_function, set_function, date_added) values ('Tax Class', 'MODULE_SHIPPING_FLAT_TAX_CLASS', '0', 'Use the following tax class on the shipping fee.', '6', '0', 'tep_get_tax_class_title', 'tep_cfg_pull_down_tax_classes(', now())");
+      tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, use_function, set_function, date_added) values ('Shipping Zone', 'MODULE_SHIPPING_FLAT_ZONE', '0', 'If a zone is selected, only enable this shipping method for that zone.', '6', '0', 'tep_get_zone_class_title', 'tep_cfg_pull_down_zone_classes(', now())");
+      tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('Sort Order', 'MODULE_SHIPPING_FLAT_SORT_ORDER', '0', 'Sort order of display.', '6', '0', now())");
     }
 
     function remove() {

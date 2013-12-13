@@ -10,10 +10,10 @@
   Released under the GNU General Public License
 */
 
-  define('MODULE_PAYMENT_WORLDPAY_JUNIOR_TEXT_TITLE', 'WorldPay Junior');
-  define('MODULE_PAYMENT_WORLDPAY_JUNIOR_TEXT_PUBLIC_TITLE', 'Credit Card');
-  define('MODULE_PAYMENT_WORLDPAY_JUNIOR_TEXT_DESCRIPTION', '<img src="images/icon_popup.gif" border="0">&nbsp;<a href="http://www.worldpay.com" target="_blank" style="text-decoration: underline; font-weight: bold;">Visit WorldPay Website</a>');
-  define('MODULE_PAYMENT_WORLDPAY_JUNIOR_TEXT_WARNING_DEMO_MODE', 'In Review: Transaction performed in demo mode.');
-  define('MODULE_PAYMENT_WORLDPAY_JUNIOR_TEXT_SUCCESSFUL_TRANSACTION', 'The payment transaction has been successfully performed!');
-  define('MODULE_PAYMENT_WORLDPAY_JUNIOR_TEXT_CONTINUE_BUTTON', 'Click here to continue to %s');
+  define('MODULE_PAYMENT_WORLDPAY_JUNIOR_TEXT_TITLE', __( 'WorldPay Junior','wosci-translation' ) );
+  define('MODULE_PAYMENT_WORLDPAY_JUNIOR_TEXT_PUBLIC_TITLE', __( 'Credit Card','wosci-translation' ) );
+  define('MODULE_PAYMENT_WORLDPAY_JUNIOR_TEXT_DESCRIPTION', __( '<img src="images/icon_popup.gif" border="0">&nbsp;<a href="http://www.worldpay.com" target="_blank" style="text-decoration: underline; font-weight: bold;">Visit WorldPay Website</a>','wosci-translation' ) );
+  define('MODULE_PAYMENT_WORLDPAY_JUNIOR_TEXT_WARNING_DEMO_MODE', __( 'In Review: Transaction performed in demo mode.','wosci-translation' ) );
+  define('MODULE_PAYMENT_WORLDPAY_JUNIOR_TEXT_SUCCESSFUL_TRANSACTION', __( 'The payment transaction has been successfully performed!','wosci-translation' ) );
+  define('MODULE_PAYMENT_WORLDPAY_JUNIOR_TEXT_CONTINUE_BUTTON', __( 'Click here to continue to %s','wosci-translation' ) );
 ?>

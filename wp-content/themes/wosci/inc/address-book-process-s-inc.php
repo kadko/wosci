@@ -6,7 +6,7 @@
 
 function loadXMLDocNewXXX(key, key2) {
 
- jQuery('#states_s').html('<img style="vertical-align:middle" src="<?php echo bloginfo('template_url'); ?>/loading-line.gif">&nbsp;&nbsp;<?php _e('Yükleniyor...', 'wosci-language');?>');
+ jQuery('#states_s').html('<img style="vertical-align:middle" src="<?php echo bloginfo('template_url'); ?>/loading-line.gif">&nbsp;&nbsp;<?php _e('Loading...', 'wosci-language');?>');
    
 
 var request = jQuery.ajax({
@@ -250,7 +250,7 @@ jQuery('#save_edit_shipping')
               <tr>
                
                 <td></td>
-                <td><div style="margin:0 auto;width:120px;"><?php echo tep_draw_hidden_field('action', 'process'); ?><?php echo '<input value="' . _('Değişikliği Kaydet') . '" class="btn btn-primary btn-success" type="submit">'; ?></div></td>
+                <td><div style="margin:0 auto;width:120px;"><?php echo tep_draw_hidden_field('action', 'process'); ?><?php echo '<input value="' . __('Save', 'wosci-language') . '" class="btn btn-primary btn-success" type="submit">'; ?></div></td>
                
               </tr>
             </table></td>

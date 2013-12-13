@@ -116,6 +116,7 @@ echo '';
       }
       
 ?>
-<?php echo '<a href="' . tep_href_link('account', tep_get_all_get_params(array('order_id')), 'SSL') . '" class="btn btn-success">' . __('Back', 'wosci-language') . '</a>'; ?>	
+<a class="btn btn-success" href="<?php echo esc_url( home_url( '/' ) ); ?>account"><?php echo __('Back','wosci-language'); ?></a>
+
 </div><!--.well-->
 <?php get_footer(); ?>

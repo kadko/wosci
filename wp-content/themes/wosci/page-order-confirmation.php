@@ -13,20 +13,22 @@
 //  require('includes/application_top.php');
 //S
 // load all enabled shipping modules
-
+  $total_weight = $cart->show_weight();
+  $order = new order;
   $shipping_modules = new shipping;
+  
 // process the selected shipping method
-  if ( isset($HTTP_POST_VARS['action']) && ($HTTP_POST_VARS['action'] == 'process') ) { }
+  if ( isset($_POST['action']) && ($_POST['action'] == 'process') ) { }
     if (!tep_session_is_registered('osc_comments')) tep_session_register('osc_comments');
-    if (tep_not_null($HTTP_POST_VARS['osc_comments'])) {
-      $osc_comments = tep_db_prepare_input($HTTP_POST_VARS['osc_comments']);
+    if (tep_not_null($_POST['osc_comments'])) {
+      $osc_comments = tep_db_prepare_input($_POST['osc_comments']);
     }
 
     if (!tep_session_is_registered('shipping')) tep_session_register('shipping');
 
     if ( (tep_count_shipping_modules() > 0) || ($free_shipping == true) ) {
-      if ( (isset($HTTP_POST_VARS['shipping'])) && (strpos($HTTP_POST_VARS['shipping'], '_')) ) {
-        $shipping = $HTTP_POST_VARS['shipping'];
+      if ( (isset($_POST['shipping'])) && (strpos($_POST['shipping'], '_')) ) {
+        $shipping = $_POST['shipping'];
 
         list($module, $method) = explode('_', $shipping);
         if ( is_object($$module) || ($shipping == 'free_free') ) {
@@ -98,11 +100,11 @@
   }
 
   if (!tep_session_is_registered('payment')) tep_session_register('payment');
-  if (isset($HTTP_POST_VARS['payment'])) $payment = $HTTP_POST_VARS['payment'];
+  if (isset($_POST['payment'])) $payment = $_POST['payment'];
 
   if (!tep_session_is_registered('osc_comments')) tep_session_register('osc_comments');
-  if (tep_not_null($HTTP_POST_VARS['osc_comments'])) {
-    $osc_comments = tep_db_prepare_input($HTTP_POST_VARS['osc_comments']);
+  if (tep_not_null($_POST['osc_comments'])) {
+    $osc_comments = tep_db_prepare_input($_POST['osc_comments']);
   }
 
 // load the selected payment module
@@ -110,7 +112,7 @@
   $payment_modules = new payment($payment);
 
 
-  $order = new order;
+
 
   $payment_modules->update_status();
 
@@ -147,7 +149,50 @@
 get_header();
 
 ?>
+<script type="text/javascript">
 
+jQuery(document).ready(function(){
+
+jQuery('#ruag').click(function () {
+	
+var spins = [
+"■.",
+"◢◣◤◥",
+"▉▍▎▊",
+"+ + +",
+    "◐ ◓ ◑ ◒",
+    "◡◡ ⊙⊙ ◠◠",
+    ".oOo"
+];
+
+    var spin = spins[0],
+        title = jQuery('#myModal2 .modal-body'),
+        i=0;
+
+    var aaa = setInterval(function() {
+        i = i==spin.length-1 ? 0 : ++i;
+        title.text( spin[i] );
+    },50);
+	
+	jQuery('#editSAddress  #loading-line').remove();// üstteki yükleniyoru sonradan yüklenen modalde kalinti olmamasi için sildik
+	
+	var addrID2 = "<?php echo esc_url( home_url( '/' ) ); ?>agreement";
+	jQuery("#myModal2").modal({
+	        remote: addrID2,
+	        refresh: true
+	});
+	
+
+	var target = addrID2;
+	
+	jQuery("#myModal2").load(target, function() { 
+	jQuery("#myModal2").modal("show"); 
+	
+	});
+
+});
+});
+</script>
 <?php include( 'inc/checkout-confirmation-inc.php' ); ?>   
 
 <?php get_footer(); ?>

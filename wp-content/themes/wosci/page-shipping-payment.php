@@ -28,7 +28,7 @@ tep_session_register('customer_default_address_id');
 
 // if the customer is not logged on, redirect them to the login page
   if ($current_user->ID =='0') {
-    $navigation->set_snapshot();
+//    $navigation->set_snapshot();
     tep_redirect(tep_href_link(FILENAME_LOGIN, 'redirect_to=shipping-payment', 'SSL'));
   }
 

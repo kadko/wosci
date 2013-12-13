@@ -275,7 +275,8 @@
 
     function process_button() {
       global $customer_id, $order, $sendto, $currency, $cart_PayPal_Standard_ID, $shipping;
-
+$plurl = plugins_url();
+$hurl = home_url();
       $process_button_string = '';
       $parameters = array('cmd' => '_xclick',
                           'item_name' => STORE_NAME,
@@ -287,9 +288,9 @@
                           'invoice' => substr($cart_PayPal_Standard_ID, strpos($cart_PayPal_Standard_ID, '-')+1),
                           'custom' => $customer_id,
                           'no_note' => '1',
-                          'notify_url' => tep_href_link('ext/modules/payment/paypal/standard_ipn.php', '', 'SSL', false, false),
-                          'return' => tep_href_link(FILENAME_CHECKOUT_PROCESS, '', 'SSL'),
-                          'cancel_return' => tep_href_link(FILENAME_CHECKOUT_PAYMENT, '', 'SSL'),
+                          'notify_url' => $plurl.'/wosci-admin-pages/includes1/modules/payment/ext/standard_ipn.php',
+                          'return' => $hurl.'/checkout-process',
+                          'cancel_return' => $hurl.'/shipping-payment',
                           'bn' => 'osCommerce22_Default_ST',
                           'paymentaction' => ((MODULE_PAYMENT_PAYPAL_STANDARD_TRANSACTION_METHOD == 'Sale') ? 'sale' : 'authorization'));
 

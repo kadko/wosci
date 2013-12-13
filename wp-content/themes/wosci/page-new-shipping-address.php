@@ -201,8 +201,8 @@
     $sendto = $customer_default_address_id;
   }
 
-  $breadcrumb->add(NAVBAR_TITLE_1, tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL'));
-  $breadcrumb->add(NAVBAR_TITLE_2, tep_href_link(FILENAME_CHECKOUT_SHIPPING_ADDRESS, '', 'SSL'));
+//  $breadcrumb->add(NAVBAR_TITLE_1, tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL'));
+//  $breadcrumb->add(NAVBAR_TITLE_2, tep_href_link(FILENAME_CHECKOUT_SHIPPING_ADDRESS, '', 'SSL'));
 
   $addresses_count = tep_count_customer_address_book_entries();
 
@@ -218,7 +218,7 @@
 
 function loadXMLDocNewSAXX(key, key2) {
 
- jQuery('#statesNSA').html('<img style="vertical-align:middle" src="<?php echo bloginfo('template_url'); ?>/loading-line.gif">&nbsp;&nbsp;<?php _e('Yükleniyor...', 'wosci-language');?>');
+ jQuery('#statesNSA').html('<img style="vertical-align:middle" src="<?php echo bloginfo('template_url'); ?>/loading-line.gif">&nbsp;&nbsp;<?php _e('Loading...', 'wosci-language');?>');
    
 
 var request = jQuery.ajax({

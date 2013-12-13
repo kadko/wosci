@@ -27,7 +27,7 @@ function inArray(needle, haystack) { //http://stackoverflow.com/questions/784012
 
 var opname = []; var allname = [];  var id = {}; var key =''; var value ='';
 
-jQuery(".btn-group label input:checked").each(function(){ /* checked */
+jQuery(".btn-group .active input").each(function(){ /* checked */
 if( jQuery(this).length ){ if( !inArray(jQuery(this).attr("name"), opname)  )
  {
  
@@ -43,6 +43,7 @@ if( jQuery(this).length ){ if( !inArray(jQuery(this).attr("name"), opname)  )
 
 jQuery(".btn-group label input").each(function(){ /* All */
  if( jQuery(this).length ){ if( !inArray(jQuery(this).attr("name"), allname)  ){ allname.push(jQuery(this).attr("name")); } }
+
   });
 
 
@@ -194,9 +195,9 @@ return false;
    
 	jQuery('#popoverContent').empty();
 	jQuery("#popoverContent").append(response.cpo);
-	
+
 	if(response.sepetadet==0){
-	jQuery("#popoverContent").append("Your shopping cart is empty.");
+	//jQuery("#popoverContent").append(response.cartisempty);
 	}
             }
             else {
@@ -245,7 +246,8 @@ if(  firstname.length < 3 || lastname.length < 3 || company.length < 3 || street
          url : myAjax.ajaxurl,
          data : {action: "ca_nsa", formdata:formdata, s_or_p: "s" },
          success: processJson
-      }) 
+      })
+jQuery('select[name="shipping_address_select"]').trigger( "change" );
 event.preventDefault();
 
 });
@@ -361,6 +363,7 @@ if(  firstname.length < 3 || lastname.length < 3 || company.length < 3 || street
          data : {action: "ca_esa", formdata:formdata },
          success: processJson
       }) 
+jQuery('select[name="shipping_address_select"]').trigger( "change" );
 event.preventDefault();
 
 });
@@ -447,10 +450,11 @@ jQuery('#myModal3')
 //END edit payment address JS
 
 //address select register BEGIN
-jQuery('select[name="shipping_address_select"]').change(function () {
-
+jQuery('select[name="shipping_address_select"]').on( "change", function() {
+	jQuery('#shipping_modules').animate({ opacity: 0.2 }, 500 );
+	jQuery('#loading_shipping_modules').show();
 	var adrID = jQuery(this).val();	
-	jQuery('#edit_shipping_address').attr('href', '?page_id=83&edit='+ adrID +'&from=Edit_Shipping_Address');
+	jQuery('#edit_shipping_address').attr('href', 'edit-shipping-address/?edit='+ adrID +'&from=Edit_Shipping_Address');
 
 jQuery.ajax({
          type : "post",
@@ -460,10 +464,22 @@ jQuery.ajax({
          success: function(response) {
             if(response.type == "success") {
 	
-	alert("Shipping address changed");
+
 	jQuery('#shipping_modules').empty();
 	jQuery('#shipping_modules').append(response.shipping_modules);
-   console.log(response.shipping_modules);
+	//alert(response.updated);
+	//console.log(response.shipping_modules);
+	
+	
+	
+	jQuery('#loading_shipping_modules').hide();
+	jQuery('#shipping_modules_loaded').show();
+	jQuery('#shipping_modules').animate({ opacity: 1 }, 500 );
+	setTimeout( "jQuery('#shipping_modules_loaded').hide();",4000 );
+
+	//jQuery('#shipping_modules_loaded').animate({ opacity: 1 }, 5000 );
+	//jQuery('#shipping_modules_loaded').animate({ opacity: 0 }, 200 );
+	//jQuery('#shipping_modules_loaded').css("opacity","1");
             } else {
                alert("error")
             }
@@ -486,7 +502,7 @@ jQuery.ajax({
          success: function(response) {
             if(response.type == "success") {
 	
-   alert("Payment Address Changed");
+   alert(response.bacb);
             } else {
                alert("error")
             }

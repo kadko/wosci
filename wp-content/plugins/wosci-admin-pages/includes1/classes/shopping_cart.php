@@ -322,7 +322,8 @@
       while (list($products_id, ) = each($this->contents)) {
         $qty = $this->contents[$products_id]['qty'];
 $f = get_post_custom_values('Price', $products_id); 
-$pb = get_post_custom_values('Currency', $products_id); 
+$pb = get_post_custom_values('Currency', $products_id);
+$wei = get_post_custom_values('Weight', $products_id); 
 $postdata = get_post($products_id);
 $postdata->post_title;
 
@@ -330,11 +331,11 @@ $postdata->post_title;
         $product_query = tep_db_query("select products_id, products_price, products_currency, products_tax_class_id, products_weight from " . TABLE_PRODUCTS . " where products_id = '" . (int)$products_id . "'");
         if ($f) {
           $prid = $product['products_id']; 
-          $t = get_post_custom_values('Tax_', $products_id);// products_tax_class_id
+          $t = get_post_custom_values('Tax', $products_id);// products_tax_class_id
           $products_tax = tep_get_tax_rate($t[0]);
           $products_price = $f[0];
           $products_currency = $pb[0];//$product['products_currency'];
-          $products_weight = $product['products_weight'];
+          $products_weight = $wei[0];
 
 // BOF Separate Pricing Per Customer
    $specials_price = tep_get_products_special_price((int)$prid);
@@ -525,7 +526,10 @@ $postdata->post_title;
   }
 // EOF Separate Pricing Per Customer
 
-$f = get_post_custom_values('Price', $products_id); $t = get_post_custom_values('Tax_', $products_id); $sku = get_post_custom_values('SKU_', $products_id);
+$f = get_post_custom_values('Price', $products_id);
+$t = get_post_custom_values('Tax', $products_id);
+$sku = get_post_custom_values('SKU', $products_id);
+$wei = get_post_custom_values('Weight', $products_id);
 
 $postdata = get_post($products_id);
 $postdata->post_title;
@@ -536,7 +540,7 @@ $postdata->post_title;
                                     'price' => $f[0],
                                     'currency' => $products_currency,
                                     'quantity' => $this->contents[$products_id]['qty'],
-                                    'weight' => $products['products_weight'],
+                                    'weight' => $wei[0],
                                     'final_price' => ($products_price + $this->attributes_price($products_id)),
                                     'tax_class_id' => $t[0],
                                     'attributes' => (isset($this->contents[$products_id]['attributes']) ? $this->contents[$products_id]['attributes'] : ''));

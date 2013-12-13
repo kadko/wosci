@@ -43,12 +43,12 @@
               <td><table border="0" width="100%" cellspacing="2" cellpadding="4">
                 <tr>
                   <td class="main" width="50%" valign="top"><b><?php _e('Date','wosci-language'); ?>: </b> <small><?php echo tep_date_long($history['date_purchased']) . '</small><br><b>' . $order_type . '</b> ' . tep_output_string_protected($order_name); ?></td>
-                  <td class="main" width="30%" valign="top"><b><?php _e('Products Qty','wosci-language') ;?>: </b><?php echo $products['count'] ;?><br><b><?php _e('Order Total','wosci-language'); ?></b> <?php echo strip_tags($history['order_total']); ?></td>
-                  <td class="main" width="20%" align="right"><div class="btn-group"><?php echo '<a target="_blank" href="' . tep_href_link('pdf-invoice', (isset($_GET['pageWO']) ? 'pageWO=' . $_GET['pageWO'] . '&' : '') . 'order_id=' . $history['orders_id'], 'SSL').'" class="btn btn-primary">'; ?>
-  <span class="glyphicon glyphicon-file"></span> <?php _e('Printable Invoice','wosci-language'); ?>
-</a> <?php echo '<a href="' . tep_href_link('account-history-info', (isset($_GET['pageWO']) ? 'pageWO=' . $_GET['pageWO'] . '&' : '') . 'order_id=' . $history['orders_id'], 'SSL').'" class="btn btn-info">'; ?>
-  <span class="glyphicon glyphicon-eye-open"></span> <?php _e('View','wosci-language'); ?>
-</a></div></td>
+                  <td class="main" width="30%" valign="top"><b><?php _e('Products Qty','wosci-language') ;?>: </b><?php echo $products['count'] ;?><br><b><?php _e('Order Total','wosci-language'); ?></b>: <?php echo strip_tags($history['order_total']); ?></td>
+                  <td class="main" width="20%" align="right"><div class="btn-group"><a class="btn btn-sm btn-primary" href="<?php echo esc_url( home_url( '/' ) ); ?>pdf-invoice?order_id=<?php echo $history['orders_id']; ?>" target="_blank"><span class="glyphicon glyphicon-file"></span> <?php echo __('Printable Invoice','wosci-language'); ?></a>
+                  
+<a class="btn btn-sm btn-info" href="<?php echo esc_url( home_url( '/' ) ); ?>account-history-info?order_id=<?php echo $history['orders_id']; ?>" target="_blank"><span class="glyphicon glyphicon-eye-open"></span> <?php echo __('View', 'wosci-language'); ?></a>                  
+
+</div></td>
                 </tr>
               </table></td>
             </tr>
@@ -108,7 +108,7 @@
             <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
               <tr>
                 <td></td>
-                <td><?php echo '<a href="' . tep_href_link('account', '', 'SSL') . '" class="btn btn-success">' . _('Back') . '</a>'; ?></td>
+                <td><a class="btn btn-success" href="<?php echo esc_url( home_url( '/' ) ); ?>account"><?php echo __('Back','wosci-language'); ?></a></td>
                 <td></td>
               </tr>
             </table></td>

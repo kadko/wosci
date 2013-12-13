@@ -96,7 +96,7 @@ echo the_post_thumbnail( array( 60, 60 ), $default_attr );
 			<small><?php echo __('Price', 'wosci-language') . ':</small> <div style="display:inline;font-weight:bold;font-size:16px;">' . $currencies->display_price($c[0], $f[0], tep_get_tax_rate($t[0])); ?></div> <?php if(tep_get_tax_rate($t[0]) > 0 ){ ?><small>( <?php echo tep_get_tax_rate($t[0]); ?>% <?php echo __('Tax Included', 'wosci-language'); ?> )</small> <?php } ?>
 			
 
-<?php if($qty[0] > 0 ){ $stock = 'in'; $stocktext= 'In Stock'; }else{ $stock = 'outof'; $stocktext= 'Out of Stock'; } ?>
+<?php if($qty[0] > 0 ){ $stock = 'in'; $stocktext= __('In Stock','wosci-language'); }else{ $stock = 'outof'; $stocktext= __('Out of Stock', 'wosci-language'); } ?>
 <div class="<?php echo $stock;?>stock"><?php echo $stocktext; ?></div>			
 
 

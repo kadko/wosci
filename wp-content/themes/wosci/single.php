@@ -20,7 +20,7 @@ get_header(); ?>
 <?php get_template_part( 'also_purchased', get_post_format() ); ?>
 
 				<nav class="nav-single">
-					<h3 class="assistive-text"><?php _e( 'Product navigation', 'twentytwelve' ); ?></h3>
+					<h3 class="assistive-text"><?php _e( 'Product navigation', 'wosci-language' ); ?></h3>
 					<span class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Previous product link', 'twentytwelve' ) . '</span> %title' ); ?></span>
 					<span class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next product link', 'twentytwelve' ) . '</span>' ); ?></span>
 				</nav><!-- .nav-single -->

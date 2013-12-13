@@ -72,6 +72,8 @@
 
     for ($i=0, $n=sizeof($products); $i<$n; $i++) {
     
+  
+    
     $jq_slctr = str_replace("{", "_", str_replace("}", "_", $products[$i]['id']));//for jQuery selectors
 
      
@@ -103,7 +105,8 @@
           $products_name .= $stock_check;
         }
       }
-
+      
+       
       if (isset($products[$i]['attributes']) && is_array($products[$i]['attributes'])) {
         reset($products[$i]['attributes']);
         while (list($option, $value) = each($products[$i]['attributes'])) {

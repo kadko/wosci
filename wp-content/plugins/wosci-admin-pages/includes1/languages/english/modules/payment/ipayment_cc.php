@@ -10,13 +10,13 @@
   Released under the GNU General Public License
 */
 
-  define('MODULE_PAYMENT_IPAYMENT_CC_TEXT_TITLE', 'iPayment');
-  define('MODULE_PAYMENT_IPAYMENT_CC_TEXT_PUBLIC_TITLE', 'Credit Card');
-  define('MODULE_PAYMENT_IPAYMENT_CC_TEXT_DESCRIPTION', '<img src="images/icon_popup.gif" border="0">&nbsp;<a href="https://www.ipayment.de" target="_blank" style="text-decoration: underline; font-weight: bold;">Visit iPayment Website</a>');
-  define('MODULE_PAYMENT_IPAYMENT_CC_ERROR_HEADING', 'There has been an error processing your credit card');
-  define('MODULE_PAYMENT_IPAYMENT_CC_ERROR_MESSAGE', 'Please check your credit card details!');
-  define('MODULE_PAYMENT_IPAYMENT_CC_TEXT_CREDIT_CARD_OWNER', 'Credit Card Owner:');
-  define('MODULE_PAYMENT_IPAYMENT_CC_TEXT_CREDIT_CARD_NUMBER', 'Credit Card Number:');
-  define('MODULE_PAYMENT_IPAYMENT_CC_TEXT_CREDIT_CARD_EXPIRES', 'Credit Card Expiry Date:');
-  define('MODULE_PAYMENT_IPAYMENT_CC_TEXT_CREDIT_CARD_CHECKNUMBER', 'Credit Card Checknumber:');
+  define('MODULE_PAYMENT_IPAYMENT_CC_TEXT_TITLE', __( 'iPayment','wosci-translation' ) );
+  define('MODULE_PAYMENT_IPAYMENT_CC_TEXT_PUBLIC_TITLE', __( 'Credit Card','wosci-translation' ) );
+  define('MODULE_PAYMENT_IPAYMENT_CC_TEXT_DESCRIPTION', __( '<img src="images/icon_popup.gif" border="0">&nbsp;<a href="https://www.ipayment.de" target="_blank" style="text-decoration: underline; font-weight: bold;">Visit iPayment Website</a>','wosci-translation' ) );
+  define('MODULE_PAYMENT_IPAYMENT_CC_ERROR_HEADING', __( 'There has been an error processing your credit card','wosci-translation' ) );
+  define('MODULE_PAYMENT_IPAYMENT_CC_ERROR_MESSAGE', __( 'Please check your credit card details!','wosci-translation' ) );
+  define('MODULE_PAYMENT_IPAYMENT_CC_TEXT_CREDIT_CARD_OWNER', __( 'Credit Card Owner:','wosci-translation' ) );
+  define('MODULE_PAYMENT_IPAYMENT_CC_TEXT_CREDIT_CARD_NUMBER', __( 'Credit Card Number:','wosci-translation' ) );
+  define('MODULE_PAYMENT_IPAYMENT_CC_TEXT_CREDIT_CARD_EXPIRES', __( 'Credit Card Expiry Date:','wosci-translation' ) );
+  define('MODULE_PAYMENT_IPAYMENT_CC_TEXT_CREDIT_CARD_CHECKNUMBER', __( 'Credit Card Checknumber:','wosci-translation' ) );
 ?>

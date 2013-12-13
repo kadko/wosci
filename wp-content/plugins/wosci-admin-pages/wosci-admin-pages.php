@@ -12,7 +12,7 @@ License: GPL2
 
  
 
-load_plugin_textdomain('wosci-translation', false, basename( dirname( __FILE__ ) ) . '/languages' );
+//load_plugin_textdomain('wosci-language', false, basename( dirname( __FILE__ ) ) . '/languages' );
  
  
 function theme_name_scripts() {
@@ -36,10 +36,15 @@ add_action('admin_menu', 'tt_add_menu_items');
 
 
 
+require_once('includes1/application_top.php');
 
-require('includes1/application_top.php');
-require('includes2/application_top.php');
-include('includes2/languages/english/modules.php');
+if ( is_admin() ){ 
+
+	include('includes2/languages/english/modules.php');
+
+}
+
+
 function modules_page(){
       
     ?>
@@ -81,7 +86,7 @@ function modules_page(){
         while (list($key, $value) = each($_POST['configuration'])) {
           tep_db_query("update " . TABLE_CONFIGURATION . " set configuration_value = '" . $value . "' where configuration_key = '" . $key . "'");
         }
-        wp_redirect(tep_href_link('wp-admin/admin.php?page=modules_menu'.'&set=' . $set . '&module=' . $_GET['module'], ''));
+        wp_redirect('admin.php?page=modules_menu&set=' . $set . '&module=' . $_GET['module']);
         break;
       case 'install':
       case 'remove':
@@ -97,7 +102,7 @@ function modules_page(){
             $module->remove();
           }
         }
-        wp_redirect(tep_href_link('wp-admin/admin.php?page=modules_menu'.'&set=' . $set . '&module=' . $class, ''));
+        wp_redirect('admin.php?page=modules_menu&set=' . $set . '&module=' . $class);
         break;
     }
   }
@@ -209,17 +214,17 @@ function modules_page(){
 
       if (isset($mInfo) && is_object($mInfo) && ($class == $mInfo->code) ) {
         if ($module->check() > 0) {
-          echo '              <tr id="defaultSelected" class="dataTableRowSelected" onclick="document.location.href=\'' . tep_href_link('wp-admin/admin.php?page=modules_menu'.'&set=' . $set . '&module=' . $class . '&action=edit', '') . '\'">' . "\n";
+          echo '              <tr id="defaultSelected" class="dataTableRowSelected" onclick="document.location.href=\'admin.php?page=modules_menu&set=' . $set . '&module=' . $class . '&action=edit\'">' . "\n";
         } else {
           echo '              <tr id="defaultSelected" class="dataTableRowSelected" _POST>' . "\n";
         }
       } else {
-        echo '              <tr class="dataTableRow" _POST onclick="document.location.href=\'' . tep_href_link('wp-admin/admin.php?page=modules_menu'.'&set=' . $set . '&module=' . $class, '') . '\'">' . "\n";
+        echo '              <tr class="dataTableRow" _POST onclick="document.location.href=\'admin.php?page=modules_menu&set=' . $set . '&module=' . $class . '\'">' . "\n";
       }
 ?>
                 <td class="dataTableContent"><?php echo $module->title; ?></td>
                 <td class="dataTableContent" align="right"><?php if (is_numeric($module->sort_order)) echo $module->sort_order; ?></td>
-                <td class="dataTableContent" align="right"><?php if (isset($mInfo) && is_object($mInfo) && ($class == $mInfo->code) ) { echo '►'; } else { echo '<a href="' . tep_href_link('wp-admin/admin.php?page=modules_menu'.'&set=' . $set . '&module=' . $class, '') . '">►</a>'; } ?>&nbsp;</td>
+                <td class="dataTableContent" align="right"><?php if (isset($mInfo) && is_object($mInfo) && ($class == $mInfo->code) ) { echo '►'; } else { echo '<a href="admin.php?page=modules_menu&set=' . $set . '&module=' . $class . '">►</a>'; } ?>&nbsp;</td>
               </tr>
 <?php
     }
@@ -268,7 +273,7 @@ function modules_page(){
       
       $contents[] = array('align' => 'center', 'text' => '<div id="major-publishing-actions">
 <div id="delete-action">
-<a class="button" href="' . tep_href_link('wp-admin/admin.php?page=modules_menu'.'&set=' . $set . '&module=' . $_GET['module'], '') . '">'. __('Cancel').'</a>
+<a class="button" href="admin.php?page=modules_menu&set=' . $set . '&module=' . $_GET['module'] . '">'. __('Cancel', 'wosci-language').'</a>
 </div>
 
 <div id="publishing-action">
@@ -317,12 +322,12 @@ function modules_page(){
 
 $buttons = '<div id="major-publishing-actions">
 <div id="delete-action">
-<a class="button" href="' . tep_href_link('wp-admin/admin.php?page=modules_menu'.'&set=' . $set . '&module=' . $mInfo->code . '&action=remove', '') . '">'. __('Remove').'</a>
+<a class="button" href="admin.php?page=modules_menu&set=' . $set . '&module=' . $mInfo->code . '&action=remove">'. __('Remove', 'wosci-language').'</a>
 </div>
 
 <div id="publishing-action">
 <span class="spinner"></span>
-		 <a class="button" href="' . tep_href_link('wp-admin/admin.php?page=modules_menu'.'&set=' . $set . (isset($_GET['module']) ? '&module=' . $_GET['module'] : '') . '&action=edit', '') . '">'. __('Edit').'</a>
+		 <a class="button" href="admin.php?page=modules_menu&set=' . $set . '&module=' . $_GET['module'] . '&action=edit">'. __('Edit', 'wosci-language').'</a>
 		 
 		
 </div>
@@ -338,7 +343,7 @@ $buttons = '<div id="major-publishing-actions">
         $contents[] = array('text' => '<div class="misc-pub-section">' . $mInfo->description . '</div>  '. $keys.'');
         //$contents[] = array('text' => ' : '. $keys.'</div>');
       } else {
-        $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link('wp-admin/admin.php?page=modules_menu'.'&set=' . $set . '&module=' . $mInfo->code . '&action=install', '') . '">'. __('Install').'</a>');
+        $contents[] = array('align' => 'center', 'text' => '<a class="button" href="admin.php?page=modules_menu&set=' . $set . '&module=' . $mInfo->code . '&action=install">'. __('Install', 'wosci-language').'</a>');
 
         if (isset($mInfo->signature) && (list($scode, $smodule, $sversion, $soscversion) = explode('|', $mInfo->signature))) {
           $contents[] = array('text' => '<br>' . '' . '&nbsp;<b>' . TEXT_INFO_VERSION . '</b> ' . $sversion . ' (<a href="http://sig.oscommerce.com/' . $mInfo->signature . '" target="_blank">' . TEXT_INFO_ONLINE_STATUS . '</a>)');
@@ -516,7 +521,7 @@ function the_cart_add() {
 	$result['cpo'] .= '<small>'.$products[$i]['quantity'] . ' ' . __('x') . ' <a href="'.get_permalink( $products[$i]['id'] ).'">' . $products[$i]['name'] . '</a> — ' . $currencies->display_price($products[$i]['currency'], $products[$i]['final_price'], tep_get_tax_rate($products[$i]['tax_class_id']), $products[$i]['quantity']) .'</small><br>';
 	
 	}
-	$result['cpo'] .='<br><div style="display:inline;"><a href="'. esc_url( home_url( '/' ) ).'cart" class="btn btn-primary btn-xs">' . __('Edit Cart','wosci-translation') . '</a><a  href="'. esc_url( home_url( '/' ) ).'shipping-payment" class="btn btn-success btn-xs" style="float:right;">' . __('Checkout', 'wosci-translation') . '</a></div>';
+	$result['cpo'] .='<br><div style="display:inline;"><a href="'. esc_url( home_url( '/' ) ).'cart" class="btn btn-primary btn-xs">' . __('Edit Cart','wosci-language') . '</a><a  href="'. esc_url( home_url( '/' ) ).'shipping-payment" class="btn btn-success btn-xs" style="float:right;">' . __('Checkout', 'wosci-language') . '</a></div>';
 
 
       
@@ -569,7 +574,9 @@ global $cart, $currencies;
 	$popovercart .= '<small>'.$products[$i]['quantity'] . ' ' . __('x') . ' <a href=\"'.get_permalink( $products[$i]['id'] ).'\">' . $products[$i]['name'] . '</a> — ' . $currencies->display_price($products[$i]['currency'], tep_add_tax( $products[$i]['final_price'], tep_get_tax_rate($products[$i]['tax_class_id'])) * $products[$i]['quantity'], '') .'</small><br>';
 	
 	}
-	$popovercart .='<br><div style=\"display:inline;\"><a href=\"'. esc_url( home_url( '/' ) ).'cart\" class=\"btn btn-primary btn-xs\">' . __('Edit Cart','wosci-translation') . '</a><a  href=\"'. esc_url( home_url( '/' ) ).'shipping-payment\" class=\"btn btn-success btn-xs\" style=\"float:right;\">' . __('Checkout','wosci-translation') . '</a></div>';
+	$popovercart .='<br><div style=\"display:inline;\"><a href=\"'. esc_url( home_url( '/' ) ).'cart\" class=\"btn btn-primary btn-xs\">' . __('Edit Cart','wosci-language') . '</a><a  href=\"'. esc_url( home_url( '/' ) ).'shipping-payment\" class=\"btn btn-success btn-xs\" style=\"float:right;\">' . __('Checkout','wosci-language') . '</a></div>';
+
+if( $cart->count_contents() == 0 ){ $popovercart = __('Your shopping cart is empty.', 'wosci-language'); }
 
 echo   '{ "type": "success",
 	  "durum": "Silindi",
@@ -602,15 +609,16 @@ global $cart, $currencies;
 			
 				$okv = str_replace('}',"|", $clean_pid); $okv = str_replace('{', '|', $okv); $okva = explode('|', $okv);
 				     
-				for($i=0;$i < count($okva);$i++){
-				if(empty($okva[$i])){ unset($okva[$i]); }
+				for($o2=0;$o2 < count($okva);$o2++){
+				if(empty($okva[$o2])){ unset($okva[$o2]); }
 				}
 				     
+				$okva = array_values($okva); $idar = ''; 
+				for($o=0; $o < count($okva); $o++){
+				if( ($o+1) %2 == 0 ) { $idarray['id'][$okva[$o-1]] = $okva[$o]; }   
 				
-				for($i=1;$i < count($okva); $i++){
-				if( $okva[$i] %2 == 0 || $i== 1 ) {  $idarray['id'][$okva[$i]] = $okva[$i+1]; }   
 				}
-    
+    				//$idarray['id'] =array(3=>9,5=>10);
 				$attributes = ($_POST['id'][$_POST['products_id']]) ? $_POST['id'][$_POST['products_id']] : '';
 				$cart->add_cart($_POST['products_id'], $_POST['cart_quantity'], $idarray['id'], false);
     
@@ -618,24 +626,25 @@ global $cart, $currencies;
                           
 
 
- $pt = $currencies->display_price($_POST['currency'], $_POST['final_price'], tep_get_tax_rate($_POST['tax_class_id']), $_POST['cart_quantity'][0]);
+	$pt = $currencies->display_price($_POST['currency'], $_POST['final_price'], tep_get_tax_rate($_POST['tax_class_id']), $_POST['cart_quantity'][0]);
 
        	$products = $cart->get_products();
 	for ($i=0, $n=sizeof($products); $i<$n; $i++) 
 	{
 	
 	$products[$i]['name'] = substr($products[$i]['name'], 0, 32 );
-	$popovercart .= '<small>'.$products[$i]['quantity'] . ' ' . __('x') . ' <a href=\"'.get_permalink( $products[$i]['id'] ).'\">' . $products[$i]['name'] . '</a> — ' . $currencies->display_price($products[$i]['currency'], $products[$i]['final_price'], tep_get_tax_rate($products[$i]['tax_class_id']), $products[$i]['quantity']) .'</small><br>';
+	$popovercart .= '<small>'.$products[$i]['quantity'].$products[$i]['quantity'] . ' ' . __('x') . ' <a href=\"'.get_permalink( $products[$i]['id'] ).'\">' . $products[$i]['name'] . '</a> — ' . $currencies->display_price($products[$i]['currency'], $products[$i]['final_price'], tep_get_tax_rate($products[$i]['tax_class_id']), $products[$i]['quantity']) .'</small><br>';
 	
 	}
-	$popovercart .='<br><div style=\"display:inline;\"><a href=\"'. esc_url( home_url( '/' ) ).'cart\" class=\"btn btn-primary btn-xs\">' . __('Edit Cart','wosci-translation') . '</a><a  href=\"'. esc_url( home_url( '/' ) ).'shipping-payment\" class=\"btn btn-success btn-xs\" style=\"float:right;\">' . __('Checkout','wosci-translation') . '</a></div>';
+	$popovercart .='<br><div style=\"display:inline;\"><a href=\"'. esc_url( home_url( '/' ) ).'cart\" class=\"btn btn-primary btn-xs\">' . __('Edit Cart','wosci-language') . '</a><a  href=\"'. esc_url( home_url( '/' ) ).'shipping-payment\" class=\"btn btn-success btn-xs\" style=\"float:right;\">' . __('Checkout','wosci-language') . '</a></div>';
 
 
 echo   '{ "type": "success",
 	  "durum": "Silindi",
 	  "sepetadet": "' . $cart->count_contents() . '" ,
+	
 	  "cpo": "' . $popovercart . '" ,	  
-	  "sub_totaljs": "'. $currencies->format($cart->show_total()) . '" ,
+	  "sub_totaljs": "' . $currencies->format($cart->show_total()) . '" ,
 	  "product_totaljs": "' . $pt . '" 
 	}';
 
@@ -683,12 +692,12 @@ global $current_user, $order, $cart, $sendto, $billto;
 // if the customer is not logged on, redirect them to the login page
   if ($current_user->ID =='0') {
    // $navigation->set_snapshot();
-//    tep_redirect(tep_href_link(FILENAME_LOGIN, '', 'SSL'));
+//    wp_redirect(tep_href_link(FILENAME_LOGIN, '', 'SSL'));
   }
 
 // if there is nothing in the customers cart, redirect them to the shopping cart page
   if ($cart->count_contents() < 1) {
-//    tep_redirect(tep_href_link(FILENAME_SHOPPING_CART));
+//    wp_redirect(tep_href_link(FILENAME_SHOPPING_CART));
   }
 
   // needs to be included earlier to set the success message in the messageStack
@@ -703,7 +712,7 @@ global $current_user, $order, $cart, $sendto, $billto;
     $shipping = false;
     if (!tep_session_is_registered('sendto')) tep_session_register('sendto');
     $sendto = false;
-//    tep_redirect(tep_href_link(FILENAME_CHECKOUT_PAYMENT, '', 'SSL'));
+//    wp_redirect(tep_href_link(FILENAME_CHECKOUT_PAYMENT, '', 'SSL'));
   }
 
   $error = false;
@@ -838,7 +847,7 @@ global $current_user, $order, $cart, $sendto, $billto;
 
         if (tep_session_is_registered('shipping')) tep_session_unregister('shipping');
 
-      //  tep_redirect(tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL'));
+      //  wp_redirect(tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL'));
       }
 // process the selected shipping destination
     } /*elseif (isset($_POST['address'])) {
@@ -860,7 +869,7 @@ global $current_user, $order, $cart, $sendto, $billto;
 
       if ($check_address['total'] == '1') {
         if ($reset_shipping == true) tep_session_unregister('shipping');
-       // tep_redirect(tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL'));
+       // wp_redirect(tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL'));
       } else {
         tep_session_unregister('sendto');
       }
@@ -868,7 +877,7 @@ global $current_user, $order, $cart, $sendto, $billto;
       if (!tep_session_is_registered('sendto')) tep_session_register('sendto');
       $sendto = $customer_default_address_id;
 
-      //tep_redirect(tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL'));
+      //wp_redirect(tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL'));
     }
     */
   }
@@ -897,7 +906,7 @@ $this_is = 'npa';
 }
 
 
-  $addresses_count = tep_count_customer_address_book_entries();
+	$addresses_count = tep_count_customer_address_book_entries();
 
 if( $process !== true || $error === true ){
 echo '{"message": "Error!", "errorfields": "' . $errorfields . '"}';
@@ -917,7 +926,7 @@ global $current_user, $order, $cart, $sendto,  $billto;
 
   if ($current_user->ID =='0') {
 //    $navigation->set_snapshot();
-//    tep_redirect(tep_href_link(FILENAME_LOGIN, '', 'SSL'));
+//    wp_redirect(tep_href_link(FILENAME_LOGIN, '', 'SSL'));
   }
 
 
@@ -1141,8 +1150,11 @@ add_action("wp_ajax_nopriv_set_address", "set_address");
 add_action("wp_ajax_set_address", "set_address");
 
 function set_address () {
-global $sendto, $billto, $currencies, $order;
-
+global $total_count, $total_weight, $shipping_weight,$sendto, $billto, $currencies, $order,$cart;
+	
+	$total_weight = $cart->show_weight();
+	$shipping_weight = $shipping_weight;
+	$total_count = $cart->count_contents();
 if($_POST['register'] == 'shipping')
 {
 
@@ -1317,8 +1329,8 @@ $result['shipping_modules'] .='              <tr>
 
   $result['shipping_modules'] .='</table>'; 
 ///////
-
-
+$result['updated'] = __('Shipping methods and costs updated based on your selection', 'wosci-language');
+$result['bacb'] = __('Billing Address Chanced', 'wosci-language');
 
 
 //$result['shipping_modules'] = json_encode($result['shipping_modules']);
@@ -1376,7 +1388,7 @@ function display_config()
 
         tep_db_query("update " . TABLE_CONFIGURATION . " set configuration_value = '" . tep_db_input($configuration_value) . "', last_modified = now() where configuration_id = '" . (int)$cID . "'");
 
-        tep_redirect(tep_href_link('wp-admin/admin.php?page=shop_configuration'.'&gID=' . $_GET['gID'] . '&cID=' . $cID, ''));
+        wp_redirect('admin.php?page=shop_configuration&gID=' . $_GET['gID'] . '&cID=' . $cID);
         break;
     }
   }
@@ -1405,18 +1417,18 @@ function display_config()
 <thead><tr class="thead">
 	
 	
-<th scope="col" id="username" class="manage-column column-username" style=""><?php echo __('Configuration Title','wosci-translation'); ?></th>
-<th scope="col" id="name" class="manage-column column-name" style=""><?php echo __('Connfiguration Value','wosci-translation'); ?></th>
-<th scope="col" id="posts" class="manage-column column-posts num" style=""><?php echo __('Action','wosci-translation'); ?></th>
+<th scope="col" id="username" class="manage-column column-username" style=""><?php echo __('Configuration Title','wosci-language'); ?></th>
+<th scope="col" id="name" class="manage-column column-name" style=""><?php echo __('Connfiguration Value','wosci-language'); ?></th>
+<th scope="col" id="posts" class="manage-column column-posts num" style=""><?php echo __('Action','wosci-language'); ?></th>
 
 </tr></thead>
 
 
 <tfoot><tr class="thead">
 	
-<th scope="col" id="username" class="manage-column column-username" style=""><?php echo __('Configuration Title','wosci-translation'); ?></th>
-<th scope="col" id="name" class="manage-column column-name" style=""><?php echo __('Connfiguration Value','wosci-translation'); ?></th>
-<th scope="col" id="posts" class="manage-column column-posts num" style=""><?php echo __('Action','wosci-translation'); ?></th>
+<th scope="col" id="username" class="manage-column column-username" style=""><?php echo __('Configuration Title','wosci-language'); ?></th>
+<th scope="col" id="name" class="manage-column column-name" style=""><?php echo __('Connfiguration Value','wosci-language'); ?></th>
+<th scope="col" id="posts" class="manage-column column-posts num" style=""><?php echo __('Action','wosci-language'); ?></th>
 
 </tr></tfoot>
 
@@ -1448,14 +1460,14 @@ function display_config()
     }
 
     if ( (isset($cInfo) && is_object($cInfo)) && ($configuration['configuration_id'] == $cInfo->configuration_id) ) {
-      echo '                  <tr id="defaultSelected" class="dataTableRowSelected" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)" onclick="document.location.href=\'' . tep_href_link('wp-admin/admin.php?page=shop_configuration'.'&gID=' . $gID . '&cID=' . $cInfo->configuration_id . '&osc_action=edit', '') . '\'">' . "\n";
+      echo '                  <tr id="defaultSelected" class="dataTableRowSelected" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)" onclick="document.location.href=\'admin.php?page=shop_configuration&gID=' . $gID . '&cID=' . $cInfo->configuration_id . '&osc_action=edit\'">' . "\n";
     } else {
-      echo '                  <tr class="dataTableRow" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)" onclick="document.location.href=\'' . tep_href_link('wp-admin/admin.php?page=shop_configuration'.'&gID=' . $gID . '&cID=' . $configuration['configuration_id'], '') . '\'">' . "\n";
+      echo '                  <tr class="dataTableRow" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)" onclick="document.location.href=\'admin.php?page=shop_configuration&gID=' . $gID . '&cID=' . $configuration['configuration_id'] . '\'">' . "\n";
     }
 ?>
                 <td class="dataTableContent"><?php echo $configuration['configuration_title']; ?></td>
                 <td class="dataTableContent"><?php echo htmlspecialchars($cfgValue); ?></td>
-                <td class="dataTableContent" align="right"><?php if ( (isset($cInfo) && is_object($cInfo)) && ($configuration['configuration_id'] == $cInfo->configuration_id) ) { echo '▶'; } else { echo '<a href="' . tep_href_link('wp-admin/admin.php?page=shop_configuration'.'&gID=' . $gID . '&cID=' . $configuration['configuration_id'], '') . '">' . '' . '</a>'; } ?>&nbsp;</td>
+                <td class="dataTableContent" align="right"><?php if ( (isset($cInfo) && is_object($cInfo)) && ($configuration['configuration_id'] == $cInfo->configuration_id) ) { echo '▶'; } else { echo '<a href="admin.php?page=shop_configuration&gID=' . $gID . '&cID=' . $configuration['configuration_id'] . '">' . '' . '</a>'; } ?>&nbsp;</td>
               </tr>
 <?php
   }
@@ -1476,18 +1488,18 @@ function display_config()
       }
 
       $contents = array('form' => tep_draw_form('configuration', 'admin.php?page=shop_configuration'.'&gID=' . $gID . '&cID=' . $cInfo->configuration_id . '&osc_action=save', 'post'));
-      $contents[] = array('text' => __('Currency Details','wosci-translation'));
+      $contents[] = array('text' => __('Currency Details','wosci-language'));
       $contents[] = array('text' => '<br><b>' . $cInfo->configuration_title . '</b><br>' . $cInfo->configuration_description . '<br>' . $value_field);
-      $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Update').'" class="button" />&nbsp;<a class="button" href="' . tep_href_link('wp-admin/admin.php?page=shop_configuration'.'&gID=' . $gID . '&cID=' . $cInfo->configuration_id, '') . '">'. __('Cancel').'</a>');
+      $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Update').'" class="button" />&nbsp;<a class="button" href="admin.php?page=shop_configuration&gID=' . $gID . '&cID=' . $cInfo->configuration_id . '">'. __('Cancel', 'wosci-language').'</a>');
       break;
     default:
       if (isset($cInfo) && is_object($cInfo)) {
         $heading[] = array('text' => '<b>' . $cInfo->configuration_title . '</b>');
 
-        $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link('wp-admin/admin.php?page=shop_configuration'.'&gID=' . $gID . '&cID=' . $cInfo->configuration_id . '&osc_action=edit', '') . '">'. __('Edit').'</a>');
+        $contents[] = array('align' => 'center', 'text' => '<a class="button" href="admin.php?page=shop_configuration&gID=' . $gID . '&cID=' . $cInfo->configuration_id . '&osc_action=edit' . '">'. __('Edit', 'wosci-language').'</a>');
         $contents[] = array('text' => '<br>' . $cInfo->configuration_description);
-        $contents[] = array('text' => '<br>' . __('Date Added','wosci-translation') . ': ' . tep_date_short($cInfo->date_added));
-        if (tep_not_null($cInfo->last_modified)) $contents[] = array('text' => __('Last Modified','wosci-translation') . ': ' . tep_date_short($cInfo->last_modified));
+        $contents[] = array('text' => '<br>' . __('Date Added', 'wosci-language') . ': ' . tep_date_short($cInfo->date_added));
+        if (tep_not_null($cInfo->last_modified)) $contents[] = array('text' => __('Last Modified','wosci-language') . ': ' . tep_date_short($cInfo->last_modified));
       }
       break;
   }
@@ -1561,7 +1573,7 @@ function packing_slip()
       <tr>
         <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="2">
           <tr>
-            <td class="main"><b><?php echo __('Sold to','wosci-translation'); ?>:</b></td>
+            <td class="main"><b><?php echo __('Sold to','wosci-language'); ?>:</b></td>
           </tr>
           <tr>
             <td class="main"><?php echo tep_address_format($order->customer['format_id'], $order->billing, 1, '', '<br>'); ?></td>
@@ -1578,7 +1590,7 @@ function packing_slip()
         </table></td>
         <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="2">
           <tr>
-            <td class="main"><b><?php echo __('Ship to','wosci-translation'); ?>:</b></td>
+            <td class="main"><b><?php echo __('Ship to','wosci-language'); ?>:</b></td>
           </tr>
           <tr>
             <td class="main"><?php echo tep_address_format($order->delivery['format_id'], $order->delivery, 1, '', '<br>'); ?></td>
@@ -1593,7 +1605,7 @@ function packing_slip()
   <tr>
     <td><table border="0" cellspacing="0" cellpadding="2">
       <tr>
-        <td class="main"><b><?php echo __('Payment Method','wosci-translation'); ?>:</b></td>
+        <td class="main"><b><?php echo __('Payment Method','wosci-language'); ?>:</b></td>
         <td class="main"><?php echo $order->info['payment_method']; ?></td>
       </tr>
     </table></td>
@@ -1604,8 +1616,8 @@ function packing_slip()
   <tr>
     <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
       <tr class="dataTableHeadingRow">
-        <td class="dataTableHeadingContent" colspan="2"><?php echo __('Product','wosci-translation'); ?></td>
-        <td class="dataTableHeadingContent"><?php echo __('Model','wosci-translation'); ?></td>
+        <td class="dataTableHeadingContent" colspan="2"><?php echo __('Product','wosci-language'); ?></td>
+        <td class="dataTableHeadingContent"><?php echo __('Model','wosci-language'); ?></td>
       </tr>
 <?php
     for ($i=0, $n=sizeof($order->products); $i<$n; $i++) {
@@ -1661,7 +1673,7 @@ function invoice()
       <tr>
         <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="2">
           <tr>
-            <td class="main"><b><?php echo __('Sold to','wosci-translation'); ?>:</b></td>
+            <td class="main"><b><?php echo __('Sold to','wosci-language'); ?>:</b></td>
           </tr>
           <tr>
             <td class="main"><?php echo tep_address_format($order->customer['format_id'], $order->billing, 1, '', '<br>'); ?></td>
@@ -1678,7 +1690,7 @@ function invoice()
         </table></td>
         <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="2">
           <tr>
-            <td class="main"><b><?php echo __('Ship to','wosci-translation'); ?>:</b></td>
+            <td class="main"><b><?php echo __('Ship to','wosci-language'); ?>:</b></td>
           </tr>
           <tr>
             <td class="main"><?php echo tep_address_format($order->delivery['format_id'], $order->delivery, 1, '', '<br>'); ?></td>
@@ -1693,7 +1705,7 @@ function invoice()
   <tr>
     <td><table border="0" cellspacing="0" cellpadding="2">
       <tr>
-        <td class="main"><b><?php echo __('Payment Method','wosci-translation'); ?>:</b></td>
+        <td class="main"><b><?php echo __('Payment Method','wosci-language'); ?>:</b></td>
         <td class="main"><?php echo $order->info['payment_method']; ?></td>
       </tr>
     </table></td>
@@ -1704,13 +1716,13 @@ function invoice()
   <tr>
     <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
       <tr class="dataTableHeadingRow">
-        <td class="dataTableHeadingContent" colspan="2"><?php echo __('Product','wosci-translation'); ?></td>
-        <td class="dataTableHeadingContent"><?php echo __('Product Model','wosci-translation'); ?></td>
-        <td class="dataTableHeadingContent" align="right"><?php echo __('Tax','wosci-translation'); ?></td>
-        <td class="dataTableHeadingContent" align="right"><?php echo __('Tax Excl.','wosci-translation'); ?></td>
-        <td class="dataTableHeadingContent" align="right"><?php echo __('Tax Incl.','wosci-translation'); ?></td>
-        <td class="dataTableHeadingContent" align="right"><?php echo __('Total Tax Excl.','wosci-translation'); ?></td>
-        <td class="dataTableHeadingContent" align="right"><?php echo __('Total Tax Incl.','wosci-translation'); ?></td>
+        <td class="dataTableHeadingContent" colspan="2"><?php echo __('Product','wosci-language'); ?></td>
+        <td class="dataTableHeadingContent"><?php echo __('Product Model','wosci-language'); ?></td>
+        <td class="dataTableHeadingContent" align="right"><?php echo __('Tax','wosci-language'); ?></td>
+        <td class="dataTableHeadingContent" align="right"><?php echo __('Tax Excl.','wosci-language'); ?></td>
+        <td class="dataTableHeadingContent" align="right"><?php echo __('Tax Incl.','wosci-language'); ?></td>
+        <td class="dataTableHeadingContent" align="right"><?php echo __('Total Tax Excl.','wosci-language'); ?></td>
+        <td class="dataTableHeadingContent" align="right"><?php echo __('Total Tax Incl.','wosci-language'); ?></td>
       </tr>
 <?php
     for ($i = 0, $n = sizeof($order->products); $i < $n; $i++) {
@@ -2124,7 +2136,7 @@ $languages_id = 1;
               $notify_comments = sprintf(EMAIL_TEXT_COMMENTS_UPDATE, $comments) . "\n\n";
             }
 
-            $email = STORE_NAME . "\n" . EMAIL_SEPARATOR . "\n" . EMAIL_TEXT_ORDER_NUMBER . ' ' . $oID . "\n" . EMAIL_TEXT_INVOICE_URL . ' ' . tep_href_link(FILENAME_CATALOG . ACCOUNT_HISTORY_INFO, 'order_id=' . $oID, 'SSL') . "\n" . EMAIL_TEXT_DATE_ORDERED . ' ' . tep_date_long($check_status['date_purchased']) . "\n\n" . $notify_comments . sprintf(EMAIL_TEXT_STATUS_UPDATE, $orders_status_array[$status]);
+            $email = STORE_NAME . "\n" . EMAIL_SEPARATOR . "\n" . EMAIL_TEXT_ORDER_NUMBER . ' ' . $oID . "\n" . EMAIL_TEXT_INVOICE_URL . ' ' . esc_url( home_url( '/' ) ) .'account-history-info?order_id=' . $oID  . "\n" . __('Printable Invoice URL','wosci-language') . ' ' . esc_url( home_url( '/' ) ) .'pdf-invoice?order_id=' . $oID  . "\n" . EMAIL_TEXT_DATE_ORDERED . ' ' . tep_date_long($check_status['date_purchased']) . "\n\n" . $notify_comments . sprintf(EMAIL_TEXT_STATUS_UPDATE, $orders_status_array[$status]);
 
             tep_mail($check_status['customers_name'], $check_status['customers_email_address'], EMAIL_TEXT_SUBJECT, $email, STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS);
 
@@ -2142,14 +2154,14 @@ $languages_id = 1;
         //  $messageStack->add_session(WARNING_ORDER_NOT_UPDATED, 'warning');
         }
 
-        tep_redirect(tep_href_link('wp-admin/admin.php?'. tep_get_all_get_params(array('action')) . 'action=edit'));
+        wp_redirect('admin.php?'. tep_get_all_get_params(array('action')) . 'action=edit');
         break;
       case 'deleteconfirm':
         $oID = tep_db_prepare_input($_GET['oID']);
 
         tep_remove_order($oID, $_POST['restock']);
 
-        tep_redirect(tep_href_link(FILENAME_ORDERS, tep_get_all_get_params(array('oID', 'action'))));
+        wp_redirect('admin.php?page=orders&'. tep_get_all_get_params(array('oID', 'action')));
         break;
     }
   }
@@ -2177,9 +2189,9 @@ $languages_id = 1;
       <tr>
         <td width="100%"><table border="0" width="100%" cellspacing="0" cellpadding="0">
           <tr>
-            <td class="wrap"><div id="icon-edit" class="icon32 icon32-posts-product"><br></div><h2><?php _e('Orders','wosci-translation'); ?></h2></td>
+            <td class="wrap"><div id="icon-edit" class="icon32 icon32-posts-product"><br></div><h2><?php _e('Orders','wosci-language'); ?></h2></td>
             <td class="wrap" align="right"><h2><?php echo tep_draw_separator('pixel_trans.gif', 1, HEADING_IMAGE_HEIGHT); ?></h2></td>
-            <td class="pageHeading" align="right"><?php echo '<a class="button" href="' .esc_url( home_url( '/' ) ).'eticaret/pdf-invoice/?order_id='.$_GET['oID'] . '" TARGET="_blank">' . __('Printable Invoice') . '</a> <a class="button" href="' . tep_href_link('wp-admin/admin.php', 'page=invoice&oID=' . $_GET['oID']) . '" TARGET="_blank">' . __('Invoice') . '</a> <a class="button" href="' . tep_href_link('wp-admin/admin.php', 'page=packing_slip&oID=' . $_GET['oID']) . '" TARGET="_blank">' . __('Packing Slip') . '</a> <a class="button" href="' . tep_href_link('wp-admin/admin.php', tep_get_all_get_params(array('action'))) . '">' . __('Back') . '</a> '; ?></td>
+            <td class="pageHeading" align="right"><?php echo '<a class="button" href="' . esc_url( home_url( '/' )) .'eticaret/pdf-invoice/?order_id='.$_GET['oID'] . '" TARGET="_blank">' . __('Printable Invoice') . '</a> <a class="button" href="admin.php?page=invoice&oID=' . $_GET['oID'] . '" TARGET="_blank">' . __('Invoice','wosci-language') . '</a> <a class="button" href="admin.php?page=packing_slip&oID=' . $_GET['oID'] . '" TARGET="_blank">' . __('Packing Slip','wosci-language') . '</a> <a class="button" href="admin.php?'. tep_get_all_get_params(array('action')) . '">' . __('Back','wosci-language') . '</a> '; ?></td>
           </tr>
         </table></td>
       </tr>
@@ -2191,30 +2203,30 @@ $languages_id = 1;
           <tr>
             <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="2">
               <tr>
-                <td class="main" valign="top"><b><?php echo __('Customer','wosci-translation'); ?>:</b></td>
+                <td class="main" valign="top"><b><?php echo __('Customer','wosci-language'); ?>:</b></td>
                 <td class="main"><?php echo tep_address_format($order->customer['format_id'], $order->customer, 1, '', '<br>'); ?></td>
               </tr>
               <tr>
                 <td colspan="2"><?php echo tep_draw_separator('pixel_trans.gif', '1', '5'); ?></td>
               </tr>
               <tr>
-                <td class="main"><b><?php echo __('Phone Number','wosci-translation'); ?>:</b></td>
+                <td class="main"><b><?php echo __('Phone Number','wosci-language'); ?>:</b></td>
                 <td class="main"><?php echo $order->customer['telephone']; ?></td>
               </tr>
               <tr>
-                <td class="main"><b><?php echo __('Email Address','wosci-translation'); ?>:</b></td>
+                <td class="main"><b><?php echo __('Email Address','wosci-language'); ?>:</b></td>
                 <td class="main"><?php echo '<a href="mailto:' . $order->customer['email_address'] . '"><u>' . $order->customer['email_address'] . '</u></a>'; ?></td>
               </tr>
             </table></td>
             <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="2">
               <tr>
-                <td class="main" valign="top"><b><?php echo __('Shipping Address','wosci-translation'); ?>:</b></td>
+                <td class="main" valign="top"><b><?php echo __('Shipping Address','wosci-language'); ?>:</b></td>
                 <td class="main"><?php echo tep_address_format($order->delivery['format_id'], $order->delivery, 1, '', '<br>'); ?></td>
               </tr>
             </table></td>
             <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="2">
               <tr>
-                <td class="main" valign="top"><b><?php echo __('Billing Address','wosci-translation'); ?>:</b></td>
+                <td class="main" valign="top"><b><?php echo __('Billing Address','wosci-language'); ?>:</b></td>
                 <td class="main"><?php echo tep_address_format($order->billing['format_id'], $order->billing, 1, '', '<br>'); ?></td>
               </tr>
             </table></td>
@@ -2227,7 +2239,7 @@ $languages_id = 1;
       <tr>
         <td><table border="0" cellspacing="0" cellpadding="2">
           <tr>
-            <td class="main"><b><?php echo __('Payment Method','wosci-translation'); ?>:</b></td>
+            <td class="main"><b><?php echo __('Payment Method','wosci-language'); ?>:</b></td>
             <td class="main"><?php echo $order->info['payment_method']; ?></td>
           </tr>
 <?php
@@ -2267,15 +2279,15 @@ $languages_id = 1;
           <table class="widefat fixed" cellspacing="0">
 <thead>
 <tr class="thead">
-	<th width="12.5%" scope="col" id="cb" class="manage-column column-username" style=""><?php echo __('Quantity','wosci-translation') ; ?></th>
-	<th width="12.5%" scope="col" id="cb" class="manage-column column-username" style=""><?php echo __('Products','wosci-translation') ; ?></th>
-	<th width="12.5%" scope="col" id="username" class="manage-column column-username" style=""><?php echo __('Model','wosci-translation') ; ?></th>
-	<th width="12.5%" scope="col" id="name" class="manage-column column-name" style=""><?php echo __('Tax','wosci-translation') ; ?></th>
-	<th width="12.5%" scope="col" id="email" class="manage-column column-email" style=""><?php echo __('Tax Excluded','wosci-translation') ; ?></th>
-	<th width="12.5%" scope="col" id="role" class="manage-column column-role" style=""><?php echo __('Tax Included','wosci-translation') ; ?></th>
+	<th width="12.5%" scope="col" id="cb" class="manage-column column-username" style=""><?php echo __('Quantity','wosci-language') ; ?></th>
+	<th width="12.5%" scope="col" id="cb" class="manage-column column-username" style=""><?php echo __('Products','wosci-language') ; ?></th>
+	<th width="12.5%" scope="col" id="username" class="manage-column column-username" style=""><?php echo __('Model','wosci-language') ; ?></th>
+	<th width="12.5%" scope="col" id="name" class="manage-column column-name" style=""><?php echo __('Tax','wosci-language') ; ?></th>
+	<th width="12.5%" scope="col" id="email" class="manage-column column-email" style=""><?php echo __('Tax Excluded','wosci-language') ; ?></th>
+	<th width="12.5%" scope="col" id="role" class="manage-column column-role" style=""><?php echo __('Tax Included','wosci-language') ; ?></th>
 
-	<th width="12.5%" scope="col" id="posts" class="manage-column column-posts num" style=""><?php echo __('Total Excl. Tax','wosci-translation') ; ?></th>
-	<th width="12.5%" scope="col" id="posts" class="manage-column column-posts num" style=""><?php echo __('Total Incl. Tax','wosci-translation') ; ?></th>
+	<th width="12.5%" scope="col" id="posts" class="manage-column column-posts num" style=""><?php echo __('Total Excl. Tax','wosci-language') ; ?></th>
+	<th width="12.5%" scope="col" id="posts" class="manage-column column-posts num" style=""><?php echo __('Total Incl. Tax','wosci-language') ; ?></th>
 </tr>
 </thead>
           
@@ -2330,10 +2342,10 @@ $languages_id = 1;
           <table class="widefat fixed" cellspacing="0">
 <thead>
 <tr class="thead">
-	<th scope="col" id="cb" class="manage-column column-username" style=""><b><?php echo __('Notify Date','wosci-translation') ; ?></b></th>
-	<th scope="col" id="username" class="manage-column column-username" style=""><b><?php echo __('Customer Notify','wosci-translation') ; ?></b></th>
-	<th scope="col" id="name" class="manage-column column-name" style=""><b><?php echo __('Status','wosci-translation') ; ?></b></th>
-	<th scope="col" id="email" class="manage-column column-email" style=""><b><?php echo __('Comments','wosci-translation') ; ?></b></th>
+	<th scope="col" id="cb" class="manage-column column-username" style=""><b><?php echo __('Notify Date','wosci-language') ; ?></b></th>
+	<th scope="col" id="username" class="manage-column column-username" style=""><b><?php echo __('Customer Notify','wosci-language') ; ?></b></th>
+	<th scope="col" id="name" class="manage-column column-name" style=""><b><?php echo __('Status','wosci-language') ; ?></b></th>
+	<th scope="col" id="email" class="manage-column column-email" style=""><b><?php echo __('Comments','wosci-language') ; ?></b></th>
 </tr>
 </thead>
           
@@ -2364,7 +2376,7 @@ $languages_id = 1;
         </table></td>
       </tr>
       <tr>
-        <td class="main"><br><b><?php echo __('Comments','wosci-translation') ; ?></b></td>
+        <td class="main"><br><b><?php echo __('Comments','wosci-language') ; ?></b></td>
       </tr>
       <tr>
         <td><?php echo tep_draw_separator('pixel_trans.gif', '1', '5'); ?></td>
@@ -2380,11 +2392,11 @@ $languages_id = 1;
           <tr>
             <td><table border="0" cellspacing="0" cellpadding="2">
               <tr>
-                <td class="main"><b><?php echo __('Select Status','wosci-translation') ; ?></b> <?php echo tep_draw_pull_down_menu('status', $orders_statuses, $order->info['orders_status']); ?></td>
+                <td class="main"><b><?php echo __('Select Status','wosci-language') ; ?></b> <?php echo tep_draw_pull_down_menu('status', $orders_statuses, $order->info['orders_status']); ?></td>
               </tr>
               <tr>
-                <td class="main"><b><?php echo __('Notify Customer','wosci-translation') ; ?></b> <?php echo tep_draw_checkbox_field('notify', '', true); ?></td>
-                <td class="main"><b><?php echo __('Notify With Comments','wosci-translation') ; ?></b> <?php echo tep_draw_checkbox_field('notify_comments', '', true); ?></td>
+                <td class="main"><b><?php echo __('Notify Customer','wosci-language') ; ?></b> <?php echo tep_draw_checkbox_field('notify', '', true); ?></td>
+                <td class="main"><b><?php echo __('Notify With Comments','wosci-language') ; ?></b> <?php echo tep_draw_checkbox_field('notify_comments', '', true); ?></td>
               </tr>
             </table></td>
             <td valign="top"><?php echo '<input type="submit" value="'. __('Update').'" class="button" />'; ?></td>
@@ -2392,7 +2404,7 @@ $languages_id = 1;
         </table></td>
       </form></tr>
       <tr>
-       <td colspan="2" align="right"><?php echo '<a class="button" href="' .esc_url( home_url( '/' ) ).'eticaret/pdf-invoice/?order_id='.$_GET['oID'] . '" TARGET="_blank">' . __('Printable Invoice') . '</a> <a class="button" href="' . tep_href_link('wp-admin/admin.php', 'page=invoice&oID=' . $_GET['oID']) . '" TARGET="_blank">' . __('Invoice') . '</a> <a class="button" href="' . tep_href_link('wp-admin/admin.php', 'page=packing_slip&oID=' . $_GET['oID']) . '" TARGET="_blank">' . __('Packing Slip') . '</a> <a class="button" href="' . tep_href_link('wp-admin/admin.php', tep_get_all_get_params(array('action'))) . '">' . __('Back') . '</a> '; ?></td>
+       <td colspan="2" align="right"><?php echo '<a class="button" href="' .esc_url( home_url( '/' ) ) .'eticaret/pdf-invoice/?order_id='.$_GET['oID'] . '" TARGET="_blank">' . __('Printable Invoice') . '</a> <a class="button" href="admin.php?page=invoice&oID=' . $_GET['oID'] . '" TARGET="_blank">' . __('Invoice','wosci-language') . '</a> <a class="button" href="admin.php?page=packing_slip&oID=' . $_GET['oID'] . '" TARGET="_blank">' . __('Packing Slip','wosci-language') . '</a> <a class="button" href="admin.php?'. tep_get_all_get_params(array('action')) . '">' . __('Back','wosci-language') . '</a> '; ?></td>
       </tr>
 <?php
   } else {
@@ -2400,14 +2412,14 @@ $languages_id = 1;
       <tr>
         <td width="100%"><table border="0" width="100%" cellspacing="0" cellpadding="0">
           <tr>
-            <td class="wrap"><div id="icon-edit" class="icon32 icon32-posts-product"><br></div><h2><?php _e('Orders','wosci-translation'); ?></h2></td>
+            <td class="wrap"><div id="icon-edit" class="icon32 icon32-posts-product"><br></div><h2><?php _e('Orders','wosci-language'); ?></h2></td>
             <td class="wrap" align="right"><h2><?php echo tep_draw_separator('pixel_trans.gif', 1, HEADING_IMAGE_HEIGHT); ?></h2></td>
             <td align="right"><table border="0" width="100%" cellspacing="0" cellpadding="0">
               <tr><?php echo tep_draw_form('orders', 'admin.php', 'page=orders', 'get'); ?>
-                <td class="smallText" align="right"><?php echo __('Search by Order Number #','wosci-translation') . ' ' . tep_draw_input_field('oID', '', 'size="12"') . tep_draw_hidden_field('action', 'edit'). tep_draw_hidden_field('page', 'orders'); ?></td>
+                <td class="smallText" align="right"><?php echo __('Search by Order Number #','wosci-language') . ' ' . tep_draw_input_field('oID', '', 'size="12"') . tep_draw_hidden_field('action', 'edit'). tep_draw_hidden_field('page', 'orders'); ?></td>
               <?php echo tep_hide_session_id(); ?></form></tr>
               <tr><?php echo tep_draw_form('status', 'admin.php', 'page=orders', 'get'). tep_draw_hidden_field('page', 'orders'); ?>
-                <td class="smallText" align="right"><?php echo __('Status','wosci-translation') . ' ' . tep_draw_pull_down_menu('status', array_merge(array(array('id' => '', 'text' => __('All Orders','wosci-translation'))), $orders_statuses), '', 'onChange="this.form.submit();"'); ?></td>
+                <td class="smallText" align="right"><?php echo __('Status','wosci-language') . ' ' . tep_draw_pull_down_menu('status', array_merge(array(array('id' => '', 'text' => __('All Orders','wosci-language'))), $orders_statuses), '', 'onChange="this.form.submit();"'); ?></td>
               <?php echo tep_hide_session_id(); ?></form></tr>
             </table></td>
           </tr>
@@ -2421,11 +2433,11 @@ $languages_id = 1;
               <table class="widefat fixed" cellspacing="0">
 <thead>
 <tr class="thead">
-	<th width="35%" style=""><?php _e('Customers','wosci-translation'); ?></th>
-	<th width="15%" scope="col" id="username" class="manage-column column-username" style=""><?php _e('Order Total','wosci-translation'); ?></th>
-	<th width="20%" scope="col" id="name" class="manage-column column-name" style=""><?php _e('Date Purchased','wosci-translation'); ?></th>
-	<th width="10%" scope="col" id="email" class="manage-column column-email" style=""><?php _e('Status','wosci-translation'); ?></th>
-	<th width="20%" scope="col" id="role" class="manage-column column-role" style=""><?php _e('Action','wosci-translation'); ?></th>
+	<th width="35%" style=""><?php _e('Customers','wosci-language'); ?></th>
+	<th width="15%" scope="col" id="username" class="manage-column column-username" style=""><?php _e('Order Total','wosci-language'); ?></th>
+	<th width="20%" scope="col" id="name" class="manage-column column-name" style=""><?php _e('Date Purchased','wosci-language'); ?></th>
+	<th width="10%" scope="col" id="email" class="manage-column column-email" style=""><?php _e('Status','wosci-language'); ?></th>
+	<th width="20%" scope="col" id="role" class="manage-column column-role" style=""><?php _e('Action','wosci-language'); ?></th>
 
 	
 </tr>
@@ -2433,11 +2445,11 @@ $languages_id = 1;
 
 <tfoot>
 <tr class="thead">
-	<th width="35%" scope="col" id="cb" class="" style=""><?php _e('Customers','wosci-translation'); ?></th>
-	<th width="15%" scope="col" id="username" class="manage-column column-username" style=""><?php _e('Order Total','wosci-translation'); ?></th>
-	<th width="20%" scope="col" id="name" class="manage-column column-name" style=""><?php _e('Date Purchased','wosci-translation'); ?></th>
-	<th width="10%" scope="col" id="email" class="manage-column column-email" style=""><?php _e('Status','wosci-translation'); ?></th>
-	<th width="20%" scope="col" id="role" class="manage-column column-role" style=""><?php _e('Action','wosci-translation'); ?></th>
+	<th width="35%" scope="col" id="cb" class="" style=""><?php _e('Customers','wosci-language'); ?></th>
+	<th width="15%" scope="col" id="username" class="manage-column column-username" style=""><?php _e('Order Total','wosci-language'); ?></th>
+	<th width="20%" scope="col" id="name" class="manage-column column-name" style=""><?php _e('Date Purchased','wosci-language'); ?></th>
+	<th width="10%" scope="col" id="email" class="manage-column column-email" style=""><?php _e('Status','wosci-language'); ?></th>
+	<th width="20%" scope="col" id="role" class="manage-column column-role" style=""><?php _e('Action','wosci-language'); ?></th>
 
 	
 </tr>
@@ -2470,11 +2482,11 @@ $languages_id=1;
         echo '              <tr class="dataTableRow" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)">' . "\n";
       }
 ?>
-                <td class="dataTableContent"><?php echo '<a target="_blank" class="button" href="' . tep_href_link('wp-admin/admin.php?'. tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $orders['orders_id'] . '&action=edit') . '">View</a>&nbsp;&nbsp;&nbsp;<span style="line-height:32px;text-align:middle;">' . $orders['customers_name']; ?></span></td>
+                <td class="dataTableContent"><?php echo '<a target="_blank" class="button" href="admin.php?'. tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $orders['orders_id'] . '&action=edit' . '">View</a>&nbsp;&nbsp;&nbsp;<span style="line-height:32px;text-align:middle;">' . $orders['customers_name']; ?></span></td>
                 <td class="dataTableContent"><span style="line-height:32px;text-align:middle;"><?php echo strip_tags($orders['order_total']); ?></span></td>
                 <td class="dataTableContent" >&nbsp;<span style="line-height:32px;text-align:middle;"><?php echo tep_datetime_short($orders['date_purchased']); ?></span></td>
                 <td class="dataTableContent"><span style="line-height:32px;text-align:middle;"><?php echo $orders['orders_status_name']; ?></span></td>
-                <td class="dataTableContent"><span style="line-height:32px;text-align:middle;"><?php if (isset($oInfo) && is_object($oInfo) && ($orders['orders_id'] == $oInfo->orders_id)) { echo '►'; } else { echo '<a class="button" href="' . tep_href_link('wp-admin/admin.php?'. tep_get_all_get_params(array('oID')) . 'oID=' . $orders['orders_id']) . '">Options</a>'; } ?></span></td>
+                <td class="dataTableContent"><span style="line-height:32px;text-align:middle;"><?php if (isset($oInfo) && is_object($oInfo) && ($orders['orders_id'] == $oInfo->orders_id)) { echo '►'; } else { echo '<a class="button" href="admin.php?'. tep_get_all_get_params(array('oID')) . 'oID=' . $orders['orders_id'] . '">'. __('Options','wosci-language').'</a>'; } ?></span></td>
               </tr>
 <?php
     }
@@ -2495,20 +2507,20 @@ $languages_id=1;
       $heading[] = array('text' => '<b>' . TEXT_INFO_HEADING_DELETE_ORDER . '</b>');
 
       $contents = array('form' => tep_draw_form('orders', 'wp-admin/admin.php?'. tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $oInfo->orders_id . '&action=deleteconfirm'));
-      $contents[] = array('text' => __('Are you sure you want to delete this order status?','wosci-translation') . '<br><br><b>' . $cInfo->customers_firstname . ' ' . $cInfo->customers_lastname . '</b>');
+      $contents[] = array('text' => __('Are you sure you want to delete this order status?','wosci-language') . '<br><br><b>' . $cInfo->customers_firstname . ' ' . $cInfo->customers_lastname . '</b>');
       $contents[] = array('text' => '<br>' . tep_draw_checkbox_field('restock') . ' ' . TEXT_INFO_RESTOCK_PRODUCT_QUANTITY);
-      $contents[] = array('align' => 'center', 'text' => '<br>' . '<input type="submit" value="'. __('Remove').'" class="button" />' . ' <a class="button" href="' . tep_href_link('wp-admin/admin.php?'. tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $oInfo->orders_id) . '">'. __('Cancel').'</a>');
+      $contents[] = array('align' => 'center', 'text' => '<br>' . '<input type="submit" value="'. __('Remove','wosci-language').'" class="button" />' . ' <a class="button" href="admin.php?'. tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $oInfo->orders_id . '">'. __('Cancel','wosci-language').'</a>');
       break;
     default:
       if (isset($oInfo) && is_object($oInfo)) {
         $heading[] = array('text' => '<b>[' . $oInfo->orders_id . ']&nbsp;&nbsp;' . tep_datetime_short($oInfo->date_purchased) . '</b>');
 
-        $contents[] = array('align' => 'center', 'text' => '<div style="padding-top:12px;"><a class="button" href="' . tep_href_link('wp-admin/admin.php?'. tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $oInfo->orders_id . '&action=edit') . '">'. __('View').'</a> <a class="button" href="' . tep_href_link('wp-admin/admin.php?'. tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $oInfo->orders_id . '&action=delete') . '">'. __('Delete').'</a></div>');
-        $contents[] = array('align' => 'center', 'text' => '<div style="padding-top:12px;"><a class="button" href="' .esc_url( home_url( '/' ) ).'eticaret/pdf-invoice/?order_id='.$_GET['oID'] . '" TARGET="_blank">' . __('Printable Invoice') . '</a> <a class="button" href="' . tep_href_link('wp-admin/admin.php', 'page=invoice&oID=' . $oInfo->orders_id) . '" TARGET="_blank">'. __('Invoice').'</a></div><div style="padding-top:12px;"><a class="button" href="' . tep_href_link('wp-admin/admin.php', 'page=packing_slip&oID=' . $oInfo->orders_id) . '" TARGET="_blank">'. __('Packing Slip').'</a></div>');
+        $contents[] = array('align' => 'center', 'text' => '<div style="padding-top:12px;"><a class="button" href="admin.php?'. tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $oInfo->orders_id . '&action=edit' . '">'. __('View','wosci-language').'</a> <a class="button" href="admin.php?'. tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $oInfo->orders_id . '&action=delete' . '">'. __('Delete','wosci-language').'</a></div>');
+        $contents[] = array('align' => 'center', 'text' => '<div style="padding-top:12px;"><a class="button" href="' .esc_url( home_url( '/' ) ).'eticaret/pdf-invoice/?order_id='.$_GET['oID'] . '" TARGET="_blank">' . __('Printable Invoice','wosci-language') . '</a> <a class="button" href="admin.php?page=invoice&oID=' . $oInfo->orders_id . '" TARGET="_blank">'. __('Invoice','wosci-language').'</a></div><div style="padding-top:12px;"><a class="button" href="admin.php?page=packing_slip&oID=' . $oInfo->orders_id . '" TARGET="_blank">'. __('Packing Slip','wosci-language').'</a></div>');
         
-        $contents[] = array('text' => '<br>' . __('Order Created','wosci-translation')  . ' ' . tep_date_short($oInfo->date_purchased));
+        $contents[] = array('text' => '<br>' . __('Order Created','wosci-language')  . ' ' . tep_date_short($oInfo->date_purchased));
         if (tep_not_null($oInfo->last_modified)) $contents[] = array('text' => TEXT_DATE_ORDER_LAST_MODIFIED . ' ' . tep_date_short($oInfo->last_modified));
-        $contents[] = array('text' => '<br>' . __('Payment Method','wosci-translation') . ' '  . $oInfo->payment_method);
+        $contents[] = array('text' => '<br>' . __('Payment Method','wosci-language') . ' '  . $oInfo->payment_method);
       }
       break;
   }
@@ -2597,7 +2609,7 @@ $languages_id = 1;
           tep_db_query("update " . TABLE_CONFIGURATION . " set configuration_value = '" . tep_db_input($orders_status_id) . "' where configuration_key = 'DEFAULT_ORDERS_STATUS_ID'");
         }
 
-        tep_redirect(tep_href_link('wp-admin/admin.php?page=order_status&pageOSI=' . $_GET['pageOSI'] . '&oID=' . $orders_status_id));
+        wp_redirect('admin.php?page=order_status&pageOSI=' . $_GET['pageOSI'] . '&oID=' . $orders_status_id);
         break;
       case 'deleteconfirm':
         $oID = tep_db_prepare_input($_GET['oID']);
@@ -2611,7 +2623,7 @@ $languages_id = 1;
 
         tep_db_query("delete from " . TABLE_ORDERS_STATUS . " where orders_status_id = '" . tep_db_input($oID) . "'");
 
-        tep_redirect(tep_href_link('wp-admin/admin.php?page=order_status&pageOSI=' . $_GET['pageOSI']));
+        wp_redirect('admin.php?page=order_status&pageOSI=' . $_GET['pageOSI']);
         break;
       case 'delete':
         $oID = tep_db_prepare_input($_GET['oID']);
@@ -2645,7 +2657,7 @@ $languages_id = 1;
       <tr>
         <td><table border="0" width="100%" cellspacing="0" cellpadding="0">
           <tr>
-            <td class="wrap"><div id="icon-edit" class="icon32 icon32-posts-product"><br></div><h2><?php echo __('Order Status','wosci-translation'); ?></h2></td>
+            <td class="wrap"><div id="icon-edit" class="icon32 icon32-posts-product"><br></div><h2><?php echo __('Order Status','wosci-language'); ?></h2></td>
             <td class="pageHeading" align="right"></td>
           </tr>
         </table></td>
@@ -2660,19 +2672,19 @@ $languages_id = 1;
               <table class="widefat fixed" cellspacing="0">
 <thead>
 <tr class="thead">
-	<th style=""><?php echo __('Order Status','wosci-translation'); ?></th>
-	<th style=""><?php echo __('Public Status','wosci-translation'); ?></th>
-	<th style=""><?php echo __('Download Status','wosci-translation'); ?></th>
-	<th style=""><?php echo __('Action','wosci-translation'); ?></th>
+	<th style=""><?php echo __('Order Status','wosci-language'); ?></th>
+	<th style=""><?php echo __('Public Status','wosci-language'); ?></th>
+	<th style=""><?php echo __('Download Status','wosci-language'); ?></th>
+	<th style=""><?php echo __('Action','wosci-language'); ?></th>
 </tr>
 </thead>
 
 <tfoot>
 <tr class="thead">
-	<th style=""><?php echo __('Order Status','wosci-translation'); ?></th>
-	<th style=""><?php echo __('Public Status','wosci-translation'); ?></th>
-	<th style=""><?php echo __('Download Status','wosci-translation'); ?></th>
-	<th style=""><?php echo __('Action','wosci-translation'); ?></th>
+	<th style=""><?php echo __('Order Status','wosci-language'); ?></th>
+	<th style=""><?php echo __('Public Status','wosci-language'); ?></th>
+	<th style=""><?php echo __('Download Status','wosci-language'); ?></th>
+	<th style=""><?php echo __('Action','wosci-language'); ?></th>
 </tr>
 </tfoot>
               
@@ -2687,9 +2699,9 @@ $languages_id = 1;
     }
 
     if (isset($oInfo) && is_object($oInfo) && ($orders_status['orders_status_id'] == $oInfo->orders_status_id)) {
-      echo '                  <tr id="defaultSelected" class="dataTableRowSelected" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)" onclick="document.location.href=\'' . tep_href_link('wp-admin/admin.php?page=order_status&pageOSI=' . $_GET['pageOSI'] . '&oID=' . $oInfo->orders_status_id . '&action=edit') . '\'">' . "\n";
+      echo '                  <tr id="defaultSelected" class="dataTableRowSelected" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)" onclick="document.location.href=\'admin.php?page=order_status&pageOSI=' . $_GET['pageOSI'] . '&oID=' . $oInfo->orders_status_id . '&action=edit' . '\'">' . "\n";
     } else {
-      echo '                  <tr class="dataTableRow" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)" onclick="document.location.href=\'' . tep_href_link('wp-admin/admin.php?page=order_status&pageOSI=' . $_GET['pageOSI'] . '&oID=' . $orders_status['orders_status_id']) . '\'">' . "\n";
+      echo '                  <tr class="dataTableRow" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)" onclick="document.location.href=\'admin.php?page=order_status&pageOSI=' . $_GET['pageOSI'] . '&oID=' . $orders_status['orders_status_id'] . '\'">' . "\n";
     }
 
     if (DEFAULT_ORDERS_STATUS_ID == $orders_status['orders_status_id']) {
@@ -2700,7 +2712,7 @@ $languages_id = 1;
 ?>
                 <td class="dataTableContent" align="center"><?php echo  (($orders_status['public_flag'] == '1') ? '✔' : '✖'); ?></td>
                 <td class="dataTableContent" align="center"><?php echo (($orders_status['downloads_flag'] == '1') ? '✔' : '✖'); ?></td>
-                <td class="dataTableContent" align="right"><?php if (isset($oInfo) && is_object($oInfo) && ($orders_status['orders_status_id'] == $oInfo->orders_status_id)) { echo '▶'; } else { echo '<a href="' . tep_href_link('wp-admin/admin.php?page=order_status&pageOSI=' . $_GET['pageOSI'] . '&oID=' . $orders_status['orders_status_id']) . '"> </a>'; } ?>&nbsp;</td>
+                <td class="dataTableContent" align="right"><?php if (isset($oInfo) && is_object($oInfo) && ($orders_status['orders_status_id'] == $oInfo->orders_status_id)) { echo '▶'; } else { echo '<a href="admin.php?page=order_status&pageOSI=' . $_GET['pageOSI'] . '&oID=' . $orders_status['orders_status_id'] . '"> </a>'; } ?>&nbsp;</td>
               </tr>
 <?php
   }
@@ -2715,7 +2727,7 @@ $languages_id = 1;
   if (empty($action)) {
 ?>
                   <tr>
-                    <td colspan="2" align="right"><div style="padding:8px;"></div><?php echo '<a class="button" href="' . tep_href_link('wp-admin/admin.php?page=order_status&pageOSI=' . $_GET['pageOSI'] . '&action=new') . '">'. __('Insert').'</a>'; ?></td>
+                    <td colspan="2" align="right"><div style="padding:8px;"></div><?php echo '<a class="button" href="admin.php?page=order_status&pageOSI=' . $_GET['pageOSI'] . '&action=new' . '">'. __('Insert', 'wosci-language').'</a>'; ?></td>
                   </tr>
 <?php
   }
@@ -2727,10 +2739,10 @@ $languages_id = 1;
 
   switch ($action) {
     case 'new':
-      $heading[] = array('text' => '<b>' . __('New Orders Status','wosci-translation') . '</b>');
+      $heading[] = array('text' => '<b>' . __('New Orders Status','wosci-language') . '</b>');
 
       $contents = array('form' => tep_draw_form('status', 'admin.php?page=order_status&pageOSI=' . $_GET['pageOSI'] . '&action=insert'));
-      $contents[] = array('text' => __('Please enter the new orders status with its related data','wosci-translation'));
+      $contents[] = array('text' => __('Please enter the new orders status with its related data','wosci-language'));
 
       $orders_status_inputs_string = '';
       $languages = tep_get_languages();
@@ -2738,17 +2750,17 @@ $languages_id = 1;
         $orders_status_inputs_string .= '<br>' ./* tep_image(DIR_WS_CATALOG_LANGUAGES . $languages[$i]['directory'] . '/images/' . $languages[$i]['image'], $languages[$i]['name']) .*/ '&nbsp;' . tep_draw_input_field('orders_status_name[' . $languages[$i]['id'] . ']');
       }
 
-      $contents[] = array('text' => '<br>' . __('Orders Status','wosci-translation') . $orders_status_inputs_string);
-      $contents[] = array('text' => '<br>' . tep_draw_checkbox_field('public_flag', '1') . ' ' . __('Show the order to the customer at this order status level','wosci-translation'));
-      $contents[] = array('text' => tep_draw_checkbox_field('downloads_flag', '1') . ' ' . __('Allow downloads of virtual products at this order status level','wosci-translation'));
+      $contents[] = array('text' => '<br>' . __('Orders Status','wosci-language') . $orders_status_inputs_string);
+      $contents[] = array('text' => '<br>' . tep_draw_checkbox_field('public_flag', '1') . ' ' . __('Show the order to the customer at this order status level','wosci-language'));
+      $contents[] = array('text' => tep_draw_checkbox_field('downloads_flag', '1') . ' ' . __('Allow downloads of virtual products at this order status level','wosci-language'));
       $contents[] = array('text' => '<br>' . tep_draw_checkbox_field('default') . ' ' . TEXT_SET_DEFAULT);
-      $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Insert').'" class="button" /> <a class="button" href="' . tep_href_link('wp-admin/admin.php?page=order_status&pageOSI=' . $_GET['pageOSI']) . '">'. __('Cancel').'</a>');
+      $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Insert').'" class="button" /> <a class="button" href="admin.php?page=order_status&pageOSI=' . $_GET['pageOSI'] . '">'. __('Cancel','wosci-language').'</a>');
       break;
     case 'edit':
-      $heading[] = array('text' => '<b>' . __('Edit Order Status','wosci-translation') . '</b>');
+      $heading[] = array('text' => '<b>' . __('Edit Order Status','wosci-language') . '</b>');
 
       $contents = array('form' => tep_draw_form('status', 'admin.php?page=order_status&pageOSI=' . $_GET['pageOSI'] . '&oID=' . $oInfo->orders_status_id  . '&action=save'));
-      $contents[] = array('text' => __('Please enter the new orders status with its related data','wosci-translation'));
+      $contents[] = array('text' => __('Please enter the new orders status with its related data','wosci-language'));
 
       $orders_status_inputs_string = '';
       $languages = tep_get_languages();
@@ -2756,25 +2768,25 @@ $languages_id = 1;
         $orders_status_inputs_string .= '<br>' . /*tep_image(DIR_WS_CATALOG_LANGUAGES . $languages[$i]['directory'] . '/images/' . $languages[$i]['image'], $languages[$i]['name']) .*/ '&nbsp;' . tep_draw_input_field('orders_status_name[' . $languages[$i]['id'] . ']', tep_get_orders_status_name($oInfo->orders_status_id, $languages[$i]['id']));
       }
 
-      $contents[] = array('text' => '<br>' . __('Orders Status','wosci-translation') . $orders_status_inputs_string);
-      $contents[] = array('text' => '<br>' . tep_draw_checkbox_field('public_flag', '1', $oInfo->public_flag) . ' ' . __('Show the order to the customer at this order status level','wosci-translation'));
-      $contents[] = array('text' => tep_draw_checkbox_field('downloads_flag', '1', $oInfo->downloads_flag) . ' ' . __('Allow downloads of virtual products at this order status level','wosci-translation'));
+      $contents[] = array('text' => '<br>' . __('Orders Status','wosci-language') . $orders_status_inputs_string);
+      $contents[] = array('text' => '<br>' . tep_draw_checkbox_field('public_flag', '1', $oInfo->public_flag) . ' ' . __('Show the order to the customer at this order status level','wosci-language'));
+      $contents[] = array('text' => tep_draw_checkbox_field('downloads_flag', '1', $oInfo->downloads_flag) . ' ' . __('Allow downloads of virtual products at this order status level','wosci-language'));
       if (DEFAULT_ORDERS_STATUS_ID != $oInfo->orders_status_id) $contents[] = array('text' => '<br>' . tep_draw_checkbox_field('default') . ' ' . TEXT_SET_DEFAULT);
-      $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Update').'" class="button" /> <a class="button" href="' . tep_href_link('wp-admin/admin.php?page=order_status&pageOSI=' . $_GET['pageOSI'] . '&oID=' . $oInfo->orders_status_id) . '">'. __('Cancel').'</a>');
+      $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Update').'" class="button" /> <a class="button" href="admin.php?page=order_status&pageOSI=' . $_GET['pageOSI'] . '&oID=' . $oInfo->orders_status_id . '">'. __('Cancel','wosci-language').'</a>');
       break;
     case 'delete':
-      $heading[] = array('text' => '<b>' . __('Delete Orders Status','wosci-translation') . '</b>');
+      $heading[] = array('text' => '<b>' . __('Delete Orders Status','wosci-language') . '</b>');
 
       $contents = array('form' => tep_draw_form('status', 'wp-admin/admin.php?page=order_status&pageOSI=' . $_GET['pageOSI'] . '&oID=' . $oInfo->orders_status_id  . '&action=deleteconfirm'));
-      $contents[] = array('text' => __('Are you sure you want to delete this order status?','wosci-translation'));
+      $contents[] = array('text' => __('Are you sure you want to delete this order status?','wosci-language'));
       $contents[] = array('text' => '<br><b>' . $oInfo->orders_status_name . '</b>');
-      if ($remove_status) $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Remove').'" class="button" /> <a class="button" href="' . tep_href_link('wp-admin/admin.php?page=order_status&pageOSI=' . $_GET['pageOSI'] . '&oID=' . $oInfo->orders_status_id) . '">'. __('Cancel').'</a>');
+      if ($remove_status) $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Remove','wosci-language').'" class="button" /> <a class="button" href="admin.php?page=order_status&pageOSI=' . $_GET['pageOSI'] . '&oID=' . $oInfo->orders_status_id . '">'. __('Cancel','wosci-language').'</a>');
       break;
     default:
       if (isset($oInfo) && is_object($oInfo)) {
         $heading[] = array('text' => '<b>' . $oInfo->orders_status_name . '</b>');
 
-        $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link('wp-admin/admin.php?page=order_status&pageOSI=' . $_GET['pageOSI'] . '&oID=' . $oInfo->orders_status_id . '&action=edit') . '">'. __('Edit').'</a> <a class="button" href="' . tep_href_link('wp-admin/admin.php?page=order_status&pageOSI=' . $_GET['pageOSI'] . '&oID=' . $oInfo->orders_status_id . '&action=delete') . '">'. __('Delete').'</a>');
+        $contents[] = array('align' => 'center', 'text' => '<a class="button" href="admin.php?page=order_status&pageOSI=' . $_GET['pageOSI'] . '&oID=' . $oInfo->orders_status_id . '&action=edit' . '">'. __('Edit','wosci-language').'</a> <a class="button" href="admin.php?page=order_status&pageOSI=' . $_GET['pageOSI'] . '&oID=' . $oInfo->orders_status_id . '&action=delete' . '">'. __('Delete','wosci-language').'</a>');
 
         $orders_status_inputs_string = '';
         $languages = tep_get_languages();
@@ -2847,7 +2859,7 @@ global $currencies;
           tep_db_query("update " . TABLE_CONFIGURATION . " set configuration_value = '" . tep_db_input($code) . "' where configuration_key = 'DEFAULT_CURRENCY'");
         }
 
-        tep_redirect(tep_href_link('wp-admin/admin.php?page=currencies&pageOSI=' . $_GET['pageOSI'] . '&cID=' . $currency_id));
+        wp_redirect('admin.php?page=currencies&pageOSI=' . $_GET['pageOSI'] . '&cID=' . $currency_id);
         break;
       case 'deleteconfirm':
         $currencies_id = tep_db_prepare_input($_GET['cID']);
@@ -2861,7 +2873,7 @@ global $currencies;
 
         tep_db_query("delete from " . TABLE_CURRENCIES . " where currencies_id = '" . (int)$currencies_id . "'");
 
-        tep_redirect(tep_href_link('wp-admin/admin.php?page=currencies&pageOSI=' . $_GET['pageOSI']));
+        wp_redirect('admin.php?page=currencies&pageOSI=' . $_GET['pageOSI']);
         break;
       case 'update':
         $server_used = CURRENCY_SERVER_PRIMARY;
@@ -2889,7 +2901,7 @@ global $currencies;
           }
         }
 
-        tep_redirect(tep_href_link('wp-admin/admin.php?page=currencies&pageOSI=' . $_GET['pageOSI'] . '&cID=' . $_GET['cID']));
+        wp_redirect('admin.php?page=currencies&pageOSI=' . $_GET['pageOSI'] . '&cID=' . $_GET['cID']);
         break;
       case 'delete':
         $currencies_id = tep_db_prepare_input($_GET['cID']);
@@ -2912,7 +2924,7 @@ global $currencies;
       <tr>
         <td><table border="0" width="100%" cellspacing="0" cellpadding="0">
           <tr>
-            <td class="wrap"><div id="icon-edit" class="icon32 icon32-posts-product"><br></div><h2><?php echo __('Currencies','wosci-translation'); ?></h2></td>
+            <td class="wrap"><div id="icon-edit" class="icon32 icon32-posts-product"><br></div><h2><?php echo __('Currencies','wosci-language'); ?></h2></td>
             <td class="pageHeading" align="right"></td>
           </tr>
         </table></td>
@@ -2926,19 +2938,19 @@ global $currencies;
               <table class="widefat fixed" cellspacing="0">
 <thead>
 <tr class="thead">	
-	<th scope="col" id="username" class="manage-column column-username" style=""><?php echo __('Currency Name','wosci-translation'); ?></th>
-	<th scope="col" id="name" class="manage-column column-name" style=""><?php echo __('Currency Code','wosci-translation'); ?></th>
-	<th scope="col" id="email" class="manage-column column-email" style=""><?php echo __('Currency Value','wosci-translation'); ?></th>
-	<th scope="col" id="role" class="manage-column column-role" style=""><?php echo __('Action','wosci-translation'); ?></th>
+	<th scope="col" id="username" class="manage-column column-username" style=""><?php echo __('Currency Name','wosci-language'); ?></th>
+	<th scope="col" id="name" class="manage-column column-name" style=""><?php echo __('Currency Code','wosci-language'); ?></th>
+	<th scope="col" id="email" class="manage-column column-email" style=""><?php echo __('Currency Value','wosci-language'); ?></th>
+	<th scope="col" id="role" class="manage-column column-role" style=""><?php echo __('Action','wosci-language'); ?></th>
 </tr>
 </thead>
 
 <tfoot>
 <tr class="thead">	
-	<th scope="col" id="username" class="manage-column column-username" style=""><?php echo __('Currency Name','wosci-translation'); ?></th>
-	<th scope="col" id="name" class="manage-column column-name" style=""><?php echo __('Currency Code','wosci-translation'); ?></th>
-	<th scope="col" id="email" class="manage-column column-email" style=""><?php echo __('Currency Value','wosci-translation'); ?></th>
-	<th scope="col" id="role" class="manage-column column-role" style=""><?php echo __('Action','wosci-translation'); ?></th>
+	<th scope="col" id="username" class="manage-column column-username" style=""><?php echo __('Currency Name','wosci-language'); ?></th>
+	<th scope="col" id="name" class="manage-column column-name" style=""><?php echo __('Currency Code','wosci-language'); ?></th>
+	<th scope="col" id="email" class="manage-column column-email" style=""><?php echo __('Currency Value','wosci-language'); ?></th>
+	<th scope="col" id="role" class="manage-column column-role" style=""><?php echo __('Action','wosci-language'); ?></th>
 </tr>
 </tfoot>
               
@@ -2952,9 +2964,9 @@ global $currencies;
     }
 
     if (isset($cInfo) && is_object($cInfo) && ($currency['currencies_id'] == $cInfo->currencies_id) ) {
-      echo '              <tr id="defaultSelected" class="dataTableRowSelected" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)" onclick="document.location.href=\'' . tep_href_link('wp-admin/admin.php?page=currencies&pageOSI=' . $_GET['pageOSI'] . '&cID=' . $cInfo->currencies_id . '&action=edit') . '\'">' . "\n";
+      echo '              <tr id="defaultSelected" class="dataTableRowSelected" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)" onclick="document.location.href=\'admin.php?page=currencies&pageOSI=' . $_GET['pageOSI'] . '&cID=' . $cInfo->currencies_id . '&action=edit' . '\'">' . "\n";
     } else {
-      echo '              <tr class="dataTableRow" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)" onclick="document.location.href=\'' . tep_href_link('wp-admin/admin.php?page=currencies&pageOSI=' . $_GET['pageOSI'] . '&cID=' . $currency['currencies_id']) . '\'">' . "\n";
+      echo '              <tr class="dataTableRow" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)" onclick="document.location.href=\'admin.php?page=currencies&pageOSI=' . $_GET['pageOSI'] . '&cID=' . $currency['currencies_id'] . '\'">' . "\n";
     }
 
     if (DEFAULT_CURRENCY == $currency['code']) {
@@ -2965,7 +2977,7 @@ global $currencies;
 ?>
                 <td class="dataTableContent"><?php echo $currency['code']; ?></td>
                 <td class="dataTableContent" align="right"><?php echo number_format($currency['value'], 8); ?></td>
-                <td class="dataTableContent" align="right"><?php if (isset($cInfo) && is_object($cInfo) && ($currency['currencies_id'] == $cInfo->currencies_id) ) { echo '▶'; } else { echo '<a href="' . tep_href_link('wp-admin/admin.php?page=currencies&pageOSI=' . $_GET['pageOSI'] . '&cID=' . $currency['currencies_id']) . '">' . '' . '</a>'; } ?>&nbsp;</td>
+                <td class="dataTableContent" align="right"><?php if (isset($cInfo) && is_object($cInfo) && ($currency['currencies_id'] == $cInfo->currencies_id) ) { echo '▶'; } else { echo '<a href="admin.php?page=currencies&pageOSI=' . $_GET['pageOSI'] . '&cID=' . $currency['currencies_id'] . '">' . '' . '</a>'; } ?>&nbsp;</td>
               </tr>
 <?php
   }
@@ -2980,8 +2992,8 @@ global $currencies;
   if (empty($action)) {
 ?>
                   <tr>
-                    <td><?php if (CURRENCY_SERVER_PRIMARY) { echo '<a class="button" href="' . tep_href_link('wp-admin/admin.php?page=currencies&pageOSI=' . $_GET['pageOSI'] . '&cID=' . $cInfo->currencies_id . '&action=update') . '">'. __('Update Currencies').'</a>'; } ?></td>
-                    <td align="right"><div style="padding:8px;"></div><?php echo '<a class="button" href="' . tep_href_link('wp-admin/admin.php?page=currencies&pageOSI=' . $_GET['pageOSI'] . '&cID=' . $cInfo->currencies_id . '&action=new') . '">'. __('New Currency').'</a>'; ?></td>
+                    <td><?php if (CURRENCY_SERVER_PRIMARY) { echo '<a class="button" href="admin.php?page=currencies&pageOSI=' . $_GET['pageOSI'] . '&cID=' . $cInfo->currencies_id . '&action=update' . '">'. __('Update Currencies','wosci-language').'</a>'; } ?></td>
+                    <td align="right"><div style="padding:8px;"></div><?php echo '<a class="button" href="admin.php?page=currencies&pageOSI=' . $_GET['pageOSI'] . '&cID=' . $cInfo->currencies_id . '&action=new' . '">'. __('New Currency','wosci-language').'</a>'; ?></td>
                   </tr>
 <?php
   }
@@ -2996,56 +3008,56 @@ global $currencies;
       $heading[] = array('text' => '<b>' . TEXT_INFO_HEADING_NEW_CURRENCY . '</b>');
 
       $contents = array('form' => tep_draw_form('currencies', 'admin.php?page=currencies&pageOSI=' . $_GET['pageOSI'] . (isset($cInfo) ? '&cID=' . $cInfo->currencies_id : '') . '&action=insert'));
-      $contents[] = array('text' => __('Please Fill Currency Details','wosci-translation'));
-      $contents[] = array('text' => '<br>' . __('Title','wosci-translation') . '<br>' . tep_draw_input_field('title'));
-      $contents[] = array('text' => '<br>' . __('Code','wosci-translation') . '<br>' . tep_draw_input_field('code'));
-      $contents[] = array('text' => '<br>' . __('Symbol Left','wosci-translation') . '<br>' . tep_draw_input_field('symbol_left'));
-      $contents[] = array('text' => '<br>' . __('Symbol Right','wosci-translation') . '<br>' . tep_draw_input_field('symbol_right'));
-      $contents[] = array('text' => '<br>' . __('Decimal Point','wosci-translation') . '<br>' . tep_draw_input_field('decimal_point'));
-      $contents[] = array('text' => '<br>' . __('Thousand Point','wosci-translation') . '<br>' . tep_draw_input_field('thousands_point'));
-      $contents[] = array('text' => '<br>' . __('Decimal Places','wosci-translation') . '<br>' . tep_draw_input_field('decimal_places'));
-      $contents[] = array('text' => '<br>' . __('Value','wosci-translation') . '<br>' . tep_draw_input_field('value'));
-      $contents[] = array('text' => '<br>' . tep_draw_checkbox_field('default') . ' ' . __('Set as Default','wosci-translation'));
-      $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Insert').'" class="button" /> <a class="button" href="' . tep_href_link('wp-admin/admin.php?page=currencies&pageOSI=' . $_GET['pageOSI'] . '&cID=' . $_GET['cID']) . '">'. __('Cancel').'</a>');
+      $contents[] = array('text' => __('Please Fill Currency Details','wosci-language'));
+      $contents[] = array('text' => '<br>' . __('Title','wosci-language') . '<br>' . tep_draw_input_field('title'));
+      $contents[] = array('text' => '<br>' . __('Code','wosci-language') . '<br>' . tep_draw_input_field('code'));
+      $contents[] = array('text' => '<br>' . __('Symbol Left','wosci-language') . '<br>' . tep_draw_input_field('symbol_left'));
+      $contents[] = array('text' => '<br>' . __('Symbol Right','wosci-language') . '<br>' . tep_draw_input_field('symbol_right'));
+      $contents[] = array('text' => '<br>' . __('Decimal Point','wosci-language') . '<br>' . tep_draw_input_field('decimal_point'));
+      $contents[] = array('text' => '<br>' . __('Thousand Point','wosci-language') . '<br>' . tep_draw_input_field('thousands_point'));
+      $contents[] = array('text' => '<br>' . __('Decimal Places','wosci-language') . '<br>' . tep_draw_input_field('decimal_places'));
+      $contents[] = array('text' => '<br>' . __('Value','wosci-language') . '<br>' . tep_draw_input_field('value'));
+      $contents[] = array('text' => '<br>' . tep_draw_checkbox_field('default') . ' ' . __('Set as Default','wosci-language'));
+      $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Insert').'" class="button" /> <a class="button" href="admin.php?page=currencies&pageOSI=' . $_GET['pageOSI'] . '&cID=' . $_GET['cID'] . '">'. __('Cancel','wosci-language').'</a>');
       break;
     case 'edit':
-      $heading[] = array('text' => '<b>' . __('Edit Currency','wosci-translation') . '</b>');
+      $heading[] = array('text' => '<b>' . __('Edit Currency','wosci-language') . '</b>');
 
       $contents = array('form' => tep_draw_form('currencies', 'admin.php?page=currencies&pageOSI=' . $_GET['pageOSI'] . '&cID=' . $cInfo->currencies_id . '&action=save'));
-      $contents[] = array('text' => __('Currency Details','wosci-translation'));
-      $contents[] = array('text' => '<br>' . __('Title','wosci-translation') . '<br>' . tep_draw_input_field('title', $cInfo->title));
-      $contents[] = array('text' => '<br>' . __('Code','wosci-translation') . '<br>' . tep_draw_input_field('code', $cInfo->code));
-      $contents[] = array('text' => '<br>' . __('Symbol Left','wosci-translation') . '<br>' . tep_draw_input_field('symbol_left', $cInfo->symbol_left));
-      $contents[] = array('text' => '<br>' . __('Symbol Right','wosci-translation') . '<br>' . tep_draw_input_field('symbol_right', $cInfo->symbol_right));
-      $contents[] = array('text' => '<br>' . __('Decimal Point','wosci-translation') . '<br>' . tep_draw_input_field('decimal_point', $cInfo->decimal_point));
-      $contents[] = array('text' => '<br>' . __('Thousand Point','wosci-translation') . '<br>' . tep_draw_input_field('thousands_point', $cInfo->thousands_point));
-      $contents[] = array('text' => '<br>' . __('Decimal Places','wosci-translation') . '<br>' . tep_draw_input_field('decimal_places', $cInfo->decimal_places));
-      $contents[] = array('text' => '<br>' . __('Value','wosci-translation') . '<br>' . tep_draw_input_field('value', $cInfo->value));
-      if (DEFAULT_CURRENCY != $cInfo->code) $contents[] = array('text' => '<br>' . tep_draw_checkbox_field('default') . ' ' . __('Set as Default','wosci-translation'));
-      $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Update').'" class="button" /> <a class="button" href="' . tep_href_link('wp-admin/admin.php?page=currencies&pageOSI=' . $_GET['pageOSI'] . '&cID=' . $cInfo->currencies_id) . '">'. __('Cancel').'</a>');
+      $contents[] = array('text' => __('Currency Details','wosci-language'));
+      $contents[] = array('text' => '<br>' . __('Title','wosci-language') . '<br>' . tep_draw_input_field('title', $cInfo->title));
+      $contents[] = array('text' => '<br>' . __('Code','wosci-language') . '<br>' . tep_draw_input_field('code', $cInfo->code));
+      $contents[] = array('text' => '<br>' . __('Symbol Left','wosci-language') . '<br>' . tep_draw_input_field('symbol_left', $cInfo->symbol_left));
+      $contents[] = array('text' => '<br>' . __('Symbol Right','wosci-language') . '<br>' . tep_draw_input_field('symbol_right', $cInfo->symbol_right));
+      $contents[] = array('text' => '<br>' . __('Decimal Point','wosci-language') . '<br>' . tep_draw_input_field('decimal_point', $cInfo->decimal_point));
+      $contents[] = array('text' => '<br>' . __('Thousand Point','wosci-language') . '<br>' . tep_draw_input_field('thousands_point', $cInfo->thousands_point));
+      $contents[] = array('text' => '<br>' . __('Decimal Places','wosci-language') . '<br>' . tep_draw_input_field('decimal_places', $cInfo->decimal_places));
+      $contents[] = array('text' => '<br>' . __('Value','wosci-language') . '<br>' . tep_draw_input_field('value', $cInfo->value));
+      if (DEFAULT_CURRENCY != $cInfo->code) $contents[] = array('text' => '<br>' . tep_draw_checkbox_field('default') . ' ' . __('Set as Default','wosci-language'));
+      $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Update').'" class="button" /> <a class="button" href="admin.php?page=currencies&pageOSI=' . $_GET['pageOSI'] . '&cID=' . $cInfo->currencies_id . '">'. __('Cancel','wosci-language').'</a>');
       break;
     case 'delete':
       $heading[] = array('text' => '<b>' . TEXT_INFO_HEADING_DELETE_CURRENCY . '</b>');
 
-      $contents[] = array('text' => __('Are you sure you want to delete this order status?','wosci-translation'));
+      $contents[] = array('text' => __('Are you sure you want to delete this order status?','wosci-language'));
       $contents[] = array('text' => '<br><b>' . $cInfo->title . '</b>');
-      $contents[] = array('align' => 'center', 'text' => '<br>' . (($remove_currency) ? '<a class="button" href="' . tep_href_link('wp-admin/admin.php?page=currencies&pageOSI=' . $_GET['pageOSI'] . '&cID=' . $cInfo->currencies_id . '&action=deleteconfirm') . '">'. __('Delete').'</a>' : '') . ' <a class="button" href="' . tep_href_link('wp-admin/admin.php?page=currencies&pageOSI=' . $_GET['pageOSI'] . '&cID=' . $cInfo->currencies_id) . '">'. __('Cancel').'</a>');
+      $contents[] = array('align' => 'center', 'text' => '<br>' . (($remove_currency) ? '<a class="button" href="admin.php?page=currencies&pageOSI=' . $_GET['pageOSI'] . '&cID=' . $cInfo->currencies_id . '&action=deleteconfirm' . '">'. __('Delete','wosci-language').'</a>' : '') . ' <a class="button" href="admin.php?page=currencies&pageOSI=' . $_GET['pageOSI'] . '&cID=' . $cInfo->currencies_id . '">'. __('Cancel','wosci-language').'</a>');
       break;
     default:
       if (is_object($cInfo)) {
         $heading[] = array('text' => '<b>' . $cInfo->title . '</b>');
 
-        $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link('wp-admin/admin.php?page=currencies&pageOSI=' . $_GET['pageOSI'] . '&cID=' . $cInfo->currencies_id . '&action=edit') . '">'. __('Edit').'</a> <a class="button" href="' . tep_href_link('wp-admin/admin.php?page=currencies&pageOSI=' . $_GET['pageOSI'] . '&cID=' . $cInfo->currencies_id . '&action=delete') . '">'. __('Delete').'</a>');
-        $contents[] = array('text' => '<br>' . __('Title','wosci-translation') . ' ' . $cInfo->title);
-        $contents[] = array('text' => __('Code','wosci-translation') . ' ' . $cInfo->code);
-        $contents[] = array('text' => '<br>' . __('Symbol Left','wosci-translation') . ' ' . $cInfo->symbol_left);
-        $contents[] = array('text' => __('Symbol Right','wosci-translation') . ' ' . $cInfo->symbol_right);
-        $contents[] = array('text' => '<br>' . __('Decimal Point','wosci-translation') . ' ' . $cInfo->decimal_point);
-        $contents[] = array('text' => __('Thousand Point','wosci-translation') . ' ' . $cInfo->thousands_point);
-        $contents[] = array('text' => __('Decimal Places','wosci-translation') . ' ' . $cInfo->decimal_places);
-        $contents[] = array('text' => '<br>' . __('Last Update','wosci-translation') . ' ' . tep_date_short($cInfo->last_updated));
-        $contents[] = array('text' => __('Value','wosci-translation') . ' ' . number_format($cInfo->value, 8));
-        $contents[] = array('text' => '<br>' . __('Example','wosci-translation') . ':<br>' . $currencies->format('30', false, DEFAULT_CURRENCY) . ' = ' . $currencies->format('30', true, $cInfo->code));
+        $contents[] = array('align' => 'center', 'text' => '<a class="button" href="admin.php?page=currencies&pageOSI=' . $_GET['pageOSI'] . '&cID=' . $cInfo->currencies_id . '&action=edit' . '">'. __('Edit','wosci-language').'</a> <a class="button" href="admin.php?page=currencies&pageOSI=' . $_GET['pageOSI'] . '&cID=' . $cInfo->currencies_id . '&action=delete' . '">'. __('Delete','wosci-language').'</a>');
+        $contents[] = array('text' => '<br>' . __('Title','wosci-language') . ' ' . $cInfo->title);
+        $contents[] = array('text' => __('Code','wosci-language') . ' ' . $cInfo->code);
+        $contents[] = array('text' => '<br>' . __('Symbol Left','wosci-language') . ' ' . $cInfo->symbol_left);
+        $contents[] = array('text' => __('Symbol Right','wosci-language') . ' ' . $cInfo->symbol_right);
+        $contents[] = array('text' => '<br>' . __('Decimal Point','wosci-language') . ' ' . $cInfo->decimal_point);
+        $contents[] = array('text' => __('Thousand Point','wosci-language') . ' ' . $cInfo->thousands_point);
+        $contents[] = array('text' => __('Decimal Places','wosci-language') . ' ' . $cInfo->decimal_places);
+        $contents[] = array('text' => '<br>' . __('Last Update','wosci-language') . ' ' . tep_date_short($cInfo->last_updated));
+        $contents[] = array('text' => __('Value','wosci-language') . ' ' . number_format($cInfo->value, 8));
+        $contents[] = array('text' => '<br>' . __('Example','wosci-language') . ':<br>' . $currencies->format('30', false, DEFAULT_CURRENCY) . ' = ' . $currencies->format('30', true, $cInfo->code));
       }
       break;
   }
@@ -3097,7 +3109,7 @@ function func_tax_rates(){
 
         tep_db_query("insert into " . TABLE_TAX_RATES . " (tax_zone_id, tax_class_id, tax_rate, tax_description, tax_priority, date_added) values ('" . (int)$tax_zone_id . "', '" . (int)$tax_class_id . "', '" . tep_db_input($tax_rate) . "', '" . tep_db_input($tax_description) . "', '" . tep_db_input($tax_priority) . "', now())");
 
-        tep_redirect(tep_href_link('wp-admin/admin.php?page=tax'));
+        wp_redirect('admin.php?page=tax');
         break;
       case 'save':
         $tax_rates_id = tep_db_prepare_input($_GET['tID']);
@@ -3109,14 +3121,14 @@ function func_tax_rates(){
 
         tep_db_query("update " . TABLE_TAX_RATES . " set tax_rates_id = '" . (int)$tax_rates_id . "', tax_zone_id = '" . (int)$tax_zone_id . "', tax_class_id = '" . (int)$tax_class_id . "', tax_rate = '" . tep_db_input($tax_rate) . "', tax_description = '" . tep_db_input($tax_description) . "', tax_priority = '" . tep_db_input($tax_priority) . "', last_modified = now() where tax_rates_id = '" . (int)$tax_rates_id . "'");
 
-        tep_redirect(tep_href_link('wp-admin/admin.php?page=tax&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $tax_rates_id));
+        wp_redirect('admin.php?page=tax&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $tax_rates_id);
         break;
       case 'deleteconfirm':
         $tax_rates_id = tep_db_prepare_input($_GET['tID']);
 
         tep_db_query("delete from " . TABLE_TAX_RATES . " where tax_rates_id = '" . (int)$tax_rates_id . "'");
 
-        tep_redirect(tep_href_link('wp-admin/admin.php?page=tax&pageOSI=' . $_GET['pageOSI']));
+        wp_redirect('wp-admin/admin.php?page=tax&pageOSI=' . $_GET['pageOSI']);
         break;
     }
   }
@@ -3127,7 +3139,7 @@ function func_tax_rates(){
       <tr>
         <td><table border="0" width="100%" cellspacing="0" cellpadding="0">
           <tr>
-            <td class="wrap"><div id="icon-edit" class="icon32 icon32-posts-product"><br></div><h2><?php echo __('Tax Rates','wosci-translation'); ?></h2></td>
+            <td class="wrap"><div id="icon-edit" class="icon32 icon32-posts-product"><br></div><h2><?php echo __('Tax Rates','wosci-language'); ?></h2></td>
             <td class="pageHeading" align="right"></td>
           </tr>
         </table></td>
@@ -3141,22 +3153,22 @@ function func_tax_rates(){
               <table class="widefat fixed" cellspacing="0">
 <thead>
 <tr class="thead">
-	<th scope="col" id="username" class="manage-column column-username" style=""><?php echo __('Priority','wosci-translation'); ?></th>
-	<th scope="col" id="name" class="manage-column column-name" style=""><?php echo __('Tax Class Title','wosci-translation'); ?></th>
-	<th scope="col" id="email" class="manage-column column-email" style=""><?php echo __('Tax Zone','wosci-translation'); ?></th>
-	<th scope="col" id="role" class="manage-column column-role" style=""><?php echo __('Tax Rate','wosci-translation'); ?></th>
-	<th scope="col" id="posts" class="manage-column column-posts num" style=""><?php echo __('Action','wosci-translation'); ?></th>
+	<th scope="col" id="username" class="manage-column column-username" style=""><?php echo __('Priority','wosci-language'); ?></th>
+	<th scope="col" id="name" class="manage-column column-name" style=""><?php echo __('Tax Class Title','wosci-language'); ?></th>
+	<th scope="col" id="email" class="manage-column column-email" style=""><?php echo __('Tax Zone','wosci-language'); ?></th>
+	<th scope="col" id="role" class="manage-column column-role" style=""><?php echo __('Tax Rate','wosci-language'); ?></th>
+	<th scope="col" id="posts" class="manage-column column-posts num" style=""><?php echo __('Action','wosci-language'); ?></th>
 </tr>
 </thead>
               
               
 <tfoot>
 <tr class="thead">
-	<th scope="col" id="username" class="manage-column column-username" style=""><?php echo __('Priority','wosci-translation'); ?></th>
-	<th scope="col" id="name" class="manage-column column-name" style=""><?php echo __('Tax Class Title','wosci-translation'); ?></th>
-	<th scope="col" id="email" class="manage-column column-email" style=""><?php echo __('Tax Zone','wosci-translation'); ?></th>
-	<th scope="col" id="role" class="manage-column column-role" style=""><?php echo __('Tax Rate','wosci-translation'); ?></th>
-	<th scope="col" id="posts" class="manage-column column-posts num" style=""><?php echo __('Action','wosci-translation'); ?></th>
+	<th scope="col" id="username" class="manage-column column-username" style=""><?php echo __('Priority','wosci-language'); ?></th>
+	<th scope="col" id="name" class="manage-column column-name" style=""><?php echo __('Tax Class Title','wosci-language'); ?></th>
+	<th scope="col" id="email" class="manage-column column-email" style=""><?php echo __('Tax Zone','wosci-language'); ?></th>
+	<th scope="col" id="role" class="manage-column column-role" style=""><?php echo __('Tax Rate','wosci-language'); ?></th>
+	<th scope="col" id="posts" class="manage-column column-posts num" style=""><?php echo __('Action','wosci-language'); ?></th>
 </tr>
 </tfoot>              
               
@@ -3170,16 +3182,16 @@ function func_tax_rates(){
     }
 
     if (isset($trInfo) && is_object($trInfo) && ($rates['tax_rates_id'] == $trInfo->tax_rates_id)) {
-      echo '              <tr id="defaultSelected" class="dataTableRowSelected" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)" onclick="document.location.href=\'' . tep_href_link('wp-admin/admin.php?page=tax&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $trInfo->tax_rates_id . '&action=edit') . '\'">' . "\n";
+      echo '              <tr id="defaultSelected" class="dataTableRowSelected" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)" onclick="document.location.href=\'admin.php?page=tax&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $trInfo->tax_rates_id . '&action=edit' . '\'">' . "\n";
     } else {
-      echo '              <tr class="dataTableRow" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)" onclick="document.location.href=\'' . tep_href_link('wp-admin/admin.php?page=tax&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $rates['tax_rates_id']) . '\'">' . "\n";
+      echo '              <tr class="dataTableRow" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)" onclick="document.location.href=\'admin.php?page=tax&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $rates['tax_rates_id'] . '\'">' . "\n";
     }
 ?>
                 <td class="dataTableContent"><?php echo $rates['tax_priority']; ?></td>
                 <td class="dataTableContent"><?php echo $rates['tax_class_title']; ?></td>
                 <td class="dataTableContent"><?php echo $rates['geo_zone_name']; ?></td>
                 <td class="dataTableContent"><?php echo tep_display_tax_value($rates['tax_rate']); ?>%</td>
-                <td class="dataTableContent" align="right"><?php if (isset($trInfo) && is_object($trInfo) && ($rates['tax_rates_id'] == $trInfo->tax_rates_id)) { echo '▶'; } else { echo '<a href="' . tep_href_link('wp-admin/admin.php?page=tax&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $rates['tax_rates_id']) . '">' . '' . '</a>'; } ?>&nbsp;</td>
+                <td class="dataTableContent" align="right"><?php if (isset($trInfo) && is_object($trInfo) && ($rates['tax_rates_id'] == $trInfo->tax_rates_id)) { echo '▶'; } else { echo '<a href="admin.php?page=tax&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $rates['tax_rates_id'] . '">' . '' . '</a>'; } ?>&nbsp;</td>
               </tr>
 <?php
   }
@@ -3194,7 +3206,7 @@ function func_tax_rates(){
   if (empty($action)) {
 ?>
                   <tr>
-                    <td colspan="5" align="right"><div style="padding:8px;"></div><?php echo '<a class="button" href="' . tep_href_link('wp-admin/admin.php?page=tax&pageOSI=' . $_GET['pageOSI'] . '&action=new') . '">'. __('New Tax Rate').'</a>'; ?></td>
+                    <td colspan="5" align="right"><div style="padding:8px;"></div><?php echo '<a class="button" href="admin.php?page=tax&pageOSI=' . $_GET['pageOSI'] . '&action=new' . '">'. __('New Tax Rate','wosci-language').'</a>'; ?></td>
                   </tr>
 <?php
   }
@@ -3206,44 +3218,44 @@ function func_tax_rates(){
 
   switch ($action) {
     case 'new':
-      $heading[] = array('text' => '<b>' . __('New Tax Rate','wosci-translation') . '</b>');
+      $heading[] = array('text' => '<b>' . __('New Tax Rate','wosci-language') . '</b>');
 
       $contents = array('form' => tep_draw_form('rates', 'admin.php?page=tax&pageOSI=' . $_GET['pageOSI'] . '&action=insert'));
-      $contents[] = array('text' => __('Please enter the new tax class with its related data','wosci-translation'));
-      $contents[] = array('text' => '<br>' . __('Tax Class Title','wosci-translation') . '<br>' . tep_tax_classes_pull_down('name="tax_class_id" style="font-size:10px"'));
-      $contents[] = array('text' => '<br>' . __('Zone','wosci-translation') . '<br>' . tep_geo_zones_pull_down('name="tax_zone_id" style="font-size:10px"'));
-      $contents[] = array('text' => '<br>' . __('Tax Rate (%)','wosci-translation') . '<br>' . tep_draw_input_field('tax_rate'));
-      $contents[] = array('text' => '<br>' . __('Description','wosci-translation') . '<br>' . tep_draw_input_field('tax_description'));
-      $contents[] = array('text' => '<br>' . __('Tax rates at the same priority are added, others are compounded.<br><br>Priority','wosci-translation') . '<br>' . tep_draw_input_field('tax_priority'));
-      $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Insert').'" class="button" />&nbsp;<a class="button" href="' . tep_href_link('wp-admin/admin.php?page=tax&pageOSI=' . $_GET['pageOSI']) . '">'. __('Cancel').'</a>');
+      $contents[] = array('text' => __('Please enter the new tax class with its related data','wosci-language'));
+      $contents[] = array('text' => '<br>' . __('Tax Class Title','wosci-language') . '<br>' . tep_tax_classes_pull_down('name="tax_class_id" style="font-size:10px"'));
+      $contents[] = array('text' => '<br>' . __('Zone','wosci-language') . '<br>' . tep_geo_zones_pull_down('name="tax_zone_id" style="font-size:10px"'));
+      $contents[] = array('text' => '<br>' . __('Tax Rate (%)','wosci-language') . '<br>' . tep_draw_input_field('tax_rate'));
+      $contents[] = array('text' => '<br>' . __('Description','wosci-language') . '<br>' . tep_draw_input_field('tax_description'));
+      $contents[] = array('text' => '<br>' . __('Tax rates at the same priority are added, others are compounded.<br><br>Priority','wosci-language') . '<br>' . tep_draw_input_field('tax_priority'));
+      $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Insert').'" class="button" />&nbsp;<a class="button" href="admin.php?page=tax&pageOSI=' . $_GET['pageOSI'] . '">'. __('Cancel','wosci-language').'</a>');
       break;
     case 'edit':
-      $heading[] = array('text' => '<b>' . __('Edit Tax Rate','wosci-translation') . '</b>');
+      $heading[] = array('text' => '<b>' . __('Edit Tax Rate','wosci-language') . '</b>');
 
       $contents = array('form' => tep_draw_form('rates', 'admin.php?page=tax&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $trInfo->tax_rates_id  . '&action=save'));
-      $contents[] = array('text' => __('Please make any necessary changes','wosci-translation'));
-      $contents[] = array('text' => '<br>' . __('Tax Class Title','wosci-translation') . '<br>' . tep_tax_classes_pull_down('name="tax_class_id" style="font-size:10px"', $trInfo->tax_class_id));
-      $contents[] = array('text' => '<br>' . __('Zone','wosci-translation') . '<br>' . tep_geo_zones_pull_down('name="tax_zone_id" style="font-size:10px"', $trInfo->geo_zone_id));
-      $contents[] = array('text' => '<br>' . __('Tax Rate (%)','wosci-translation') . '<br>' . tep_draw_input_field('tax_rate', $trInfo->tax_rate));
-      $contents[] = array('text' => '<br>' . __('Description','wosci-translation') . '<br>' . tep_draw_input_field('tax_description', $trInfo->tax_description));
-      $contents[] = array('text' => '<br>' . __('Tax rates at the same priority are added, others are compounded.<br><br>Priority','wosci-translation') . '<br>' . tep_draw_input_field('tax_priority', $trInfo->tax_priority));
-      $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Update').'" class="button" />&nbsp;<a class="button" href="' . tep_href_link('wp-admin/admin.php?page=tax&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $trInfo->tax_rates_id) . '">'. __('Cancel').'</a>');
+      $contents[] = array('text' => __('Please make any necessary changes','wosci-language'));
+      $contents[] = array('text' => '<br>' . __('Tax Class Title','wosci-language') . '<br>' . tep_tax_classes_pull_down('name="tax_class_id" style="font-size:10px"', $trInfo->tax_class_id));
+      $contents[] = array('text' => '<br>' . __('Zone','wosci-language') . '<br>' . tep_geo_zones_pull_down('name="tax_zone_id" style="font-size:10px"', $trInfo->geo_zone_id));
+      $contents[] = array('text' => '<br>' . __('Tax Rate (%)','wosci-language') . '<br>' . tep_draw_input_field('tax_rate', $trInfo->tax_rate));
+      $contents[] = array('text' => '<br>' . __('Description','wosci-language') . '<br>' . tep_draw_input_field('tax_description', $trInfo->tax_description));
+      $contents[] = array('text' => '<br>' . __('Tax rates at the same priority are added, others are compounded.<br><br>Priority','wosci-language') . '<br>' . tep_draw_input_field('tax_priority', $trInfo->tax_priority));
+      $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Update').'" class="button" />&nbsp;<a class="button" href="admin.php?page=tax&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $trInfo->tax_rates_id . '">'. __('Cancel','wosci-language').'</a>');
       break;
     case 'delete':
-      $heading[] = array('text' => '<b>' . __('Delete Tax Rate','wosci-translation') . '</b>');
+      $heading[] = array('text' => '<b>' . __('Delete Tax Rate','wosci-language') . '</b>');
 
       $contents = array('form' => tep_draw_form('rates', 'admin.php?page=tax&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $trInfo->tax_rates_id  . '&action=deleteconfirm'));
-      $contents[] = array('text' => __('Are you sure you want to delete this tax rate?','wosci-translation'));
+      $contents[] = array('text' => __('Are you sure you want to delete this tax rate?','wosci-language'));
       $contents[] = array('text' => '<br><b>' . $trInfo->tax_class_title . ' ' . number_format($trInfo->tax_rate, TAX_DECIMAL_PLACES) . '%</b>');
-      $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Remove').'" class="button" />&nbsp;<a class="button" href="' . tep_href_link('wp-admin/admin.php?page=tax&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $trInfo->tax_rates_id) . '">'. __('Cancel').'</a>');
+      $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Remove').'" class="button" />&nbsp;<a class="button" href="admin.php?page=tax&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $trInfo->tax_rates_id . '">'. __('Cancel','wosci-language').'</a>');
       break;
     default:
       if (is_object($trInfo)) {
         $heading[] = array('text' => '<b>' . $trInfo->tax_class_title . '</b>');
-        $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link('wp-admin/admin.php?page=tax&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $trInfo->tax_rates_id . '&action=edit') . '">'. __('Edit').'</a> <a class="button" href="' . tep_href_link('wp-admin/admin.php?page=tax&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $trInfo->tax_rates_id . '&action=delete') . '">'. __('Delete').'</a>');
-        $contents[] = array('text' => '<br>' . __('Date Added','wosci-translation') . ': ' . tep_date_short($trInfo->date_added));
-        $contents[] = array('text' => '' . __('Last Modified','wosci-translation') . ': ' . tep_date_short($trInfo->last_modified));
-        $contents[] = array('text' => '<br>' . __('Description','wosci-translation') . ':<br>' . $trInfo->tax_description);
+        $contents[] = array('align' => 'center', 'text' => '<a class="button" href="admin.php?page=tax&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $trInfo->tax_rates_id . '&action=edit' . '">'. __('Edit','wosci-language').'</a> <a class="button" href="admin.php?page=tax&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $trInfo->tax_rates_id . '&action=delete' . '">'. __('Delete','wosci-language').'</a>');
+        $contents[] = array('text' => '<br>' . __('Date Added','wosci-language') . ': ' . tep_date_short($trInfo->date_added));
+        $contents[] = array('text' => '' . __('Last Modified','wosci-language') . ': ' . tep_date_short($trInfo->last_modified));
+        $contents[] = array('text' => '<br>' . __('Description','wosci-language') . ':<br>' . $trInfo->tax_description);
       }
       break;
   }
@@ -3277,7 +3289,7 @@ function func_tax_classes(){
 
         tep_db_query("insert into " . TABLE_TAX_CLASS . " (tax_class_title, tax_class_description, date_added) values ('" . tep_db_input($tax_class_title) . "', '" . tep_db_input($tax_class_description) . "', now())");
 
-        tep_redirect(tep_href_link('wp-admin/admin.php?page=tax_classes'));
+        wp_redirect('wp-admin/admin.php?page=tax_classes');
         break;
       case 'save':
         $tax_class_id = tep_db_prepare_input($_GET['tID']);
@@ -3286,14 +3298,14 @@ function func_tax_classes(){
 
         tep_db_query("update " . TABLE_TAX_CLASS . " set tax_class_id = '" . (int)$tax_class_id . "', tax_class_title = '" . tep_db_input($tax_class_title) . "', tax_class_description = '" . tep_db_input($tax_class_description) . "', last_modified = now() where tax_class_id = '" . (int)$tax_class_id . "'");
 
-        tep_redirect(tep_href_link('wp-admin/admin.php?page=tax_classes&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $tax_class_id));
+        wp_redirect('admin.php?page=tax_classes&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $tax_class_id);
         break;
       case 'deleteconfirm':
         $tax_class_id = tep_db_prepare_input($_GET['tID']);
 
         tep_db_query("delete from " . TABLE_TAX_CLASS . " where tax_class_id = '" . (int)$tax_class_id . "'");
 
-        tep_redirect(tep_href_link('wp-admin/admin.php?page=tax_classes&pageOSI=' . $_GET['pageOSI']));
+        wp_redirect('admin.php?page=tax_classes&pageOSI=' . $_GET['pageOSI']);
         break;
     }
   }
@@ -3303,7 +3315,7 @@ function func_tax_classes(){
       <tr>
         <td><table border="0" width="100%" cellspacing="0" cellpadding="0">
           <tr>
-            <td class="wrap"><div id="icon-edit" class="icon32 icon32-posts-product"><br></div><h2><?php echo __('Tax Classes','wosci-translation'); ?></h2></td>
+            <td class="wrap"><div id="icon-edit" class="icon32 icon32-posts-product"><br></div><h2><?php echo __('Tax Classes','wosci-language'); ?></h2></td>
             <td class="wrap" align="right"></td>
           </tr>
         </table></td>
@@ -3320,8 +3332,8 @@ function func_tax_classes(){
 <thead>
 <tr class="thead">
 	
-	<th scope="col" id="username" class="manage-column column-username" style=""><?php echo __('Tax Classes','wosci-translation'); ?></th>
-	<th scope="col" id="name" class="manage-column column-name" style=""><?php echo __('Action','wosci-translation'); ?></th>
+	<th scope="col" id="username" class="manage-column column-username" style=""><?php echo __('Tax Classes','wosci-language'); ?></th>
+	<th scope="col" id="name" class="manage-column column-name" style=""><?php echo __('Action','wosci-language'); ?></th>
 
 </tr>
 </thead>
@@ -3329,8 +3341,8 @@ function func_tax_classes(){
 <tfoot>
 <tr class="thead">
 	
-	<th scope="col" id="username" class="manage-column column-username" style=""><?php echo __('Tax Classes','wosci-translation'); ?></th>
-	<th scope="col" id="name" class="manage-column column-name" style=""><?php echo __('Action','wosci-translation'); ?></th>
+	<th scope="col" id="username" class="manage-column column-username" style=""><?php echo __('Tax Classes','wosci-language'); ?></th>
+	<th scope="col" id="name" class="manage-column column-name" style=""><?php echo __('Action','wosci-language'); ?></th>
 
 </tr>
 </tfoot>              
@@ -3345,13 +3357,13 @@ function func_tax_classes(){
     }
 
     if (isset($tcInfo) && is_object($tcInfo) && ($classes['tax_class_id'] == $tcInfo->tax_class_id)) {
-      echo '              <tr id="defaultSelected" class="dataTableRowSelected" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)" onclick="document.location.href=\'' . tep_href_link('wp-admin/admin.php?page=tax_classes&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $tcInfo->tax_class_id . '&action=edit') . '\'">' . "\n";
+      echo '              <tr id="defaultSelected" class="dataTableRowSelected" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)" onclick="document.location.href=\'admin.php?page=tax_classes&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $tcInfo->tax_class_id . '&action=edit' . '\'">' . "\n";
     } else {
-      echo'              <tr class="dataTableRow" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)" onclick="document.location.href=\'' . tep_href_link('wp-admin/admin.php?page=tax_classes&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $classes['tax_class_id']) . '\'">' . "\n";
+      echo'              <tr class="dataTableRow" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)" onclick="document.location.href=\'admin.php?page=tax_classes&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $classes['tax_class_id'] . '\'">' . "\n";
     }
 ?>
                 <td class="dataTableContent"><?php echo $classes['tax_class_title']; ?></td>
-                <td class="dataTableContent" align="right"><?php if (isset($tcInfo) && is_object($tcInfo) && ($classes['tax_class_id'] == $tcInfo->tax_class_id)) { echo '▶'; } else { echo '<a href="' . tep_href_link('wp-admin/admin.php?page=tax_classes&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $classes['tax_class_id']) . '"></a>'; } ?>&nbsp;</td>
+                <td class="dataTableContent" align="right"><?php if (isset($tcInfo) && is_object($tcInfo) && ($classes['tax_class_id'] == $tcInfo->tax_class_id)) { echo '▶'; } else { echo '<a href="admin.php?page=tax_classes&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $classes['tax_class_id'] . '"></a>'; } ?>&nbsp;</td>
               </tr>
 <?php
   }
@@ -3366,7 +3378,7 @@ function func_tax_classes(){
   if (empty($action)) {
 ?>
                   <tr>
-                    <td colspan="2" align="right"><div style="padding:8px;"></div><?php echo '<a class="button" href="' . tep_href_link('wp-admin/admin.php?page=tax_classes&pageOSI=' . $_GET['pageOSI'] . '&action=new') . '">'. __('New Tax Class').'</a>'; ?></td>
+                    <td colspan="2" align="right"><div style="padding:8px;"></div><?php echo '<a class="button" href="admin.php?page=tax_classes&pageOSI=' . $_GET['pageOSI'] . '&action=new' . '">'. __('New Tax Class','wosci-language').'</a>'; ?></td>
                   </tr>
 <?php
   }
@@ -3378,39 +3390,39 @@ function func_tax_classes(){
 
   switch ($action) {
     case 'new':
-      $heading[] = array('text' => '<b>' . __('New Tax Class','wosci-translation') . '</b>');
+      $heading[] = array('text' => '<b>' . __('New Tax Class','wosci-language') . '</b>');
 
       $contents = array('form' => tep_draw_form('classes', 'admin.php?page=tax_classes&pageOSI=' . $_GET['pageOSI'] . '&action=insert'));
-      $contents[] = array('text' => __('Please enter the new tax class with its related data','wosci-translation'));
-      $contents[] = array('text' => '<br>' . __('Tax Class Title','wosci-translation') . '<br>' . tep_draw_input_field('tax_class_title'));
-      $contents[] = array('text' => '<br>' . __('Description','wosci-translation') . '<br>' . tep_draw_input_field('tax_class_description'));
-      $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Insert').'" class="button" />&nbsp;<a class="button" href="' . tep_href_link('wp-admin/admin.php?page=tax_classes&pageOSI=' . $_GET['pageOSI']) . '">'. __('Cancel').'</a>');
+      $contents[] = array('text' => __('Please enter the new tax class with its related data','wosci-language'));
+      $contents[] = array('text' => '<br>' . __('Tax Class Title','wosci-language') . '<br>' . tep_draw_input_field('tax_class_title'));
+      $contents[] = array('text' => '<br>' . __('Description','wosci-language') . '<br>' . tep_draw_input_field('tax_class_description'));
+      $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Insert').'" class="button" />&nbsp;<a class="button" href="admin.php?page=tax_classes&pageOSI=' . $_GET['pageOSI'] . '">'. __('Cancel','wosci-language').'</a>');
       break;
     case 'edit':
-      $heading[] = array('text' => '<b>' . __('Edit Tax Class','wosci-translation') . '</b>');
+      $heading[] = array('text' => '<b>' . __('Edit Tax Class','wosci-language') . '</b>');
 
       $contents = array('form' => tep_draw_form('classes', 'admin.php?page=tax_classes&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $tcInfo->tax_class_id . '&action=save'));
-      $contents[] = array('text' => __('Please make any necessary changes','wosci-translation'));
-      $contents[] = array('text' => '<br>' . __('Tax Class Title','wosci-translation') . '<br>' . tep_draw_input_field('tax_class_title', $tcInfo->tax_class_title));
-      $contents[] = array('text' => '<br>' . __('Description','wosci-translation') . '<br>' . tep_draw_input_field('tax_class_description', $tcInfo->tax_class_description));
-      $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Update').'" class="button" />&nbsp;<a class="button" href="' . tep_href_link('wp-admin/admin.php?page=tax_classes&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $tcInfo->tax_class_id) . '">'. __('Cancel').'</a>');
+      $contents[] = array('text' => __('Please make any necessary changes','wosci-language'));
+      $contents[] = array('text' => '<br>' . __('Tax Class Title','wosci-language') . '<br>' . tep_draw_input_field('tax_class_title', $tcInfo->tax_class_title));
+      $contents[] = array('text' => '<br>' . __('Description','wosci-language') . '<br>' . tep_draw_input_field('tax_class_description', $tcInfo->tax_class_description));
+      $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Update').'" class="button" />&nbsp;<a class="button" href="admin.php?page=tax_classes&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $tcInfo->tax_class_id . '">'. __('Cancel','wosci-language').'</a>');
       break;
     case 'delete':
-      $heading[] = array('text' => '<b>' . __('Delete Tax Class','wosci-translation') . '</b>');
+      $heading[] = array('text' => '<b>' . __('Delete Tax Class','wosci-language') . '</b>');
 
       $contents = array('form' => tep_draw_form('classes', 'admin.php?page=tax_classes&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $tcInfo->tax_class_id . '&action=deleteconfirm'));
-      $contents[] = array('text' => __('Are you sure you want to delete this tax class?','wosci-translation'));
+      $contents[] = array('text' => __('Are you sure you want to delete this tax class?','wosci-language'));
       $contents[] = array('text' => '<br><b>' . $tcInfo->tax_class_title . '</b>');
-      $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Remove').'" class="button" />&nbsp;<a class="button" href="' . tep_href_link('wp-admin/admin.php?page=tax_classes&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $tcInfo->tax_class_id) . '">'. __('Cancel').'</a>');
+      $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Remove').'" class="button" />&nbsp;<a class="button" href="admin.php?page=tax_classes&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $tcInfo->tax_class_id . '">'. __('Cancel','wosci-language').'</a>');
       break;
     default:
       if (isset($tcInfo) && is_object($tcInfo)) {
         $heading[] = array('text' => '<b>' . $tcInfo->tax_class_title . '</b>');
 
-        $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link('wp-admin/admin.php?page=tax_classes&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $tcInfo->tax_class_id . '&action=edit') . '">'. __('Edit').'</a> <a class="button" href="' . tep_href_link('wp-admin/admin.php?page=tax_classes&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $tcInfo->tax_class_id . '&action=delete') . '">'. __('Delete').'</a>');
-        $contents[] = array('text' => '<br>' . __('Date Added','wosci-translation') . ': ' . tep_date_short($tcInfo->date_added));
-        $contents[] = array('text' => '' . __('Last Modified','wosci-translation') . ': ' . tep_date_short($tcInfo->last_modified));
-        $contents[] = array('text' => '<br>' . __('Description','wosci-translation') . ':<br>' . $tcInfo->tax_class_description);
+        $contents[] = array('align' => 'center', 'text' => '<a class="button" href="admin.php?page=tax_classes&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $tcInfo->tax_class_id . '&action=edit' . '">'. __('Edit','wosci-language').'</a> <a class="button" href="admin.php?page=tax_classes&pageOSI=' . $_GET['pageOSI'] . '&tID=' . $tcInfo->tax_class_id . '&action=delete' . '">'. __('Delete','wosci-language').'</a>');
+        $contents[] = array('text' => '<br>' . __('Date Added','wosci-language') . ': ' . tep_date_short($tcInfo->date_added));
+        $contents[] = array('text' => '' . __('Last Modified','wosci-language') . ': ' . tep_date_short($tcInfo->last_modified));
+        $contents[] = array('text' => '<br>' . __('Description','wosci-language') . ':<br>' . $tcInfo->tax_class_description);
       }
       break;
   }
@@ -3445,7 +3457,7 @@ $languages_id = 1;
         tep_db_query("insert into " . TABLE_ZONES_TO_GEO_ZONES . " (zone_country_id, zone_id, geo_zone_id, date_added) values ('" . (int)$zone_country_id . "', '" . (int)$zone_id . "', '" . (int)$zID . "', now())");
         $new_subzone_id = tep_db_insert_id();
 
-        tep_redirect(tep_href_link('wp-admin/admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=list&spage=' . $_GET['spage'] . '&sID=' . $new_subzone_id));
+        wp_redirect('admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=list&spage=' . $_GET['spage'] . '&sID=' . $new_subzone_id);
         break;
       case 'save_sub':
         $sID = tep_db_prepare_input($_GET['sID']);
@@ -3455,14 +3467,14 @@ $languages_id = 1;
 
         tep_db_query("update " . TABLE_ZONES_TO_GEO_ZONES . " set geo_zone_id = '" . (int)$zID . "', zone_country_id = '" . (int)$zone_country_id . "', zone_id = " . (tep_not_null($zone_id) ? "'" . (int)$zone_id . "'" : 'null') . ", last_modified = now() where association_id = '" . (int)$sID . "'");
 
-        tep_redirect(tep_href_link('wp-admin/admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=list&spage=' . $_GET['spage'] . '&sID=' . $_GET['sID']));
+        wp_redirect('admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=list&spage=' . $_GET['spage'] . '&sID=' . $_GET['sID']);
         break;
       case 'deleteconfirm_sub':
         $sID = tep_db_prepare_input($_GET['sID']);
 
         tep_db_query("delete from " . TABLE_ZONES_TO_GEO_ZONES . " where association_id = '" . (int)$sID . "'");
 
-        tep_redirect(tep_href_link('wp-admin/admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=list&spage=' . $_GET['spage']));
+        wp_redirect('admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=list&spage=' . $_GET['spage']);
         break;
     }
   }
@@ -3478,7 +3490,7 @@ $languages_id = 1;
         tep_db_query("insert into " . TABLE_GEO_ZONES . " (geo_zone_name, geo_zone_description, date_added) values ('" . tep_db_input($geo_zone_name) . "', '" . tep_db_input($geo_zone_description) . "', now())");
         $new_zone_id = tep_db_insert_id();
 
-        tep_redirect(tep_href_link('wp-admin/admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $new_zone_id));
+        wp_redirect('admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $new_zone_id);
         break;
       case 'save_zone':
         $zID = tep_db_prepare_input($_GET['zID']);
@@ -3487,7 +3499,7 @@ $languages_id = 1;
 
         tep_db_query("update " . TABLE_GEO_ZONES . " set geo_zone_name = '" . tep_db_input($geo_zone_name) . "', geo_zone_description = '" . tep_db_input($geo_zone_description) . "', last_modified = now() where geo_zone_id = '" . (int)$zID . "'");
 
-        tep_redirect(tep_href_link('wp-admin/admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID']));
+        wp_redirect('admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID']);
         break;
       case 'deleteconfirm_zone':
         $zID = tep_db_prepare_input($_GET['zID']);
@@ -3495,7 +3507,7 @@ $languages_id = 1;
         tep_db_query("delete from " . TABLE_GEO_ZONES . " where geo_zone_id = '" . (int)$zID . "'");
         tep_db_query("delete from " . TABLE_ZONES_TO_GEO_ZONES . " where geo_zone_id = '" . (int)$zID . "'");
 
-        tep_redirect(tep_href_link('wp-admin/admin.php?page=tax_zones&zpage=' . $_GET['zpage']));
+        wp_redirect('admin.php?page=tax_zones&zpage=' . $_GET['zpage']);
         break;
     }
   }
@@ -3537,7 +3549,7 @@ function update_zone(theForm) {
       <tr>
         <td width="100%"><table border="0" width="100%" cellspacing="0" cellpadding="0">
           <tr>
-            <td class="wrap"><div id="icon-edit" class="icon32 icon32-posts-product"><br></div><h2><?php echo __('Tax Zones','wosci-translation'); if (isset($_GET['zone'])) echo '<br><span class="smallText">' . tep_get_geo_zone_name($_GET['zone']) . '</span>'; ?></h2></td>
+            <td class="wrap"><div id="icon-edit" class="icon32 icon32-posts-product"><br></div><h2><?php echo __('Tax Zones','wosci-language'); if (isset($_GET['zone'])) echo '<br><span class="smallText">' . tep_get_geo_zone_name($_GET['zone']) . '</span>'; ?></h2></td>
             <td class="wrap" align="right"></td>
           </tr>
         </table></td>
@@ -3556,17 +3568,17 @@ function update_zone(theForm) {
               <table class="widefat fixed" cellspacing="0">
 <thead>
 <tr class="thead">	
-	<th scope="col" id="username" class="manage-column column-username" style=""><?php echo __('Country','wosci-translation'); ?></th>
-	<th scope="col" id="name" class="manage-column column-name" style=""><?php echo __('Country Zone','wosci-translation'); ?></th>
-	<th scope="col" id="email" class="manage-column column-email" style=""><?php echo __('Action','wosci-translation'); ?></th>
+	<th scope="col" id="username" class="manage-column column-username" style=""><?php echo __('Country','wosci-language'); ?></th>
+	<th scope="col" id="name" class="manage-column column-name" style=""><?php echo __('Country Zone','wosci-language'); ?></th>
+	<th scope="col" id="email" class="manage-column column-email" style=""><?php echo __('Action','wosci-language'); ?></th>
 </tr>
 </thead>
            
       <tfoot>
 <tr class="thead">
-	<th scope="col" id="username" class="manage-column column-username" style=""><?php echo __('Country','wosci-translation'); ?></th>
-	<th scope="col" id="name" class="manage-column column-name" style=""><?php echo __('Country Zone','wosci-translation'); ?></th>
-	<th scope="col" id="email" class="manage-column column-email" style=""><?php echo __('Action','wosci-translation'); ?></th>
+	<th scope="col" id="username" class="manage-column column-username" style=""><?php echo __('Country','wosci-language'); ?></th>
+	<th scope="col" id="name" class="manage-column column-name" style=""><?php echo __('Country Zone','wosci-language'); ?></th>
+	<th scope="col" id="email" class="manage-column column-email" style=""><?php echo __('Action','wosci-language'); ?></th>
 </tr>
 </tfoot>     
            
@@ -3582,14 +3594,14 @@ function update_zone(theForm) {
         $sInfo = new objectInfo($zones);
       }
       if (isset($sInfo) && is_object($sInfo) && ($zones['association_id'] == $sInfo->association_id)) {
-        echo '                  <tr id="defaultSelected" class="dataTableRowSelected" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)" onclick="document.location.href=\'' . tep_href_link('wp-admin/admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=list&spage=' . $_GET['spage'] . '&sID=' . $sInfo->association_id . '&saction=edit') . '\'">' . "\n";
+        echo '                  <tr id="defaultSelected" class="dataTableRowSelected" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)" onclick="document.location.href=\'admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=list&spage=' . $_GET['spage'] . '&sID=' . $sInfo->association_id . '&saction=edit' . '\'">' . "\n";
       } else {
-        echo '                  <tr class="dataTableRow" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)" onclick="document.location.href=\'' . tep_href_link('wp-admin/admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=list&spage=' . $_GET['spage'] . '&sID=' . $zones['association_id']) . '\'">' . "\n";
+        echo '                  <tr class="dataTableRow" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)" onclick="document.location.href=\'admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=list&spage=' . $_GET['spage'] . '&sID=' . $zones['association_id'] . '\'">' . "\n";
       }
 ?>
-                <td class="dataTableContent"><?php echo (($zones['countries_name']) ? $zones['countries_name'] : __('All Countries','wosci-translation')); ?></td>
-                <td class="dataTableContent"><?php echo (($zones['zone_id']) ? $zones['zone_name'] : __('All Zones','wosci-translation')); ?></td>
-                <td class="dataTableContent" align="right"><?php if (isset($sInfo) && is_object($sInfo) && ($zones['association_id'] == $sInfo->association_id)) { echo '▶'; } else { echo '<a href="' . tep_href_link('wp-admin/admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=list&spage=' . $_GET['spage'] . '&sID=' . $zones['association_id']) . '"></a>'; } ?>&nbsp;</td>
+                <td class="dataTableContent"><?php echo (($zones['countries_name']) ? $zones['countries_name'] : __('All Countries','wosci-language')); ?></td>
+                <td class="dataTableContent"><?php echo (($zones['zone_id']) ? $zones['zone_name'] : __('All Zones','wosci-language')); ?></td>
+                <td class="dataTableContent" align="right"><?php if (isset($sInfo) && is_object($sInfo) && ($zones['association_id'] == $sInfo->association_id)) { echo '▶'; } else { echo '<a href="admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=list&spage=' . $_GET['spage'] . '&sID=' . $zones['association_id'] . '"></a>'; } ?>&nbsp;</td>
               </tr>
 <?php
     }
@@ -3602,7 +3614,7 @@ function update_zone(theForm) {
                 </table>
                 <table border="0" width="100%" cellspacing="0" cellpadding="2">
               <tr>
-                <td></td><td style="padding-top:16px;" align="right"><?php if (empty($saction)) echo '<a class="button" href="' . tep_href_link('wp-admin/admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID']) . '">'. __('Back').'</a> <a class="button" href="' . tep_href_link('wp-admin/admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=list&spage=' . $_GET['spage'] . '&' . (isset($sInfo) ? 'sID=' . $sInfo->association_id . '&' : '') . 'saction=new') . '">'. __('Insert').'</a>'; ?></td>
+                <td></td><td style="padding-top:16px;" align="right"><?php if (empty($saction)) echo '<a class="button" href="admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '">'. __('Back','wosci-language').'</a> <a class="button" href="admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=list&spage=' . $_GET['spage'] . '&' . (isset($sInfo) ? 'sID=' . $sInfo->association_id . '&' : '') . 'saction=new' . '">'. __('Insert','wosci-language').'</a>'; ?></td>
               </tr>
             </table>
 <?php
@@ -3616,8 +3628,8 @@ function update_zone(theForm) {
 <thead>
 <tr class="thead">
 	
-	<th scope="col" id="email" class="manage-column column-email" style=""><?php echo __('Tax Zone','wosci-translation'); ?></th>
-	<th scope="col" id="role" class="manage-column column-role" style=""><?php echo __('Action','wosci-translation'); ?></th>
+	<th scope="col" id="email" class="manage-column column-email" style=""><?php echo __('Tax Zone','wosci-language'); ?></th>
+	<th scope="col" id="role" class="manage-column column-role" style=""><?php echo __('Action','wosci-language'); ?></th>
 
 </tr>
 </thead>
@@ -3625,8 +3637,8 @@ function update_zone(theForm) {
        <tfoot>
 <tr class="thead">
 	
-	<th scope="col" id="email" class="manage-column column-email" style=""><?php echo __('Tax Zone','wosci-translation'); ?></th>
-	<th scope="col" id="role" class="manage-column column-role" style=""><?php echo __('Action','wosci-translation'); ?></th>
+	<th scope="col" id="email" class="manage-column column-email" style=""><?php echo __('Tax Zone','wosci-language'); ?></th>
+	<th scope="col" id="role" class="manage-column column-role" style=""><?php echo __('Action','wosci-language'); ?></th>
 
 </tr>
 </tfoot>       
@@ -3649,13 +3661,13 @@ function update_zone(theForm) {
         $zInfo = new objectInfo($zones);
       }
       if (isset($zInfo) && is_object($zInfo) && ($zones['geo_zone_id'] == $zInfo->geo_zone_id)) {
-        echo '                  <tr id="defaultSelected" class="dataTableRowSelected" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)" onclick="document.location.href=\'' . tep_href_link('wp-admin/admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $zInfo->geo_zone_id . '&action=list') . '\'">' . "\n";
+        echo '                  <tr id="defaultSelected" class="dataTableRowSelected" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)" onclick="document.location.href=\'admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $zInfo->geo_zone_id . '&action=list' . '\'">' . "\n";
       } else {
-        echo '                  <tr class="dataTableRow" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)" onclick="document.location.href=\'' . tep_href_link('wp-admin/admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $zones['geo_zone_id']) . '\'">' . "\n";
+        echo '                  <tr class="dataTableRow" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)" onclick="document.location.href=\'admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $zones['geo_zone_id'] . '\'">' . "\n";
       }
 ?>
-                <td class="dataTableContent"><?php echo '<a href="' . tep_href_link('wp-admin/admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $zones['geo_zone_id'] . '&action=list') . '"><img src="' . WP_PLUGIN_URL .'/'. basename( dirname( __FILE__ ) ) . '/images/folder.png"></a>&nbsp;' . $zones['geo_zone_name']; ?></td>
-                <td class="dataTableContent" align="right"><?php if (isset($zInfo) && is_object($zInfo) && ($zones['geo_zone_id'] == $zInfo->geo_zone_id)) { echo '▶'; } else { echo '<a href="' . tep_href_link('wp-admin/admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $zones['geo_zone_id']) . '"></a>'; } ?>&nbsp;</td>
+                <td class="dataTableContent"><?php echo '<a href="admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $zones['geo_zone_id'] . '&action=list' . '"><img src="' . WP_PLUGIN_URL .'/'. basename( dirname( __FILE__ ) ) . '/images/folder.png"></a>&nbsp;' . $zones['geo_zone_name']; ?></td>
+                <td class="dataTableContent" align="right"><?php if (isset($zInfo) && is_object($zInfo) && ($zones['geo_zone_id'] == $zInfo->geo_zone_id)) { echo '▶'; } else { echo '<a href="admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $zones['geo_zone_id'] . '"></a>'; } ?>&nbsp;</td>
               </tr>
 <?php
     }
@@ -3667,7 +3679,7 @@ function update_zone(theForm) {
                     <td class="smallText"><?php //echo $zones_split->display_count($zones_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, $_GET['zpage'], TEXT_DISPLAY_NUMBER_OF_TAX_ZONES); ?></td>
                     <td class="smallText" align="right"><?php //echo $zones_split->display_links($zones_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, MAX_DISPLAY_PAGE_LINKS, $_GET['zpage'], '', 'zpage'); ?></td>
                   </tr><tr>
-                <td align="right" colspan="2"><div style="padding:8px;"></div><?php if (!$action) echo '<a class="button" href="' . tep_href_link('wp-admin/admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $zInfo->geo_zone_id . '&action=new_zone') . '">'. __('Insert').'</a>'; ?></td>
+                <td align="right" colspan="2"><div style="padding:8px;"></div><?php if (!$action) echo '<a class="button" href="admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $zInfo->geo_zone_id . '&action=new_zone' . '">'. __('Insert','wosci-language').'</a>'; ?></td>
               </tr>
                 </table>
 <?php
@@ -3681,78 +3693,78 @@ function update_zone(theForm) {
   if ($action == 'list') {
     switch ($saction) {
       case 'new':
-        $heading[] = array('text' => '<b>' . __('New Sub Zone','wosci-translation') . '</b>');
+        $heading[] = array('text' => '<b>' . __('New Sub Zone','wosci-language') . '</b>');
 
         $contents = array('form' => tep_draw_form('zones', 'admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=list&spage=' . $_GET['spage'] . '&' . (isset($_GET['sID']) ? 'sID=' . $_GET['sID'] . '&' : '') . 'saction=insert_sub'));
-        $contents[] = array('text' => __('Please enter the new sub zone information','wosci-translation'));
-        $contents[] = array('text' => '<br>' . __('Country','wosci-translation') . '<br>' . tep_draw_pull_down_menu('zone_country_id', tep_get_countries2(__('All Countries','wosci-translation')), '', 'onChange="update_zone(this.form);"'));
-        $contents[] = array('text' => '<br>' . __('Zone','wosci-translation') . '<br>' . tep_draw_pull_down_menu('zone_id', tep_prepare_country_zones_pull_down()));
-        $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Insert').'" class="button" /> <a class="button" href="' . tep_href_link('wp-admin/admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=list&spage=' . $_GET['spage'] . '&' . (isset($_GET['sID']) ? 'sID=' . $_GET['sID'] : '')) . '">'. __('Cancel').'</a>');
+        $contents[] = array('text' => __('Please enter the new sub zone information','wosci-language'));
+        $contents[] = array('text' => '<br>' . __('Country','wosci-language') . '<br>' . tep_draw_pull_down_menu('zone_country_id', tep_get_countries2(__('All Countries','wosci-language')), '', 'onChange="update_zone(this.form);"'));
+        $contents[] = array('text' => '<br>' . __('Zone','wosci-language') . '<br>' . tep_draw_pull_down_menu('zone_id', tep_prepare_country_zones_pull_down()));
+        $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Insert').'" class="button" /> <a class="button" href="admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=list&spage=' . $_GET['spage'] . '&' . (isset($_GET['sID']) ? 'sID=' . $_GET['sID'] : '') . '">'. __('Cancel','wosci-language').'</a>');
         break;
       case 'edit':
-        $heading[] = array('text' => '<b>' . __('Edit Sub Zone','wosci-translation') . '</b>');
+        $heading[] = array('text' => '<b>' . __('Edit Sub Zone','wosci-language') . '</b>');
 
         $contents = array('form' => tep_draw_form('zones', 'admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=list&spage=' . $_GET['spage'] . '&sID=' . $sInfo->association_id . '&saction=save_sub'));
-        $contents[] = array('text' => __('Please make any necessary changes','wosci-translation'));
-        $contents[] = array('text' => '<br>' . __('Country','wosci-translation') . '<br>' . tep_draw_pull_down_menu('zone_country_id', tep_get_countries2(__('All Countries','wosci-translation')), $sInfo->zone_country_id, 'onChange="update_zone(this.form);"'));
-        $contents[] = array('text' => '<br>' . __('Zone','wosci-translation') . '<br>' . tep_draw_pull_down_menu('zone_id', tep_prepare_country_zones_pull_down($sInfo->zone_country_id), $sInfo->zone_id));
-        $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Update').'" class="button" /> <a class="button" href="' . tep_href_link('wp-admin/admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=list&spage=' . $_GET['spage'] . '&sID=' . $sInfo->association_id) . '">'. __('Cancel').'</a>');
+        $contents[] = array('text' => __('Please make any necessary changes','wosci-language'));
+        $contents[] = array('text' => '<br>' . __('Country','wosci-language') . '<br>' . tep_draw_pull_down_menu('zone_country_id', tep_get_countries2(__('All Countries','wosci-language')), $sInfo->zone_country_id, 'onChange="update_zone(this.form);"'));
+        $contents[] = array('text' => '<br>' . __('Zone','wosci-language') . '<br>' . tep_draw_pull_down_menu('zone_id', tep_prepare_country_zones_pull_down($sInfo->zone_country_id), $sInfo->zone_id));
+        $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Update','wosci-language').'" class="button" /> <a class="button" href="admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=list&spage=' . $_GET['spage'] . '&sID=' . $sInfo->association_id . '">'. __('Cancel','wosci-language').'</a>');
         break;
       case 'delete':
-        $heading[] = array('text' => '<b>' . __('Delete Sub Zone','wosci-translation') . '</b>');
+        $heading[] = array('text' => '<b>' . __('Delete Sub Zone','wosci-language') . '</b>');
 
         $contents = array('form' => tep_draw_form('zones', 'admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=list&spage=' . $_GET['spage'] . '&sID=' . $sInfo->association_id . '&saction=deleteconfirm_sub'));
-        $contents[] = array('text' => __('Are you sure you want to delete this sub zone?','wosci-translation'));
+        $contents[] = array('text' => __('Are you sure you want to delete this sub zone?','wosci-language'));
         $contents[] = array('text' => '<br><b>' . $sInfo->countries_name . '</b>');
-        $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Remove').'" class="button" /> <a class="button" href="' . tep_href_link('wp-admin/admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=list&spage=' . $_GET['spage'] . '&sID=' . $sInfo->association_id) . '">'. __('Cancel').'</a>');
+        $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Remove').'" class="button" /> <a class="button" href="admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=list&spage=' . $_GET['spage'] . '&sID=' . $sInfo->association_id . '">'. __('Cancel').'</a>');
         break;
       default:
         if (isset($sInfo) && is_object($sInfo)) {
           $heading[] = array('text' => '<b>' . $sInfo->countries_name . '</b>');
 
-          $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link('wp-admin/admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=list&spage=' . $_GET['spage'] . '&sID=' . $sInfo->association_id . '&saction=edit') . '">'. __('Edit').'</a> <a class="button" href="' . tep_href_link('wp-admin/admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=list&spage=' . $_GET['spage'] . '&sID=' . $sInfo->association_id . '&saction=delete') . '">'. __('Delete').'</a>');
-          $contents[] = array('text' => '<br>' . __('Date Added','wosci-translation') . ': ' . tep_date_short($sInfo->date_added));
-          if (tep_not_null($sInfo->last_modified)) $contents[] = array('text' => __('Last Modified','wosci-translation') . ': ' . tep_date_short($sInfo->last_modified));
+          $contents[] = array('align' => 'center', 'text' => '<a class="button" href="admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=list&spage=' . $_GET['spage'] . '&sID=' . $sInfo->association_id . '&saction=edit' . '">'. __('Edit').'</a> <a class="button" href="admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=list&spage=' . $_GET['spage'] . '&sID=' . $sInfo->association_id . '&saction=delete' . '">'. __('Delete').'</a>');
+          $contents[] = array('text' => '<br>' . __('Date Added','wosci-language') . ': ' . tep_date_short($sInfo->date_added));
+          if (tep_not_null($sInfo->last_modified)) $contents[] = array('text' => __('Last Modified','wosci-language') . ': ' . tep_date_short($sInfo->last_modified));
         }
         break;
     }
   } else {
     switch ($action) {
       case 'new_zone':
-        $heading[] = array('text' => '<b>' . __('New Zone','wosci-translation') . '</b>');
+        $heading[] = array('text' => '<b>' . __('New Zone','wosci-language') . '</b>');
 
         $contents = array('form' => tep_draw_form('zones', 'admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=insert_zone'));
-        $contents[] = array('text' => __('Please enter the new zone information','wosci-translation'));
-        $contents[] = array('text' => '<br>' . __('Zone Name','wosci-translation') . '<br>' . tep_draw_input_field('geo_zone_name'));
-        $contents[] = array('text' => '<br>' . __('Description','wosci-translation') . '<br>' . tep_draw_input_field('geo_zone_description'));
-        $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Insert').'" class="button" /> <a class="button" href="' . tep_href_link('wp-admin/admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID']) . '">'. __('Cancel').'</a>');
+        $contents[] = array('text' => __('Please enter the new zone information','wosci-language'));
+        $contents[] = array('text' => '<br>' . __('Zone Name','wosci-language') . '<br>' . tep_draw_input_field('geo_zone_name'));
+        $contents[] = array('text' => '<br>' . __('Description','wosci-language') . '<br>' . tep_draw_input_field('geo_zone_description'));
+        $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Insert').'" class="button" /> <a class="button" href="admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '">'. __('Cancel').'</a>');
         break;
       case 'edit_zone':
-        $heading[] = array('text' => '<b>' . __('Edit Zone','wosci-translation') . '</b>');
+        $heading[] = array('text' => '<b>' . __('Edit Zone','wosci-language') . '</b>');
 
         $contents = array('form' => tep_draw_form('zones', 'admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $zInfo->geo_zone_id . '&action=save_zone'));
-        $contents[] = array('text' => __('Please make any necessary changes','wosci-translation'));
-        $contents[] = array('text' => '<br>' . __('Zone Name','wosci-translation') . '<br>' . tep_draw_input_field('geo_zone_name', $zInfo->geo_zone_name));
-        $contents[] = array('text' => '<br>' . __('Description','wosci-translation') . '<br>' . tep_draw_input_field('geo_zone_description', $zInfo->geo_zone_description));
-        $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Update').'" class="button" /> <a class="button" href="' . tep_href_link('wp-admin/admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $zInfo->geo_zone_id) . '">'. __('Cancel').'</a>');
+        $contents[] = array('text' => __('Please make any necessary changes','wosci-language'));
+        $contents[] = array('text' => '<br>' . __('Zone Name','wosci-language') . '<br>' . tep_draw_input_field('geo_zone_name', $zInfo->geo_zone_name));
+        $contents[] = array('text' => '<br>' . __('Description','wosci-language') . '<br>' . tep_draw_input_field('geo_zone_description', $zInfo->geo_zone_description));
+        $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Update').'" class="button" /> <a class="button" href="admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $zInfo->geo_zone_id . '">'. __('Cancel').'</a>');
         break;
       case 'delete_zone':
-        $heading[] = array('text' => '<b>' . __('Delete Zone','wosci-translation') . '</b>');
+        $heading[] = array('text' => '<b>' . __('Delete Zone','wosci-language') . '</b>');
 
         $contents = array('form' => tep_draw_form('zones', 'admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $zInfo->geo_zone_id . '&action=deleteconfirm_zone'));
-        $contents[] = array('text' => __('Are you sure you want to delete this zone?','wosci-translation'));
+        $contents[] = array('text' => __('Are you sure you want to delete this zone?','wosci-language'));
         $contents[] = array('text' => '<br><b>' . $zInfo->geo_zone_name . '</b>');
-        $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Remove').'" class="button" /> <a class="button" href="' . tep_href_link('wp-admin/admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $zInfo->geo_zone_id) . '">'. __('Cancel').'</a>');
+        $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Remove').'" class="button" /> <a class="button" href="admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $zInfo->geo_zone_id . '">'. __('Cancel').'</a>');
         break;
       default:
         if (isset($zInfo) && is_object($zInfo)) {
           $heading[] = array('text' => '<b>' . $zInfo->geo_zone_name . '</b>');
 
-          $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link('wp-admin/admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $zInfo->geo_zone_id . '&action=edit_zone') . '">'. __('Edit').'</a> <a class="button" href="' . tep_href_link('wp-admin/admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $zInfo->geo_zone_id . '&action=delete_zone') . '">'. __('Delete').'</a>' . ' <a class="button" href="' . tep_href_link('wp-admin/admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $zInfo->geo_zone_id . '&action=list') . '">'. __('Details').'</a>');
-          $contents[] = array('text' => '<br>' . __('Number of Zones','wosci-translation') . ': ' . $zInfo->num_zones);
-          $contents[] = array('text' => '<br>' . __('Date Added','wosci-translation') . ': ' . tep_date_short($zInfo->date_added));
-          if (tep_not_null($zInfo->last_modified)) $contents[] = array('text' => __('Last Modified','wosci-translation') . ': ' . tep_date_short($zInfo->last_modified));
-          $contents[] = array('text' => '<br>' . __('Description','wosci-translation') . '<br>' . $zInfo->geo_zone_description);
+          $contents[] = array('align' => 'center', 'text' => '<a class="button" href="admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $zInfo->geo_zone_id . '&action=edit_zone' . '">'. __('Edit').'</a> <a class="button" href="admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $zInfo->geo_zone_id . '&action=delete_zone' . '">'. __('Delete').'</a>' . ' <a class="button" href="admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $zInfo->geo_zone_id . '&action=list' . '">'. __('Details','wosci-language').'</a>');
+          $contents[] = array('text' => '<br>' . __('Number of Zones','wosci-language') . ': ' . $zInfo->num_zones);
+          $contents[] = array('text' => '<br>' . __('Date Added','wosci-language') . ': ' . tep_date_short($zInfo->date_added));
+          if (tep_not_null($zInfo->last_modified)) $contents[] = array('text' => __('Last Modified','wosci-language') . ': ' . tep_date_short($zInfo->last_modified));
+          $contents[] = array('text' => '<br>' . __('Description','wosci-language') . '<br>' . $zInfo->geo_zone_description);
         }
         break;
     }
@@ -3816,7 +3828,7 @@ function func_product_attributes(){
 
           tep_db_query("insert into " . TABLE_PRODUCTS_OPTIONS . " (products_options_id, products_options_name, language_id) values ('" . (int)$products_options_id . "', '" . tep_db_input($option_name) . "', '" . (int)$languages[$i]['id'] . "')");
         }
-        tep_redirect(tep_href_link('wp-admin/admin.php?page=product_attributes&'. $page_info));
+        wp_redirect('admin.php?page=product_attributes&'. $page_info);
         break;
       case 'add_product_option_values':
         $value_name_array = $_POST['value_name'];
@@ -3831,7 +3843,7 @@ function func_product_attributes(){
 
         tep_db_query("insert into " . TABLE_PRODUCTS_OPTIONS_VALUES_TO_PRODUCTS_OPTIONS . " (products_options_id, products_options_values_id) values ('" . (int)$option_id . "', '" . (int)$value_id . "')");
 
-        tep_redirect(tep_href_link('wp-admin/admin.php?page=product_attributes&'. $page_info));
+        wp_redirect('admin.php?page=product_attributes&'. $page_info);
         break;
       case 'add_product_attributes':
         $products_id = tep_db_prepare_input($_POST['products_id']);
@@ -3854,7 +3866,7 @@ function func_product_attributes(){
           }
         }
 
-        tep_redirect(tep_href_link('wp-admin/admin.php?page=product_attributes&'. $page_info));
+        wp_redirect('admin.php?page=product_attributes&'. $page_info);
         break;
       case 'update_option_name':
         $option_name_array = $_POST['option_name'];
@@ -3866,7 +3878,7 @@ function func_product_attributes(){
           tep_db_query("update " . TABLE_PRODUCTS_OPTIONS . " set products_options_name = '" . tep_db_input($option_name) . "' where products_options_id = '" . (int)$option_id . "' and language_id = '" . (int)$languages[$i]['id'] . "'");
         }
 
-        tep_redirect(tep_href_link('wp-admin/admin.php?page=product_attributes&'. $page_info));
+        wp_redirect('admin.php?page=product_attributes&'. $page_info);
         break;
       case 'update_value':
         $value_name_array = $_POST['value_name'];
@@ -3881,7 +3893,7 @@ function func_product_attributes(){
 
         tep_db_query("update " . TABLE_PRODUCTS_OPTIONS_VALUES_TO_PRODUCTS_OPTIONS . " set products_options_id = '" . (int)$option_id . "'  where products_options_values_id = '" . (int)$value_id . "'");
 
-        tep_redirect(tep_href_link('wp-admin/admin.php?page=product_attributes&'. $page_info));
+        wp_redirect('admin.php?page=product_attributes&'. $page_info);
         break;
       case 'update_product_attribute':
         $products_id = tep_db_prepare_input($_POST['products_id']);
@@ -3903,14 +3915,14 @@ function func_product_attributes(){
           }
         }
 
-        tep_redirect(tep_href_link('wp-admin/admin.php?page=product_attributes&'. $page_info));
+        wp_redirect('admin.php?page=product_attributes&'. $page_info);
         break;
       case 'delete_option':
         $option_id = tep_db_prepare_input($_GET['option_id']);
 
         tep_db_query("delete from " . TABLE_PRODUCTS_OPTIONS . " where products_options_id = '" . (int)$option_id . "'");
 
-        tep_redirect(tep_href_link('wp-admin/admin.php?page=product_attributes&'. $page_info));
+        wp_redirect('admin.php?page=product_attributes&'. $page_info);
         break;
       case 'delete_value':
         $value_id = tep_db_prepare_input($_GET['value_id']);
@@ -3919,7 +3931,7 @@ function func_product_attributes(){
         tep_db_query("delete from " . TABLE_PRODUCTS_OPTIONS_VALUES . " where products_options_values_id = '" . (int)$value_id . "'");
         tep_db_query("delete from " . TABLE_PRODUCTS_OPTIONS_VALUES_TO_PRODUCTS_OPTIONS . " where products_options_values_id = '" . (int)$value_id . "'");
 
-        tep_redirect(tep_href_link('wp-admin/admin.php?page=product_attributes&'. $page_info));
+        wp_redirect('admin.php?page=product_attributes&'. $page_info);
         break;
       case 'delete_attribute':
         $attribute_id = tep_db_prepare_input($_GET['attribute_id']);
@@ -3929,7 +3941,7 @@ function func_product_attributes(){
 // added for DOWNLOAD_ENABLED. Always try to remove attributes, even if downloads are no longer enabled
         tep_db_query("delete from " . TABLE_PRODUCTS_ATTRIBUTES_DOWNLOAD . " where products_attributes_id = '" . (int)$attribute_id . "'");
 
-        tep_redirect(tep_href_link('wp-admin/admin.php?page=product_attributes&'. $page_info));
+        wp_redirect('admin.php?page=product_attributes&'. $page_info);
         break;
     }
   }
@@ -3961,9 +3973,9 @@ function func_product_attributes(){
     if (tep_db_num_rows($products)) {
 ?>
                   <tr class="dataTableHeadingRow">
-                    <td class="dataTableHeadingContent" align="center">&nbsp;<?php echo __('ID','wosci-translation'); ?>&nbsp;</td>
-                    <td class="dataTableHeadingContent">&nbsp;<?php echo __('Product','wosci-translation'); ?>&nbsp;</td>
-                    <td class="dataTableHeadingContent">&nbsp;<?php echo __('Option Value','wosci-translation'); ?>&nbsp;</td>
+                    <td class="dataTableHeadingContent" align="center">&nbsp;<?php echo __('ID','wosci-language'); ?>&nbsp;</td>
+                    <td class="dataTableHeadingContent">&nbsp;<?php echo __('Product','wosci-language'); ?>&nbsp;</td>
+                    <td class="dataTableHeadingContent">&nbsp;<?php echo __('Option Value','wosci-language'); ?>&nbsp;</td>
                   </tr>
                   <tr>
                     <td colspan="3"><hr></td>
@@ -3985,19 +3997,19 @@ function func_product_attributes(){
                     <td colspan="3"><hr></td>
                   </tr>
                   <tr>
-                    <td colspan="3" class="main"><br /><?php echo __('This option has products and values linked to it - it is not safe to delete it.','wosci-translation'); ?></td>
+                    <td colspan="3" class="main"><br /><?php echo __('This option has products and values linked to it - it is not safe to delete it.','wosci-language'); ?></td>
                   </tr>
                   <tr>
-                    <td align="right" colspan="3" class="smallText"><br /><?php echo '<a accesskey="c" href="'.tep_href_link('wp-admin/admin.php?page=product_attributes&'. $page_info, 'NONSSL').'" class="button-secondary">Back</a>'; ?>&nbsp;</td>
+                    <td align="right" colspan="3" class="smallText"><br /><?php echo '<a accesskey="c" href="admin.php?page=product_attributes&'. $page_info.'" class="button-secondary">' . __('Back','wosci-language') . '</a>'; ?>&nbsp;</td>
                   </tr>
 <?php
     } else {
 ?>
                   <tr>
-                    <td class="main" colspan="3"><br /><?php echo __('This option has no products and values linked to it - it is safe to delete it.','wosci-translation'); ?></td>
+                    <td class="main" colspan="3"><br /><?php echo __('This option has no products and values linked to it - it is safe to delete it.','wosci-language'); ?></td>
                   </tr>
                   <tr>
-                    <td class="smallText" align="right" colspan="3"><br /><?php echo '<a accesskey="c" href="'.tep_href_link('wp-admin/admin.php?page=product_attributes&'. 'action=delete_option&option_id=' . $_GET['option_id'] . '&' . $page_info, 'NONSSL').'" class="button-secondary">Delete</a>' . '<a accesskey="c" href="'.tep_href_link('wp-admin/admin.php?page=product_attributes&'. $page_info, 'NONSSL').'" class="button-secondary">Cancel</a>'; ?>&nbsp;</td>
+                    <td class="smallText" align="right" colspan="3"><br /><?php echo '<a accesskey="c" href="admin.php?page=product_attributes&'. 'action=delete_option&option_id=' . $_GET['option_id'] . '&' . $page_info.'" class="button-secondary">' . __('Delete','wosci-language') . '</a>' . '<a accesskey="c" href="admin.php?page=product_attributes&'. $page_info.'" class="button-secondary">' . __('Cancel','wosci-language') . '</a>'; ?>&nbsp;</td>
                   </tr>
 <?php
     }
@@ -4008,7 +4020,7 @@ function func_product_attributes(){
   } else {
 ?>
               <tr>
-                <td colspan="3"><div id="icon-edit" class="icon32 icon32-posts-post"><br></div><h2><?php echo __('Product Options','wosci-translation'); ?></h2></td>
+                <td colspan="3"><div id="icon-edit" class="icon32 icon32-posts-post"><br></div><h2><?php echo __('Product Options','wosci-language'); ?></h2></td>
               </tr>
               <tr>
                 <td colspan="3" class="smallText" align="right">
@@ -4024,9 +4036,9 @@ function func_product_attributes(){
                 <td colspan="3"><hr></td>
               </tr>
               <tr class="dataTableHeadingRow">
-                <td class="dataTableHeadingContent">&nbsp;<?php echo __('ID','wosci-translation'); ?>&nbsp;</td>
-                <td class="dataTableHeadingContent">&nbsp;<?php echo __('Option Name','wosci-translation'); ?>&nbsp;</td>
-                <td class="dataTableHeadingContent" align="center">&nbsp;<?php echo __('Action','wosci-translation'); ?>&nbsp;</td>
+                <td class="dataTableHeadingContent">&nbsp;<?php echo __('ID','wosci-language'); ?>&nbsp;</td>
+                <td class="dataTableHeadingContent">&nbsp;<?php echo __('Option Name','wosci-language'); ?>&nbsp;</td>
+                <td class="dataTableHeadingContent" align="center">&nbsp;<?php echo __('Action','wosci-language'); ?>&nbsp;</td>
               </tr>
               <tr>
                 <td colspan="3"><hr></td>
@@ -4041,7 +4053,7 @@ function func_product_attributes(){
               <tr class="<?php echo (floor($rows/2) == ($rows/2) ? 'attributes-even' : 'attributes-odd'); ?>">
 <?php
       if (($action == 'update_option') && ($_GET['option_id'] == $options_values['products_options_id'])) {
-        echo '<form name="option" action="' . tep_href_link('wp-admin/admin.php?page=product_attributes&'. 'action=update_option_name&' . $page_info, 'NONSSL') . '" method="post">';
+        echo '<form name="option" action="admin.php?page=product_attributes&'. 'action=update_option_name&' . $page_info . '" method="post">';
         $inputs = '';
         for ($i = 0, $n = sizeof($languages); $i < $n; $i ++) {
           $option_name = tep_db_query("select products_options_name from " . TABLE_PRODUCTS_OPTIONS . " where products_options_id = '" . $options_values['products_options_id'] . "' and language_id = '" . $languages[$i]['id'] . "'");
@@ -4051,14 +4063,14 @@ function func_product_attributes(){
 ?>
                 <td align="center" class="smallText">&nbsp;<?php echo $options_values['products_options_id']; ?><input type="hidden" name="option_id" value="<?php echo $options_values['products_options_id']; ?>">&nbsp;</td>
                 <td class="smallText"><?php echo $inputs; ?></td>
-                <td align="center" class="smallText">&nbsp;<input type="submit" name="" id="doaction" class="button action" value="<?php echo __('Save','wosci-translation'); ?>"><?php echo '<a accesskey="c" href="'.tep_href_link('wp-admin/admin.php?page=product_attributes&'. $page_info, 'NONSSL').'" class="button-secondary">Cancel</a>'; ?>&nbsp;</td>
+                <td align="center" class="smallText">&nbsp;<input type="submit" name="" id="doaction" class="button action" value="<?php echo __('Save','wosci-language'); ?>"><?php echo '<a accesskey="c" href="admin.php?page=product_attributes&'. $page_info.'" class="button-secondary">' . __('Cancel','wosci-language') . '</a>'; ?>&nbsp;</td>
 <?php
         echo '</form>' . "\n";
       } else {
 ?>
                 <td align="center" class="smallText">&nbsp;<?php echo $options_values["products_options_id"]; ?>&nbsp;</td>
                 <td class="smallText">&nbsp;<?php echo $options_values["products_options_name"]; ?>&nbsp;</td>
-                <td align="center" class="smallText">&nbsp;<?php echo '<a accesskey="c" href="'.tep_href_link('wp-admin/admin.php?page=product_attributes&'. 'action=update_option&option_id=' . $options_values['products_options_id'] . '&' . $page_info, 'NONSSL').'" class="button-secondary">Edit</a> <a href="'.tep_href_link('wp-admin/admin.php?page=product_attributes&action=delete_product_option&option_id=' . $options_values['products_options_id'] . '&' . $page_info, 'NONSSL').'" class="button-secondary">Delete</a>'; ?>&nbsp;</td>
+                <td align="center" class="smallText">&nbsp;<?php echo '<a accesskey="c" href="admin.php?page=product_attributes&'. 'action=update_option&option_id=' . $options_values['products_options_id'] . '&' . $page_info.'" class="button-secondary">' . __('Edit','wosci-language') . '</a> <a href="admin.php?page=product_attributes&action=delete_product_option&option_id=' . $options_values['products_options_id'] . '&' . $page_info.'" class="button-secondary">' . __('Delete','wosci-language') . '</a>'; ?>&nbsp;</td>
 <?php
       }
 ?>
@@ -4077,7 +4089,7 @@ function func_product_attributes(){
 ?>
               <tr class="<?php echo (floor($rows/2) == ($rows/2) ? 'attributes-even' : 'attributes-odd'); ?>">
 <?php
-      echo '<form name="options" action="' . tep_href_link('wp-admin/admin.php?page=product_attributes&'. 'action=add_product_options&' . $page_info, 'NONSSL') . '" method="post"><input type="hidden" name="products_options_id" value="' . $next_id . '">';
+      echo '<form name="options" action="admin.php?page=product_attributes&'. 'action=add_product_options&' . $page_info . '" method="post"><input type="hidden" name="products_options_id" value="' . $next_id . '">';
       $inputs = '';
       for ($i = 0, $n = sizeof($languages); $i < $n; $i ++) {
         $inputs .= $languages[$i]['code'] . ':&nbsp;<input type="text" name="option_name[' . $languages[$i]['id'] . ']" size="20">&nbsp;<br />';
@@ -4085,7 +4097,7 @@ function func_product_attributes(){
 ?>
                 <td align="center" class="smallText">&nbsp;<?php echo $next_id; ?>&nbsp;</td>
                 <td class="smallText"><?php echo $inputs; ?></td>
-                <td align="center" class="smallText">&nbsp;<input type="submit" name="" id="doaction" class="button action" value="<?php echo __('Insert','wosci-translation'); ?>">&nbsp;</td>
+                <td align="center" class="smallText">&nbsp;<input type="submit" name="" id="doaction" class="button action" value="<?php echo __('Insert','wosci-language'); ?>">&nbsp;</td>
 <?php
       echo '</form>';
 ?>
@@ -4119,9 +4131,9 @@ function func_product_attributes(){
     if (tep_db_num_rows($products)) {
 ?>
                   <tr class="dataTableHeadingRow">
-                    <td class="dataTableHeadingContent" align="center">&nbsp;<?php echo __('ID','wosci-translation'); ?>&nbsp;</td>
-                    <td class="dataTableHeadingContent">&nbsp;<?php echo __('Product','wosci-translation'); ?>&nbsp;</td>
-                    <td class="dataTableHeadingContent">&nbsp;<?php echo __('Option Name','wosci-translation'); ?>&nbsp;</td>
+                    <td class="dataTableHeadingContent" align="center">&nbsp;<?php echo __('ID','wosci-language'); ?>&nbsp;</td>
+                    <td class="dataTableHeadingContent">&nbsp;<?php echo __('Product','wosci-language'); ?>&nbsp;</td>
+                    <td class="dataTableHeadingContent">&nbsp;<?php echo __('Option Name','wosci-language'); ?>&nbsp;</td>
                   </tr>
                   <tr>
                     <td colspan="3"><hr></td>
@@ -4142,19 +4154,19 @@ function func_product_attributes(){
                     <td colspan="3"><hr></td>
                   </tr>
                   <tr>
-                    <td class="main" colspan="3"><br /><?php echo __('This option has products and values linked to it - it is not safe to delete it.','wosci-translation'); ?></td>
+                    <td class="main" colspan="3"><br /><?php echo __('This option has products and values linked to it - it is not safe to delete it.','wosci-language'); ?></td>
                   </tr>
                   <tr>
-                    <td class="smallText" align="right" colspan="3"><br /><?php echo '<a accesskey="c" href="'.tep_href_link('wp-admin/admin.php?page=product_attributes&'. $page_info, 'NONSSL').'" class="button-secondary">Back</a>'; ?>&nbsp;</td>
+                    <td class="smallText" align="right" colspan="3"><br /><?php echo '<a accesskey="c" href="admin.php?page=product_attributes&'. $page_info .'" class="button-secondary">' . __('Back','wosci-language') . '</a>'; ?>&nbsp;</td>
                   </tr>
 <?php
     } else {
 ?>
                   <tr>
-                    <td class="main" colspan="3"><br /><?php echo __('This option has no products and values linked to it - it is safe to delete it.','wosci-translation'); ?></td>
+                    <td class="main" colspan="3"><br /><?php echo __('This option has no products and values linked to it - it is safe to delete it.','wosci-language'); ?></td>
                   </tr>
                   <tr>
-                    <td class="smallText" align="right" colspan="3"><br /><?php echo '<a accesskey="c" href="'.tep_href_link('wp-admin/admin.php?page=product_attributes&'. 'action=delete_value&value_id=' . $_GET['value_id'] . '&' . $page_info, 'NONSSL').'" class="button-secondary">Delete</a> <a accesskey="c" href="'.tep_href_link('wp-admin/admin.php?page=product_attributes&'. $page_info, 'NONSSL').'" class="button-secondary">Cancel</a>'; ?>&nbsp;</td>
+                    <td class="smallText" align="right" colspan="3"><br /><?php echo '<a accesskey="c" href="admin.php?page=product_attributes&'. 'action=delete_value&value_id=' . $_GET['value_id'] . '&' . $page_info.'" class="button-secondary">' . __('Delete','wosci-language') . '</a> <a accesskey="c" href="admin.php?page=product_attributes&'. $page_info .'" class="button-secondary">' . __('Cancel','wosci-language') . '</a>'; ?>&nbsp;</td>
                   </tr>
 <?php
     }
@@ -4165,7 +4177,7 @@ function func_product_attributes(){
   } else {
 ?>
               <tr>
-                <td colspan="4" class=""><h2><?php echo __('Option Values','wosci-translation'); ?></h2></td>
+                <td colspan="4" class=""><h2><?php echo __('Option Values','wosci-language'); ?></h2></td>
               </tr>
               <tr>
                 <td colspan="4" class="smallText" align="right">
@@ -4181,10 +4193,10 @@ function func_product_attributes(){
                 <td colspan="4"><hr></td>
               </tr>
               <tr class="dataTableHeadingRow">
-                <td class="dataTableHeadingContent">&nbsp;<?php echo __('ID','wosci-translation'); ?>&nbsp;</td>
-                <td class="dataTableHeadingContent">&nbsp;<?php echo __('Option Name','wosci-translation'); ?>&nbsp;</td>
-                <td class="dataTableHeadingContent">&nbsp;<?php echo __('Option Value','wosci-translation'); ?>&nbsp;</td>
-                <td class="dataTableHeadingContent" align="center">&nbsp;<?php echo __('Action','wosci-translation'); ?>&nbsp;</td>
+                <td class="dataTableHeadingContent">&nbsp;<?php echo __('ID','wosci-language'); ?>&nbsp;</td>
+                <td class="dataTableHeadingContent">&nbsp;<?php echo __('Option Name','wosci-language'); ?>&nbsp;</td>
+                <td class="dataTableHeadingContent">&nbsp;<?php echo __('Option Value','wosci-language'); ?>&nbsp;</td>
+                <td class="dataTableHeadingContent" align="center">&nbsp;<?php echo __('Action','wosci-language'); ?>&nbsp;</td>
               </tr>
               <tr>
                 <td colspan="4"><hr></td>
@@ -4201,7 +4213,7 @@ function func_product_attributes(){
               <tr class="<?php echo (floor($rows/2) == ($rows/2) ? 'attributes-even' : 'attributes-odd'); ?>">
 <?php
       if (($action == 'update_option_value') && ($_GET['value_id'] == $values_values['products_options_values_id'])) {
-        echo '<form name="values" action="' . tep_href_link('wp-admin/admin.php?page=product_attributes&'. 'action=update_value&' . $page_info, 'NONSSL') . '" method="post">';
+        echo '<form name="values" action="admin.php?page=product_attributes&'. 'action=update_value&' . $page_info . '" method="post">';
         $inputs = '';
         for ($i = 0, $n = sizeof($languages); $i < $n; $i ++) {
           $value_name = tep_db_query("select products_options_values_name from " . TABLE_PRODUCTS_OPTIONS_VALUES . " where products_options_values_id = '" . (int)$values_values['products_options_values_id'] . "' and language_id = '" . (int)$languages[$i]['id'] . "'");
@@ -4223,7 +4235,7 @@ function func_product_attributes(){
 ?>
                 </select>&nbsp;</td>
                 <td class="smallText"><?php echo $inputs; ?></td>
-                <td align="center" class="smallText">&nbsp;<input type="submit" name="" id="doaction" class="button action" value="<?php echo __('Save','wosci-translation'); ?>"><?php echo '<a accesskey="c" href="'.tep_href_link('wp-admin/admin.php?page=product_attributes&'. $page_info, 'NONSSL').'" class="button-secondary">Cancel</a>'; ?>&nbsp;</td>
+                <td align="center" class="smallText">&nbsp;<input type="submit" name="" id="doaction" class="button action" value="<?php echo __('Save','wosci-language'); ?>"><?php echo '<a accesskey="c" href="admin.php?page=product_attributes&'. $page_info, 'NONSSL'.'" class="button-secondary">' . __('Cancel','wosci-language') . '</a>'; ?>&nbsp;</td>
 <?php
         echo '</form>';
       } else {
@@ -4231,7 +4243,7 @@ function func_product_attributes(){
                 <td align="center" class="smallText">&nbsp;<?php echo $values_values["products_options_values_id"]; ?>&nbsp;</td>
                 <td align="center" class="smallText">&nbsp;<?php echo $options_name; ?>&nbsp;</td>
                 <td class="smallText">&nbsp;<?php echo $values_name; ?>&nbsp;</td>
-                <td align="center" class="smallText">&nbsp;<?php echo '<a accesskey="c" href="'.tep_href_link('wp-admin/admin.php?page=product_attributes&'. 'action=update_option_value&value_id=' . $values_values['products_options_values_id'] . '&' . $page_info, 'NONSSL').'" class="button-secondary">Edit</a> <a accesskey="c" href="'.tep_href_link('wp-admin/admin.php?page=product_attributes&'. 'action=delete_option_value&value_id=' . $values_values['products_options_values_id'] . '&' . $page_info, 'NONSSL').'" class="button-secondary">Delete</a>'; ?>&nbsp;</td>
+                <td align="center" class="smallText">&nbsp;<?php echo '<a accesskey="c" href="admin.php?page=product_attributes&'. 'action=update_option_value&value_id=' . $values_values['products_options_values_id'] . '&' . $page_info .'" class="button-secondary">Edit</a> <a accesskey="c" href="admin.php?page=product_attributes&'. 'action=delete_option_value&value_id=' . $values_values['products_options_values_id'] . '&' . $page_info .'" class="button-secondary">' . __('Delete','wosci-language') . '</a>'; ?>&nbsp;</td>
 <?php
       }
       $max_values_id_query = tep_db_query("select max(products_options_values_id) + 1 as next_id from " . TABLE_PRODUCTS_OPTIONS_VALUES);
@@ -4248,7 +4260,7 @@ function func_product_attributes(){
 ?>
               <tr class="<?php echo (floor($rows/2) == ($rows/2) ? 'attributes-even' : 'attributes-odd'); ?>">
 <?php
-      echo '<form name="values" action="' . tep_href_link('wp-admin/admin.php?page=product_attributes&'. 'action=add_product_option_values&' . $page_info, 'NONSSL') . '" method="post">';
+      echo '<form name="values" action="admin.php?page=product_attributes&'. 'action=add_product_option_values&' . $page_info . '" method="post">';
 ?>
                 <td align="center" class="smallText">&nbsp;<?php echo $next_id; ?>&nbsp;</td>
                 <td align="center" class="smallText">&nbsp;<select name="option_id">
@@ -4265,7 +4277,7 @@ function func_product_attributes(){
 ?>
                 </select>&nbsp;</td>
                 <td class="smallText"><input type="hidden" name="value_id" value="<?php echo $next_id; ?>"><?php echo $inputs; ?></td>
-                <td align="center" class="smallText">&nbsp;<input type="submit" name="" id="doaction" class="button action" value="<?php echo __('Insert','wosci-translation'); ?>">&nbsp;</td>
+                <td align="center" class="smallText">&nbsp;<input type="submit" name="" id="doaction" class="button action" value="<?php echo __('Insert','wosci-language'); ?>">&nbsp;</td>
 <?php
       echo '</form>';
 ?>
@@ -4289,7 +4301,7 @@ function func_product_attributes(){
       <tr>
         <td width="100%"><table border="0" width="100%" cellspacing="0" cellpadding="0">
           <tr>
-            <td class=""><h2><?php echo __('Products Attributes','wosci-translation'); ?></h2></td>
+            <td class=""><h2><?php echo __('Products Attributes','wosci-language'); ?></h2></td>
           </tr>
         </table></td>
       </tr>
@@ -4313,18 +4325,18 @@ function func_product_attributes(){
             </td>
           </tr>
         </table>
-        <form name="attributes" action="<?php echo tep_href_link('wp-admin/admin.php?page=product_attributes&'. 'action=' . $form_action . '&' . $page_info); ?>" method="post"><table border="0" width="100%" cellspacing="0" cellpadding="2">
+        <form name="attributes" action="<?php echo 'admin.php?page=product_attributes&'. 'action=' . $form_action . '&' . $page_info; ?>" method="post"><table border="0" width="100%" cellspacing="0" cellpadding="2">
           <tr>
             <td colspan="7"><hr></td>
           </tr>
           <tr class="dataTableHeadingRow">
-            <td class="dataTableHeadingContent">&nbsp;<?php echo __('ID','wosci-translation'); ?>&nbsp;</td>
-            <td class="dataTableHeadingContent">&nbsp;<?php echo __('Product','wosci-translation'); ?>&nbsp;</td>
-            <td class="dataTableHeadingContent">&nbsp;<?php echo __('Option Name','wosci-translation'); ?>&nbsp;</td>
-            <td class="dataTableHeadingContent">&nbsp;<?php echo __('Option Value','wosci-translation'); ?>&nbsp;</td>
-            <td class="dataTableHeadingContent" align="right">&nbsp;<?php echo __('Option Price','wosci-translation'); ?>&nbsp;</td>
-            <td class="dataTableHeadingContent" align="center">&nbsp;<?php echo __('Price Prefix','wosci-translation'); ?>&nbsp;</td>
-            <td class="dataTableHeadingContent" align="center">&nbsp;<?php echo __('Action','wosci-translation'); ?>&nbsp;</td>
+            <td class="dataTableHeadingContent">&nbsp;<?php echo __('ID','wosci-language'); ?>&nbsp;</td>
+            <td class="dataTableHeadingContent">&nbsp;<?php echo __('Product','wosci-language'); ?>&nbsp;</td>
+            <td class="dataTableHeadingContent">&nbsp;<?php echo __('Option Name','wosci-language'); ?>&nbsp;</td>
+            <td class="dataTableHeadingContent">&nbsp;<?php echo __('Option Value','wosci-language'); ?>&nbsp;</td>
+            <td class="dataTableHeadingContent" align="right">&nbsp;<?php echo __('Option Price','wosci-language'); ?>&nbsp;</td>
+            <td class="dataTableHeadingContent" align="center">&nbsp;<?php echo __('Price Prefix','wosci-language'); ?>&nbsp;</td>
+            <td class="dataTableHeadingContent" align="center">&nbsp;<?php echo __('Action','wosci-language'); ?>&nbsp;</td>
           </tr>
           <tr>
             <td colspan="7"><hr></td>
@@ -4382,7 +4394,7 @@ function func_product_attributes(){
             </select>&nbsp;</td>
             <td align="right" class="smallText">&nbsp;<input type="text" name="value_price" value="<?php echo $attributes_values['options_values_price']; ?>" size="6">&nbsp;</td>
             <td align="center" class="smallText">&nbsp;<input type="text" name="price_prefix" value="<?php echo $attributes_values['price_prefix']; ?>" size="2">&nbsp;</td>
-            <td align="center" class="smallText">&nbsp;<input type="submit" name="" id="doaction" class="button action" value="<?php echo __('Save','wosci-translation'); ?>"><?php echo '<a accesskey="c" href="'.tep_href_link('wp-admin/admin.php?page=product_attributes&'. $page_info, 'NONSSL').'" class="button-secondary">Cancel</a>'; ?>&nbsp;</td>
+            <td align="center" class="smallText">&nbsp;<input type="submit" name="" id="doaction" class="button action" value="<?php echo __('Save','wosci-language'); ?>"><?php echo '<a accesskey="c" href="admin.php?page=product_attributes&'. $page_info, 'NONSSL'.'" class="button-secondary">' . __('Cancel','wosci-language') . '</a>'; ?>&nbsp;</td>
 <?php
       if (DOWNLOAD_ENABLED == 'true') {
         $download_query_raw ="select products_attributes_filename, products_attributes_maxdays, products_attributes_maxcount 
@@ -4425,7 +4437,7 @@ function func_product_attributes(){
             <td class="smallText">&nbsp;<strong><?php echo $values_name; ?></strong>&nbsp;</td>
             <td align="right" class="smallText">&nbsp;<strong><?php echo $attributes_values["options_values_price"]; ?></strong>&nbsp;</td>
             <td align="center" class="smallText">&nbsp;<strong><?php echo $attributes_values["price_prefix"]; ?></strong>&nbsp;</td>
-            <td align="center" class="smallText">&nbsp;<?php echo '<a accesskey="c" href="'.tep_href_link('wp-admin/admin.php?page=product_attributes&action=delete_attribute&attribute_id=' . $_GET['attribute_id'] . '&' . $page_info).'" class="button-secondary">Delete</a> <a accesskey="c" href="'.tep_href_link('wp-admin/admin.php?page=product_attributes&'. $page_info, 'NONSSL').'" class="button-secondary">Cancel</a>'; ?>&nbsp;</td>
+            <td align="center" class="smallText">&nbsp;<?php echo '<a accesskey="c" href="admin.php?page=product_attributes&action=delete_attribute&attribute_id=' . $_GET['attribute_id'] . '&' . $page_info . '" class="button-secondary">Delete</a> <a accesskey="c" href="admin.php?page=product_attributes&'. $page_info.'" class="button-secondary">' . __('Cancel','wosci-language') . '</a>'; ?>&nbsp;</td>
 <?php
     } else {
 ?>
@@ -4435,7 +4447,7 @@ function func_product_attributes(){
             <td class="smallText">&nbsp;<?php echo $values_name; ?>&nbsp;</td>
             <td align="right" class="smallText">&nbsp;<?php echo $attributes_values["options_values_price"]; ?>&nbsp;</td>
             <td align="center" class="smallText">&nbsp;<?php echo $attributes_values["price_prefix"]; ?>&nbsp;</td>
-            <td align="center" class="smallText">&nbsp;<?php echo '<a accesskey="c" href="'.tep_href_link('wp-admin/admin.php?page=product_attributes&'. 'action=update_attribute&attribute_id=' . $attributes_values['products_attributes_id'] . '&' . $page_info, 'NONSSL').'" class="button-secondary">Edit</a> <a accesskey="c" href="'.tep_href_link('wp-admin/admin.php?page=product_attributes&action=delete_product_attribute&attribute_id=' . $attributes_values['products_attributes_id'] . '&' . $page_info, 'NONSSL').'" class="button-secondary">Delete</a>'; ?>&nbsp;</td>
+            <td align="center" class="smallText">&nbsp;<?php echo '<a accesskey="c" href="admin.php?page=product_attributes&'. 'action=update_attribute&attribute_id=' . $attributes_values['products_attributes_id'] . '&' . $page_info .'" class="button-secondary">' . __('Edit', 'wosci-language') . '</a> <a accesskey="c" href="admin.php?page=product_attributes&action=delete_product_attribute&attribute_id=' . $attributes_values['products_attributes_id'] . '&' . $page_info.'" class="button-secondary">' . __('Delete','wosci-language') . '</a>'; ?>&nbsp;</td>
 <?php
     }
     $max_attributes_id_query = tep_db_query("select max(products_attributes_id) + 1 as next_id from " . TABLE_PRODUCTS_ATTRIBUTES);
@@ -4478,7 +4490,7 @@ function func_product_attributes(){
             </select>&nbsp;</td>
             <td align="right" class="smallText">&nbsp;<input type="text" name="value_price" size="6">&nbsp;</td>
             <td align="right" class="smallText">&nbsp;<input type="text" name="price_prefix" size="2" value="+">&nbsp;</td>
-            <td align="center" class="smallText">&nbsp;<input type="submit" name="" id="doaction" class="button action" value="<?php echo __('Add+','wosci-translation'); ?>">&nbsp;</td>
+            <td align="center" class="smallText">&nbsp;<input type="submit" name="" id="doaction" class="button action" value="<?php echo __('Add+','wosci-language'); ?>">&nbsp;</td>
           </tr>
 <?php
       if (DOWNLOAD_ENABLED == 'true') {

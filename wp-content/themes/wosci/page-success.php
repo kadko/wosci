@@ -20,7 +20,8 @@ get_header();
 <div class="alert alert-success">
 <h3><span class="glyphicon glyphicon-ok"></span>     <?php _e('Your order has been successfully placed. Thank you!', 'wosci-language');?></h3></div>	
 <div style="margin-top:10px;"></div>	
-<p>Please check your <b>email inbox</b> for more details about your order. Don't forget to check <b>spam</b> folder!</p>
+<p><?php _e('We sent order confirmation to your email, please check your <b>email inbox</b> for more details about your order.', 'wosci-language');?></p>
+<p><?php _e('If confirmation email not arrived to your inbox don\'t forget to check <b>spam</b> folder.', 'wosci-language');?></p>
 <div style="margin-top:20px;"></div>	
 	
 </div><!--.well-->

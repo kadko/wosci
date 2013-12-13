@@ -35,18 +35,25 @@
 
       global $order;
 
+	//Taksitler
+	define('MODULE_PAYMENT_62_KEY', '1:0,2:3,3:4.5,4:6,5:7.75,6:9,7:10,8:11,9:12,10:13,11:14,12:15','wosci-translation'  );//Garanti
+	define('MODULE_PAYMENT_111_KEY', '1:0,2:3,3:4.5,4:6,5:7.75,6:9,7:10,8:11,9:12,10:13,11:14,12:15','wosci-translation'  );//Finansbank
+	define('MODULE_PAYMENT_67_KEY', '1:0,2:3,3:4.5,4:6,5:7.75,6:9,7:10,8:11,9:12,10:13,11:14,12:15','wosci-translation'  );//YKB  
 
+	//websitesinde aktif olarak kullanılan sanal posların banka kodları
+	define('BANKALAR',  '62,67,111','wosci-translation'  );//Garanti
+  
 	$this->code = 'cc';
 	
-      $this->title = MODULE_PAYMENT_CC_TEXT_TITLE;
+	$this->title = MODULE_PAYMENT_CC_TEXT_TITLE;
 
-      $this->description = MODULE_PAYMENT_FINANSBANK_TEXT_DESCRIPTION;
+	$this->description = MODULE_PAYMENT_FINANSBANK_TEXT_DESCRIPTION;
 
-      $this->sort_order = '1000'; //MODULE_PAYMENT_CC_SORT_ORDER;
+	$this->sort_order = '0'; //MODULE_PAYMENT_CC_SORT_ORDER;
 
-      $this->enabled = ((MODULE_PAYMENT_CC_STATUS == 'True') ? true : false);
+	$this->enabled = ((MODULE_PAYMENT_CC_STATUS == 'True') ? true : false);
 
-	  $this->form_action_url = 'ccpay';
+	$this->form_action_url = 'ccpay';
 
 
 
@@ -257,7 +264,7 @@ for ($a=0; $a<3; $a++) {
 */
 array('title' => '<div style="line-height:32px;vertical-align:middle;"><small>' . MODULE_PAYMENT_CC_TEXT_CREDIT_CARD_EXPIRES . '</small></div>',
 
-'field' => '<div style="display:inline;float:left;">'.tep_draw_input_field('cc_expires_full', '', 'placeholder="AY / YIL" class="form-control" style="width:100px;" maxlength="10"') . '</div>&nbsp;&nbsp;<div style="display:inline;float:right;">'. tep_draw_input_field('cc_checkcode', '', 'placeholder="CVV" class="form-control" style="width:100px;" maxlength="4"').tep_draw_hidden_field('bankaID', '').tep_draw_hidden_field('bankaADI', '').'</div></div>'
+'field' => '<div style="display:inline;float:left;">'.tep_draw_input_field('cc_expires_full', '', 'placeholder="'.__( 'MM / YY','wosci-translation' ) .'" class="form-control" style="width:100px;" maxlength="10"') . '</div>&nbsp;&nbsp;<div style="display:inline;float:right;">'. tep_draw_input_field('cc_checkcode', '', 'placeholder="CVV" class="form-control" style="width:100px;" maxlength="4"').tep_draw_hidden_field('bankaID', '').tep_draw_hidden_field('bankaADI', '').'</div></div>'
                                                  ),
 
 

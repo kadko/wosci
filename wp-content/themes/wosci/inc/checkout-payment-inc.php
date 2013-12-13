@@ -89,7 +89,7 @@ function rowOutEffect(object) {
                     <tr>
                     
                     <td class="main" valign="bottom" align="left">
-                    <?php echo 'Fatura adresiniz sağ tarafta belirtilen adres değilse farklı bir adres girmek için aşağıdaki butonu tıklayınız.'; ?><br><br><?php echo '<a href="'.tep_href_link(FILENAME_CHECKOUT_PAYMENT_ADDRESS, '', 'SSL').'" onclick="return hs.htmlExpand(this, { objectType: \'iframe\',dimmingOpacity: 0.75,height:570,width:400,outlineType: \'rounded-white\', wrapperClassName: \'draggable-header\' } )" class="btn btn-primary btn-success">' . _('Adresi Değiştir') . '</a>'; ?>
+                    <?php echo 'Fatura adresiniz sağ tarafta belirtilen adres değilse farklı bir adres girmek için aşağıdaki butonu tıklayınız.'; ?><br><br><?php echo '<a href="'.tep_href_link(FILENAME_CHECKOUT_PAYMENT_ADDRESS, '', 'SSL').'" onclick="return hs.htmlExpand(this, { objectType: \'iframe\',dimmingOpacity: 0.75,height:570,width:400,outlineType: \'rounded-white\', wrapperClassName: \'draggable-header\' } )" class="btn btn-primary btn-success">' . __('Change Address', 'wosci-language') . '</a>'; ?>
                     </td>
                     <td>
                    
@@ -98,7 +98,7 @@ function rowOutEffect(object) {
                     <td class="main" valign="bottom" >
                      <div><?php echo  tep_address_label($current_user->ID, $billto, true, ' ', '<br>'); ?></div>
                     
-                    <?php echo '<a href="'.tep_href_link('address_book_process_hs.php', 'edit='.$billto.'&frompage=checkout_payment.php', 'SSL').'" onclick="return hs.htmlExpand(this, { objectType: \'iframe\',dimmingOpacity: 0.75,height:550,width:400,outlineType: \'rounded-white\', wrapperClassName: \'draggable-header\' } )" class="btn btn-primary btn-success">' . _('Düzenle') . '</a>'; ?>
+                    <?php echo '<a href="'.tep_href_link('address_book_process_hs.php', 'edit='.$billto.'&frompage=checkout_payment.php', 'SSL').'" onclick="return hs.htmlExpand(this, { objectType: \'iframe\',dimmingOpacity: 0.75,height:550,width:400,outlineType: \'rounded-white\', wrapperClassName: \'draggable-header\' } )" class="btn btn-primary btn-success">' . __('Edit', 'wosci-language') . '</a>'; ?>
                     </td>
                     </tr></table>
                     
@@ -239,7 +239,7 @@ function rowOutEffect(object) {
               <div>
                
                 <div class="main"><b><?php echo TITLE_CONTINUE_CHECKOUT_PROCEDURE . '</b><br>' . TEXT_CONTINUE_CHECKOUT_PROCEDURE; ?></div>
-                <div class="main" align="right"><?php echo '<input value="' . _('Devam') . '" class="btn btn-primary btn-success" type="submit">'; ?></div>
+                <div class="main" align="right"><?php echo '<input value="' . __('Continue', 'wosci-language') . '" class="btn btn-primary btn-success" type="submit">'; ?></div>
                
               </div>
             </div></div>
