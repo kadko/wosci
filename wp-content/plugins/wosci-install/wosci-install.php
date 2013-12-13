@@ -3,7 +3,7 @@
 /*
 
 Plugin Name: Wosci Install Plugin 
-Description: REMOVE THIS PLUGIN AFTER ACTIVATING
+Description: DEACTIVATE THIS PLUGIN AFTER ACTIVATING
 Plugin URI: http://www.wosci.com/
 Version: 1.1
 Author: Kadir Korkmaz
@@ -90,10 +90,18 @@ function wosci_sql_import() {
 
 	$mysqli->query("INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUES (NULL, '" . $pid . "', '_thumbnail_id', '" . $attach_id . "')");
 	
+	$tarray = array('Travel', 'Science-Fiction','Law','History','Romance','Spirituality','Science-Math','Literature');
+	$farray = array('Paperback', 'Hardcover','Board-Book');
+
+	
 	update_post_meta($pid, 'Currency', 'USD');
 	update_post_meta($pid, 'Price', rand(10,100) );
-	update_post_meta($pid, 'Quantity_',  rand(30,90) );
-
+	update_post_meta($pid, 'Quantity',  rand(30,90) );
+	update_post_meta($pid, 'Weight',  rand(1, 11) * 0.1 );
+	update_post_meta($pid, 'Type',  $tarray[rand(0, count($tarray)-1)] );
+	update_post_meta($pid, 'Format',  $farray[rand(0, count($farray)-1)] );
+	
+	
 	}
 	update_user_meta(1, 'customer_default_address_id',  1 );
 	}
@@ -373,6 +381,25 @@ $post = array(
 
 $page = get_page_by_name('success');
 if (!$page) { $post_id_s = wp_insert_post( $post );  }
+
+$post = array(
+
+  'comment_status' => 'open' ,
+  'ping_status'    => 'open' , 
+  'post_author'    => 1 , 
+  'post_content'   => '',
+  'post_parent'    => $post_id,
+  'post_excerpt'   => '', 
+  'post_name'      => 'agreement', 
+  'post_status'    => 'publish',
+  'post_title'     => 'Sales And Purchase Agreement',
+  'post_type'      => 'page'
+
+);  
+
+$page = get_page_by_name('agreement');
+if (!$page) { $post_id_spa = wp_insert_post( $post );  }
+
 
 /*Create Pages END*/
 

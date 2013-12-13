@@ -1907,7 +1907,13 @@ DELETE from `wp_options` WHERE `option_name` = 'permalink_structure';
 
 INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES (NULL, 'permalink_structure', '/%postname%/', 'yes');
 
-INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES (NULL, 'widget_text', 'a:2:{i:2;a:7:{s:5:"title";s:15:"Congratulation!";s:4:"type";s:15:"well_text_large";s:14:"dismissability";N;s:5:"color";N;s:4:"text";s:340:"You have installed Wosci e-commerce system succesfully. For documentation please check <a href=http://wosci.com>wosci</a> website\n<hr>\n<small>You can <b>remove</b> or <b>edit</b> this text widget from appereance > <a href=wp-admin/widgets.php>widgets section.</a></small>\n";s:6:"filter";b:0;s:7:"filter2";b:0;}s:12:"_multiwidget";i:1;}', 'yes');
+INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES (NULL, 'widget_text', 'a:2:{i:2;a:6:{s:5:"title";s:22:"Wellcome to Wosci Shop";s:4:"type";s:15:"well_text_large";s:14:"dismissability";N;s:5:"color";N;s:4:"text";s:278:"You have installed Wosci e-commerce system succesfully.
+
+For information please check <a href=http://wosci.com>wosci</a> website
+
+<hr>
+
+<small>You can <b>remove</b> or <b>edit</b> this text widget from appereance > <a href=wp-admin/widgets.php>widgets section.</a></small>\";s:6:\"filter\";b:0;}s:12:\"_multiwidget\";i:1;}', 'yes');
 
 INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES (NULL, 'sidebars_widgets', 'a:5:{s:19:"wp_inactive_widgets";a:0:{}s:9:"sidebar-1";a:4:{i:0;s:8:"slider-2";i:1;s:6:"sort-2";i:2;s:13:"colorfilter-2";i:3;s:5:"ppp-2";}s:9:"sidebar-2";a:2:{i:0;s:6:"text-2";i:1;s:8:"vitrin-2";}s:9:"sidebar-3";a:0:{}s:13:"array_version";i:3;}', 'yes');
 

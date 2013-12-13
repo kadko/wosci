@@ -2,284 +2,337 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Twenty Twelve 1.2\n"
+"Project-Id-Version: Wosci 1.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/twentytwelve\n"
-"POT-Creation-Date: 2013-08-01 18:14:15+00:00\n"
-"PO-Revision-Date: 2013-12-05 18:16+0200\n"
+"POT-Creation-Date: 2013-12-07 22:02+0200\n"
+"PO-Revision-Date: 2013-12-08 09:43+0200\n"
 "Last-Translator: kadir <kadir.korkmaz@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Wosci Team <info@wosci.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 1.6.1\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-KeywordsList: __;_e\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: tr\n"
 "X-Poedit-SearchPath-0: C:\\xampp\\htdocs\\eticaret2\\wp-content\\themes"
 "\\wosci\n"
 
-#: 404.php:17
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/404.php:17
 msgid "This is somewhat embarrassing, isn&rsquo;t it?"
-msgstr ""
+msgstr "This is somewhat embarrassing, isn&rsquo;t it?"
 
-#: 404.php:21
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/404.php:21
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 msgstr ""
 
-#: archive.php:29
-msgid "Daily Archives: %s"
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/also_purchased.php:20
+msgid "Customers who bought this product also purchased"
 msgstr ""
 
-#: archive.php:31
-msgid "Monthly Archives: %s"
-msgstr ""
-
-#: archive.php:31
-msgctxt "monthly archives date format"
-msgid "F Y"
-msgstr ""
-
-#: archive.php:33
-msgid "Yearly Archives: %s"
-msgstr ""
-
-#: archive.php:33
-msgctxt "yearly archives date format"
-msgid "Y"
-msgstr ""
-
-#: archive.php:35
-msgid "Archives"
-msgstr ""
-
-#: author.php:32
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/author.php:70
+#, php-format
 msgid "Author Archives: %s"
 msgstr ""
 
-#: author.php:53 content.php:53
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/author.php:91
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content.php:255
+#, php-format
 msgid "About %s"
 msgstr ""
 
-#: category.php:21
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/category.php:21
+#, php-format
 msgid "Category Archives: %s"
 msgstr ""
 
-#: comments.php:31
-msgid "One thought on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
-msgstr[1] ""
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/checkout_payment.php:377
+#, php-format
+msgid "View all posts in %s"
+msgstr ""
 
-#: comments.php:42
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/comments.php:42
 msgid "Comment navigation"
 msgstr ""
 
-#: comments.php:43
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/comments.php:43
 msgid "&larr; Older Comments"
 msgstr ""
 
-#: comments.php:44
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/comments.php:44
 msgid "Newer Comments &rarr;"
 msgstr ""
 
-#: comments.php:53
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/comments.php:53
 msgid "Comments are closed."
 msgstr ""
 
-#: content-aside.php:15 content-image.php:13 content-link.php:14
-#: content-quote.php:13 content-status.php:21 content.php:39
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-aside.php:15
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-image.php:13
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-link.php:14
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-quote.php:13
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-status.php:21
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content.php:242
 msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#: content-aside.php:20 content-link.php:18 content-quote.php:17
-#: content-status.php:15
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-aside.php:20
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-link.php:18
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-quote.php:17
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-status.php:15
+#, php-format
 msgid "Permalink to %s"
 msgstr ""
 
-#: content-aside.php:23 content-image.php:23 content-link.php:21
-#: content-quote.php:20 content-status.php:27 content.php:28
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-aside.php:23
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-image.php:23
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-link.php:21
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-quote.php:20
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-status.php:27
 msgid "Leave a reply"
 msgstr ""
 
-#: content-aside.php:23 content-image.php:23 content-link.php:21
-#: content-quote.php:20 content-status.php:27 content.php:28
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-aside.php:23
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-image.php:23
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-link.php:21
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-quote.php:20
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-status.php:27
 msgid "1 Reply"
 msgstr ""
 
-#: content-aside.php:23 content-image.php:23 content-link.php:21
-#: content-quote.php:20 content-status.php:27 content.php:28
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-aside.php:23
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-image.php:23
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-link.php:21
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-quote.php:20
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-status.php:27
 msgid "% Replies"
 msgstr ""
 
-#: content-aside.php:26 content-image.php:26 content-link.php:24
-#: content-page.php:24 content-quote.php:23 content-status.php:30
-#: content.php:46 functions.php:341 image.php:37
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-aside.php:26
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-image.php:26
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-link.php:24
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-page.php:24
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-quote.php:23
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-status.php:30
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/functions.php:393
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/image.php:37
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-address-book.php:106
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/single.php:19
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-confirmation-inc.php:29
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-confirmation-inc.php:38
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-confirmation-inc.php:57
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-confirmation-inc.php:65
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-confirmation-inc.php:113
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-confirmation-inc.php:119
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-confirmation-inc.php:182
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-payment-inc.php:101
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-shipping-inc.php:123
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-shipping-inc.php:312
 msgid "Edit"
 msgstr ""
 
-#: content-link.php:12
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-link.php:12
 msgid "Link"
 msgstr ""
 
-#: content-none.php:13 index.php:49 search.php:34
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-none.php:13
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/search.php:38
 msgid "Nothing Found"
 msgstr ""
 
-#: content-none.php:17 index.php:53
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-none.php:17
 msgid ""
 "Apologies, but no results were found. Perhaps searching will help find a "
 "related post."
 msgstr ""
 
-#: content-page.php:21 content.php:40 image.php:92
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-page.php:21
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content.php:243
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/image.php:92
 msgid "Pages:"
 msgstr ""
 
-#: content.php:14
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content.php:44
 msgid "Featured post"
 msgstr ""
 
-#: content.php:57
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content.php:96
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/shopping-cart-inc.php:25
+msgid "Price"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content.php:96
+msgid "Tax Included"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content.php:259
+#, php-format
 msgid "View all posts by %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#. #-#-#-#-#  twentytwelve.pot (Twenty Twelve 1.2)  #-#-#-#-#
-#. Author URI of the plugin/theme
-#: footer.php:17
-msgid "http://wordpress.org/"
-msgstr ""
-
-#: footer.php:17
-msgid "Semantic Personal Publishing Platform"
-msgstr ""
-
-#: footer.php:17
-msgid "Proudly powered by %s"
-msgstr ""
-
-#: functions.php:64
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/functions.php:116
 msgid "Primary Menu"
 msgstr ""
 
-#. translators: If there are characters in your language that are not supported
-#. by Open Sans, translate this to 'off'. Do not translate into your own
-#. language.
-#: functions.php:100
-msgctxt "Open Sans font: on or off"
-msgid "on"
-msgstr ""
-
-#. translators: To add an additional Open Sans character subset specific to
-#. your language, translate
-#. this to 'greek', 'cyrillic' or 'vietnamese'. Do not translate into your
-#. own language.
-#: functions.php:105
-msgctxt "Open Sans font: add new subset (greek, cyrillic, vietnamese)"
-msgid "no-subset"
-msgstr ""
-
-#: functions.php:213
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/functions.php:265
+#, php-format
 msgid "Page %s"
 msgstr ""
 
-#: functions.php:238
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/functions.php:290
 msgid "Main Sidebar"
 msgstr ""
 
-#: functions.php:240
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/functions.php:292
 msgid ""
 "Appears on posts and pages except the optional Front Page template, which "
 "has its own widgets"
 msgstr ""
 
-#: functions.php:248
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/functions.php:300
 msgid "First Front Page Widget Area"
 msgstr ""
 
-#: functions.php:250 functions.php:260
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/functions.php:302
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/functions.php:312
 msgid ""
 "Appears when using the optional Front Page template with a page set as "
 "Static Front Page"
 msgstr ""
 
-#: functions.php:258
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/functions.php:310
 msgid "Second Front Page Widget Area"
 msgstr ""
 
-#: functions.php:282 single.php:20
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/functions.php:334
 msgid "Post navigation"
 msgstr "Ürün Navigasyon"
 
-#: functions.php:283
-msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/functions.php:335
+msgid "<span class=\"meta-nav\">&larr;</span> Older products"
 msgstr ""
 
-#: functions.php:284
-msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/functions.php:336
+msgid "Newer products <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#: functions.php:309
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/functions.php:361
 msgid "Pingback:"
 msgstr ""
 
-#: functions.php:309
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/functions.php:361
 msgid "(Edit)"
 msgstr ""
 
-#: functions.php:324
-msgid "Post author"
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/functions.php:376
+msgid "Product author"
 msgstr ""
 
-#. translators: 1: date, 2: time
-#: functions.php:330
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/functions.php:382
+#, php-format
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: functions.php:336
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/functions.php:388
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: functions.php:345
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/functions.php:397
 msgid "Reply"
 msgstr ""
 
-#. Translators: used between list items, there is a space after the comma.
-#: functions.php:364 functions.php:367
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/functions.php:416
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/functions.php:419
 msgid ", "
 msgstr ""
 
-#: functions.php:378
-msgid "View all posts by %s"
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/functions.php:430
+#, php-format
+msgid "View all products by %s"
 msgstr ""
 
-#. Translators: 1 is category, 2 is tag, 3 is the date and 4 is the author's
-#. name.
-#: functions.php:384
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/functions.php:436
+#, php-format
 msgid ""
-"This entry was posted in %1$s and tagged %2$s on %3$s<span class=\"by-author"
-"\"> by %4$s</span>."
+"This product was created in %1$s and tagged %2$s on %3$s<span class=\"by-"
+"author\"> by %4$s</span>."
 msgstr ""
 
-#: functions.php:386
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/functions.php:438
+#, php-format
 msgid ""
-"This entry was posted in %1$s on %3$s<span class=\"by-author\"> by %4$s</"
+"This product was created in %1$s on %3$s<span class=\"by-author\"> by %4$s</"
 "span>."
 msgstr ""
 
-#: functions.php:388
-msgid "This entry was posted on %3$s<span class=\"by-author\"> by %4$s</span>."
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/functions.php:440
+#, php-format
+msgid ""
+"This product was created on %3$s<span class=\"by-author\"> by %4$s</span>."
 msgstr ""
 
-#: header.php:43
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/header.php:94
 msgid "Menu"
 msgstr ""
 
-#: header.php:44
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/header.php:95
 msgid "Skip to content"
 msgstr ""
 
-#: image.php:26
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/header.php:173
+#, fuzzy
+msgid "Toggle navigation"
+msgstr "Ürün Navigasyon"
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/header.php:198
+msgid "Search:"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/header.php:202
+msgid "Search"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/header.php:212
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-inc.php:12
+msgid "Account"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/header.php:214
+msgid "Order History"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/header.php:215
+msgid "Profile"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/header.php:216
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-address-book.php:69
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-inc.php:98
+msgid "Address Book"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/header.php:218
+msgid "Log Out"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/header.php:237
+msgid "x"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/header.php:245
+msgid "Edit Cart"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/header.php:245
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/shopping-cart-inc.php:173
+msgid "Checkout"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/image.php:26
+#, php-format
 msgid ""
 "<span class=\"meta-prep meta-prep-entry-date\">Published </span> <span class="
 "\"entry-date\"><time class=\"entry-date\" datetime=\"%1$s\">%2$s</time></"
@@ -288,71 +341,306 @@ msgid ""
 "a>."
 msgstr ""
 
-#: image.php:41
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/image.php:41
 msgid "&larr; Previous"
 msgstr ""
 
-#: image.php:42
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/image.php:42
 msgid "Next &rarr;"
 msgstr ""
 
-#: index.php:38
-msgid "No posts to display"
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-address-book.php:78
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-edit-shipping-address.php:282
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-edit-shipping-address.php:297
+msgid "Edit Address"
 msgstr ""
 
-#: index.php:42
-msgid "Ready to publish your first post? <a href=\"%s\">Get started here</a>."
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-address-book.php:103
+msgid "DEFAULT ADDRESS"
 msgstr ""
 
-#: search.php:18
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-address-book.php:119
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-inc.php:111
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-info-inc.php:190
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-payment-address-inc.php:316
+msgid "Back"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-checkout-process.php:301
+msgid "Order Process"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-create-post.php:21
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-success.php:21
+msgid "Your order has been successfully placed. Thank you!"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-edit-shipping-address.php:282
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-edit-shipping-address.php:297
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-shipping-inc.php:34
+msgid "Edit Shipping Address"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-edit-shipping-address.php:282
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-edit-shipping-address.php:297
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-shipping-inc.php:53
+msgid "Edit Payment Address"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-new-payment-address.php:212
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-shipping-inc.php:72
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-shipping-inc.php:319
+msgid "New Payment Address"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-new-shipping-address.php:221
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/address-book-process-p-inc.php:8
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/address-book-process-s-inc.php:9
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-payment-address-inc.php:5
+msgid "Loading..."
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-new-shipping-address.php:260
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-shipping-inc.php:16
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-shipping-inc.php:129
+msgid "New Shipping Address"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-pdf-invoice.php:90
+msgid "paid"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-pdf-invoice.php:137
+msgid "INVOICE"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-shipping-payment.php:138
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-shipping-inc.php:172
+msgid "Free Shipping"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/search.php:20
+#, php-format
 msgid "Search Results for: %s"
 msgstr ""
 
-#: search.php:38
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/search.php:42
 msgid ""
 "Sorry, but nothing matched your search criteria. Please try again with some "
 "different keywords."
 msgstr ""
 
-#: single.php:21
-msgctxt "Previous post link"
-msgid "&larr;"
-msgstr ""
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/single.php:23
+#, fuzzy
+msgid "Product navigation"
+msgstr "Ürün Navigasyon"
 
-#: single.php:22
-msgctxt "Next post link"
-msgid "&rarr;"
-msgstr ""
-
-#: tag.php:21
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/tag.php:21
+#, php-format
 msgid "Tag Archives: %s"
 msgstr ""
 
-#. Theme Name of the plugin/theme
-msgid "Twenty Twelve"
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-inc.php:5
+msgid "Account History"
 msgstr ""
 
-#. Theme URI of the plugin/theme
-msgid "http://wordpress.org/themes/twentytwelve"
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-inc.php:28
+msgid "Ship to:"
 msgstr ""
 
-#. Description of the plugin/theme
-msgid ""
-"The 2012 theme for WordPress is a fully responsive theme that looks great on "
-"any device. Features include a front page template with its own widgets, an "
-"optional display font, styling for post formats on both index and single "
-"views, and an optional no-sidebar page template. Make it yours with a custom "
-"menu, header image, and background."
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-inc.php:37
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-info-inc.php:16
+msgid "Order Number"
 msgstr ""
 
-#. Author of the plugin/theme
-msgid "the WordPress team"
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-inc.php:38
+msgid "Order Status"
 msgstr ""
 
-#. Template Name of the plugin/theme
-msgid "Front Page Template"
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-inc.php:45
+msgid "Date"
 msgstr ""
 
-#. Template Name of the plugin/theme
-msgid "Full-width Page Template, No Sidebar"
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-inc.php:46
+msgid "Products Qty"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-inc.php:46
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-info-inc.php:20
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-info-inc.php:68
+msgid "Order Total"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-inc.php:47
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-inc.php:63
+msgid "Printable Invoice"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-inc.php:49
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-inc.php:63
+msgid "View"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-inc.php:70
+msgid "You dont have orders"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-info-inc.php:5
+msgid "Order Details"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-info-inc.php:19
+msgid "Order Date"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-info-inc.php:35
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-confirmation-inc.php:29
+msgid "Shipping Address"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-info-inc.php:47
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-confirmation-inc.php:38
+msgid "Shipping Method"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-info-inc.php:66
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-info-inc.php:77
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-confirmation-inc.php:57
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-confirmation-inc.php:65
+msgid "Products"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-info-inc.php:67
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-confirmation-inc.php:58
+msgid "Tax"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-info-inc.php:113
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-confirmation-inc.php:103
+msgid "Billing Details"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-info-inc.php:123
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-confirmation-inc.php:113
+msgid "Billing Address"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-info-inc.php:132
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-confirmation-inc.php:119
+msgid "Payment Method"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-info-inc.php:155
+msgid "Order Status History"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-inc.php:34
+msgid "Latest Orders"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-inc.php:35
+msgid "View All"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-inc.php:82
+msgid "Account Details"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-inc.php:96
+msgid "Edit Profile"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/address-book-process-p-inc.php:101
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/address-book-process-s-inc.php:207
+msgid "Delete"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/address-book-process-p-inc.php:147
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/address-book-process-s-inc.php:253
+msgid "Save"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-confirmation-inc.php:2
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-confirmation-inc.php:215
+msgid "Confirm Order"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-confirmation-inc.php:59
+msgid "Total"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-confirmation-inc.php:143
+msgid "Payment Details"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-confirmation-inc.php:182
+msgid "Order Comments"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-payment-inc.php:92
+msgid "Change Address"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-payment-inc.php:242
+msgid "Continue"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-shipping-inc.php:153
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-shipping-inc.php:161
+msgid "Shipping Methods"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-shipping-inc.php:172
+msgid "Free Shipping Orders Over"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-shipping-inc.php:388
+msgid "Payment Methods"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-shipping-inc.php:491
+msgid "Continue to order confirmation page"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-shipping-inc.php:492
+msgid "Continue Checkout"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/shopping-cart-inc.php:2
+msgid "Shopping cart"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/shopping-cart-inc.php:7
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/shopping-cart-inc.php:11
+msgid "Your Shopping Cart is Empty."
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/shopping-cart-inc.php:7
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/shopping-cart-inc.php:11
+msgid "Continue Shopping"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/shopping-cart-inc.php:21
+msgid "Remove"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/shopping-cart-inc.php:22
+msgid "Product Name"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/shopping-cart-inc.php:23
+msgid "Product Image"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/shopping-cart-inc.php:24
+msgid "Quantity"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/shopping-cart-inc.php:141
+msgid "Subtotal"
+msgstr ""
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/address/address_book_details_p.php:183
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/address/address_book_details_s.php:183
+msgid "Set As Primary"
 msgstr ""

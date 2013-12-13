@@ -32,7 +32,7 @@ endwhile;
        
        foreach ($array as $sub) {
          foreach ($sub as $k => $v) {
-         if(substr($k, 0, 1) !='_' && substr($k, -1) !='_' && $k !='Price' && $k !='Currency' && $k !='Quantity' && $k !='products_ordered'  && $k !='Tax' &&  !@in_array($v, $result[$k])){
+         if(substr($k, 0, 1) !='_' && substr($k, -1) !='_' && $k !='Price' && $k !='Currency' && $k !='Quantity' && $k !='Weight' &&  $k !='products_ordered'  && $k !='Tax' &&  !@in_array($v, $result[$k])){
        
          if( count( $v ) > 0 ){ for( $i=0; $i < count($v); $i++ ){  $result[$k][] = $v[$i]; } }
          
