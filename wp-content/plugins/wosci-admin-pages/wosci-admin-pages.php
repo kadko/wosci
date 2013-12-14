@@ -2191,7 +2191,7 @@ $languages_id = 1;
           <tr>
             <td class="wrap"><div id="icon-edit" class="icon32 icon32-posts-product"><br></div><h2><?php _e('Orders','wosci-language'); ?></h2></td>
             <td class="wrap" align="right"><h2><?php echo tep_draw_separator('pixel_trans.gif', 1, HEADING_IMAGE_HEIGHT); ?></h2></td>
-            <td class="pageHeading" align="right"><?php echo '<a class="button" href="' . esc_url( home_url( '/' )) .'eticaret/pdf-invoice/?order_id='.$_GET['oID'] . '" TARGET="_blank">' . __('Printable Invoice') . '</a> <a class="button" href="admin.php?page=invoice&oID=' . $_GET['oID'] . '" TARGET="_blank">' . __('Invoice','wosci-language') . '</a> <a class="button" href="admin.php?page=packing_slip&oID=' . $_GET['oID'] . '" TARGET="_blank">' . __('Packing Slip','wosci-language') . '</a> <a class="button" href="admin.php?'. tep_get_all_get_params(array('action')) . '">' . __('Back','wosci-language') . '</a> '; ?></td>
+            <td class="pageHeading" align="right"><?php echo '<a class="button" href="' . esc_url( home_url( '/' )) .'pdf-invoice/?order_id='.$_GET['oID'] . '" TARGET="_blank">' . __('Printable Invoice') . '</a> <a class="button" href="admin.php?page=invoice&oID=' . $_GET['oID'] . '" TARGET="_blank">' . __('Invoice','wosci-language') . '</a> <a class="button" href="admin.php?page=packing_slip&oID=' . $_GET['oID'] . '" TARGET="_blank">' . __('Packing Slip','wosci-language') . '</a> <a class="button" href="admin.php?'. tep_get_all_get_params(array('action')) . '">' . __('Back','wosci-language') . '</a> '; ?></td>
           </tr>
         </table></td>
       </tr>
@@ -2404,7 +2404,7 @@ $languages_id = 1;
         </table></td>
       </form></tr>
       <tr>
-       <td colspan="2" align="right"><?php echo '<a class="button" href="' .esc_url( home_url( '/' ) ) .'eticaret/pdf-invoice/?order_id='.$_GET['oID'] . '" TARGET="_blank">' . __('Printable Invoice') . '</a> <a class="button" href="admin.php?page=invoice&oID=' . $_GET['oID'] . '" TARGET="_blank">' . __('Invoice','wosci-language') . '</a> <a class="button" href="admin.php?page=packing_slip&oID=' . $_GET['oID'] . '" TARGET="_blank">' . __('Packing Slip','wosci-language') . '</a> <a class="button" href="admin.php?'. tep_get_all_get_params(array('action')) . '">' . __('Back','wosci-language') . '</a> '; ?></td>
+       <td colspan="2" align="right"><?php echo '<a class="button" href="' .esc_url( home_url( '/' ) ) .'pdf-invoice/?order_id='.$_GET['oID'] . '" TARGET="_blank">' . __('Printable Invoice') . '</a> <a class="button" href="admin.php?page=invoice&oID=' . $_GET['oID'] . '" TARGET="_blank">' . __('Invoice','wosci-language') . '</a> <a class="button" href="admin.php?page=packing_slip&oID=' . $_GET['oID'] . '" TARGET="_blank">' . __('Packing Slip','wosci-language') . '</a> <a class="button" href="admin.php?'. tep_get_all_get_params(array('action')) . '">' . __('Back','wosci-language') . '</a> '; ?></td>
       </tr>
 <?php
   } else {
@@ -2516,7 +2516,7 @@ $languages_id=1;
         $heading[] = array('text' => '<b>[' . $oInfo->orders_id . ']&nbsp;&nbsp;' . tep_datetime_short($oInfo->date_purchased) . '</b>');
 
         $contents[] = array('align' => 'center', 'text' => '<div style="padding-top:12px;"><a class="button" href="admin.php?'. tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $oInfo->orders_id . '&action=edit' . '">'. __('View','wosci-language').'</a> <a class="button" href="admin.php?'. tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $oInfo->orders_id . '&action=delete' . '">'. __('Delete','wosci-language').'</a></div>');
-        $contents[] = array('align' => 'center', 'text' => '<div style="padding-top:12px;"><a class="button" href="' .esc_url( home_url( '/' ) ).'eticaret/pdf-invoice/?order_id='.$_GET['oID'] . '" TARGET="_blank">' . __('Printable Invoice','wosci-language') . '</a> <a class="button" href="admin.php?page=invoice&oID=' . $oInfo->orders_id . '" TARGET="_blank">'. __('Invoice','wosci-language').'</a></div><div style="padding-top:12px;"><a class="button" href="admin.php?page=packing_slip&oID=' . $oInfo->orders_id . '" TARGET="_blank">'. __('Packing Slip','wosci-language').'</a></div>');
+        $contents[] = array('align' => 'center', 'text' => '<div style="padding-top:12px;"><a class="button" href="' .esc_url( home_url( '/' ) ).'pdf-invoice/?order_id='.$_GET['oID'] . '" TARGET="_blank">' . __('Printable Invoice','wosci-language') . '</a> <a class="button" href="admin.php?page=invoice&oID=' . $oInfo->orders_id . '" TARGET="_blank">'. __('Invoice','wosci-language').'</a></div><div style="padding-top:12px;"><a class="button" href="admin.php?page=packing_slip&oID=' . $oInfo->orders_id . '" TARGET="_blank">'. __('Packing Slip','wosci-language').'</a></div>');
         
         $contents[] = array('text' => '<br>' . __('Order Created','wosci-language')  . ' ' . tep_date_short($oInfo->date_purchased));
         if (tep_not_null($oInfo->last_modified)) $contents[] = array('text' => TEXT_DATE_ORDER_LAST_MODIFIED . ' ' . tep_date_short($oInfo->last_modified));

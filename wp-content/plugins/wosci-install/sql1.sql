@@ -872,18 +872,7 @@ CREATE TABLE orders (
   KEY idx_orders_customers_id (customers_id)
 );
 
---
--- Tablo döküm verisi `orders`
---
 
-INSERT INTO `orders` (`orders_id`, `customers_id`, `customers_name`, `customers_company`, `customers_street_address`, `customers_suburb`, `customers_city`, `customers_postcode`, `customers_state`, `customers_country`, `customers_telephone`, `customers_email_address`, `customers_address_format_id`, `delivery_name`, `delivery_company`, `delivery_street_address`, `delivery_suburb`, `delivery_city`, `delivery_postcode`, `delivery_state`, `delivery_country`, `delivery_address_format_id`, `billing_name`, `billing_company`, `billing_street_address`, `billing_suburb`, `billing_city`, `billing_postcode`, `billing_state`, `billing_country`, `billing_address_format_id`, `payment_method`, `cc_type`, `cc_owner`, `cc_number`, `cc_expires`, `last_modified`, `date_purchased`, `orders_status`, `orders_date_finished`, `currency`, `currency_value`) VALUES
-(1, 1, 'Kadir/P2 asdas dasdad aa', 'XYZ', 'asdssssssssssssssssssssss', 'ssssssssss', 'aaaaaaa', '3333333333', 'GA', 'United States', '12345', 'root@localhost', 2, 'Kadir/P2 asdas dasdad aa', 'XYZ', 'asdssssssssssssssssssssss', 'ssssssssss', 'aaaaaaa', '3333333333', 'GA', 'United States', 2, 'Kadir/P2 asdas dasdad aa', 'XYZ', 'asdssssssssssssssssssssss', 'ssssssssss', 'aaaaaaa', '3333333333', 'GA', 'United States', 2, 'Check/Money Order', '', '', '', '', '2013-11-06 17:01:59', '2013-10-16 17:25:06', 3, NULL, 'USD', 0.611500),
-(2, 1, 'Kadir/P2 asdas dasdad aa', 'XYZ', 'asdssssssssssssssssssssss', 'ssssssssss', 'aaaaaaa', '3333333333', 'GA', 'United States', '12345', 'root@localhost', 2, 'Kadir/P2 asdas dasdad aa', 'XYZ', 'asdssssssssssssssssssssss', 'ssssssssss', 'aaaaaaa', '3333333333', 'GA', 'United States', 2, 'Kadir/P2 asdas dasdad aa', 'XYZ', 'asdssssssssssssssssssssss', 'ssssssssss', 'aaaaaaa', '3333333333', 'GA', 'United States', 2, 'Check/Money Order', '', '', '', '', NULL, '2013-10-16 17:26:43', 1, NULL, 'USD', 0.611500),
-(3, 1, 'Kadir/P2 asdas dasdad aa', 'XYZ', 'asdssssssssssssssssssssss', 'ssssssssss', 'aaaaaaa', '3333333333', 'GA', 'United States', '12345', 'root@localhost', 2, 'Kadir/P2 asdas dasdad aa', 'XYZ', 'asdssssssssssssssssssssss', 'ssssssssss', 'aaaaaaa', '3333333333', 'GA', 'United States', 2, 'Kadir/P2 asdas dasdad aa', 'XYZ', 'asdssssssssssssssssssssss', 'ssssssssss', 'aaaaaaa', '3333333333', 'GA', 'United States', 2, 'Check/Money Order', '', '', '', '', NULL, '2013-10-17 15:24:11', 1, NULL, 'USD', 0.611500),
-(4, 1, 'Kadir/P2 asdas dasdad aa', 'XYZ', 'asdssssssssssssssssssssss', 'ssssssssss', 'aaaaaaa', '3333333333', '1', 'TÜRK?YE', '12345', 'root@localhost', 1, 'Kadir asdas dasdad aa', 'XYZ', 'asdssssssssssssssssssssss', 'ssssssssss', 'aaaaaaa', '3333333333', '1', 'TÜRK?YE', 1, 'Kadir asdas dasdad aa', 'XYZ', 'asdssssssssssssssssssssss', 'ssssssssss', 'aaaaaaa', '3333333333', '1', 'TÜRK?YE', 1, 'Check/Money Order', '', '', '', '', NULL, '2013-10-21 17:15:13', 1, NULL, 'USD', 0.611500),
-(5, 1, 'John Doe', 'ASN 7', 'Ömerpaşa Cad. Özlem Apt 53A D1', 'Göztepe', 'Kadıköy', '34730', '34', 'TÜRK?YE', '12345', 'root@localhost', 1, 'Kadir Korkmaz', 'ASN 7', 'Ömerpaşa Cad. Özlem Apt 53A D1', 'Göztepe', 'Kadıköy', '34730', '34', 'TÜRK?YE', 1, 'Kadir Korkmaz', 'ASN 7', 'Ömerpaşa Cad. Özlem Apt 53A D1', 'Göztepe', 'Kadıköy', '34730', '34', 'TÜRK?YE', 1, 'Cash on Delivery', '', '', '', '', NULL, '2013-11-06 22:46:17', 1, NULL, 'USD', 0.611500),
-(6, 1, 'John Doe', 'ASN 7', 'Ömerpaşa Cad. Özlem Apt 53A D1', 'Göztepe', 'Kadıköy', '34730', '34', 'TÜRK?YE', '12345', 'root@localhost', 1, 'Kadir Korkmaz', 'ASN 7', 'Ömerpaşa Cad. Özlem Apt 53A D1', 'Göztepe', 'Kadıköy', '34730', '34', 'TÜRK?YE', 1, 'Kadir Korkmaz', 'ASN 7', 'Ömerpaşa Cad. Özlem Apt 53A D1', 'Göztepe', 'Kadıköy', '34730', '34', 'TÜRK?YE', 1, 'Cash on Delivery', '', '', '', '', NULL, '2013-11-07 15:53:47', 1, NULL, 'USD', 0.611500),
-(7, 1, 'John Doe', 'ASN 7', 'Ömerpaşa Cad. Özlem Apt 53A D1', 'Göztepe', 'Kadıköy', '34730', '34', 'TURKIYE', '12345', 'root@localhost', 1, 'Kadir Korkmaz', 'ASN 7', 'Ömerpaşa Cad. Özlem Apt 53A D1', 'Göztepe', 'Kadıköy', '34730', '34', 'TURKIYE', 1, 'Kadir Korkmaz', 'ASN 7', 'Ömerpaşa Cad. Özlem Apt 53A D1', 'Göztepe', 'Kadıköy', '34730', '34', 'TURKIYE', 1, 'Cash on Delivery', '', '', '', '', NULL, '2013-11-18 06:14:38', 1, NULL, 'USD', 0.493462);
 
 -- --------------------------------------------------------
 
@@ -908,20 +897,7 @@ CREATE TABLE IF NOT EXISTS `orders_products` (
   KEY `idx_orders_products_products_id` (`products_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 ;
 
---
--- Tablo döküm verisi `orders_products`
---
 
-INSERT INTO `orders_products` (`orders_products_id`, `orders_id`, `products_id`, `products_model`, `products_name`, `products_price`, `final_price`, `products_tax`, `products_quantity`, `products_currency`, `currency_value`) VALUES
-(1, 1, 20, '', 'Deneme 4', 65.0000, 65.0000, 0.0000, 2, 'TL', 1.000000),
-(2, 2, 63, '', 'Gece Yarısında Aydınlık', 22.5000, 22.5000, 0.0000, 1, 'TL', 1.000000),
-(3, 3, 53, '', 'Bir Psikiyatristin Gizli Defteri', 15.0000, 15.0000, 0.0000, 1, 'TL', 1.000000),
-(4, 4, 63, '', 'Gece Yarısında Aydınlık', 22.5000, 22.5000, 0.0000, 1, 'TL', 1.000000),
-(5, 5, 53, 'BHGO-TR-12B', 'Bir Psikiyatristin Gizli Defteri', 15.0000, 15.0000, 0.0000, 1, 'TL', 1.000000),
-(6, 6, 63, '', 'Gece Yarısında Aydınlık', 22.5000, 22.5000, 0.0000, 1, 'TL', 1.000000),
-(7, 6, 39, '', 'Deneme 6', 44.0000, 44.0000, 0.0000, 1, 'TL', 1.000000),
-(8, 6, 53, 'BHGO-TR-12B', 'Bir Psikiyatristin Gizli Defteri', 15.0000, 15.0000, 0.0000, 1, 'TL', 1.000000),
-(9, 7, 53, 'BHGO-TR-12B', 'Bir Psikiyatristin Gizli Defteri', 15.0000, 30.0000, 0.0000, 1, 'USD', 0.493462);
 
 -- --------------------------------------------------------
 
@@ -941,13 +917,7 @@ CREATE TABLE IF NOT EXISTS `orders_products_attributes` (
   KEY `idx_orders_products_att_orders_id` (`orders_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 ;
 
---
--- Tablo döküm verisi `orders_products_attributes`
---
 
-INSERT INTO `orders_products_attributes` (`orders_products_attributes_id`, `orders_id`, `orders_products_id`, `products_options`, `products_options_values`, `options_values_price`, `price_prefix`) VALUES
-(1, 7, 9, 'Model', 'Deluxe', 15.0000, '+'),
-(2, 7, 9, 'Memory', '16 mb', 0.0000, '+');
 
 -- --------------------------------------------------------
 
