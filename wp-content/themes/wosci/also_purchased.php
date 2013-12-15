@@ -14,11 +14,11 @@
       $counter = 0;
       $col = 0;
 ?>
+<div class="well" style="margin-top:-12px;">
+<div class="row" style="margin-top:0px;margin-bottom:15px;">
 
-<div class="row" style="margin-top:30px;margin-bottom:15px;">
-
-<h3  class="assistive-text" style="margin-left:15px;"><?php echo __('Customers who bought this product also purchased', 'wosci-language'); ?></h3>
-
+<h4 class="assistive-text" style="margin-left:15px;"><?php echo __('Customers who bought this product also purchased', 'wosci-language'); ?></h4>
+<hr>
   <div class="col-xs-18">
 
 <?php
@@ -43,7 +43,7 @@
 
 </div> <!-- .col-xs-18 -->
 </div> <!-- .row -->
-
+</div><!-- .well -->
 <?php
 	}
 	}

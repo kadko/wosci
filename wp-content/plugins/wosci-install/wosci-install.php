@@ -30,8 +30,12 @@ function wosci_sql_import() {
 	$checkpost = $mysqli->query("SELECT * FROM wp_posts where post_name='test-product-a'");
 	if( $checkpost->num_rows < 1 ){
 
-	$names = array( 'Test Product A', 'Test Product B', 'Test Product C', 'Test Product D', 'Test Product E', 'Test Product F', 'Test Product U', 'Test Product H', 'Test Product I' );
-	$filenames = array('446942_2.jpg', '419109.jpg', '334183_2.jpg', '338007_2.jpg', '339027_2.jpg', '340733_2.jpg', '405212_2.jpg', '432826.jpg', 'F10.jpg');
+	$names = array( 'Test Product A', 'Test Product B', 'Test Product C', 'Test Product D', 'Test Product E', 'Test Product F', 'Test Product G', 'Test Product H', 'Test Product I' , 'Test Product J' , 'Test Product K' , 'Test Product L' );
+	
+	$filters = array('Cable','Ear-Phone', 'Phone', 'Music-Player', 'Cable', 'Adapter', 'Cable', 'Tablet', 'Adapter', 'Charger', 'Bike-PC', 'Webcam');
+	$filenames = array('446942_2.jpg', '419109.jpg', '334183_2.jpg', '338007_2.jpg', '339027_2.jpg', '340733_2.jpg', '405212_2.jpg', '432826.jpg', 'F10.jpg','HC835.jpg','HA248.jpg','HD935.jpg');
+	
+	
 	$names = array_values($names); $filenames = array_values($filenames);
 	require_once(ABSPATH . 'wp-admin/admin.php');
 	
@@ -90,16 +94,17 @@ function wosci_sql_import() {
 
 	$mysqli->query("INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUES (NULL, '" . $pid . "', '_thumbnail_id', '" . $attach_id . "')");
 	
-	$tarray = array('Travel', 'Science-Fiction','Law','History','Romance','Spirituality','Science-Math','Literature');
-	$farray = array('Paperback', 'Hardcover','Board-Book');
+	//$tarray = array('Travel', 'Science-Fiction','Law','History','Romance','Spirituality','Science-Math','Literature');
+	//$farray = array('Paperback', 'Hardcover','Board-Book');
 
 	
 	update_post_meta($pid, 'Currency', 'USD');
 	update_post_meta($pid, 'Price', rand(10,100) );
 	update_post_meta($pid, 'Quantity',  rand(30,90) );
 	update_post_meta($pid, 'Weight',  rand(1, 11) * 0.1 );
-	update_post_meta($pid, 'Type',  $tarray[rand(0, count($tarray)-1)] );
-	update_post_meta($pid, 'Format',  $farray[rand(0, count($farray)-1)] );
+	update_post_meta($pid, 'Type', $filters[$i]);
+	//update_post_meta($pid, 'Type',  $tarray[rand(0, count($tarray)-1)] );
+	//update_post_meta($pid, 'Format',  $farray[rand(0, count($farray)-1)] );
 	
 	
 	}

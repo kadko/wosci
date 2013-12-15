@@ -79,7 +79,7 @@ INSERT INTO `configuration` (`configuration_id`, `configuration_title`, `configu
 (2, 'Store Owner', 'STORE_OWNER', 'Harald Ponce de Leon', 'The name of my store owner', 1, 2, NULL, '2013-08-07 14:38:03', NULL, NULL),
 (3, 'E-Mail Address', 'STORE_OWNER_EMAIL_ADDRESS', 'root@localhostza', 'The e-mail address of my store owner', 1, 3, '2013-11-05 19:36:44', '2013-08-07 14:38:03', NULL, NULL),
 (4, 'E-Mail From', 'EMAIL_FROM', 'osCommerce <root@localhost>', 'The e-mail address used in (sent) e-mails', 1, 4, NULL, '2013-08-07 14:38:03', NULL, NULL),
-(5, 'Country', 'STORE_COUNTRY', '199', 'The country my store is located in <br><br><b>Note: Please remember to update the store zone.</b>', 1, 6, '2013-11-05 19:29:19', '2013-08-07 14:38:03', 'tep_get_country_name', 'tep_cfg_pull_down_country_list('),
+(5, 'Country', 'STORE_COUNTRY', '223', 'The country my store is located in <br><br><b>Note: Please remember to update the store zone.</b>', 1, 6, '2013-11-05 19:29:19', '2013-08-07 14:38:03', 'tep_get_country_name', 'tep_cfg_pull_down_country_list('),
 (6, 'Zone', 'STORE_ZONE', '182', 'The zone my store is located in', 1, 7, '2013-11-05 19:28:39', '2013-08-07 14:38:03', 'tep_cfg_get_zone_name', 'tep_cfg_pull_down_zone_list('),
 (7, 'Expected Sort Order', 'EXPECTED_PRODUCTS_SORT', 'desc', 'This is the sort order used in the expected products box.', 1, 8, NULL, '2013-08-07 14:38:03', NULL, 'tep_cfg_select_option(array(''asc'', ''desc''), '),
 (8, 'Expected Sort Field', 'EXPECTED_PRODUCTS_FIELD', 'date_expected', 'The column to sort by in the expected products box.', 1, 9, NULL, '2013-08-07 14:38:03', NULL, 'tep_cfg_select_option(array(''products_name'', ''date_expected''), '),
@@ -369,8 +369,7 @@ INSERT INTO `configuration_group` (`configuration_group_id`, `configuration_grou
 (12, 'E-Mail Options', 'General setting for E-Mail transport and HTML E-Mails', 12, 1),
 (13, 'Download', 'Downloadable products options', 13, 1),
 (14, 'GZip Compression', 'GZip compression options', 14, 1),
-(15, 'Sessions', 'Session options', 15, 1),
-(543, 'Header Tags SEO', 'Header Tags SEO site wide options', 20, 1);
+(15, 'Sessions', 'Session options', 15, 1);
 
 -- --------------------------------------------------------
 
@@ -995,23 +994,7 @@ CREATE TABLE IF NOT EXISTS `orders_status_history` (
   KEY `idx_orders_status_history_orders_id` (`orders_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 ;
 
---
--- Tablo döküm verisi `orders_status_history`
---
 
-INSERT INTO `orders_status_history` (`orders_status_history_id`, `orders_id`, `orders_status_id`, `date_added`, `customer_notified`, `comments`) VALUES
-(1, 1, 1, '2013-10-16 17:25:06', 1, ''),
-(2, 2, 1, '2013-10-16 17:26:43', 1, ''),
-(3, 3, 1, '2013-10-17 15:24:11', 1, ''),
-(4, 4, 1, '2013-10-21 17:15:13', 1, ''),
-(5, 1, 0, '2013-11-06 16:11:34', 0, ''),
-(6, 1, 0, '2013-11-06 16:12:13', 0, ''),
-(7, 1, 0, '2013-11-06 16:12:47', 0, ''),
-(8, 1, 3, '2013-11-06 16:15:07', 1, 'daz'),
-(9, 1, 3, '2013-11-06 17:01:59', 1, 'Add Comments false'),
-(10, 5, 1, '2013-11-06 22:46:17', 1, ''),
-(11, 6, 1, '2013-11-07 15:53:47', 1, ''),
-(12, 7, 1, '2013-11-18 06:14:38', 1, '');
 
 -- --------------------------------------------------------
 
@@ -1031,32 +1014,7 @@ CREATE TABLE IF NOT EXISTS `orders_total` (
   KEY `idx_orders_total_orders_id` (`orders_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=22 ;
 
---
--- Tablo döküm verisi `orders_total`
---
 
-INSERT INTO `orders_total` (`orders_total_id`, `orders_id`, `title`, `text`, `value`, `class`, `sort_order`) VALUES
-(1, 1, 'Sub-Total:', '$79.50', 130.0000, 'ot_subtotal', 1),
-(2, 1, 'Table Rate (Best Way):', '$5.20', 8.5000, 'ot_shipping', 2),
-(3, 1, 'Total:', '<b>$84.69</b>', 138.5000, 'ot_total', 4),
-(4, 2, 'Sub-Total:', '$13.76', 22.5000, 'ot_subtotal', 1),
-(5, 2, 'Table Rate (Best Way):', '$5.20', 8.5000, 'ot_shipping', 2),
-(6, 2, 'Total:', '<b>$18.96</b>', 31.0000, 'ot_total', 4),
-(7, 3, 'Sub-Total:', '$9.17', 15.0000, 'ot_subtotal', 1),
-(8, 3, 'Per Item (Best Way):', '$1.53', 2.5000, 'ot_shipping', 2),
-(9, 3, 'Total:', '<b>$10.70</b>', 17.5000, 'ot_total', 4),
-(10, 4, 'Sub-Total:', '$13.76', 22.5000, 'ot_subtotal', 1),
-(11, 4, 'Per Item (Best Way):', '$1.53', 2.5000, 'ot_shipping', 2),
-(12, 4, 'Total:', '<b>$15.29</b>', 25.0000, 'ot_total', 4),
-(13, 5, 'Sub-Total:', '$9.17', 15.0000, 'ot_subtotal', 1),
-(14, 5, 'Per Item (Best Way):', '$1.53', 2.5000, 'ot_shipping', 2),
-(15, 5, 'Total:', '<b>$10.70</b>', 17.5000, 'ot_total', 4),
-(16, 6, 'Sub-Total:', '$49.84', 81.5000, 'ot_subtotal', 1),
-(17, 6, 'Zone Rates (Shipping to  : 3 lb(s)):', '$2.80', 4.5800, 'ot_shipping', 2),
-(18, 6, 'Total:', '<b>$52.64</b>', 86.0800, 'ot_total', 4),
-(19, 7, 'Sub-Total:', '$30.00', 60.7900, 'ot_subtotal', 1),
-(20, 7, 'Table Rate (Best Way):', '$4.19', 8.5000, 'ot_shipping', 2),
-(21, 7, 'Total:', '<b>$34.19</b>', 69.2900, 'ot_total', 4);
 
 -- --------------------------------------------------------
 DROP TABLE IF EXISTS products;

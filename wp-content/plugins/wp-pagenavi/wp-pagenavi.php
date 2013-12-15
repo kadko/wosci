@@ -1,10 +1,10 @@
 <?php
 /*
-Plugin Name: WP-PageNavi
+Plugin Name: Wosci PageNavi
 Version: 2.73
-Description: Adds a more advanced paging navigation to your WordPress blog
+Description: Adds a more advanced paging navigation to your Wosci shop
 Author: Lester 'GaMerZ' Chan & scribu
-Plugin URI: http://wordpress.org/extend/plugins/wp-pagenavi/
+Plugin URI: 
 Text Domain: wp-pagenavi
 Domain Path: /lang
 

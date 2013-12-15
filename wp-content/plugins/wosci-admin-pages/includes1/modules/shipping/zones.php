@@ -187,7 +187,7 @@
       for ($i = 1; $i <= $this->num_zones; $i++) {
         $default_countries = '';
         if ($i == 1) {
-          $default_countries = 'US,CA';
+          $default_countries = '34,12';
         }
         tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('Bölge " . $i ." Şehirleri', 'MODULE_SHIPPING_ZONES_COUNTRIES_" . $i ."', '" . $default_countries . "', 'Virgüllerle ayrılmış olarak bölge-" . $i ." şehir IDleri bu kutuya yazılmalıdır. Her numara şehir IDsini temsil etmektedir. Şehir ID leri Şehirler/Bölgeler kısmından kontrol edilebilir (zones tablosunda zone_id). Bölge - " . $i . ".', '6', '0', now())");
         tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('Bölge " . $i ." e ait fiyat tablosu', 'MODULE_SHIPPING_ZONES_COST_" . $i ."', '3:8.50,7:10.50,99:20.00', 'Bu fiyat tablosu Bölge " . $i . " şehirlerine uygulanacak fiyatları gosterir. Maksimum sipariş ağırlığına veya desi miktarına göre hesaplanır. Örnek yazım: 3:8.50,7:10.50,... Bu örnekte 3 ve altındaki sipariş ağırlıkları 8.5 olarak fiyatlandırılır. Bölge - " . $i . " şehirleri içindir.', '6', '0', now())");

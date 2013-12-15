@@ -15,6 +15,10 @@ Installation
 
 4- Check Settings > Permalink page without any change
 
+5- Settings > Breadcrumb NavXT > Post Types Tab 
+Product Hierarchy > Select "Product Category"	
+Deselect "Product Archive Display" checkbox 
+click "Save Changes" button
 5- Completed!
 
 

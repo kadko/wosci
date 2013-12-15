@@ -266,11 +266,13 @@ jQuery('input[value="' + clicked_box + '"]').attr('checked', true);
 
 }
 }
-if ( orb != null || cvh != '' || (pricef != null && pricet != null)){
+
+
+if ( ( orb != null || cvh != '' ) || (pricef != null && pricet != null) ){
 
 	selrgb = jQuery.cookies.get( 'selectedrgb' );
 	maratio = jQuery.cookies.get( 'matchratio' );
-
+if(orb == null){ orb = 'date';  or = 'ASC';  }
 var ppp = jQuery.cookies.get( 'popepa' );
 
 jQuery.post(
@@ -400,6 +402,30 @@ jQuery('#pover2')
         }
     });
 
+
+
+function handler1() {
+jQuery("#shfilter").removeAttr("class");
+jQuery("#shfilter").attr("class", "btn btn-default btn-sm");
+
+jQuery("#filters").hide();
+jQuery("#listingrow").removeAttr("class");
+jQuery("#listingrow").attr("class", "col-18 col-lg-12");
+jQuery(this).one("click", handler2);
+}
+
+function handler2() {
+
+jQuery("#shfilter").removeAttr("class");
+jQuery("#shfilter").attr("class", "btn btn-success btn-sm");
+
+jQuery("#filters").show();
+jQuery("#listingrow").removeAttr("class");
+jQuery("#listingrow").attr("class", "col-12 col-lg-10");
+jQuery(this).one("click", handler1);
+}
+jQuery("#shfilter").one("click", handler1);
+
 });
 
 
@@ -428,8 +454,16 @@ query_posts(
 <?php $c_terms = get_term_by( 'slug', $term, 'product_category', $output, $filter ); ?>
 <div class="well">
 
+
+
 <div class="row">
-        <div class="col-12 col-lg-10">
+  <div class="col-xs-12 col-sm-6 col-md-8"><h3 class="assistive-text" style=""><?php print_r($c_terms->name); ?></h3></div>
+  <div class="col-xs-6 col-md-4" style="text-align:right;"><button id="shfilter" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-filter"></span> Filters</button></div>
+</div>
+<hr>
+
+<div class="row">
+        <div class="col-12 col-lg-10" id="listingrow">
 <div id="tumbs">
 <div class="row">
 <?php
@@ -442,7 +476,7 @@ query_posts(
 
 
 	// ürün listelemesinde s?ralama düzeni için http://codex.wordpress.org/Template_Tags/query_posts#Order_Parameters
-	$loopmain = new WP_Query( array( 's'=> $_GET['search'], 'order' => ''/*'ASC'*/,'product_category' => $term, 'orderby' => 'date', 'paged' => $paged, 'post_type' => 'product','meta_key' => 'Price', 'meta_compare' => 'BETWEEN', 'meta_value' => '') );
+	$loopmain = new WP_Query( array( 's'=> $_GET['search'], 'order' => 'ASC'/*'ASC'*/,'product_category' => $term, 'orderby' => 'date', 'paged' => $paged, 'post_type' => 'product','meta_key' => 'Price', 'meta_compare' => 'BETWEEN', 'meta_value' => '') );
 	
 	while ( $loopmain->have_posts() ) : $loopmain->the_post();
 	$c = get_post_custom_values('Currency');
@@ -480,7 +514,7 @@ query_posts(
 
 </div><!-- .col-12 .col-lg-9 -->
 
-	<div class="col-6 col-lg-2">
+<div class="col-6 col-lg-2" id="filters">
 <div class="margin-top"></div>
 	<?php get_sidebar(); ?>
 	
@@ -489,32 +523,11 @@ query_posts(
 
 
 <div id="accordion">
-<?php 
-/*
-  <h3>Section 1</h3>
-  <div>
-    <p>
-    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
-    </p>
-  </div>
-*/
-?>
-
 <?php echo group_by_keyo(group_by_key($keys2)); ?>
-
-
 </div>
+</div><!-- .col-6 .col-lg-2 -->
 
 
-
-
-
-
-
-	</div><!-- .col-6 .col-lg-3 -->
 </div><!-- .row -->
 </div><!-- .well -->
       

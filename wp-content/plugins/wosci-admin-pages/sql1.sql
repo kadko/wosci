@@ -153,27 +153,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
 -- Tablo döküm verisi `categories`
 --
 
-INSERT INTO `categories` (`categories_id`, `categories_image`, `parent_id`, `sort_order`, `date_added`, `last_modified`) VALUES
-(1, 'category_hardware.gif', 0, 1, '2013-08-07 14:38:03', NULL),
-(2, 'category_software.gif', 0, 2, '2013-08-07 14:38:03', NULL),
-(3, 'category_dvd_movies.gif', 0, 3, '2013-08-07 14:38:03', NULL),
-(4, 'subcategory_graphic_cards.gif', 1, 0, '2013-08-07 14:38:03', NULL),
-(5, 'subcategory_printers.gif', 1, 0, '2013-08-07 14:38:03', NULL),
-(6, 'subcategory_monitors.gif', 1, 0, '2013-08-07 14:38:03', NULL),
-(7, 'subcategory_speakers.gif', 1, 0, '2013-08-07 14:38:03', NULL),
-(8, 'subcategory_keyboards.gif', 1, 0, '2013-08-07 14:38:03', NULL),
-(9, 'subcategory_mice.gif', 1, 0, '2013-08-07 14:38:03', NULL),
-(10, 'subcategory_action.gif', 3, 0, '2013-08-07 14:38:03', NULL),
-(11, 'subcategory_science_fiction.gif', 3, 0, '2013-08-07 14:38:03', NULL),
-(12, 'subcategory_comedy.gif', 3, 0, '2013-08-07 14:38:03', NULL),
-(13, 'subcategory_cartoons.gif', 3, 0, '2013-08-07 14:38:03', NULL),
-(14, 'subcategory_thriller.gif', 3, 0, '2013-08-07 14:38:03', NULL),
-(15, 'subcategory_drama.gif', 3, 0, '2013-08-07 14:38:03', NULL),
-(16, 'subcategory_memory.gif', 1, 0, '2013-08-07 14:38:03', NULL),
-(17, 'subcategory_cdrom_drives.gif', 1, 0, '2013-08-07 14:38:03', NULL),
-(18, 'subcategory_simulation.gif', 2, 0, '2013-08-07 14:38:03', NULL),
-(19, 'subcategory_action_games.gif', 2, 0, '2013-08-07 14:38:03', NULL),
-(20, 'subcategory_strategy.gif', 2, 0, '2013-08-07 14:38:03', NULL);
+
 
 -- --------------------------------------------------------
 
@@ -197,87 +177,7 @@ CREATE TABLE IF NOT EXISTS `categories_description` (
 -- Tablo döküm verisi `categories_description`
 --
 
-INSERT INTO `categories_description` (`categories_id`, `language_id`, `categories_name`, `categories_htc_title_tag`, `categories_htc_desc_tag`, `categories_htc_keywords_tag`, `categories_htc_description`) VALUES
-(1, 1, 'Hardware', NULL, NULL, NULL, NULL),
-(1, 2, 'Hardware', NULL, NULL, NULL, NULL),
-(1, 3, 'Hardware', NULL, NULL, NULL, NULL),
-(1, 4, 'Donan?m', NULL, NULL, NULL, NULL),
-(2, 1, 'Software', NULL, NULL, NULL, NULL),
-(2, 2, 'Software', NULL, NULL, NULL, NULL),
-(2, 3, 'Software', NULL, NULL, NULL, NULL),
-(2, 4, 'Yaz?l?m', NULL, NULL, NULL, NULL),
-(3, 1, 'DVD Movies', NULL, NULL, NULL, NULL),
-(3, 2, 'DVD Filme', NULL, NULL, NULL, NULL),
-(3, 3, 'Peliculas DVD', NULL, NULL, NULL, NULL),
-(3, 4, 'DVD Filmler', NULL, NULL, NULL, NULL),
-(4, 1, 'Graphics Cards', NULL, NULL, NULL, NULL),
-(4, 2, 'Grafikkarten', NULL, NULL, NULL, NULL),
-(4, 3, 'Tarjetas Graficas', NULL, NULL, NULL, NULL),
-(4, 4, 'Grafik Kartlar?', NULL, NULL, NULL, NULL),
-(5, 1, 'Printers', NULL, NULL, NULL, NULL),
-(5, 2, 'Drucker', NULL, NULL, NULL, NULL),
-(5, 3, 'Impresoras', NULL, NULL, NULL, NULL),
-(5, 4, 'Yaz?c?lar', NULL, NULL, NULL, NULL),
-(6, 1, 'Monitors', NULL, NULL, NULL, NULL),
-(6, 2, 'Bildschirme', NULL, NULL, NULL, NULL),
-(6, 3, 'Monitores', NULL, NULL, NULL, NULL),
-(6, 4, 'Monitörler', NULL, NULL, NULL, NULL),
-(7, 1, 'Speakers', NULL, NULL, NULL, NULL),
-(7, 2, 'Lautsprecher', NULL, NULL, NULL, NULL),
-(7, 3, 'Altavoces', NULL, NULL, NULL, NULL),
-(7, 4, 'Speakerlar', NULL, NULL, NULL, NULL),
-(8, 1, 'Keyboards', NULL, NULL, NULL, NULL),
-(8, 2, 'Tastaturen', NULL, NULL, NULL, NULL),
-(8, 3, 'Teclados', NULL, NULL, NULL, NULL),
-(8, 4, 'Klavyeler', NULL, NULL, NULL, NULL),
-(9, 1, 'Mice', NULL, NULL, NULL, NULL),
-(9, 2, 'Mäuse', NULL, NULL, NULL, NULL),
-(9, 3, 'Ratones', NULL, NULL, NULL, NULL),
-(9, 4, 'Fareler', NULL, NULL, NULL, NULL),
-(10, 1, 'Action', NULL, NULL, NULL, NULL),
-(10, 2, 'Action', NULL, NULL, NULL, NULL),
-(10, 3, 'Accion', NULL, NULL, NULL, NULL),
-(10, 4, 'Aksiyon', NULL, NULL, NULL, NULL),
-(11, 1, 'Science Fiction', NULL, NULL, NULL, NULL),
-(11, 2, 'Science Fiction', NULL, NULL, NULL, NULL),
-(11, 3, 'Ciencia Ficcion', NULL, NULL, NULL, NULL),
-(11, 4, 'Bilim Kurgu', NULL, NULL, NULL, NULL),
-(12, 1, 'Comedy', NULL, NULL, NULL, NULL),
-(12, 2, 'Komödie', NULL, NULL, NULL, NULL),
-(12, 3, 'Comedia', NULL, NULL, NULL, NULL),
-(12, 4, 'Komedi', NULL, NULL, NULL, NULL),
-(13, 1, 'Cartoons', NULL, NULL, NULL, NULL),
-(13, 2, 'Zeichentrick', NULL, NULL, NULL, NULL),
-(13, 3, 'Dibujos Animados', NULL, NULL, NULL, NULL),
-(13, 4, 'Çizgi Film', NULL, NULL, NULL, NULL),
-(14, 1, 'Thriller', NULL, NULL, NULL, NULL),
-(14, 2, 'Thriller', NULL, NULL, NULL, NULL),
-(14, 3, 'Suspense', NULL, NULL, NULL, NULL),
-(14, 4, 'Korku', NULL, NULL, NULL, NULL),
-(15, 1, 'Drama', NULL, NULL, NULL, NULL),
-(15, 2, 'Drama', NULL, NULL, NULL, NULL),
-(15, 3, 'Drama', NULL, NULL, NULL, NULL),
-(15, 4, 'Dram', NULL, NULL, NULL, NULL),
-(16, 1, 'Memory', NULL, NULL, NULL, NULL),
-(16, 2, 'Speicher', NULL, NULL, NULL, NULL),
-(16, 3, 'Memoria', NULL, NULL, NULL, NULL),
-(16, 4, 'Haf?za Kartlar?', NULL, NULL, NULL, NULL),
-(17, 1, 'CDROM Drives', NULL, NULL, NULL, NULL),
-(17, 2, 'CDROM Laufwerke', NULL, NULL, NULL, NULL),
-(17, 3, 'Unidades CDROM', NULL, NULL, NULL, NULL),
-(17, 4, 'CDROM', NULL, NULL, NULL, NULL),
-(18, 1, 'Simulation', NULL, NULL, NULL, NULL),
-(18, 2, 'Simulation', NULL, NULL, NULL, NULL),
-(18, 3, 'Simulacion', NULL, NULL, NULL, NULL),
-(18, 4, 'Simulasyon', NULL, NULL, NULL, NULL),
-(19, 1, 'Action', NULL, NULL, NULL, NULL),
-(19, 2, 'Action', NULL, NULL, NULL, NULL),
-(19, 3, 'Accion', NULL, NULL, NULL, NULL),
-(19, 4, 'Aksiyon', NULL, NULL, NULL, NULL),
-(20, 1, 'Strategy', NULL, NULL, NULL, NULL),
-(20, 2, 'Strategie', NULL, NULL, NULL, NULL),
-(20, 3, 'Estrategia', NULL, NULL, NULL, NULL),
-(20, 4, 'Strateji', NULL, NULL, NULL, NULL);
+
 
 -- --------------------------------------------------------
 
@@ -1124,13 +1024,7 @@ CREATE TABLE IF NOT EXISTS `headertags` (
 -- Tablo döküm verisi `headertags`
 --
 
-INSERT INTO `headertags` (`page_name`, `page_title`, `page_description`, `page_keywords`, `page_logo`, `page_logo_1`, `page_logo_2`, `page_logo_3`, `page_logo_4`, `append_default_title`, `append_default_description`, `append_default_keywords`, `append_default_logo`, `append_category`, `append_manufacturer`, `append_product`, `append_root`, `sortorder_title`, `sortorder_description`, `sortorder_keywords`, `sortorder_logo`, `sortorder_logo_1`, `sortorder_logo_2`, `sortorder_logo_3`, `sortorder_logo_4`, `sortorder_category`, `sortorder_manufacturer`, `sortorder_product`, `sortorder_root`, `sortorder_root_1`, `sortorder_root_2`, `sortorder_root_3`, `sortorder_root_4`, `language_id`) VALUES
-('index.php', 'Replace me in Page Control under index.php', 'Replace me in Page Control under index.php', 'Replace me in Page Control under index.php', 'Replace me in Page Control under index.php', '', '', '', '', 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 1, 1, 1, 1, 1, 1),
-('product_info.php', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 1, 1, 1, 1, 1, 1),
-('product_reviews.php', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 1, 1, 1, 1, 1, 1),
-('product_reviews_info.php', '', '', '', 'Reviews logo text', '', '', '', '', 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 1, 1, 1, 1, 1, 1),
-('product_reviews_write.php', '', '', '', 'Reviews logo text', '', '', '', '', 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 1, 1, 1, 1, 1, 1),
-('specials.php', 'specials', 'specials', 'specials', 'Specials', '', '', '', '', 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 1, 1, 1, 1, 1, 1);
+
 
 -- --------------------------------------------------------
 
@@ -1376,20 +1270,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
   KEY `idx_orders_customers_id` (`customers_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
---
--- Tablo döküm verisi `orders`
---
 
-INSERT INTO `orders` (`orders_id`, `customers_id`, `customers_name`, `customers_company`, `customers_street_address`, `customers_suburb`, `customers_city`, `customers_postcode`, `customers_state`, `customers_country`, `customers_telephone`, `customers_email_address`, `customers_address_format_id`, `delivery_name`, `delivery_company`, `delivery_street_address`, `delivery_suburb`, `delivery_city`, `delivery_postcode`, `delivery_state`, `delivery_country`, `delivery_address_format_id`, `billing_name`, `billing_company`, `billing_street_address`, `billing_suburb`, `billing_city`, `billing_postcode`, `billing_state`, `billing_country`, `billing_address_format_id`, `payment_method`, `cc_type`, `cc_owner`, `cc_number`, `cc_expires`, `last_modified`, `date_purchased`, `orders_status`, `orders_date_finished`, `currency`, `currency_value`) VALUES
-(1, 1, 'Kadir/P2 asdas dasdad aa', 'XYZ', 'asdssssssssssssssssssssss', 'ssssssssss', 'aaaaaaa', '3333333333', 'GA', 'United States', '12345', 'root@localhost', 2, 'Kadir/P2 asdas dasdad aa', 'XYZ', 'asdssssssssssssssssssssss', 'ssssssssss', 'aaaaaaa', '3333333333', 'GA', 'United States', 2, 'Kadir/P2 asdas dasdad aa', 'XYZ', 'asdssssssssssssssssssssss', 'ssssssssss', 'aaaaaaa', '3333333333', 'GA', 'United States', 2, 'Check/Money Order', '', '', '', '', '2013-11-06 17:01:59', '2013-10-16 17:25:06', 3, NULL, 'USD', 0.611500),
-(2, 1, 'Kadir/P2 asdas dasdad aa', 'XYZ', 'asdssssssssssssssssssssss', 'ssssssssss', 'aaaaaaa', '3333333333', 'GA', 'United States', '12345', 'root@localhost', 2, 'Kadir/P2 asdas dasdad aa', 'XYZ', 'asdssssssssssssssssssssss', 'ssssssssss', 'aaaaaaa', '3333333333', 'GA', 'United States', 2, 'Kadir/P2 asdas dasdad aa', 'XYZ', 'asdssssssssssssssssssssss', 'ssssssssss', 'aaaaaaa', '3333333333', 'GA', 'United States', 2, 'Check/Money Order', '', '', '', '', NULL, '2013-10-16 17:26:43', 1, NULL, 'USD', 0.611500),
-(3, 1, 'Kadir/P2 asdas dasdad aa', 'XYZ', 'asdssssssssssssssssssssss', 'ssssssssss', 'aaaaaaa', '3333333333', 'GA', 'United States', '12345', 'root@localhost', 2, 'Kadir/P2 asdas dasdad aa', 'XYZ', 'asdssssssssssssssssssssss', 'ssssssssss', 'aaaaaaa', '3333333333', 'GA', 'United States', 2, 'Kadir/P2 asdas dasdad aa', 'XYZ', 'asdssssssssssssssssssssss', 'ssssssssss', 'aaaaaaa', '3333333333', 'GA', 'United States', 2, 'Check/Money Order', '', '', '', '', NULL, '2013-10-17 15:24:11', 1, NULL, 'USD', 0.611500),
-(4, 1, 'Kadir/P2 asdas dasdad aa', 'XYZ', 'asdssssssssssssssssssssss', 'ssssssssss', 'aaaaaaa', '3333333333', '1', 'TÜRK?YE', '12345', 'root@localhost', 1, 'Kadir asdas dasdad aa', 'XYZ', 'asdssssssssssssssssssssss', 'ssssssssss', 'aaaaaaa', '3333333333', '1', 'TÜRK?YE', 1, 'Kadir asdas dasdad aa', 'XYZ', 'asdssssssssssssssssssssss', 'ssssssssss', 'aaaaaaa', '3333333333', '1', 'TÜRK?YE', 1, 'Check/Money Order', '', '', '', '', NULL, '2013-10-21 17:15:13', 1, NULL, 'USD', 0.611500),
-(5, 1, 'Kadir Korkmaz', 'ASN 7', 'Ã–merpaÅŸa Cad. Ã–zlem Apt 53A D1', 'GÃ¶ztepe', 'KadÄ±kÃ¶y', '34730', '34', 'TÜRK?YE', '12345', 'root@localhost', 1, 'Kadir Korkmaz', 'ASN 7', 'Ã–merpaÅŸa Cad. Ã–zlem Apt 53A D1', 'GÃ¶ztepe', 'KadÄ±kÃ¶y', '34730', '34', 'TÜRK?YE', 1, 'Kadir Korkmaz', 'ASN 7', 'Ã–merpaÅŸa Cad. Ã–zlem Apt 53A D1', 'GÃ¶ztepe', 'KadÄ±kÃ¶y', '34730', '34', 'TÜRK?YE', 1, 'Cash on Delivery', '', '', '', '', NULL, '2013-11-06 22:46:17', 1, NULL, 'USD', 0.611500),
-(6, 1, 'Kadir Korkmaz', 'ASN 7', 'Ã–merpaÅŸa Cad. Ã–zlem Apt 53A D1', 'GÃ¶ztepe', 'KadÄ±kÃ¶y', '34730', '34', 'TÜRK?YE', '12345', 'root@localhost', 1, 'Kadir Korkmaz', 'ASN 7', 'Ã–merpaÅŸa Cad. Ã–zlem Apt 53A D1', 'GÃ¶ztepe', 'KadÄ±kÃ¶y', '34730', '34', 'TÜRK?YE', 1, 'Kadir Korkmaz', 'ASN 7', 'Ã–merpaÅŸa Cad. Ã–zlem Apt 53A D1', 'GÃ¶ztepe', 'KadÄ±kÃ¶y', '34730', '34', 'TÜRK?YE', 1, 'Cash on Delivery', '', '', '', '', NULL, '2013-11-07 15:53:47', 1, NULL, 'USD', 0.611500),
-(7, 1, 'Kadir Korkmaz', 'ASN 7', 'Ã–merpaÅŸa Cad. Ã–zlem Apt 53A D1', 'GÃ¶ztepe', 'KadÄ±kÃ¶y', '34730', '34', 'TURKIYE', '12345', 'root@localhost', 1, 'Kadir Korkmaz', 'ASN 7', 'Ã–merpaÅŸa Cad. Ã–zlem Apt 53A D1', 'GÃ¶ztepe', 'KadÄ±kÃ¶y', '34730', '34', 'TURKIYE', 1, 'Kadir Korkmaz', 'ASN 7', 'Ã–merpaÅŸa Cad. Ã–zlem Apt 53A D1', 'GÃ¶ztepe', 'KadÄ±kÃ¶y', '34730', '34', 'TURKIYE', 1, 'Cash on Delivery', '', '', '', '', NULL, '2013-11-18 06:14:38', 1, NULL, 'USD', 0.493462);
-
--- --------------------------------------------------------
 
 --
 -- Tablo için tablo yap?s? `orders_products`
@@ -1412,20 +1293,7 @@ CREATE TABLE IF NOT EXISTS `orders_products` (
   KEY `idx_orders_products_products_id` (`products_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
---
--- Tablo döküm verisi `orders_products`
---
 
-INSERT INTO `orders_products` (`orders_products_id`, `orders_id`, `products_id`, `products_model`, `products_name`, `products_price`, `final_price`, `products_tax`, `products_quantity`, `products_currency`, `currency_value`) VALUES
-(1, 1, 20, '', 'Deneme 4', 65.0000, 65.0000, 0.0000, 2, 'TL', 1.000000),
-(2, 2, 63, '', 'Gece YarÄ±sÄ±nda AydÄ±nlÄ±k', 22.5000, 22.5000, 0.0000, 1, 'TL', 1.000000),
-(3, 3, 53, '', 'Bir Psikiyatristin Gizli Defteri', 15.0000, 15.0000, 0.0000, 1, 'TL', 1.000000),
-(4, 4, 63, '', 'Gece YarÄ±sÄ±nda AydÄ±nlÄ±k', 22.5000, 22.5000, 0.0000, 1, 'TL', 1.000000),
-(5, 5, 53, 'BHGO-TR-12B', 'Bir Psikiyatristin Gizli Defteri', 15.0000, 15.0000, 0.0000, 1, 'TL', 1.000000),
-(6, 6, 63, '', 'Gece YarÄ±sÄ±nda AydÄ±nlÄ±k', 22.5000, 22.5000, 0.0000, 1, 'TL', 1.000000),
-(7, 6, 39, '', 'Deneme 6', 44.0000, 44.0000, 0.0000, 1, 'TL', 1.000000),
-(8, 6, 53, 'BHGO-TR-12B', 'Bir Psikiyatristin Gizli Defteri', 15.0000, 15.0000, 0.0000, 1, 'TL', 1.000000),
-(9, 7, 53, 'BHGO-TR-12B', 'Bir Psikiyatristin Gizli Defteri', 15.0000, 30.0000, 0.0000, 1, 'USD', 0.493462);
 
 -- --------------------------------------------------------
 
@@ -1449,9 +1317,6 @@ CREATE TABLE IF NOT EXISTS `orders_products_attributes` (
 -- Tablo döküm verisi `orders_products_attributes`
 --
 
-INSERT INTO `orders_products_attributes` (`orders_products_attributes_id`, `orders_id`, `orders_products_id`, `products_options`, `products_options_values`, `options_values_price`, `price_prefix`) VALUES
-(1, 7, 9, 'Model', 'Deluxe', 15.0000, '+'),
-(2, 7, 9, 'Memory', '16 mb', 0.0000, '+');
 
 -- --------------------------------------------------------
 
@@ -1533,19 +1398,7 @@ CREATE TABLE IF NOT EXISTS `orders_status_history` (
 -- Tablo döküm verisi `orders_status_history`
 --
 
-INSERT INTO `orders_status_history` (`orders_status_history_id`, `orders_id`, `orders_status_id`, `date_added`, `customer_notified`, `comments`) VALUES
-(1, 1, 1, '2013-10-16 17:25:06', 1, ''),
-(2, 2, 1, '2013-10-16 17:26:43', 1, ''),
-(3, 3, 1, '2013-10-17 15:24:11', 1, ''),
-(4, 4, 1, '2013-10-21 17:15:13', 1, ''),
-(5, 1, 0, '2013-11-06 16:11:34', 0, ''),
-(6, 1, 0, '2013-11-06 16:12:13', 0, ''),
-(7, 1, 0, '2013-11-06 16:12:47', 0, ''),
-(8, 1, 3, '2013-11-06 16:15:07', 1, 'daz'),
-(9, 1, 3, '2013-11-06 17:01:59', 1, 'Add Comments false'),
-(10, 5, 1, '2013-11-06 22:46:17', 1, ''),
-(11, 6, 1, '2013-11-07 15:53:47', 1, ''),
-(12, 7, 1, '2013-11-18 06:14:38', 1, '');
+
 
 -- --------------------------------------------------------
 
@@ -1565,32 +1418,7 @@ CREATE TABLE IF NOT EXISTS `orders_total` (
   KEY `idx_orders_total_orders_id` (`orders_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
 
---
--- Tablo döküm verisi `orders_total`
---
 
-INSERT INTO `orders_total` (`orders_total_id`, `orders_id`, `title`, `text`, `value`, `class`, `sort_order`) VALUES
-(1, 1, 'Sub-Total:', '$79.50', 130.0000, 'ot_subtotal', 1),
-(2, 1, 'Table Rate (Best Way):', '$5.20', 8.5000, 'ot_shipping', 2),
-(3, 1, 'Total:', '<b>$84.69</b>', 138.5000, 'ot_total', 4),
-(4, 2, 'Sub-Total:', '$13.76', 22.5000, 'ot_subtotal', 1),
-(5, 2, 'Table Rate (Best Way):', '$5.20', 8.5000, 'ot_shipping', 2),
-(6, 2, 'Total:', '<b>$18.96</b>', 31.0000, 'ot_total', 4),
-(7, 3, 'Sub-Total:', '$9.17', 15.0000, 'ot_subtotal', 1),
-(8, 3, 'Per Item (Best Way):', '$1.53', 2.5000, 'ot_shipping', 2),
-(9, 3, 'Total:', '<b>$10.70</b>', 17.5000, 'ot_total', 4),
-(10, 4, 'Sub-Total:', '$13.76', 22.5000, 'ot_subtotal', 1),
-(11, 4, 'Per Item (Best Way):', '$1.53', 2.5000, 'ot_shipping', 2),
-(12, 4, 'Total:', '<b>$15.29</b>', 25.0000, 'ot_total', 4),
-(13, 5, 'Sub-Total:', '$9.17', 15.0000, 'ot_subtotal', 1),
-(14, 5, 'Per Item (Best Way):', '$1.53', 2.5000, 'ot_shipping', 2),
-(15, 5, 'Total:', '<b>$10.70</b>', 17.5000, 'ot_total', 4),
-(16, 6, 'Sub-Total:', '$49.84', 81.5000, 'ot_subtotal', 1),
-(17, 6, 'Zone Rates (Shipping to  : 3 lb(s)):', '$2.80', 4.5800, 'ot_shipping', 2),
-(18, 6, 'Total:', '<b>$52.64</b>', 86.0800, 'ot_total', 4),
-(19, 7, 'Sub-Total:', '$30.00', 60.7900, 'ot_subtotal', 1),
-(20, 7, 'Table Rate (Best Way):', '$4.19', 8.5000, 'ot_shipping', 2),
-(21, 7, 'Total:', '<b>$34.19</b>', 69.2900, 'ot_total', 4);
 
 -- --------------------------------------------------------
 
