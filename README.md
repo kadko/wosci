@@ -17,11 +17,11 @@ Installation
 
 5- Settings > Breadcrumb NavXT > Post Types Tab
 
-Product Hierarchy > Select "Product Category"	
+  Product Hierarchy > Select "Product Category"	
 
-Deselect "Product Archive Display" checkbox 
+  Deselect "Product Archive Display" checkbox 
 
-click "Save Changes" button
+  Click "Save Changes" button
 
 6- Completed!
 
