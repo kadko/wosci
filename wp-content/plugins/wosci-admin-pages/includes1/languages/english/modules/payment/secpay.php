@@ -10,8 +10,8 @@
   Released under the GNU General Public License
 */
 
-  define('MODULE_PAYMENT_SECPAY_TEXT_TITLE', __( 'SECPay','wosci-translation' ) );
-  define('MODULE_PAYMENT_SECPAY_TEXT_DESCRIPTION', __( 'Credit Card Test Info:<br><br>CC#: 4444333322221111<br>Expiry: Any','wosci-translation' ) );
-  define('MODULE_PAYMENT_SECPAY_TEXT_ERROR', __( 'Credit Card Error!','wosci-translation' ) );
-  define('MODULE_PAYMENT_SECPAY_TEXT_ERROR_MESSAGE', __( 'There has been an error processing your credit card. Please try again.','wosci-translation' ) );
+  define('MODULE_PAYMENT_SECPAY_TEXT_TITLE', __( 'SECPay','wosci-language' ) );
+  define('MODULE_PAYMENT_SECPAY_TEXT_DESCRIPTION', __( 'Credit Card Test Info:<br><br>CC#: 4444333322221111<br>Expiry: Any','wosci-language' ) );
+  define('MODULE_PAYMENT_SECPAY_TEXT_ERROR', __( 'Credit Card Error!','wosci-language' ) );
+  define('MODULE_PAYMENT_SECPAY_TEXT_ERROR_MESSAGE', __( 'There has been an error processing your credit card. Please try again.','wosci-language' ) );
 ?>

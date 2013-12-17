@@ -45,7 +45,7 @@ tep_session_register('customer_default_address_id');
   }
 
 // if no shipping destination address was selected, use the customers own address as default
-  if (!tep_session_is_registered('sendto')) {
+  if (!tep_session_is_registered('sendto') || empty($sendto)) {
     tep_session_register('sendto');
     $sendto = $customer_default_address_id;
 
@@ -206,7 +206,7 @@ if (tep_session_is_registered('shipping')) tep_session_unregister('shipping');
   }
 
 // if no billing destination address was selected, use the customers own address as default
-  if (!tep_session_is_registered('billto')) {
+  if (!tep_session_is_registered('billto') || empty($billto) ) {
     tep_session_register('billto');
     $billto = $customer_default_address_id;
   } else {

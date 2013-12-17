@@ -59,6 +59,14 @@ remove(allname, opname[i]);
 var otitle = '';
 for (var i = 0; i < allname.length; i++) {
 otitle +=  jQuery('*[data-name="'+ allname[i] +'"]').data("title")+'\n';
+jQuery('*[data-name="'+ allname[i] +'"]').popover();
+
+if (jQuery('*[data-name="'+ allname[i] +'"]').next('div.popover:visible').length){
+  // popover is visible
+}else{
+jQuery('*[data-name="'+ allname[i] +'"]').click();
+}
+
 }
 
 console.log(allname); 
@@ -71,7 +79,7 @@ if(typeof allname[0] != 'undefined' ){
 
 var btn = jQuery('#fat-btn');
 btn.button('reset');
-alert("Please Select Following Product Options:\n\n" + otitle);
+//alert("Please Select Following Product Options:\n\n" + otitle);
 return false; 
 
 }else{  }
@@ -131,7 +139,7 @@ return false;
          data : {action: "shopping_cart", products_id : post_id },
          success: function(response) {
             if(response.type == "success") {
-	alert(response.durum);
+	//alert(response.durum);
 	jQuery("#sub_total").text(response.sub_totaljs);
 	var sa  = response.sepetadet;
 	
@@ -234,7 +242,49 @@ if(  firstname.length < 3 || lastname.length < 3 || company.length < 3 || street
 {
 	var btn = jQuery('#save_new_shipping_address');
 	btn.button('reset');
-	alert("Formda eksik doldurulmuş alanlar bulunuyor!");
+	if(  firstname.length < 3 ){
+	jQuery('form[name="checkout_address_shipping"] input[name="firstname"]').addClass("redborder");
+	}else{
+	jQuery('form[name="checkout_address_shipping"] input[name="firstname"]').removeClass("redborder");
+	}
+	
+	if(  lastname.length < 3 ){
+	jQuery('form[name="checkout_address_shipping"] input[name="lastname"]').addClass("redborder");
+	}else{
+	jQuery('form[name="checkout_address_shipping"] input[name="lastname"]').removeClass("redborder");
+	}
+	
+	if(  company.length < 3 ){
+	jQuery('form[name="checkout_address_shipping"] input[name="company"]').addClass("redborder");
+	}else{
+	jQuery('form[name="checkout_address_shipping"] input[name="company"]').removeClass("redborder");
+	}
+	
+	if(  street_address.length < 3 ){
+	jQuery('form[name="checkout_address_shipping"] input[name="street_address"]').addClass("redborder");
+	}else{
+	jQuery('form[name="checkout_address_shipping"] input[name="street_address"]').removeClass("redborder");
+	}
+	
+	if(  suburb.length < 3 ){
+	jQuery('form[name="checkout_address_shipping"] input[name="suburb"]').addClass("redborder");
+	}else{
+	jQuery('form[name="checkout_address_shipping"] input[name="suburb"]').removeClass("redborder");
+	}
+	
+	if(  postcode.length < 3 ){
+	jQuery('form[name="checkout_address_shipping"] input[name="postcode"]').addClass("redborder");
+	}else{
+	jQuery('form[name="checkout_address_shipping"] input[name="postcode"]').removeClass("redborder");
+	}
+	
+	if(  city.length < 3 ){
+	jQuery('form[name="checkout_address_shipping"] input[name="city"]').addClass("redborder");
+	}else{
+	jQuery('form[name="checkout_address_shipping"] input[name="city"]').removeClass("redborder");
+	}
+	
+	//alert("Formda eksik doldurulmuş alanlar bulunuyor!");
 	return false;
 }
 }
@@ -287,7 +337,49 @@ if(  firstname.length < 3 || lastname.length < 3 || company.length < 3 || street
 {
 	var btn = jQuery('#save_new_payment_address');
 	btn.button('reset');
-	alert("Formda eksik doldurulmuş alanlar bulunuyor!");
+
+	if(  firstname.length < 3 ){
+	jQuery('form[name="checkout_address_payment"] input[name="firstname"]').addClass("redborder");
+	}else{
+	jQuery('form[name="checkout_address_payment"] input[name="firstname"]').removeClass("redborder");
+	}
+	
+	if(  lastname.length < 3 ){
+	jQuery('form[name="checkout_address_payment"] input[name="lastname"]').addClass("redborder");
+	}else{
+	jQuery('form[name="checkout_address_payment"] input[name="lastname"]').removeClass("redborder");
+	}
+	
+	if(  company.length < 3 ){
+	jQuery('form[name="checkout_address_payment"] input[name="company"]').addClass("redborder");
+	}else{
+	jQuery('form[name="checkout_address_payment"] input[name="company"]').removeClass("redborder");
+	}
+	
+	if(  street_address.length < 3 ){
+	jQuery('form[name="checkout_address_payment"] input[name="street_address"]').addClass("redborder");
+	}else{
+	jQuery('form[name="checkout_address_payment"] input[name="street_address"]').removeClass("redborder");
+	}
+	
+	if(  suburb.length < 3 ){
+	jQuery('form[name="checkout_address_payment"] input[name="suburb"]').addClass("redborder");
+	}else{
+	jQuery('form[name="checkout_address_payment"] input[name="suburb"]').removeClass("redborder");
+	}
+	
+	if(  postcode.length < 3 ){
+	jQuery('form[name="checkout_address_payment"] input[name="postcode"]').addClass("redborder");
+	}else{
+	jQuery('form[name="checkout_address_payment"] input[name="postcode"]').removeClass("redborder");
+	}
+	
+	if(  city.length < 3 ){
+	jQuery('form[name="checkout_address_payment"] input[name="city"]').addClass("redborder");
+	}else{
+	jQuery('form[name="checkout_address_payment"] input[name="city"]').removeClass("redborder");
+	}
+	//alert("Formda eksik doldurulmuş alanlar bulunuyor!");
 	return false;
 }
 }
@@ -334,14 +426,75 @@ jQuery('#myModal2').on('submit', 'form[name="Edit_Shipping_Address"]',function( 
 	var city = jQuery('form[name="Edit_Shipping_Address"] input[name="city"]').val();
 	var state = jQuery('form[name="Edit_Shipping_Address"] input[name="state"]').val();
 
-if( typeof state !== 'undefined' || stateselect != '' ){
 if(  firstname.length < 3 || lastname.length < 3 || company.length < 3 || street_address.length < 13 || suburb.length < 3 || postcode.length < 3 || city.length < 3 )
 {
-	var btn = jQuery('#save_edit_shipping');
+	
+	if(  firstname.length < 3 ){
+	jQuery('form[name="Edit_Shipping_Address"] input[name="firstname"]').addClass("redborder");
+	}else{
+	jQuery('form[name="Edit_Shipping_Address"] input[name="firstname"]').removeClass("redborder");
+	}
+	
+	if(  lastname.length < 3 ){
+	jQuery('form[name="Edit_Shipping_Address"] input[name="lastname"]').addClass("redborder");
+	}else{
+	jQuery('form[name="Edit_Shipping_Address"] input[name="lastname"]').removeClass("redborder");
+	}
+	
+	if(  company.length < 3 ){
+	jQuery('form[name="Edit_Shipping_Address"] input[name="company"]').addClass("redborder");
+	}else{
+	jQuery('form[name="Edit_Shipping_Address"] input[name="company"]').removeClass("redborder");
+	}
+	
+	if(  street_address.length < 3 ){
+	jQuery('form[name="Edit_Shipping_Address"] input[name="street_address"]').addClass("redborder");
+	}else{
+	jQuery('form[name="Edit_Shipping_Address"] input[name="street_address"]').removeClass("redborder");
+	}
+	
+	if(  suburb.length < 3 ){
+	jQuery('form[name="Edit_Shipping_Address"] input[name="suburb"]').addClass("redborder");
+	}else{
+	jQuery('form[name="Edit_Shipping_Address"] input[name="suburb"]').removeClass("redborder");
+	}
+	
+	if(  postcode.length < 3 ){
+	jQuery('form[name="Edit_Shipping_Address"] input[name="postcode"]').addClass("redborder");
+	}else{
+	jQuery('form[name="Edit_Shipping_Address"] input[name="postcode"]').removeClass("redborder");
+	}
+	
+	if(  city.length < 3 ){
+	jQuery('form[name="Edit_Shipping_Address"] input[name="city"]').addClass("redborder");
+	}else{
+	jQuery('form[name="Edit_Shipping_Address"] input[name="city"]').removeClass("redborder");
+	}
+	
+	if(  city.length < 3 ){
+	jQuery('form[name="Edit_Shipping_Address"] input[name="state"]').addClass("redborder");
+	}else{
+	jQuery('form[name="Edit_Shipping_Address"] input[name="state"]').removeClass("redborder");
+	}
+	
+	var btn = jQuery('#myModal2 #save_edit_shipping');
 	btn.button('reset');
-	alert("Formda eksik doldurulmuş alanlar bulunuyoredit!");
+
 	return false;
 }
+
+if( typeof state !== 'undefined' ){
+	if(  state.length < 3 ){
+		if(  state.length < 3 ){
+		jQuery('form[name="Edit_Shipping_Address"] input[name="state"]').addClass("redborder");
+		}else{
+		jQuery('form[name="Edit_Shipping_Address"] input[name="state"]').removeClass("redborder");
+		}
+	
+	var btn = jQuery('#myModal2 #save_edit_shipping');
+	btn.button('reset');
+	return false;
+	}
 }
 
   var formdata = jQuery('#myModal2 form[name="Edit_Shipping_Address"]').serializeArray();
@@ -363,6 +516,7 @@ if(  firstname.length < 3 || lastname.length < 3 || company.length < 3 || street
          data : {action: "ca_esa", formdata:formdata },
          success: processJson
       }) 
+
 jQuery('select[name="shipping_address_select"]').trigger( "change" );
 event.preventDefault();
 
@@ -371,14 +525,14 @@ event.preventDefault();
 
 jQuery('#myModal2')
    .on('click', '#save_edit_shipping',  function(){
-        var btn = jQuery(this)
-        btn.button('loading')
-        setTimeout(function () {
-            btn.button('reset')
-        }, 300000)
+        
+        var btn = jQuery('#myModal2 #save_edit_shipping');
+	btn.button('loading');
 	
 	jQuery('form[name="Edit_Shipping_Address"]').submit();
-
+	setTimeout(function () {
+        btn.button('reset')
+        }, 300000)
     });
 
 
@@ -399,15 +553,73 @@ jQuery('#myModal3').on('submit', 'form[name="Edit_Payment_Address"]',function( e
 	var city = jQuery('form[name="Edit_Payment_Address"] input[name="city"]').val();
 	var state = jQuery('form[name="Edit_Payment_Address"] input[name="state"]').val();
 
-if( typeof state !== 'undefined' || stateselect != '' ){
-if(  firstname.length < 3 || lastname.length < 3 || company.length < 3 || street_address.length < 13 || suburb.length < 3 || postcode.length < 3 || city.length < 3 )
+
+if( firstname.length < 3 || lastname.length < 3 || company.length < 3 || street_address.length < 13 || suburb.length < 3 || postcode.length < 3 || city.length < 3 )
 {
-	var btn = jQuery('#save_edit_payment');
+	
+	if(  firstname.length < 3 ){
+	jQuery('form[name="Edit_Payment_Address"] input[name="firstname"]').addClass("redborder");
+	}else{
+	jQuery('form[name="Edit_Payment_Address"] input[name="firstname"]').removeClass("redborder");
+	}
+
+	if(  lastname.length < 3 ){
+	jQuery('form[name="Edit_Payment_Address"] input[name="lastname"]').addClass("redborder");
+	}else{
+	jQuery('form[name="Edit_Payment_Address"] input[name="lastname"]').removeClass("redborder");
+	}
+
+	if(  company.length < 3 ){
+	jQuery('form[name="Edit_Payment_Address"] input[name="company"]').addClass("redborder");
+	}else{
+	jQuery('form[name="Edit_Payment_Address"] input[name="company"]').removeClass("redborder");
+	}
+
+	if(  street_address.length < 3 ){
+	jQuery('form[name="Edit_Payment_Address"] input[name="street_address"]').addClass("redborder");
+	}else{
+	jQuery('form[name="Edit_Payment_Address"] input[name="street_address"]').removeClass("redborder");
+	}
+
+	if(  suburb.length < 3 ){
+	jQuery('form[name="Edit_Payment_Address"] input[name="suburb"]').addClass("redborder");
+	}else{
+	jQuery('form[name="Edit_Payment_Address"] input[name="suburb"]').removeClass("redborder");
+	}	
+
+	if(  postcode.length < 3 ){
+	jQuery('form[name="Edit_Payment_Address"] input[name="postcode"]').addClass("redborder");
+	}else{
+	jQuery('form[name="Edit_Payment_Address"] input[name="postcode"]').removeClass("redborder");
+	}
+
+	if(  city.length < 3 ){
+	jQuery('form[name="Edit_Payment_Address"] input[name="city"]').addClass("redborder");
+	}else{
+	jQuery('form[name="Edit_Payment_Address"] input[name="city"]').removeClass("redborder");
+	}
+
+	var btn = jQuery('#myModal3 #save_edit_payment');
 	btn.button('reset');
-	alert("Formda eksik doldurulmuş alanlar bulunuyoredit!");
 	return false;
 }
+
+
+if( typeof state !== 'undefined' ){
+	if(  state.length < 3 ){
+		if(  state.length < 3 ){
+		jQuery('form[name="Edit_Payment_Address"] input[name="state"]').addClass("redborder");
+		}else{
+		jQuery('form[name="Edit_Payment_Address"] input[name="state"]').removeClass("redborder");
+		}
+	
+	var btn = jQuery('#myModal3 #save_edit_payment');
+	btn.button('reset');
+	return false;
+	}
 }
+
+
 
   var formdata = jQuery('#myModal3 form[name="Edit_Payment_Address"]').serializeArray();
   

@@ -45,7 +45,7 @@
 	<script src="<?php echo get_bloginfo('template_url');?>/dist/js/tweak.js"></script>
 	
 	<?php if(is_archive()){ ?>
-	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<script src="<?php echo get_bloginfo('template_url');?>/ui/jquery-ui.js"></script>
 	<link rel="stylesheet" href="<?php echo get_bloginfo('template_url');?>/themes/base/jquery.ui.all.css">
 	<script src="<?php echo get_bloginfo('template_url');?>/ui/jquery.ui.accordion.js"></script>
 	<script src="<?php echo get_bloginfo('template_url');?>/ui/jquery.ui.core.js"></script>
@@ -97,8 +97,8 @@ function removeborder(resnum){
 
 
 
-<?php /* navbar-fixed-top */ ?>
-<nav class="navbar navbar-default" role="navigation" style="margin-bottom:-4px;">
+<?php $fixtop = ' navbar-fixed-top'; ?>
+<nav class="navbar navbar-default <?php //echo $fixtop; ?>" role="navigation" style="margin-bottom:-4px;">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="container">
         <div class="navbar-header">
@@ -175,7 +175,12 @@ function removeborder(resnum){
 	if ($cart->count_contents() < 1) {
 	$popovercart .= __('Your shopping cart is empty.' ,'wosci-language' );
 	}else{
-	$popovercart .='<br><div style="display:inline;"><a href="'. esc_url( home_url( '/' ) ).'cart" class="btn btn-primary btn-xs">' . __('Edit Cart','wosci-language') . '</a><a  href="'. esc_url( home_url( '/' ) ).'shipping-payment" class="btn btn-success btn-xs" style="float:right;">' . __('Checkout','wosci-language') . '</a></div>';
+	$popovercart .='<br><div class="btn-group">                 
+
+<a href="'. esc_url( home_url( '/' ) ).'cart" class="btn btn-primary btn-xs">' . __('Edit Cart','wosci-language') . '</a><a  href="'. esc_url( home_url( '/' ) ).'shipping-payment" class="btn btn-success btn-xs" style="float:right;">' . __('Checkout','wosci-language') . '</a>
+
+</div>
+';
 	}
 ?>
 
@@ -296,10 +301,10 @@ $key = array_search($current, $steps);
 
   <div class="wizard">
     <ul class="steps">
-      <li data-target="#step1" <?php if($key > 0 ){ echo ' class="complete"'; } ?><?php if($key == 0 ){ echo ' class="active"'; } ?>><span class="badge<?php if($key > 0 ){ echo ' badge-success'; } ?><?php if($key == 0 ){ echo ' badge-info'; } ?>">1</span><a href="<?php echo esc_url( home_url( '/' ) ); ?>cart">Shopping Cart</a><span class="chevron"></span></li>
-      <li data-target="#step2"<?php if($key > 1 ){ echo ' class="complete"'; } ?><?php if($key == 1 ){ echo ' class="active"'; } ?>><span class="badge<?php if($key > 1 ){ echo ' badge-success'; } ?><?php if($key == 1 ){ echo ' badge-info'; } ?>">2</span><a href="<?php echo esc_url( home_url( '/' ) ); ?>shipping-payment">Shipping and Payment</a><span class="chevron"></span></li>
-      <li data-target="#step3"<?php if($key > 2 ){ echo ' class="complete"'; } ?><?php if($key == 2 ){ echo ' class="active"'; } ?>><span class="badge<?php if($key > 2 ){ echo ' badge-success'; } ?><?php if($key == 2 ){ echo ' badge-info'; } ?>">3</span>Confirmation<span class="chevron"></span></li>
-      <li data-target="#step4"<?php if($key > 3 ){ echo ' class="complete"'; } ?><?php if($key == 3 ){ echo ' class="active"'; } ?>><span class="badge<?php if($key > 3 ){ echo ' badge-success'; } ?><?php if($key == 3 ){ echo ' badge-info'; } ?>">4</span>Finished!<span class="chevron"></span></li>
+      <li data-target="#step1" <?php if($key > 0 ){ echo ' class="complete"'; } ?><?php if($key == 0 ){ echo ' class="active"'; } ?>><span class="badge<?php if($key > 0 ){ echo ' badge-success'; } ?><?php if($key == 0 ){ echo ' badge-info'; } ?>">1</span><a href="<?php echo esc_url( home_url( '/' ) ); ?>cart"><?php echo __( 'Shopping Cart', 'wosci-language' ); ?></a><span class="chevron"></span></li>
+      <li data-target="#step2"<?php if($key > 1 ){ echo ' class="complete"'; } ?><?php if($key == 1 ){ echo ' class="active"'; } ?>><span class="badge<?php if($key > 1 ){ echo ' badge-success'; } ?><?php if($key == 1 ){ echo ' badge-info'; } ?>">2</span><a href="<?php echo esc_url( home_url( '/' ) ); ?>shipping-payment"><?php echo __( 'Shipping and Payment', 'wosci-language' ); ?></a><span class="chevron"></span></li>
+      <li data-target="#step3"<?php if($key > 2 ){ echo ' class="complete"'; } ?><?php if($key == 2 ){ echo ' class="active"'; } ?>><span class="badge<?php if($key > 2 ){ echo ' badge-success'; } ?><?php if($key == 2 ){ echo ' badge-info'; } ?>">3</span><?php echo __( 'Confirmation', 'wosci-language' ); ?><span class="chevron"></span></li>
+      <li data-target="#step4"<?php if($key > 3 ){ echo ' class="complete"'; } ?><?php if($key == 3 ){ echo ' class="active"'; } ?>><span class="badge<?php if($key > 3 ){ echo ' badge-success'; } ?><?php if($key == 3 ){ echo ' badge-info'; } ?>">4</span><?php echo __( 'Finished!', 'wosci-language' ); ?><span class="chevron"></span></li>
     </ul>
 
   </div>

@@ -1,43 +1,15 @@
 <script language="javascript">
 
 
-<!--
-
-function loadXMLDocNewpXX(key, key2) {
-
- jQuery('#states_p').html('<img style="vertical-align:middle" src="<?php echo bloginfo('template_url'); ?>/loading-line.gif">&nbsp;&nbsp;<?php _e('Loading...', 'wosci-language');?>');
-   
-
-var request = jQuery.ajax({
-  url: "<?php echo bloginfo('template_url'); ?>/state_dropdown.php",
-  type: "POST",
-  data: { country : key , city_code : key2 },
-  dataType: "html"
-});
- 
-request.done(function( msg ) {
- jQuery('#states_p').html(msg);
-});
- 
-request.fail(function( jqXHR, textStatus ) {
-  alert( "Request failed: " + textStatus );
-});
-  
-}
-
-
 jQuery(document).ready(function() {
 
 <?php $zid =  tep_get_zone_code($entry ['entry_country_id'],$entry ['entry_zone_id'],''); ?>
 <?php if($zid == ''){ $zid = $entry ['entry_state']; } ?>
 
-loadXMLDocNewp("<?php if($entry['entry_country_id'] == ''){echo STORE_COUNTRY;}else{echo $entry['entry_country_id'];} ?>"<?php echo ', "'.$zid.'"'; ?>);
+//loadXMLDocNewp("<?php if($entry['entry_country_id'] == ''){echo STORE_COUNTRY;}else{echo $entry['entry_country_id'];} ?>"<?php echo ', "'.$zid.'"'; ?>);
 
 });
 
-
-
-//-->
 </script>
 
 

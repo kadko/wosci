@@ -214,8 +214,8 @@
             </div>
             <div class="modal-body" id="newPAddress"><div class="te"><?php include( 'inc/checkout-payment-address-inc.php' ); ?> </div></div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary" id="save_new_payment_address">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo __( 'Cancel', 'wosci-language' ); ?></button>
+                <button type="button" class="btn btn-primary" id="save_new_payment_address"><?php echo __( 'Save', 'wosci-language' ); ?></button>
             </div>
         </div>
         <!-- .modal-content -->

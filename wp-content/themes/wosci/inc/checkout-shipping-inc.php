@@ -3,9 +3,9 @@
     
       
       
-     
-
-
+<?php if( !empty($_GET['error_message']) ) { ?>     
+<div class="alert alert-danger"><b><?php echo $_GET['error_message']; ?></b></div>
+<?php } ?>    
 
   <!-- Modal -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -13,14 +13,14 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title"><?php echo _('New Shipping Address'); ?></h4>
+          <h4 class="modal-title"><?php echo __('New Shipping Address', 'wosci-language'); ?></h4>
         </div>
         <div class="modal-body">
         
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo __( 'Cancel', 'wosci-language' ); ?></button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal"><?php echo __( 'Save', 'wosci-language' ); ?></button>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -31,14 +31,14 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title"><?php echo _('Edit Shipping Address'); ?></h4>
+          <h4 class="modal-title"><?php echo __('Edit Shipping Address', 'wosci-language'); ?></h4>
         </div>
         <div class="modal-body">
         
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo __( 'Cancel', 'wosci-language' ); ?></button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal"><?php echo __( 'Save', 'wosci-language' ); ?></button>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -50,14 +50,14 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title"><?php echo _('Edit Payment Address'); ?></h4>
+          <h4 class="modal-title"><?php echo __('Edit Payment Address', 'wosci-language'); ?></h4>
         </div>
         <div class="modal-body">
         
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo __( 'Cancel', 'wosci-language' ); ?></button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal"><?php echo __( 'Save', 'wosci-language' ); ?></button>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -69,14 +69,14 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title"><?php echo _('New Payment Address'); ?></h4>
+          <h4 class="modal-title"><?php echo __('New Payment Address', 'wosci-language'); ?></h4>
         </div>
         <div class="modal-body">
         
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo __( 'Cancel', 'wosci-language' ); ?></button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal"><?php echo __( 'Save', 'wosci-language' ); ?></button>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -86,10 +86,10 @@
   
       <div class="row">
   <div class="col-lg-6">
-    <h2>Shipping</h2>
+    <h2><?php echo __( 'Shipping', 'wosci-language' );?></h2>
      <div class="margin-top"></div>   
    <div class="row">
-  <div class="col-lg-10">
+  <div class="col-lg-9">
 <select name="shipping_address_select" class="form-control" style="font-size:11px;width:100%;height:34px;margin:0px;">
 <?php
       $radio_buttons = 0;
@@ -119,8 +119,8 @@
    <select name="shipping_address_select" class="form-control" style="width:100%;height:34px;margin:0px;"><option value="<?php echo $sendto; ?>"> <?php echo  tep_address_label($current_user->ID, $sendto, true, ' ', ' '); ?></option></select> */ ?>
     
   </div><!-- /.col-lg-10 -->
-  <div class="col-lg-2" style="">
-   <?php echo '<a data-target="#myModal2" role="button" data-toggle="modal" href="'. esc_url( home_url( '/' ) ).'edit-shipping-address/?edit='. $sendto .'&from=Edit_Shipping_Address" id="edit_shipping_address" class="btn btn-default">' . _('Edit') . '</a>'; ?><?php //echo $addresses_count = tep_count_customer_address_book_entries(); ?>
+  <div class="col-lg-3" style="">
+   <?php echo '<a data-target="#myModal2" role="button" data-toggle="modal" href="'. esc_url( home_url( '/' ) ).'edit-shipping-address/?edit='. $sendto .'&from=Edit_Shipping_Address" id="edit_shipping_address" class="btn btn-default">' . __('Edit', 'wosci-language') . '</a>'; ?><?php //echo $addresses_count = tep_count_customer_address_book_entries(); ?>
    
   </div><!-- /.col-lg-2 -->
 </div><!-- /.row -->
@@ -271,7 +271,7 @@
    
   </div><!-- /.col-lg-6 -->
   <div class="col-lg-6" style="border-left:1px solid #cccccc;">
-	<h2>Payment</h2>
+	<h2><?php echo __( 'Payment', 'wosci-language' );?></h2>
      <div class="margin-top"></div>   
  
    
@@ -279,7 +279,7 @@
 	
 	
    <div class="row">
-  <div class="col-lg-10">
+  <div class="col-lg-9">
 
  
  
@@ -318,16 +318,16 @@
  
 </div><!-- /.col-lg-10 -->
 
-<div class="col-lg-2" style="">
+<div class="col-lg-3" style="">
 
-<?php echo '<a data-target="#myModal3" role="button"  data-toggle="modal" href="'.esc_url( home_url( '/' ) ).'edit-shipping-address/?edit='.$billto.'&from=Edit_Payment_Address" id="edit_payment_address" class="btn btn-default">' . _('Edit') . '</a>'; ?>
+<?php echo '<a data-target="#myModal3" role="button"  data-toggle="modal" href="'.esc_url( home_url( '/' ) ).'edit-shipping-address/?edit='.$billto.'&from=Edit_Payment_Address" id="edit_payment_address" class="btn btn-default">' . __('Edit', 'wosci-language') . '</a>'; ?>
 
  </div><!-- /.col-lg-2 -->
 </div><!-- /.row -->
 
 
 <div class="margin-top"></div>
- <?php echo '<a data-target="#myModal4" role="button"  data-toggle="modal" href="'.esc_url( home_url( '/' ) ).'new-payment-address/?from=New_Payment_Address" id="new_payment_address" class="btn-sm btn-primary btn-success"><span class="glyphicon glyphicon-plus"></span> ' . _('New Payment Address') . '</a>'; ?>      
+ <?php echo '<a data-target="#myModal4" role="button"  data-toggle="modal" href="'.esc_url( home_url( '/' ) ).'new-payment-address/?from=New_Payment_Address" id="new_payment_address" class="btn-sm btn-primary btn-success"><span class="glyphicon glyphicon-plus"></span> ' . __('New Payment Address', 'wosci-language') . '</a>'; ?>      
       <div class="margin-top"></div>
 	
       <table border="0" width="100%" cellspacing="0" cellpadding="0">
@@ -352,8 +352,8 @@
 
 
 ?>
-                <?php echo "<div style=\"margin:15px 0 15px 0;\" class=\"alert alert-danger alert-dismissable\">
-<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>
+                <?php echo "<div style=\"margin:15px 0 15px 0;\" class=\"alert alert-danger\">
+
 <strong>". $error['title'] .":</strong> " . stripslashes(urldecode(get_between_two($_SERVER['REQUEST_URI'], '&error=', '&'))) ."
 </div>";
 

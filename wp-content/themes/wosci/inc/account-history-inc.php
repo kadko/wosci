@@ -25,7 +25,7 @@
       $products = tep_db_fetch_array($products_query);
 
       if (tep_not_null($history['delivery_name'])) {
-        $order_type = _('Ship to:');
+        $order_type = __('Ship to:', 'wosci-language');
         $order_name = $history['delivery_name'];
       } else {
         $order_type = TEXT_ORDER_BILLED_TO;
@@ -84,7 +84,7 @@
         <td>
         
 <div class="row" style="line-height:40px;vertical-align:middle;">
-  <div class="col-xs-12 col-sm-6 col-md-8" style="line-height:80px;vertical-align:middle;" ><?php echo $history_split->display_count(TEXT_DISPLAY_NUMBER_OF_ORDERS); ?></div>
+  <div class="col-xs-12 col-sm-6 col-md-8" style="line-height:80px;vertical-align:middle;" ><?php echo $history_split->display_count(__( 'Displaying <b>%d</b> to <b>%d</b> (of <b>%d</b> orders)','wosci-language' )); ?></div>
   <div class="col-xs-6 col-md-4" style="line-height:80px;text-align:right;vertical-align:middle;"><?php echo $history_split->display_links(MAX_DISPLAY_PAGE_LINKS, tep_get_all_get_params(array('page', 'info', 'x', 'y'))); ?></div>
 </div>
         

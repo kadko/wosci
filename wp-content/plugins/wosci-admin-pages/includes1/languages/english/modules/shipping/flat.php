@@ -10,7 +10,7 @@
   Released under the GNU General Public License
 */
 
-define('MODULE_SHIPPING_FLAT_TEXT_TITLE', __( 'Flat Rate' , 'wosci-translation' ) );
-define('MODULE_SHIPPING_FLAT_TEXT_DESCRIPTION', __( 'Flat Rate' , 'wosci-translation' ) );
-define('MODULE_SHIPPING_FLAT_TEXT_WAY', __( 'Best Way' , 'wosci-translation' ) );
+define('MODULE_SHIPPING_FLAT_TEXT_TITLE', __( 'Flat Rate' , 'wosci-language' ) );
+define('MODULE_SHIPPING_FLAT_TEXT_DESCRIPTION', __( 'Flat Rate' , 'wosci-language' ) );
+define('MODULE_SHIPPING_FLAT_TEXT_WAY', __( 'Best Way' , 'wosci-language' ) );
 ?>

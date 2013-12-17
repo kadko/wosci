@@ -81,8 +81,8 @@ jQuery('.edit_address').click(function () {
         
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo __( 'Cancel', 'wosci-language' ); ?></button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal"><?php echo __( 'Save', 'wosci-language' ); ?></button>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

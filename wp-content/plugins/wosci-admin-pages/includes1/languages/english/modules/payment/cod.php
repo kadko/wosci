@@ -10,6 +10,6 @@
   Released under the GNU General Public License
 */
 
-  define('MODULE_PAYMENT_COD_TEXT_TITLE', __( 'Cash on Delivery','wosci-translation' ) );
-  define('MODULE_PAYMENT_COD_TEXT_DESCRIPTION', __( 'Cash on Delivery','wosci-translation' ) );
+  define('MODULE_PAYMENT_COD_TEXT_TITLE', __( 'Cash on Delivery','wosci-language' ) );
+  define('MODULE_PAYMENT_COD_TEXT_DESCRIPTION', __( 'Cash on Delivery','wosci-language' ) );
 ?>

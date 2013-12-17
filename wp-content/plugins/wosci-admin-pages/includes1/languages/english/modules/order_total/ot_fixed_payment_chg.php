@@ -10,6 +10,6 @@
   Released under the GNU General Public License
 */
 
-  define('MODULE_FIXED_PAYMENT_CHG_TITLE', 'Fixed Payment Charges');
-  define('MODULE_FIXED_PAYMENT_CHG_DESCRIPTION', 'Adds Additional Charges by Selected Payment');
+  define('MODULE_FIXED_PAYMENT_CHG_TITLE', __('Fixed Payment Charges', 'wosci-language' ));
+  define('MODULE_FIXED_PAYMENT_CHG_DESCRIPTION', __('Adds Additional Charges by Selected Payment', 'wosci-language' ));
 ?>

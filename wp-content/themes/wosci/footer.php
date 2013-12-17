@@ -17,7 +17,7 @@
 			
 <div style="border-top:1px solid #cccccc;">
 <div class="page-header">
-<h3>Example page footer <small>Subtext for header</small></h3>
+<h3><?php echo __( 'Example page footer', 'wosci-language' ); ?> <small><?php echo __( 'Subtext for header', 'wosci-language' ); ?></small></h3>
 </div>
 </div>
 			

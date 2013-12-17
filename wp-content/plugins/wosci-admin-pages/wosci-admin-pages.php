@@ -337,7 +337,7 @@ $buttons = '<div id="major-publishing-actions">
         //$contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link('wp-admin/admin.php?page=modules_menu'.'&set=' . $set . '&module=' . $mInfo->code . '&action=remove', '') . '">'. __('Remove').'</a> <a class="button" href="' . tep_href_link('wp-admin/admin.php?page=modules_menu'.'&set=' . $set . (isset($_GET['module']) ? '&module=' . $_GET['module'] : '') . '&action=edit', '') . '">'. __('Edit').'</a>');
 
         if (isset($mInfo->signature) && (list($scode, $smodule, $sversion, $soscversion) = explode('|', $mInfo->signature))) {
-          $contents[] = array('text' => '<br>' . '' . '&nbsp;<b>' . TEXT_INFO_VERSION . '</b> ' . $sversion . ' (<a href="http://sig.oscommerce.com/' . $mInfo->signature . '" target="_blank">' . TEXT_INFO_ONLINE_STATUS . '</a>)');
+         // $contents[] = array('text' => '<br>' . '' . '&nbsp;<b>' . TEXT_INFO_VERSION . '</b> ' . $sversion . ' (<a href="http://sig.oscommerce.com/' . $mInfo->signature . '" target="_blank">' . TEXT_INFO_ONLINE_STATUS . '</a>)');
         }
 
         $contents[] = array('text' => '<div class="misc-pub-section">' . $mInfo->description . '</div>  '. $keys.'');
@@ -346,7 +346,7 @@ $buttons = '<div id="major-publishing-actions">
         $contents[] = array('align' => 'center', 'text' => '<a class="button" href="admin.php?page=modules_menu&set=' . $set . '&module=' . $mInfo->code . '&action=install">'. __('Install', 'wosci-language').'</a>');
 
         if (isset($mInfo->signature) && (list($scode, $smodule, $sversion, $soscversion) = explode('|', $mInfo->signature))) {
-          $contents[] = array('text' => '<br>' . '' . '&nbsp;<b>' . TEXT_INFO_VERSION . '</b> ' . $sversion . ' (<a href="http://sig.oscommerce.com/' . $mInfo->signature . '" target="_blank">' . TEXT_INFO_ONLINE_STATUS . '</a>)');
+          //$contents[] = array('text' => '<br>' . '' . '&nbsp;<b>' . TEXT_INFO_VERSION . '</b> ' . $sversion . ' (<a href="http://sig.oscommerce.com/' . $mInfo->signature . '" target="_blank">' . TEXT_INFO_ONLINE_STATUS . '</a>)');
         }
  
         $contents[] = array('text' => '<br>' . $mInfo->description);
@@ -521,7 +521,7 @@ function the_cart_add() {
 	$result['cpo'] .= '<small>'.$products[$i]['quantity'] . ' ' . __('x') . ' <a href="'.get_permalink( $products[$i]['id'] ).'">' . $products[$i]['name'] . '</a> — ' . $currencies->display_price($products[$i]['currency'], $products[$i]['final_price'], tep_get_tax_rate($products[$i]['tax_class_id']), $products[$i]['quantity']) .'</small><br>';
 	
 	}
-	$result['cpo'] .='<br><div style="display:inline;"><a href="'. esc_url( home_url( '/' ) ).'cart" class="btn btn-primary btn-xs">' . __('Edit Cart','wosci-language') . '</a><a  href="'. esc_url( home_url( '/' ) ).'shipping-payment" class="btn btn-success btn-xs" style="float:right;">' . __('Checkout', 'wosci-language') . '</a></div>';
+	$result['cpo'] .='<br><div class="btn-group"><a href="'. esc_url( home_url( '/' ) ).'cart" class="btn btn-primary btn-xs">' . __('Edit Cart','wosci-language') . '</a><a  href="'. esc_url( home_url( '/' ) ).'shipping-payment" class="btn btn-success btn-xs" style="float:right;">' . __('Checkout', 'wosci-language') . '</a></div>';
 
 
       
@@ -574,7 +574,7 @@ global $cart, $currencies;
 	$popovercart .= '<small>'.$products[$i]['quantity'] . ' ' . __('x') . ' <a href=\"'.get_permalink( $products[$i]['id'] ).'\">' . $products[$i]['name'] . '</a> — ' . $currencies->display_price($products[$i]['currency'], tep_add_tax( $products[$i]['final_price'], tep_get_tax_rate($products[$i]['tax_class_id'])) * $products[$i]['quantity'], '') .'</small><br>';
 	
 	}
-	$popovercart .='<br><div style=\"display:inline;\"><a href=\"'. esc_url( home_url( '/' ) ).'cart\" class=\"btn btn-primary btn-xs\">' . __('Edit Cart','wosci-language') . '</a><a  href=\"'. esc_url( home_url( '/' ) ).'shipping-payment\" class=\"btn btn-success btn-xs\" style=\"float:right;\">' . __('Checkout','wosci-language') . '</a></div>';
+	$popovercart .='<br><div class=\"btn-group\"><a href=\"'. esc_url( home_url( '/' ) ).'cart\" class=\"btn btn-primary btn-xs\">' . __('Edit Cart','wosci-language') . '</a><a  href=\"'. esc_url( home_url( '/' ) ).'shipping-payment\" class=\"btn btn-success btn-xs\" style=\"float:right;\">' . __('Checkout','wosci-language') . '</a></div>';
 
 if( $cart->count_contents() == 0 ){ $popovercart = __('Your shopping cart is empty.', 'wosci-language'); }
 
@@ -636,7 +636,7 @@ global $cart, $currencies;
 	$popovercart .= '<small>'.$products[$i]['quantity'].$products[$i]['quantity'] . ' ' . __('x') . ' <a href=\"'.get_permalink( $products[$i]['id'] ).'\">' . $products[$i]['name'] . '</a> — ' . $currencies->display_price($products[$i]['currency'], $products[$i]['final_price'], tep_get_tax_rate($products[$i]['tax_class_id']), $products[$i]['quantity']) .'</small><br>';
 	
 	}
-	$popovercart .='<br><div style=\"display:inline;\"><a href=\"'. esc_url( home_url( '/' ) ).'cart\" class=\"btn btn-primary btn-xs\">' . __('Edit Cart','wosci-language') . '</a><a  href=\"'. esc_url( home_url( '/' ) ).'shipping-payment\" class=\"btn btn-success btn-xs\" style=\"float:right;\">' . __('Checkout','wosci-language') . '</a></div>';
+	$popovercart .='<br><div class=\"btn-group\"><a href=\"'. esc_url( home_url( '/' ) ).'cart\" class=\"btn btn-primary btn-xs\">' . __('Edit Cart','wosci-language') . '</a><a  href=\"'. esc_url( home_url( '/' ) ).'shipping-payment\" class=\"btn btn-success btn-xs\" style=\"float:right;\">' . __('Checkout','wosci-language') . '</a></div>';
 
 
 echo   '{ "type": "success",
@@ -662,15 +662,17 @@ $country = $_POST['country'];
 
 $zones_array = array();    
 $zones_query = tep_db_query("select zone_name, zone_code from " . TABLE_ZONES . " where zone_country_id = '" . (int)$country . "' order by zone_code");
+
+
 while ($zones_values = tep_db_fetch_array($zones_query)) {
   $zones_array[] = array('id' => $zones_values['zone_code'], 'text' => $zones_values['zone_name']);
 }
 //header('Content-type: text/html; charset='.CHARSET);
 
 if ( tep_db_num_rows($zones_query) ) {
-$data = tep_draw_pull_down_menu('state', $zones_array, $_POST['city_code'],'class="form-control"'). '&nbsp;' . '<span class="inputRequirement">' . ENTRY_STREET_ADDRESS_TEXT . '</span>';
+$data = tep_draw_pull_down_menu('state', $zones_array, $_POST['city_code'],'class="form-control"'). '&nbsp;' . '<span class="inputRequirement"></span>';
 } else {
-$data = tep_draw_input_field('state','','class="form-control" style=""') . '&nbsp;' . (tep_not_null(ENTRY_STREET_ADDRESS_TEXT) ? '<span class="inputRequirement">' . ENTRY_STREET_ADDRESS_TEXT . '</span>': ''); 
+$data = tep_draw_input_field('state','','class="form-control" style=""') . '&nbsp;' . (tep_not_null(ENTRY_STREET_ADDRESS_TEXT) ? '<span class="inputRequirement"></span>': ''); 
 }
 echo $data;
 //echo   '{ "type": "success","data": "'.json_encode($data).'"}';
@@ -3716,7 +3718,7 @@ function update_zone(theForm) {
         $contents = array('form' => tep_draw_form('zones', 'admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=list&spage=' . $_GET['spage'] . '&sID=' . $sInfo->association_id . '&saction=deleteconfirm_sub'));
         $contents[] = array('text' => __('Are you sure you want to delete this sub zone?','wosci-language'));
         $contents[] = array('text' => '<br><b>' . $sInfo->countries_name . '</b>');
-        $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Remove').'" class="button" /> <a class="button" href="admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=list&spage=' . $_GET['spage'] . '&sID=' . $sInfo->association_id . '">'. __('Cancel').'</a>');
+        $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Remove').'" class="button" /> <a class="button" href="admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '&action=list&spage=' . $_GET['spage'] . '&sID=' . $sInfo->association_id . '">'. __('Cancel','wosci-language').'</a>');
         break;
       default:
         if (isset($sInfo) && is_object($sInfo)) {
@@ -3737,7 +3739,7 @@ function update_zone(theForm) {
         $contents[] = array('text' => __('Please enter the new zone information','wosci-language'));
         $contents[] = array('text' => '<br>' . __('Zone Name','wosci-language') . '<br>' . tep_draw_input_field('geo_zone_name'));
         $contents[] = array('text' => '<br>' . __('Description','wosci-language') . '<br>' . tep_draw_input_field('geo_zone_description'));
-        $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Insert').'" class="button" /> <a class="button" href="admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '">'. __('Cancel').'</a>');
+        $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Insert').'" class="button" /> <a class="button" href="admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $_GET['zID'] . '">'. __('Cancel','wosci-language').'</a>');
         break;
       case 'edit_zone':
         $heading[] = array('text' => '<b>' . __('Edit Zone','wosci-language') . '</b>');
@@ -3746,7 +3748,7 @@ function update_zone(theForm) {
         $contents[] = array('text' => __('Please make any necessary changes','wosci-language'));
         $contents[] = array('text' => '<br>' . __('Zone Name','wosci-language') . '<br>' . tep_draw_input_field('geo_zone_name', $zInfo->geo_zone_name));
         $contents[] = array('text' => '<br>' . __('Description','wosci-language') . '<br>' . tep_draw_input_field('geo_zone_description', $zInfo->geo_zone_description));
-        $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Update').'" class="button" /> <a class="button" href="admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $zInfo->geo_zone_id . '">'. __('Cancel').'</a>');
+        $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Update').'" class="button" /> <a class="button" href="admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $zInfo->geo_zone_id . '">'. __('Cancel','wosci-language').'</a>');
         break;
       case 'delete_zone':
         $heading[] = array('text' => '<b>' . __('Delete Zone','wosci-language') . '</b>');
@@ -3754,7 +3756,7 @@ function update_zone(theForm) {
         $contents = array('form' => tep_draw_form('zones', 'admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $zInfo->geo_zone_id . '&action=deleteconfirm_zone'));
         $contents[] = array('text' => __('Are you sure you want to delete this zone?','wosci-language'));
         $contents[] = array('text' => '<br><b>' . $zInfo->geo_zone_name . '</b>');
-        $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Remove').'" class="button" /> <a class="button" href="admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $zInfo->geo_zone_id . '">'. __('Cancel').'</a>');
+        $contents[] = array('align' => 'center', 'text' => '<br><input type="submit" value="'. __('Remove','wosci-language').'" class="button" /> <a class="button" href="admin.php?page=tax_zones&zpage=' . $_GET['zpage'] . '&zID=' . $zInfo->geo_zone_id . '">'. __('Cancel','wosci-language').'</a>');
         break;
       default:
         if (isset($zInfo) && is_object($zInfo)) {

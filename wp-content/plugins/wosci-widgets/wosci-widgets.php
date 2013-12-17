@@ -13,8 +13,8 @@ License: GPL2
 class WP_Widget_Slider extends WP_Widget {
 
 	function __construct() {
-		$widget_ops = array('description' => __( "Price Range Slider" ) );
-		parent::__construct('slider', __('Slider'), $widget_ops);
+		$widget_ops = array('description' => __( 'Price Range Slider', 'wosci-language' ) );
+		parent::__construct('slider', __('Slider', 'wosci-language'), $widget_ops);
 	}
 
 	function widget( $args, $instance ) {
@@ -68,8 +68,8 @@ echo $after_widget;
 class WP_Widget_Sort extends WP_Widget {
 
 	function __construct() {
-		$widget_ops = array('classname' => 'widget_sort', 'description' => __( 'Product Listing Sorter') );
-		parent::__construct('sort', __('Sort'), $widget_ops);
+		$widget_ops = array('classname' => 'widget_sort', 'description' => __( 'Product Listing Sorter', 'wosci-language') );
+		parent::__construct('sort', __('Sort', 'wosci-language'), $widget_ops);
 	}
 
 	function widget( $args, $instance ) {
@@ -153,8 +153,8 @@ class WP_Widget_Sort extends WP_Widget {
 class WP_Widget_PPP extends WP_Widget {
 
 	function __construct() {
-		$widget_ops = array('description' => __( "Products Per Page" ) );
-		parent::__construct('ppp', __('Products Per Page'), $widget_ops);
+		$widget_ops = array('description' => __( 'Products Per Page' , 'wosci-language') );
+		parent::__construct('ppp', __('Products Per Page', 'wosci-language'), $widget_ops);
 	}
 
 	function widget( $args, $instance ) {
@@ -210,8 +210,8 @@ echo $after_widget;
 class WP_Widget_Color_Filter extends WP_Widget {
 
 	function __construct() {
-		$widget_ops = array('description' => __( "Filter By Color" ) );
-		parent::__construct('colorfilter', __('Filter By Color'), $widget_ops);
+		$widget_ops = array('description' => __( 'Filter By Color', 'wosci-language' ) );
+		parent::__construct('colorfilter', __('Filter By Color', 'wosci-language'), $widget_ops);
 	}
 
 	function widget( $args, $instance ) {
@@ -395,14 +395,14 @@ echo $after_widget;
 class WP_Widget_Vitrin extends WP_Widget {
 
 	function __construct() {
-		$widget_ops = array('classname' => 'widget_vitrin', 'description' => __( "Featured Products") );
-		parent::__construct('vitrin', __('Featured Categories'), $widget_ops);
+		$widget_ops = array('classname' => 'widget_vitrin', 'description' => __( 'Featured Products', 'wosci-language') );
+		parent::__construct('vitrin', __('Featured Categories', 'wosci-language'), $widget_ops);
 	}
 
 function widget( $args, $instance ) {
 		extract($args);
 		
-		$title = apply_filters('widget_title', empty($instance['title']) ? __('Featured Products') : $instance['title']);
+		$title = apply_filters('widget_title', empty($instance['title']) ? __('Featured Products', 'wosci-language') : $instance['title']);
 		$vitrin_ids = empty( $instance['vitrin_ids'] ) ? '' : $instance['vitrin_ids'];
 		$slidethumbs = $instance['slidethumbs'];
 		echo $before_widget;
@@ -572,9 +572,9 @@ $max_p[] = $f[0];
 class WP_Widget_Text_2 extends WP_Widget {
 
 	function __construct() {
-		$widget_ops = array('classname' => 'widget_text_2', 'description' => __('Arbitrary text or HTML 2'));
+		$widget_ops = array('classname' => 'widget_text_2', 'description' => __('Arbitrary text or HTML 2', 'wosci-language'));
 		$control_ops = array('width' => 400, 'height' => 350);
-		parent::__construct('text', __('Text'), $widget_ops, $control_ops);
+		parent::__construct('text', __('Text', 'wosci-language'), $widget_ops, $control_ops);
 	}
 
 	function widget( $args, $instance ) {

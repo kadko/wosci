@@ -10,6 +10,6 @@
   Released under the GNU General Public License
 */
 
-  define('MODULE_PAYMENT_NOCHEX_TEXT_TITLE', __( 'NOCHEX','wosci-translation' ) );
-  define('MODULE_PAYMENT_NOCHEX_TEXT_DESCRIPTION', __( 'NOCHEX<br>Requires the GBP currency.','wosci-translation' ) );
+  define('MODULE_PAYMENT_NOCHEX_TEXT_TITLE', __( 'NOCHEX','wosci-language' ) );
+  define('MODULE_PAYMENT_NOCHEX_TEXT_DESCRIPTION', __( 'NOCHEX<br>Requires the GBP currency.','wosci-language' ) );
 ?>

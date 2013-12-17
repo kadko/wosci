@@ -305,8 +305,8 @@ update_user_meta( $current_user->ID, 'customer_default_address_id', $customer_de
             ?>
             </div></div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary" id="<?php if( $_GET['from'] == 'Edit_Shipping_Address' || $_GET['from'] == 'Edit_Book_Address'){  echo 'save_edit_shipping';  } ?><?php if( $_GET['from'] == 'Edit_Payment_Address'){  echo 'save_edit_payment';  } ?>">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo __( 'Cancel', 'wosci-language' ); ?></button>
+                <button type="button" class="btn btn-primary" id="<?php if( $_GET['from'] == 'Edit_Shipping_Address' || $_GET['from'] == 'Edit_Book_Address'){  echo 'save_edit_shipping';  } ?><?php if( $_GET['from'] == 'Edit_Payment_Address'){  echo 'save_edit_payment';  } ?>" data-loading-text="<?php echo __('Loading...','wosci-language'); ?>"><?php echo __( 'Save', 'wosci-language' ); ?></button>
             </div>
         </div>
         <!-- /.modal-content -->

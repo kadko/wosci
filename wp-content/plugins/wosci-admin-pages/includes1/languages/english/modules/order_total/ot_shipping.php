@@ -10,9 +10,9 @@
   Released under the GNU General Public License
 */
 
-  define('MODULE_ORDER_TOTAL_SHIPPING_TITLE', 'Shipping');
-  define('MODULE_ORDER_TOTAL_SHIPPING_DESCRIPTION', 'Order Shipping Cost');
+  define('MODULE_ORDER_TOTAL_SHIPPING_TITLE', __('Shipping', 'wosci-language' ));
+  define('MODULE_ORDER_TOTAL_SHIPPING_DESCRIPTION', __('Order Shipping Cost', 'wosci-language' ));
 
-  define('FREE_SHIPPING_TITLE', 'Free Shipping');
-  define('FREE_SHIPPING_DESCRIPTION', 'Free shipping for orders over %s');
+  define('FREE_SHIPPING_TITLE', __('Free Shipping', 'wosci-language' ));
+  define('FREE_SHIPPING_DESCRIPTION', __('Free shipping for orders over %s', 'wosci-language' ));
 ?>

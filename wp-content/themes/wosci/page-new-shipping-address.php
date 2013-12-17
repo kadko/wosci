@@ -262,8 +262,8 @@ loadXMLDocNewSA(<?php if($HTTP_POST_VARS['country'] ==''){echo STORE_COUNTRY;}el
             </div>
             <div class="modal-body" id="newSAddress"><div class="te"><?php include( 'inc/checkout-shipping-address-inc.php' ); ?> </div></div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary" id="save_new_shipping_address">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo __( 'Cancel', 'wosci-language' ); ?></button>
+                <button type="button" class="btn btn-primary" id="save_new_shipping_address"><?php echo __( 'Save', 'wosci-language' ); ?></button>
             </div>
         </div>
         <!-- /.modal-content -->

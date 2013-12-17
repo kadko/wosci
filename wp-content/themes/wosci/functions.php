@@ -99,9 +99,9 @@ function wosci_setup() {
 	 *
 	 * Translations can be added to the /languages/ directory.
 	 * If you're building a theme based on Twenty Twelve, use a find and replace
-	 * to change 'wosci' to the name of your theme in all the template files.
+	 * to change 'wosci-language' to the name of your theme in all the template files.
 	 */
-	load_theme_textdomain( 'wosci', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'wosci-language', get_template_directory() . '/languages' );
 
 	// This theme styles the visual editor with editor-style.css to match the theme style.
 	add_editor_style();
@@ -113,7 +113,7 @@ function wosci_setup() {
 	add_theme_support( 'post-formats', array( 'aside', 'image', 'link', 'quote', 'status' ) );
 
 	// This theme uses wp_nav_menu() in one location.
-	register_nav_menu( 'primary', __( 'Primary Menu', 'wosci' ) );
+	register_nav_menu( 'primary', __( 'Primary Menu', 'wosci-language' ) );
 
 	/*
 	 * This theme supports custom background color and image, and here
@@ -149,12 +149,12 @@ function wosci_get_font_url() {
 
 	/* translators: If there are characters in your language that are not supported
 	 by Open Sans, translate this to 'off'. Do not translate into your own language. */
-	if ( 'off' !== _x( 'on', 'Open Sans font: on or off', 'wosci' ) ) {
+	if ( 'off' !== _x( 'on', 'Open Sans font: on or off', 'wosci-language' ) ) {
 		$subsets = 'latin,latin-ext';
 
 		/* translators: To add an additional Open Sans character subset specific to your language, translate
 		 this to 'greek', 'cyrillic' or 'vietnamese'. Do not translate into your own language. */
-		$subset = _x( 'no-subset', 'Open Sans font: add new subset (greek, cyrillic, vietnamese)', 'wosci' );
+		$subset = _x( 'no-subset', 'Open Sans font: add new subset (greek, cyrillic, vietnamese)', 'wosci-language' );
 
 		if ( 'cyrillic' == $subset )
 			$subsets .= ',cyrillic,cyrillic-ext';
@@ -262,7 +262,7 @@ function wosci_wp_title( $title, $sep ) {
 
 	// Add a page number if necessary.
 	if ( $paged >= 2 || $page >= 2 )
-		$title = "$title $sep " . sprintf( __( 'Page %s', 'wosci' ), max( $paged, $page ) );
+		$title = "$title $sep " . sprintf( __( 'Page %s', 'wosci-language' ), max( $paged, $page ) );
 
 	return $title;
 }
@@ -287,9 +287,9 @@ add_filter( 'wp_page_menu_args', 'wosci_page_menu_args' );
  */
 function wosci_widgets_init() {
 	register_sidebar( array(
-		'name' => __( 'Main Sidebar', 'wosci' ),
+		'name' => __( 'Main Sidebar', 'wosci-language' ),
 		'id' => 'sidebar-1',
-		'description' => __( 'Appears on posts and pages except the optional Front Page template, which has its own widgets', 'wosci' ),
+		'description' => __( 'Appears on posts and pages except the optional Front Page template, which has its own widgets', 'wosci-language' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget' => '</aside>',
 		'before_title' => '<h3 class="widget-title">',
@@ -297,9 +297,9 @@ function wosci_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name' => __( 'First Front Page Widget Area', 'wosci' ),
+		'name' => __( 'First Front Page Widget Area', 'wosci-language' ),
 		'id' => 'sidebar-2',
-		'description' => __( 'Appears when using the optional Front Page template with a page set as Static Front Page', 'wosci' ),
+		'description' => __( 'Appears when using the optional Front Page template with a page set as Static Front Page', 'wosci-language' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget' => '</aside>',
 		'before_title' => '<h3 class="widget-title">',
@@ -307,9 +307,9 @@ function wosci_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name' => __( 'Second Front Page Widget Area', 'wosci' ),
+		'name' => __( 'Second Front Page Widget Area', 'wosci-language' ),
 		'id' => 'sidebar-3',
-		'description' => __( 'Appears when using the optional Front Page template with a page set as Static Front Page', 'wosci' ),
+		'description' => __( 'Appears when using the optional Front Page template with a page set as Static Front Page', 'wosci-language' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget' => '</aside>',
 		'before_title' => '<h3 class="widget-title">',
@@ -331,9 +331,9 @@ function wosci_content_nav( $html_id ) {
 
 	if ( $wp_query->max_num_pages > 1 ) : ?>
 		<nav id="<?php echo $html_id; ?>" class="navigation" role="navigation">
-			<h3 class="assistive-text"><?php _e( 'Post navigation', 'wosci' ); ?></h3>
-			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older products', 'wosci' ) ); ?></div>
-			<div class="nav-next"><?php previous_posts_link( __( 'Newer products <span class="meta-nav">&rarr;</span>', 'wosci' ) ); ?></div>
+			<h3 class="assistive-text"><?php _e( 'Post navigation', 'wosci-language' ); ?></h3>
+			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older products', 'wosci-language' ) ); ?></div>
+			<div class="nav-next"><?php previous_posts_link( __( 'Newer products <span class="meta-nav">&rarr;</span>', 'wosci-language' ) ); ?></div>
 		</nav><!-- #<?php echo $html_id; ?> .navigation -->
 	<?php endif;
 }
@@ -358,7 +358,7 @@ function wosci_comment( $comment, $args, $depth ) {
 		// Display trackbacks differently than normal comments.
 	?>
 	<li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
-		<p><?php _e( 'Pingback:', 'wosci' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( '(Edit)', 'wosci' ), '<span class="edit-link">', '</span>' ); ?></p>
+		<p><?php _e( 'Pingback:', 'wosci-language' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( '(Edit)', 'wosci-language' ), '<span class="edit-link">', '</span>' ); ?></p>
 	<?php
 			break;
 		default :
@@ -373,28 +373,28 @@ function wosci_comment( $comment, $args, $depth ) {
 					printf( '<cite><b class="fn">%1$s</b> %2$s</cite>',
 						get_comment_author_link(),
 						// If current post author is also comment author, make it known visually.
-						( $comment->user_id === $post->post_author ) ? '<span>' . __( 'Product author', 'wosci' ) . '</span>' : ''
+						( $comment->user_id === $post->post_author ) ? '<span>' . __( 'Product author', 'wosci-language' ) . '</span>' : ''
 					);
 					printf( '<a href="%1$s"><time datetime="%2$s">%3$s</time></a>',
 						esc_url( get_comment_link( $comment->comment_ID ) ),
 						get_comment_time( 'c' ),
 						/* translators: 1: date, 2: time */
-						sprintf( __( '%1$s at %2$s', 'wosci' ), get_comment_date(), get_comment_time() )
+						sprintf( __( '%1$s at %2$s', 'wosci-language' ), get_comment_date(), get_comment_time() )
 					);
 				?>
 			</header><!-- .comment-meta -->
 
 			<?php if ( '0' == $comment->comment_approved ) : ?>
-				<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'wosci' ); ?></p>
+				<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'wosci-language' ); ?></p>
 			<?php endif; ?>
 
 			<section class="comment-content comment">
 				<?php comment_text(); ?>
-				<?php edit_comment_link( __( 'Edit', 'wosci' ), '<p class="edit-link">', '</p>' ); ?>
+				<?php edit_comment_link( __( 'Edit', 'wosci-language' ), '<p class="edit-link">', '</p>' ); ?>
 			</section><!-- .comment-content -->
 
 			<div class="reply">
-				<?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply', 'wosci' ), 'after' => ' <span>&darr;</span>', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+				<?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply', 'wosci-language' ), 'after' => ' <span>&darr;</span>', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
 			</div><!-- .reply -->
 		</article><!-- #comment-## -->
 	<?php
@@ -413,10 +413,10 @@ if ( ! function_exists( 'wosci_entry_meta' ) ) :
  */
 function wosci_entry_meta() {
 	// Translators: used between list items, there is a space after the comma.
-	$categories_list = get_the_category_list( __( ', ', 'wosci' ) );
+	$categories_list = get_the_category_list( __( ', ', 'wosci-language' ) );
 
 	// Translators: used between list items, there is a space after the comma.
-	$tag_list = get_the_tag_list( '', __( ', ', 'wosci' ) );
+	$tag_list = get_the_tag_list( '', __( ', ', 'wosci-language' ) );
 
 	$date = sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a>',
 		esc_url( get_permalink() ),
@@ -427,17 +427,17 @@ function wosci_entry_meta() {
 
 	$author = sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>',
 		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-		esc_attr( sprintf( __( 'View all products by %s', 'wosci' ), get_the_author() ) ),
+		esc_attr( sprintf( __( 'View all products by %s', 'wosci-language' ), get_the_author() ) ),
 		get_the_author()
 	);
 
 	// Translators: 1 is category, 2 is tag, 3 is the date and 4 is the author's name.
 	if ( $tag_list ) {
-		$utility_text = __( 'This product was created in %1$s and tagged %2$s on %3$s<span class="by-author"> by %4$s</span>.', 'wosci' );
+		$utility_text = __( 'This product was created in %1$s and tagged %2$s on %3$s<span class="by-author"> by %4$s</span>.', 'wosci-language' );
 	} elseif ( $categories_list ) {
-		$utility_text = __( 'This product was created in %1$s on %3$s<span class="by-author"> by %4$s</span>.', 'wosci' );
+		$utility_text = __( 'This product was created in %1$s on %3$s<span class="by-author"> by %4$s</span>.', 'wosci-language' );
 	} else {
-		$utility_text = __( 'This product was created on %3$s<span class="by-author"> by %4$s</span>.', 'wosci' );
+		$utility_text = __( 'This product was created on %3$s<span class="by-author"> by %4$s</span>.', 'wosci-language' );
 	}
 
 	printf(
@@ -1231,3 +1231,19 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 		}
 	}
 }
+if(WPLANG == 'tr_TR'){
+ function make_hin_str($str)
+ {
+ $engStr = array(Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,January,February,March,April,May,June,July,August,September,October,November,December,Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec);
+ $hinStr = array('Pazar','Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi','Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık','Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık');
+ $converted = str_replace($engStr, $hinStr, $str);
+ return $converted;
+ }
+ add_filter( 'date', 'make_hin_str' );
+ add_filter( 'get_the_time', 'make_hin_str' );
+ add_filter( 'get_the_date', 'make_hin_str' );
+ add_filter( 'the_date', 'make_hin_str' );
+ add_filter( 'get_comment_date', 'make_hin_str' );
+ add_filter( 'get_comment_time', 'make_hin_str' );
+ add_filter( 'get_comment_time', 'make_hin_str' );
+ }

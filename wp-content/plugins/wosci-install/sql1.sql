@@ -1853,7 +1853,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 
 INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES (NULL, 'widget_ppp', 'a:2:{i:2;a:5:{s:6:"images";i:0;s:4:"name";i:0;s:11:"description";i:0;s:6:"rating";i:0;s:8:"category";i:0;}s:12:"_multiwidget";i:1;}', 'yes');
 
-INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES (NULL, 'widget_vitrin', 'a:2:{i:2;a:3:{s:5:"title";s:0:"";s:10:"vitrin_ids";s:17:"4,6,8,10,12,14,16";s:11:"slidethumbs";b:1;}s:12:"_multiwidget";i:1;}', 'yes');
+INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES (NULL, 'widget_vitrin', 'a:2:{i:2;a:3:{s:5:"title";s:0:"";s:10:"vitrin_ids";s:32:"4,6,8,10,12,14,16,18,20,22,24,26";s:11:"slidethumbs";b:1;}s:12:"_multiwidget";i:1;}', 'yes');
 
 
 

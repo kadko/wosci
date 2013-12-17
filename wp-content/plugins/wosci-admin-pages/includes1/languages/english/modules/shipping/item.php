@@ -10,7 +10,7 @@
   Released under the GNU General Public License
 */
 
-define('MODULE_SHIPPING_ITEM_TEXT_TITLE', __( 'Per Item' , 'wosci-translation' ) );
-define('MODULE_SHIPPING_ITEM_TEXT_DESCRIPTION',  __( 'Per Item' , 'wosci-translation' ) );
-define('MODULE_SHIPPING_ITEM_TEXT_WAY', __( 'Best Way' , 'wosci-translation' ));
+define('MODULE_SHIPPING_ITEM_TEXT_TITLE', __( 'Per Item' , 'wosci-language' ) );
+define('MODULE_SHIPPING_ITEM_TEXT_DESCRIPTION',  __( 'Per Item' , 'wosci-language' ) );
+define('MODULE_SHIPPING_ITEM_TEXT_WAY', __( 'Best Way' , 'wosci-language' ));
 ?>

@@ -34,21 +34,21 @@
 ?>
 
 <div class="row">
-    <div class="col-xs-6 col-lg-3" style="margin-top:8px;"><?php echo ENTRY_FIRST_NAME ;?></div>
-    <div class="col-xs-6 col-lg-9"><?php echo tep_draw_input_field('firstname', $entry['entry_firstname'],'class="form-control" ') . '&nbsp;' . (tep_not_null(ENTRY_FIRST_NAME_TEXT) ? '<span class="inputRequirement">' . ENTRY_FIRST_NAME_TEXT . '</span>': ''); ?></div>
+    <div class="col-xs-6 col-lg-3" style="margin-top:8px;"><?php echo __( 'First Name', 'wosci-language' ) ;?></div>
+    <div class="col-xs-6 col-lg-9"><?php echo tep_draw_input_field('firstname', $entry['entry_firstname'],'class="form-control" ') . '&nbsp;' . (tep_not_null(ENTRY_FIRST_NAME_TEXT) ? '<span class="inputRequirement"></span>': ''); ?></div>
 </div>
 
 <div class="row">
-    <div class="col-xs-6 col-lg-3" style="margin-top:8px;"><?php echo ENTRY_LAST_NAME;?></div>
-    <div class="col-xs-6 col-lg-9"><?php echo tep_draw_input_field('lastname', $entry['entry_lastname'],'class="form-control"') . '&nbsp;' . (tep_not_null(ENTRY_LAST_NAME_TEXT) ? '<span class="inputRequirement">' . ENTRY_LAST_NAME_TEXT . '</span>': ''); ?></div>
+    <div class="col-xs-6 col-lg-3" style="margin-top:8px;"><?php echo __( 'Last Name', 'wosci-language' );?></div>
+    <div class="col-xs-6 col-lg-9"><?php echo tep_draw_input_field('lastname', $entry['entry_lastname'],'class="form-control"') . '&nbsp;' . (tep_not_null(ENTRY_LAST_NAME_TEXT) ? '<span class="inputRequirement"></span>': ''); ?></div>
 </div>  
 
 <?php
   if (ACCOUNT_COMPANY == 'true') {
 ?>
 <div class="row">
-            <div class="col-xs-6 col-lg-3" style="margin-top:8px;"><?php echo ENTRY_COMPANY ;?></div>
-            <div class="col-xs-6 col-lg-9"><?php echo tep_draw_input_field('company', $entry['entry_company'],'class="form-control" ') . '&nbsp;' . (tep_not_null(ENTRY_COMPANY_TEXT) ? '<span class="inputRequirement">' . ENTRY_COMPANY_TEXT . '</span>': ''); ?></div>
+            <div class="col-xs-6 col-lg-3" style="margin-top:8px;"><?php echo __( 'Company', 'wosci-language' ) ;?></div>
+            <div class="col-xs-6 col-lg-9"><?php echo tep_draw_input_field('company', $entry['entry_company'],'class="form-control" ') . '&nbsp;' . (tep_not_null(ENTRY_COMPANY_TEXT) ? '<span class="inputRequirement"></span>': ''); ?></div>
           </div>
 
 <?php
@@ -56,8 +56,8 @@
 ?>
 
 <div class="row">
-    <div class="col-xs-6 col-lg-3" style="margin-top:8px;"><?php echo ENTRY_STREET_ADDRESS;?></div>
-    <div class="col-xs-6 col-lg-9"><?php echo tep_draw_input_field('street_address', $entry['entry_street_address'],'class="form-control" ') . '&nbsp;' . (tep_not_null(ENTRY_STREET_ADDRESS_TEXT) ? '<span class="inputRequirement">' . ENTRY_STREET_ADDRESS_TEXT . '</span>': ''); ?></div>
+    <div class="col-xs-6 col-lg-3" style="margin-top:8px;"><?php echo __( 'Address', 'wosci-language' );?></div>
+    <div class="col-xs-6 col-lg-9"><?php echo tep_draw_input_field('street_address', $entry['entry_street_address'],'class="form-control" ') . '&nbsp;' . (tep_not_null(ENTRY_STREET_ADDRESS_TEXT) ? '<span class="inputRequirement"></span>': ''); ?></div>
 </div>  
 
 
@@ -66,31 +66,31 @@
   if (ACCOUNT_SUBURB == 'true') {
 ?>
           <div class="row">
-            <div class="col-xs-6 col-lg-3" style="margin-top:8px;"><?php echo ENTRY_SUBURB;?></div>
-            <div class="col-xs-6 col-lg-9"><?php echo tep_draw_input_field('suburb', $entry['entry_suburb'],'class="form-control" ') . '&nbsp;' . (tep_not_null(ENTRY_SUBURB_TEXT) ? '<span class="inputRequirement">' . ENTRY_SUBURB_TEXT . '</span>': ''); ?></div>
+            <div class="col-xs-6 col-lg-3" style="margin-top:8px;"><?php echo __( 'Suburb', 'wosci-language' );?></div>
+            <div class="col-xs-6 col-lg-9"><?php echo tep_draw_input_field('suburb', $entry['entry_suburb'],'class="form-control" ') . '&nbsp;' . (tep_not_null(ENTRY_SUBURB_TEXT) ? '<span class="inputRequirement"></span>': ''); ?></div>
           </div>
 <?php
   }
 ?>
 
 <div class="row">
-    <div class="col-xs-6 col-lg-3" style="margin-top:8px;"><?php echo ENTRY_POST_CODE;?></div>
-    <div class="col-xs-6 col-lg-9"><?php echo tep_draw_input_field('postcode', $entry['entry_postcode'],'class="form-control" ') . '&nbsp;' . (tep_not_null(ENTRY_POST_CODE_TEXT) ? '<span class="inputRequirement">' . ENTRY_POST_CODE_TEXT . '</span>': ''); ?></div>
+    <div class="col-xs-6 col-lg-3" style="margin-top:8px;"><?php echo __( 'Post Code', 'wosci-language' );?></div>
+    <div class="col-xs-6 col-lg-9"><?php echo tep_draw_input_field('postcode', $entry['entry_postcode'],'class="form-control" ') . '&nbsp;' . (tep_not_null(ENTRY_POST_CODE_TEXT) ? '<span class="inputRequirement"></span>': ''); ?></div>
 </div>  
 
 <div class="row">
-    <div class="col-xs-6 col-lg-3" style="margin-top:8px;"><?php echo ENTRY_CITY;?></div>
-    <div class="col-xs-6 col-lg-9"><?php echo tep_draw_input_field('city', $entry['entry_city'],'class="form-control" ') . '&nbsp;' . (tep_not_null(ENTRY_CITY_TEXT) ? '<span class="inputRequirement">' . ENTRY_CITY_TEXT . '</span>': ''); ?></div>
+    <div class="col-xs-6 col-lg-3" style="margin-top:8px;"><?php echo __( 'City', 'wosci-language' );?></div>
+    <div class="col-xs-6 col-lg-9"><?php echo tep_draw_input_field('city', $entry['entry_city'],'class="form-control" ') . '&nbsp;' . (tep_not_null(ENTRY_CITY_TEXT) ? '<span class="inputRequirement"></span>': ''); ?></div>
 </div>  
 
 
 
 
 <?php 
-  if (ACCOUNT_STATE == 'true') {
+  if (ACCOUNT_STATE == 'true') {}
 ?>
   <div class="row">
-    <div class="col-xs-6 col-lg-3" style="margin-top:8px;"><?php echo ENTRY_STATE;?></div>
+    <div class="col-xs-6 col-lg-3" style="margin-top:8px;"><?php echo __( 'State/Province', 'wosci-language' );?></div>
     <div class="col-xs-6 col-lg-9" id="states_p">
 <?php
 
@@ -108,9 +108,11 @@
         while ($zones_values = tep_db_fetch_array($zones_query)) {
           $zones_array[] = array('id' => $zones_values['zone_name'], 'text' => $zones_values['zone_name']);
         }
-         echo tep_draw_pull_down_menu('state', $zones_array,$zone_query['zone_name'],'class="form-control"');
-      } else {
-        echo tep_draw_input_field('state',$entry ['entry_state'],'style="class="form-control" ');
+         if( count($zones_array) > 0 ){
+	echo tep_draw_pull_down_menu('state', $zones_array, $zone_query['zone_name'],'class="form-control"'). '&nbsp;<span class="inputRequirement"></span>';
+	} else {
+        echo tep_draw_input_field('state',   $entry['entry_state'], 'class="form-control" ') . '&nbsp;<span class="inputRequirement"></span>';
+      }
       }
     } else {
 	$zones_array = array();
@@ -125,20 +127,20 @@
       
     }
 
-    if (tep_not_null(ENTRY_STATE_TEXT)) echo '&nbsp;<span class="inputRequirement">' . ENTRY_STATE_TEXT;
+   // if (tep_not_null(ENTRY_STATE_TEXT)) echo '&nbsp;<span class="inputRequirement">' . ENTRY_STATE_TEXT;
 ?>
     </div>
   </div>
   </div>
 <?php
 
-  }
+  
 ?>
 
 
 
   <div class="row">
-    <div class="col-xs-6 col-lg-3" style="margin-top:8px;"><?php echo ENTRY_COUNTRY;?></div>
+    <div class="col-xs-6 col-lg-3" style="margin-top:8px;"><?php echo __( 'Country', 'wosci-language' );?></div>
     <div class="col-xs-6 col-lg-9">
     
      <?php

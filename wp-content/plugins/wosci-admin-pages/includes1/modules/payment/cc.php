@@ -36,18 +36,18 @@
       global $order;
 
 	//Taksitler
-	define('MODULE_PAYMENT_62_KEY', '1:0,2:3,3:4.5,4:6,5:7.75,6:9,7:10,8:11,9:12,10:13,11:14,12:15','wosci-translation'  );//Garanti
-	define('MODULE_PAYMENT_111_KEY', '1:0,2:3,3:4.5,4:6,5:7.75,6:9,7:10,8:11,9:12,10:13,11:14,12:15','wosci-translation'  );//Finansbank
-	define('MODULE_PAYMENT_67_KEY', '1:0,2:3,3:4.5,4:6,5:7.75,6:9,7:10,8:11,9:12,10:13,11:14,12:15','wosci-translation'  );//YKB  
+	define('MODULE_PAYMENT_62_KEY', '1:0,2:3,3:4.5,4:6,5:7.75,6:9,7:10,8:11,9:12,10:13,11:14,12:15','wosci-language'  );//Garanti
+	define('MODULE_PAYMENT_111_KEY', '1:0,2:3,3:4.5,4:6,5:7.75,6:9,7:10,8:11,9:12,10:13,11:14,12:15','wosci-language'  );//Finansbank
+	define('MODULE_PAYMENT_67_KEY', '1:0,2:3,3:4.5,4:6,5:7.75,6:9,7:10,8:11,9:12,10:13,11:14,12:15','wosci-language'  );//YKB  
 
 	//websitesinde aktif olarak kullanılan sanal posların banka kodları
-	define('BANKALAR',  '62,67,111','wosci-translation'  );//Garanti
+	define('BANKALAR',  '62,67,111','wosci-language'  );//Garanti
   
 	$this->code = 'cc';
 	
 	$this->title = MODULE_PAYMENT_CC_TEXT_TITLE;
 
-	$this->description = MODULE_PAYMENT_FINANSBANK_TEXT_DESCRIPTION;
+	$this->description = MODULE_PAYMENT_CC_TEXT_DESCRIPTION;
 
 	$this->sort_order = '0'; //MODULE_PAYMENT_CC_SORT_ORDER;
 
@@ -129,7 +129,7 @@
 
             '    if (cc_owner == "" || cc_owner.length < ' . CC_OWNER_MIN_LENGTH . ') {' . "\n" .
 
-            '      error_message = error_message + "' . MODULE_PAYMENT_FINANSBANK_TEXT_JS_CC_OWNER . '";' . "\n" .
+            '      error_message = error_message + "' . MODULE_PAYMENT_CC_TEXT_JS_CC_OWNER . '";' . "\n" .
 
             '      error = 1;' . "\n" .
 
@@ -137,7 +137,7 @@
 
             '    if (cc_number == "" || cc_number.length < ' . CC_NUMBER_MIN_LENGTH . ') {' . "\n" .
 
-            '      error_message = error_message + "' . MODULE_PAYMENT_FINANSBANK_TEXT_JS_CC_NUMBER . '";' . "\n" .
+            '      error_message = error_message + "' . MODULE_PAYMENT_CC_TEXT_JS_CC_NUMBER . '";' . "\n" .
 
             '      error = 1;' . "\n" .
 
@@ -145,7 +145,7 @@
 
             '    if (cvvnumber == ""|| cc_checkcode.length < 3) {' . "\n" . 
 
-            '      error_message = error_message + "' . MODULE_PAYMENT_FINANSBANK_TEXT_JS_CVVNUMBER . '";' . "\n" . 
+            '      error_message = error_message + "' . MODULE_PAYMENT_CC_TEXT_JS_CVVNUMBER . '";' . "\n" . 
 
             '      error = 1;' . "\n" . 
 
@@ -264,7 +264,7 @@ for ($a=0; $a<3; $a++) {
 */
 array('title' => '<div style="line-height:32px;vertical-align:middle;"><small>' . MODULE_PAYMENT_CC_TEXT_CREDIT_CARD_EXPIRES . '</small></div>',
 
-'field' => '<div style="display:inline;float:left;">'.tep_draw_input_field('cc_expires_full', '', 'placeholder="'.__( 'MM / YY','wosci-translation' ) .'" class="form-control" style="width:100px;" maxlength="10"') . '</div>&nbsp;&nbsp;<div style="display:inline;float:right;">'. tep_draw_input_field('cc_checkcode', '', 'placeholder="CVV" class="form-control" style="width:100px;" maxlength="4"').tep_draw_hidden_field('bankaID', '').tep_draw_hidden_field('bankaADI', '').'</div></div>'
+'field' => '<div style="display:inline;float:left;">'.tep_draw_input_field('cc_expires_full', '', 'placeholder="'.__( 'MM / YY','wosci-language' ) .'" class="form-control" style="width:100px;" maxlength="10"') . '</div>&nbsp;&nbsp;<div style="display:inline;float:right;">'. tep_draw_input_field('cc_checkcode', '', 'placeholder="CVV" class="form-control" style="width:100px;" maxlength="4"').tep_draw_hidden_field('bankaID', '').tep_draw_hidden_field('bankaADI', '').'</div></div>'
                                                  ),
 
 
@@ -330,7 +330,7 @@ $cc_validation = new cc_validation();
 
         case -1:
 
-          $error = sprintf(TEXT_CCVAL_ERROR_UNKNOWN_CARD, substr($cc_validation->cc_number, 0, 4));
+          $error = sprintf(__( 'As the first four digits of the number entered this type of credit cards not accepted. Please try again.', 'wosci-language' ), substr($cc_validation->cc_number, 0, 4));
 
           break;
 
@@ -664,9 +664,9 @@ $process_button_string = '<input name="posnetData" type="hidden" id="posnetData"
 
 
 
-      $error = array('title' => __('Credit Card Error', 'wosci-translation'),
+      $error = array('title' => __('Credit Card Error', 'wosci-language'),
 
-                     'error' => ((isset($_GET['error'])) ? stripslashes(urldecode($_GET['error'])) : __('Please check your credit card details', 'wosci-translation')));
+                     'error' => ((isset($_GET['error'])) ? stripslashes(urldecode($_GET['error'])) : __('Please check your credit card details', 'wosci-language')));
 
 
 

@@ -11,8 +11,8 @@ while ($zones_values = tep_db_fetch_array($zones_query)) {
 header('Content-type: text/html; charset='.CHARSET);
 
 if ( tep_db_num_rows($zones_query) ) {
-  echo tep_draw_pull_down_menu('state', $zones_array, $_POST['city_code'],'class="form-control"'). '&nbsp;' . '<span class="inputRequirement">' . ENTRY_STREET_ADDRESS_TEXT . '</span>';
+  echo tep_draw_pull_down_menu('state', $zones_array, $_POST['city_code'],'class="form-control"'). '&nbsp;' . '<span class="inputRequirement"></span>';
 } else {
-  echo tep_draw_input_field('state','','class="form-control" style=""') . '&nbsp;' . (tep_not_null(ENTRY_STREET_ADDRESS_TEXT) ? '<span class="inputRequirement">' . ENTRY_STREET_ADDRESS_TEXT . '</span>': ''); 
+  echo tep_draw_input_field('state','','class="form-control" style=""') . '&nbsp;' . (tep_not_null(ENTRY_STREET_ADDRESS_TEXT) ? '<span class="inputRequirement"></span>': ''); 
 }
 ?>

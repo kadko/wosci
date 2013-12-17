@@ -149,7 +149,7 @@ table thead td { background-color: #EEEEEE;
 
 <htmlpagefooter name="myfooter">
 <div style="border-top: 1px solid #000000; font-size: 9pt; text-align: center; padding-top: 3mm; ">
-Page {PAGENO} of {nb}
+'.__( 'Page', 'wosci-language' ).' {PAGENO} / {nb}
 </div>
 </htmlpagefooter>
 
@@ -157,7 +157,7 @@ Page {PAGENO} of {nb}
 <sethtmlpagefooter name="myfooter" value="on" />
 mpdf-->
 
-<div style="text-align: right">Date: '.date('jS F Y').'</div>
+<div style="text-align: right">'.__( 'Date', 'wosci-language' ).': '. tep_date_short($order->info['date_purchased']).'</div>
 
 		
 
@@ -176,12 +176,12 @@ mpdf-->
 <table class="items" width="100%" style="font-size: 9pt; border-collapse: collapse;" cellpadding="8">
 <thead>
 <tr >
-<td width="15%">REF. NO.</td>
-<td width="10%">QUANTITY</td>
-<td width="45%">DESCRIPTION</td>
-<td width="15%">TAX</td>
-<td width="15%">UNIT PRICE</td>
-<td width="15%">AMOUNT</td>
+<td width="15%">'.__( 'SKU', 'wosci-language' ).'</td>
+<td width="10%">'.__( 'QUANTITY', 'wosci-language' ).'</td>
+<td width="45%">'.__( 'DESCRIPTION', 'wosci-language' ).'</td>
+<td width="15%">'.__( 'TAX', 'wosci-language' ).'</td>
+<td width="15%">'.__( 'UNIT PRICE', 'wosci-language' ).'</td>
+<td width="15%">'.__( 'AMOUNT', 'wosci-language' ).'</td>
 </tr>
 </thead>
 <tbody>
@@ -203,7 +203,7 @@ mpdf-->
 </tbody>
 </table>
 
-<div style="text-align: center; font-style: italic;">Payment terms: payment due in 30 days</div>
+<div style="text-align: center; font-style: italic;">'.__( 'Payment terms: payment due in 30 days', 'wosci-language' ).'</div>
 </body>
 </html>
 ';

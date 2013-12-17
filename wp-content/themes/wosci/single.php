@@ -16,13 +16,13 @@ get_header(); ?>
 
 				<?php get_template_part( 'content', get_post_format() ); ?>
 				<small><?php wosci_entry_meta(); ?>
-<?php edit_post_link( __( 'Edit', 'wosci' ), '<span class="edit-link">', '</span>' ); ?></small>
+<?php edit_post_link( __( 'Edit', 'wosci-language' ), '<span class="edit-link">', '</span>' ); ?></small>
 
 
 				<nav class="nav-single">
 					<h3 class="assistive-text"><?php _e( 'Product navigation', 'wosci-language' ); ?></h3>
-					<span class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Previous product link', 'twentytwelve' ) . '</span> %title' ); ?></span>
-					<span class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next product link', 'twentytwelve' ) . '</span>' ); ?></span>
+					<span class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Previous product link', 'wosci-language' ) . '</span> %title' ); ?></span>
+					<span class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next product link', 'wosci-language' ) . '</span>' ); ?></span>
 				</nav><!-- .nav-single -->
 				
 
@@ -41,4 +41,11 @@ get_header(); ?>
 </div><!-- .well -->
 
 <?php get_sidebar(); ?>
-<?php get_footer(); ?>
+<?php get_footer(); ?><?php
+$time = microtime();
+$time = explode(' ', $time);
+$time = $time[1] + $time[0];
+$finish = $time;
+$total_time = round(($finish - $start), 4);
+echo 'Page generated in '.$total_time.' seconds.';
+?>

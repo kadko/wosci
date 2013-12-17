@@ -290,7 +290,7 @@ INSERT INTO `configuration` (`configuration_id`, `configuration_title`, `configu
 (88, 'Display Shipping', 'MODULE_ORDER_TOTAL_SHIPPING_STATUS', 'true', 'Do you want to display the order shipping cost?', 6, 1, NULL, '2013-08-07 14:38:03', NULL, 'tep_cfg_select_option(array(''true'', ''false''), '),
 (89, 'Sort Order', 'MODULE_ORDER_TOTAL_SHIPPING_SORT_ORDER', '2', 'Sort order of display.', 6, 2, NULL, '2013-08-07 14:38:03', NULL, NULL),
 (90, 'Allow Free Shipping', 'MODULE_ORDER_TOTAL_SHIPPING_FREE_SHIPPING', 'true', 'Do you want to allow free shipping?', 6, 3, NULL, '2013-08-07 14:38:03', NULL, 'tep_cfg_select_option(array(''true'', ''false''), '),
-(91, 'Free Shipping For Orders Over', 'MODULE_ORDER_TOTAL_SHIPPING_FREE_SHIPPING_OVER', '22', 'Provide free shipping for orders over the set amount.', 6, 4, NULL, '2013-08-07 14:38:03', 'currencies->format', NULL),
+(91, 'Free Shipping For Orders Over', 'MODULE_ORDER_TOTAL_SHIPPING_FREE_SHIPPING_OVER', '600', 'Provide free shipping for orders over the set amount.', 6, 4, NULL, '2013-08-07 14:38:03', 'currencies->format', NULL),
 (92, 'Provide Free Shipping For Orders Made', 'MODULE_ORDER_TOTAL_SHIPPING_DESTINATION', 'national', 'Provide free shipping for orders sent to the set destination.', 6, 5, NULL, '2013-08-07 14:38:03', NULL, 'tep_cfg_select_option(array(''national'', ''international'', ''both''), '),
 (93, 'Display Sub-Total', 'MODULE_ORDER_TOTAL_SUBTOTAL_STATUS', 'true', 'Do you want to display the order sub-total cost?', 6, 1, NULL, '2013-08-07 14:38:03', NULL, 'tep_cfg_select_option(array(''true'', ''false''), '),
 (94, 'Sort Order', 'MODULE_ORDER_TOTAL_SUBTOTAL_SORT_ORDER', '1', 'Sort order of display.', 6, 2, NULL, '2013-08-07 14:38:03', NULL, NULL),

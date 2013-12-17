@@ -117,7 +117,7 @@ echo the_post_thumbnail( array( 60, 60 ), $default_attr );
 $bo_o = '';
       while ($products_options_name = tep_db_fetch_array($products_options_name_query)) {
 
-$bo_o .=  '<div style="font-weight:normal;font-size:13px;margin-top:12px;">Select '.$products_options_name['products_options_name'].'</div>'.'<div class="btn-group" data-toggle="buttons" data-name="'.'id[' . $products_options_name['products_options_id'] . ']'.'" data-title="'.$products_options_name['products_options_name'].'">';
+$bo_o .=  '<div style="font-weight:normal;font-size:13px;margin-top:12px;">'.$products_options_name['products_options_name'].'</div>'.'<div rel="popover" data-original-title="" data-content="<b>'.$products_options_name['products_options_name'].'</b>: <small>'.__('Please Select Option','wosci-language').'</small>" data-placement="left" data-html="true" data-trigger="click" class="btn-group" data-toggle="buttons" data-name="'.'id[' . $products_options_name['products_options_id'] . ']'.'" >'; //data-title="'.$products_options_name['products_options_name'].'"
 	
 //	$chf ='first'; //NOPRE
         $products_options_array = array();
@@ -179,11 +179,11 @@ echo $bo_o;
 
 <?php  $nonce = wp_create_nonce("add_to_cart_nonce"); ?>
 
-  <button style="white-space:normal;" type="button" id="fat-btn"  data-nonce="<?php echo $nonce; ?>" data-post_id="<?php echo $post->ID; ?>" data-loading-text="Loading..." class="btn btn-warning  ">
+  <button style="white-space:normal;" type="button" id="fat-btn"  data-nonce="<?php echo $nonce; ?>" data-post_id="<?php echo $post->ID; ?>" data-loading-text="<?php echo __('Loading...','wosci-language'); ?>" class="btn btn-warning  ">
         Add to Cart
       </button>
    <div class="margin-top">
-	<small><?php echo 'Quantity'; ?></small>
+	<small><?php echo __( 'Quantity', 'wosci-language' ); ?></small>
         <input name="quantity" type="number" step="1" min="1" id="quantity" value="1" class="btn btn-default btn-sm" style="width:50px;">
    
    
@@ -209,14 +209,14 @@ echo $bo_o;
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title">Products In Your Shopping Cart</h4>
+          <h4 class="modal-title"><?php echo __( 'Products In Your Shopping Cart', 'wosci-language' ); ?></h4>
         </div>
         <div class="modal-body">
         
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <a class="btn btn-primary" href="<?php echo esc_url( home_url( '/' ) ); ?>cart">Go to Shopping Cart</a>
+          <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo __( 'Close', 'wosci-language' ); ?></button>
+          <a class="btn btn-primary" href="<?php echo esc_url( home_url( '/' ) ); ?>cart"><?php echo __( 'Go to Shopping Cart', 'wosci-language' ); ?></a>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
