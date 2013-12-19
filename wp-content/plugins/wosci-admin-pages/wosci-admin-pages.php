@@ -4588,8 +4588,78 @@ $sql_data_array = array('customers_id' => $user_id,
 
 }
 
+add_action("wp_ajax_nopriv_add_to_wishlist", "add_to_wishlist");
+add_action("wp_ajax_add_to_wishlist", "add_to_wishlist");
+
+function add_to_wishlist () {
+global $current_user;
+$user_wishlist = get_user_meta( $current_user->ID, 'customer_wishlist' ); 
+
+$result['btn'] = 'btn-default';
+$result['text'] = '';
+if(empty($user_wishlist[0])){
+update_user_meta( $current_user->ID, 'customer_wishlist',  serialize($_POST['pID']) );
+$result['btn'] = 'btn-success';
+$result['text'] = __('Added to wishlist', 'wosci-language');
+}else{
+$uswl = unserialize($user_wishlist[0]);
+if( !in_array($_POST['pID'], $uswl) ){
+$uswl[] = $_POST['pID']; 
+update_user_meta( $current_user->ID, 'customer_wishlist', serialize($uswl) );
+$result['btn'] = 'btn-success';
+$result['text'] = __('Added to wishlist', 'wosci-language');
+}
+
+}
 
 
+$result['result'] = __('Success', 'wosci-language');
+$result['uswl'] = $uswl;
+
+//$result['shipping_modules'] = json_encode($result['shipping_modules']);
+$result = json_encode($result);
+echo $result;
+
+die();
+
+}
+
+
+add_action("wp_ajax_nopriv_remove_from_wishlist", "remove_from_wishlist");
+add_action("wp_ajax_remove_from_wishlist", "remove_from_wishlist");
+
+
+function remove_from_wishlist () {
+global $current_user;
+$user_wishlist = get_user_meta( $current_user->ID, 'customer_wishlist' ); 
+
+$result['btn'] = 'btn-default';
+$result['text'] = '';
+
+$uswl = unserialize($user_wishlist[0]);
+if( !is_array($uswl) && count($uswl) == 1 ){ $uswl = array($uswl); }
+if( in_array($_POST['pID'], $uswl) ){
+
+$uswl = array_values($uswl);
+$key = array_search( $_POST['pID'] , $uswl );
+unset($uswl[$key]); 
+update_user_meta( $current_user->ID, 'customer_wishlist', serialize($uswl) );
+
+
+}
+$result['emptytext'] = '';
+if(count($uswl) == 0){ $result['emptytext'] = __('Your wishlist empty.', 'wosci-language'); }
+$result['wl_qty'] = count($uswl);
+$result['text'] = __('Product removed from wishlist', 'wosci-language');
+$result['uswl'] = $uswl;
+
+//$result['shipping_modules'] = json_encode($result['shipping_modules']);
+$result = json_encode($result);
+echo $result;
+
+die();
+
+}
 
 add_filter( 'show_admin_bar', '__return_false' );
 

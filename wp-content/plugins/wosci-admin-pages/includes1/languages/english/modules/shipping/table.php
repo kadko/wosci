@@ -12,7 +12,7 @@
 
 define('MODULE_SHIPPING_TABLE_TEXT_TITLE', __( 'Table Rate' , 'wosci-language' ));
 define('MODULE_SHIPPING_TABLE_TEXT_DESCRIPTION', __( 'Table Rate' , 'wosci-language' ));
-define('MODULE_SHIPPING_TABLE_TEXT_WAY', __( 'Best Way' , 'wosci-language' ));
+define('MODULE_SHIPPING_TABLE_TEXT_WAY', __( 'Calculated from table rate based on weight of your order' , 'wosci-language' ));
 define('MODULE_SHIPPING_TABLE_TEXT_WEIGHT', __( 'Weight' , 'wosci-language' ));
 define('MODULE_SHIPPING_TABLE_TEXT_AMOUNT', __( 'Amount' , 'wosci-language' ));
 ?>

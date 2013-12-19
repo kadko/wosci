@@ -12,5 +12,5 @@
 
 define('MODULE_SHIPPING_FLAT_TEXT_TITLE', __( 'Flat Rate' , 'wosci-language' ) );
 define('MODULE_SHIPPING_FLAT_TEXT_DESCRIPTION', __( 'Flat Rate' , 'wosci-language' ) );
-define('MODULE_SHIPPING_FLAT_TEXT_WAY', __( 'Best Way' , 'wosci-language' ) );
+define('MODULE_SHIPPING_FLAT_TEXT_WAY', __( 'Standard one price for your order' , 'wosci-language' ) );
 ?>

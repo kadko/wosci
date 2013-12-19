@@ -29,20 +29,20 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 require dirname( __FILE__ ) . '/scb/load.php';
 
 function _pagenavi_init() {
-	load_plugin_textdomain( 'wp-pagenavi', '', dirname( plugin_basename( __FILE__ ) ) . '/lang' );
+	//load_plugin_textdomain( 'wp-pagenavi', '', dirname( plugin_basename( __FILE__ ) ) . '/lang' );
 
 	require_once dirname( __FILE__ ) . '/core.php';
 
 	$options = new scbOptions( 'pagenavi_options', __FILE__, array(
-		'pages_text'    => __( 'Page %CURRENT_PAGE% of %TOTAL_PAGES%', 'wp-pagenavi' ),
+		'pages_text'    => __( 'Page %CURRENT_PAGE% of %TOTAL_PAGES%', 'wosci-language' ),
 		'current_text'  => '%PAGE_NUMBER%',
 		'page_text'     => '%PAGE_NUMBER%',
-		'first_text'    => __( '&laquo; First', 'wp-pagenavi' ),
-		'last_text'     => __( 'Last &raquo;', 'wp-pagenavi' ),
-		'prev_text'     => __( '&laquo;', 'wp-pagenavi' ),
-		'next_text'     => __( '&raquo;', 'wp-pagenavi' ),
-		'dotleft_text'  => __( '...', 'wp-pagenavi' ),
-		'dotright_text' => __( '...', 'wp-pagenavi' ),
+		'first_text'    => __( '&laquo; First', 'wosci-language' ),
+		'last_text'     => __( 'Last &raquo;', 'wosci-language' ),
+		'prev_text'     => __( '&laquo;', 'wosci-language' ),
+		'next_text'     => __( '&raquo;', 'wosci-language' ),
+		'dotleft_text'  => __( '...', 'wosci-language' ),
+		'dotright_text' => __( '...', 'wosci-language' ),
 		'num_pages' => 5,
 		'num_larger_page_numbers' => 3,
 		'larger_page_numbers_multiple' => 10,

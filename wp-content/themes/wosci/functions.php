@@ -727,14 +727,33 @@ echo '<div class="col-lg-12"><div class="margin-top"></div><div class="alert ale
   <strong>Warning!</strong> Please try filtering by more general criteria.</div></div>';
 };
 
-
+global $current_user;
 while ( $loop->have_posts() ) : $loop->the_post();
 
 //if(!in_array(get_the_ID(),$ids)){
 //echo get_the_ID().'-';
-$ids[] = get_the_ID();
+	$ids[] = get_the_ID();
 
-$c = get_post_custom_values('Currency'); $f = get_post_custom_values('Price'); $b = get_post_custom_values('Badge'); $product_terms = wp_get_post_terms(get_the_ID(),'product_category');
+	$c = get_post_custom_values('Currency');
+	$f = get_post_custom_values('Price');
+	$b = get_post_custom_values('Badge');
+	$product_terms = wp_get_post_terms(get_the_ID(),'product_category');
+
+	$user_wishlist = get_user_meta( $current_user->ID, 'customer_wishlist' ); 
+	$btnclass = 'btn-default';
+	$wltext = __( 'Add to wish list', 'wosci-language' ); 
+	$disable = '';
+	if(empty($user_wishlist[0])){
+		$btnclass = 'btn-default';
+	}else{
+		$uswl = unserialize($user_wishlist[0]);
+	if( in_array(get_the_ID(), $uswl) ){
+		$btnclass = 'btn-success';
+		$disable = 'disabled';
+		$wltext = __( 'Added to wishlist', 'wosci-language' ); 
+	}
+	
+	}
 
 ?>
 
@@ -748,7 +767,7 @@ $c = get_post_custom_values('Currency'); $f = get_post_custom_values('Price'); $
             <div class="caption">
               <h5><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h5>
               <p><?php echo $currencies->display_price($c[0], $f[0], tep_get_tax_rate($t[0])); ?></p>
-              <p><a href="#" class="btn btn-primary btn-xs">Action</a> <a href="#" class="btn btn-default btn-xs">Action</a></p>
+              <p><button data-id="<?php echo get_the_ID(); ?>" <?php echo $disable; ?> class="btn <?php echo $btnclass; ?> btn-xs wishlist"><small><?php echo $wltext; ?></small></button></p>
             </div>
           </div>
         </div>

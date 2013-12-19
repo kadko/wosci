@@ -12,5 +12,5 @@
 
 define('MODULE_SHIPPING_ITEM_TEXT_TITLE', __( 'Per Item' , 'wosci-language' ) );
 define('MODULE_SHIPPING_ITEM_TEXT_DESCRIPTION',  __( 'Per Item' , 'wosci-language' ) );
-define('MODULE_SHIPPING_ITEM_TEXT_WAY', __( 'Best Way' , 'wosci-language' ));
+define('MODULE_SHIPPING_ITEM_TEXT_WAY', __( 'In this method price calculated from product quantity in your cart' , 'wosci-language' ));
 ?>

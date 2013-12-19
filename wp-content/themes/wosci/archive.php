@@ -381,6 +381,33 @@ jQuery( "#cmp" ).append( colormatchratio );
 }
 
 
+jQuery(".wishlist").live('click', function( event ){
+var pID =  jQuery( this ).data( "id" );
+jQuery( '*[data-id="'+pID+'"]' ).prop('disabled', true);
+jQuery.ajax({
+         type : "post",
+         dataType : "json",
+         url : myAjax.ajaxurl,
+         data : {action: "add_to_wishlist", pID: pID},
+         success: function(response) {
+       
+        jQuery( '*[data-id="'+pID+'"]' ).removeClass("btn-default");
+        jQuery( '*[data-id="'+pID+'"]' ).addClass(response.btn);
+        if(response.text != "") {
+	jQuery( '*[data-id="'+pID+'"] small'  ).text(response.text);
+	
+	}
+        
+        console.log(response.uswl)
+         if(response.type == "success") {
+
+	} else {
+         //      alert("error")
+	}
+	}
+      })
+
+}); 
 
 
 jQuery('#pover2')
@@ -457,8 +484,12 @@ query_posts(
 
 
 <div class="row">
-  <div class="col-xs-12 col-sm-6 col-md-8"><h3 class="assistive-text" style=""><?php print_r($c_terms->name); ?></h3></div>
-  <div class="col-xs-6 col-md-4" style="text-align:right;"><button id="shfilter" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-filter"></span> Filters</button></div>
+  <div class="col-xs-12 col-sm-6 col-md-8"><h3 class="assistive-text" style=""><?php 
+  if(!empty($_GET['search'])){ echo __( 'Search result for', 'wosci-language' ).': '.$_GET['search'];}
+  if(!empty($c_terms->name)){ echo $c_terms->name; }
+  if(!empty($_GET['author'])){ echo __( 'Products added by', 'wosci-language' ) . ' ' .$_GET['author']. ' ' ; }
+  ?></h3></div>
+  <div class="col-xs-6 col-md-4" style="text-align:right;"><button id="shfilter" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-filter"></span> <?php echo __( 'Filters' , 'wosci-language' ); ?></button></div>
 </div>
 <hr>
 
@@ -477,7 +508,7 @@ query_posts(
 
 	// ürün listelemesinde s?ralama düzeni için http://codex.wordpress.org/Template_Tags/query_posts#Order_Parameters
 	$loopmain = new WP_Query( array( 's'=> $_GET['search'], 'order' => 'ASC'/*'ASC'*/,'product_category' => $term, 'orderby' => 'date', 'paged' => $paged, 'post_type' => 'product','meta_key' => 'Price', 'meta_compare' => 'BETWEEN', 'meta_value' => '') );
-	
+	global $current_user;
 	while ( $loopmain->have_posts() ) : $loopmain->the_post();
 	$c = get_post_custom_values('Currency');
 	$f = get_post_custom_values('Price');
@@ -485,6 +516,23 @@ query_posts(
 	$b = get_post_custom_values('Badge');
 	$product_terms = wp_get_post_terms($post->ID,'product_category');
 	$pr_arr[] = $f[0];
+
+	$user_wishlist = get_user_meta( $current_user->ID, 'customer_wishlist' ); 
+	$btnclass = 'btn-default';
+	$wltext = __( 'Add to wish list', 'wosci-language' ); 
+	$disable = '';
+	if(empty($user_wishlist[0])){
+		$btnclass = 'btn-default';
+	}else{
+		$uswl = unserialize($user_wishlist[0]);
+	if( in_array($post->ID, $uswl) ){
+		$btnclass = 'btn-success';
+		$disable = 'disabled';
+		$wltext = __( 'Added to wishlist', 'wosci-language' ); 
+	}
+	
+	}
+
 ?>
 
      
@@ -494,7 +542,7 @@ query_posts(
             <div class="caption">
               <h5><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h5>
               <p><?php echo $currencies->display_price($c[0], $f[0], tep_get_tax_rate($t[0])); ?></p>
-              <p><a href="#" class="btn btn-primary btn-xs">Action</a> <a href="#" class="btn btn-default btn-xs">Action</a></p>
+              <p><button data-id="<?php echo get_the_ID(); ?>" <?php echo $disable; ?> class="btn <?php echo $btnclass; ?> btn-xs wishlist"><small><?php echo $wltext; ?></small></button></p>
             </div>
           </div>
         </div>

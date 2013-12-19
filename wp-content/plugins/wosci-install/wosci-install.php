@@ -32,7 +32,7 @@ function wosci_sql_import() {
 
 	$names = array( 'Test Product A', 'Test Product B', 'Test Product C', 'Test Product D', 'Test Product E', 'Test Product F', 'Test Product G', 'Test Product H', 'Test Product I' , 'Test Product J' , 'Test Product K' , 'Test Product L' );
 	
-	$filters = array('Cable','Ear-Phone', 'Phone', 'Music-Player', 'Cable', 'Adapter', 'Cable', 'Tablet', 'Adapter', 'Charger', 'Bike-PC', 'Webcam');
+	$filters = array('Cable','Ear-Phone', 'Phone', 'Music-Player', 'Cable', 'Adapter', 'Cable', 'Tablet', 'Adapter', 'Headphones', 'Bike-PC', 'Webcam');
 	$filenames = array('446942_2.jpg', '419109.jpg', '334183_2.jpg', '338007_2.jpg', '339027_2.jpg', '340733_2.jpg', '405212_2.jpg', '432826.jpg', 'F10.jpg','HC835.jpg','HA248.jpg','HD935.jpg');
 	
 	
@@ -405,6 +405,47 @@ $post = array(
 $page = get_page_by_name('agreement');
 if (!$page) { $post_id_spa = wp_insert_post( $post );  }
 
+
+$post = array(
+
+  'comment_status' => 'open' ,
+  'ping_status'    => 'open' , 
+  'post_author'    => 1 , 
+  'post_content'   => '',
+  'post_parent'    => $post_id,
+  'post_excerpt'   => '', 
+  'post_name'      => 'wish-list', 
+  'post_status'    => 'publish',
+  'post_title'     => 'Wish List',
+  'post_type'      => 'page'
+
+);  
+
+$page = get_page_by_name('wish-list');
+if (!$page) { $post_id_wl = wp_insert_post( $post );  }
+
+
+//
+
+$post = array(
+
+  'comment_status' => 'open' ,
+  'ping_status'    => 'open' , 
+  'post_author'    => 1 , 
+  'post_content'   => '',
+  'post_parent'    => $post_id,
+  'post_excerpt'   => '', 
+  'post_name'      => 'your-products', 
+  'post_status'    => 'publish',
+  'post_title'     => 'Your Products',
+  'post_type'      => 'page'
+
+);  
+
+$page = get_page_by_name('wish-list');
+if (!$page) { $post_id_yp = wp_insert_post( $post );  }
+
+//
 
 /*Create Pages END*/
 

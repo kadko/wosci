@@ -147,6 +147,8 @@ function removeborder(resnum){
           <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>account-history"><?php echo __('Order History','wosci-language'); ?></a></li>
           <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>wp-admin/profile.php"><?php echo  __('Profile','wosci-language'); ?></a></li>
           <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>address-book"><?php echo __('Address Book','wosci-language'); ?></a></li>
+          <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>wish-list"><?php echo __('Wish List','wosci-language'); ?></a></li>
+          <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>your-products"><?php echo __('Your Products','wosci-language'); ?></a></li>
           <li class="divider"></li>
           <li><a href=" <?php echo wp_logout_url(  ); ?> "><?php echo __('Log Out','wosci-language'); ?></a></li>
         </ul>

@@ -11,7 +11,8 @@
 */
 
 //  require('includes/application_top.php');
-
+$cdai = get_user_meta($current_user->ID, 'customer_default_address_id');
+$customer_default_address_id = $cdai[0]; //$check_customer['customers_default_address_id'];
   if ($current_user->ID =='0') {
     $navigation->set_snapshot();
     tep_redirect(tep_href_link(FILENAME_LOGIN, '', 'SSL'));

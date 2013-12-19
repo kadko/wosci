@@ -32,8 +32,7 @@
             <div class="caption">
               <h5><a href="<?php echo get_permalink($orders['ID']); ?>"><?php echo get_the_title($orders['ID']); ?></a></h5>
               <p><?php echo $currencies->display_price($c[0], $f[0], tep_get_tax_rate($t[0])); ?></p>
-              <p><a href="#" class="btn btn-primary btn-xs">Action</a> <a href="#" class="btn btn-default btn-xs">Action</a></p>
-            </div>
+               </div>
           </div>
         </div>
         

@@ -94,20 +94,20 @@ class WP_Widget_Sort extends WP_Widget {
 
 <!--<li style="font-size:0.88em;"><b><em><?php _e('Sort By');?>:</em></b></li>-->
 
-<div class="ajax_filter btn btn-warning btn-xs" id="meta_value_num"><?php _e('Price');?><span id="meta_value_numorder" class="order">+</span></div>
+<div class="ajax_filter btn btn-warning btn-xs" id="meta_value_num"><?php _e('Price', 'wosci-language');?><span id="meta_value_numorder" class="order">+</span></div>
 
 <!-- <a href="./?meta_key=Price&orderby=meta_value_num&order=<?php echo ($_GET['order']=='' || $_GET['order']=='ASC') ?  'DESC':'ASC' ;?>&page_id=<?php echo $_GET['page_id'];?>" class="on"><em><?php _e('By Price');?> (<?php echo ($_GET['order']=='' || $_GET['order']=='ASC') ?  'Desc':'Asc'?>)</em></a> -->
 
 
 
   
-<div class="ajax_filter btn btn-warning btn-xs" id="title"><?php _e('Name');?><span id="titleorder" class="order">+</span></div>
+<div class="ajax_filter btn btn-warning btn-xs" id="title"><?php _e('Name', 'wosci-language');?><span id="titleorder" class="order">+</span></div>
 
 <!-- <a href="./?orderby=title&order=<?php echo ($_GET['order']=='' || $_GET['order']=='ASC') ?  'DESC':'ASC' ;?>&page_id=<?php echo $_GET['page_id'];?>" class="on"><em><?php _e('By Name');?> (<?php echo ($_GET['order']=='' || $_GET['order']=='ASC') ?  'Z-A':'A-Z'?>)</em></a></a>-->
 
 
 
-<div class="ajax_filter btn btn-warning btn-xs" id="date"><?php _e('Date');?><span id="dateorder" class="order">+</span></div> <!-- <a href="./?meta_key=Price&orderby=date&order=<?php echo ($_GET['order']=='' || $_GET['order']=='ASC') ?  'DESC':'ASC' ;?>&page_id=<?php echo $_GET['page_id'];?>" class="on"><em><?php _e('By Date');?> (<?php echo ($_GET['order']=='' || $_GET['order']=='ASC') ?  'New to Old':'Old to New'?>)</a></em> -->
+<div class="ajax_filter btn btn-warning btn-xs" id="date"><?php _e('Date', 'wosci-language');?><span id="dateorder" class="order">+</span></div> <!-- <a href="./?meta_key=Price&orderby=date&order=<?php echo ($_GET['order']=='' || $_GET['order']=='ASC') ?  'DESC':'ASC' ;?>&page_id=<?php echo $_GET['page_id'];?>" class="on"><em><?php _e('By Date');?> (<?php echo ($_GET['order']=='' || $_GET['order']=='ASC') ?  'New to Old':'Old to New'?>)</a></em> -->
 
  
 
@@ -174,7 +174,7 @@ class WP_Widget_PPP extends WP_Widget {
 	
 	
 <div class="margin-top"></div>
-	<div class="bs-docs-example tooltip-demo"><a href="#" onclick="return false;" id="pover" class="btn btn-default btn-sm " data-toggle="popover" data-placement="left" data-content="<input type='text' name='filter' id='filterid' class='form-control' placeholder='Write and press Enter'>" title="" >Product Per Page</a></div> <?php
+	<div class="bs-docs-example tooltip-demo"><a href="#" onclick="return false;" id="pover" class="btn btn-default btn-sm " data-toggle="popover" data-placement="left" data-content="<input type='text' name='filter' id='filterid' class='form-control' placeholder='<?php echo __( 'Write and press Enter' , 'wosci-language' ); ?>'>" title="" ><?php echo __( 'Product Per Page' , 'wosci-language' ); ?></a></div> <?php
 
 echo $after_widget;
 }
@@ -356,8 +356,8 @@ class WP_Widget_Color_Filter extends WP_Widget {
   <li class='color color-9-11'></li>
   <li class='color-9-12'></li>
 </ul>
-<div>Matching <span style='float:right;'>%</span><span style='float:right;' id='cmp'></span></div>
-  </div>" title="" >Filter by Color</a>
+<div><?php echo __( 'Matching' , 'wosci-language' ); ?> <span style='float:right;'>%</span><span style='float:right;' id='cmp'></span></div>
+  </div>" title="" ><?php echo __( 'Filter by Color' , 'wosci-language' ); ?></a>
   
 <button type="submit" class="btn btn-default btn-sm" id="pickedcolor" style="border:0px;background-color:#3FAD43;"><span id="removepicked">clear color filter(x)</span></button>
   </div>
@@ -512,7 +512,6 @@ $max_p[] = $f[0];
             <div class="caption">
               <h4><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h4>
               <p><?php echo $currencies->display_price($c[0], $f[0], tep_get_tax_rate($t[0])); ?></p>
-              <p><a href="#" class="btn btn-primary btn-xs">Action</a> <a href="#" class="btn btn-default btn-xs">Action</a></p>
             </div>
           </div>
         </div>

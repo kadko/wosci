@@ -180,13 +180,36 @@ echo $bo_o;
 <?php  $nonce = wp_create_nonce("add_to_cart_nonce"); ?>
 
   <button style="white-space:normal;" type="button" id="fat-btn"  data-nonce="<?php echo $nonce; ?>" data-post_id="<?php echo $post->ID; ?>" data-loading-text="<?php echo __('Loading...','wosci-language'); ?>" class="btn btn-warning  ">
-        Add to Cart
+        <?php echo __( 'Add to Cart', 'wosci-language' ); ?>
       </button>
    <div class="margin-top">
-	<small><?php echo __( 'Quantity', 'wosci-language' ); ?></small>
-        <input name="quantity" type="number" step="1" min="1" id="quantity" value="1" class="btn btn-default btn-sm" style="width:50px;">
+	<!--<small><?php echo __( 'Quantity', 'wosci-language' ); ?></small>-->
+        <input name="quantity" type="number" step="1" min="1" id="quantity" value="1" class="btn btn-default btn-sm" style="width:100px;">
+   <hr>
    
+   <?php
+	global $current_user;
+	$user_wishlist = get_user_meta( $current_user->ID, 'customer_wishlist' ); 
+	$uswl = unserialize($user_wishlist[0]);
+	
+	$btnclass = 'btn-default';
+	$wltext = __( 'Add to wish list', 'wosci-language' ); 
+	$disable = '';
+	if(empty($user_wishlist[0])){
+		$btnclass = 'btn-default';
+	}else{
+		
+	if( in_array($post->ID, $uswl) ){
+		$btnclass = 'btn-success';
+		$disable = 'disabled';
+		$wltext = __( 'Added to wishlist', 'wosci-language' ); 
+	}
+	
+	}
    
+   ?>
+   
+   <p><button data-id="<?php echo $post->ID; ?>" <?php echo $disable; ?> class="btn <?php echo $btnclass; ?> btn-xs addtowishlist"><small><?php echo $wltext; ?></small></button></p>
     
  
  </form>
@@ -239,8 +262,8 @@ echo $bo_o;
 		</div><!-- .entry-summary -->
 		<?php else : ?>
 		<div class="entry-content">
-			<br><?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'wosci' ) ); ?>
-			<br><?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'wosci' ), 'after' => '</div>' ) ); ?>
+			<br><?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'wosci-language' ) ); ?>
+			<br><?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'wosci-language' ), 'after' => '</div>' ) ); ?>
 		</div><!-- .entry-content -->
 		<?php endif; ?>
 

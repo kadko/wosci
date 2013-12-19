@@ -3,7 +3,7 @@
 class PageNavi_Options_Page extends scbAdminPage {
 
 	function setup() {
-		$this->textdomain = 'wp-pagenavi';
+		$this->textdomain = 'wosci-language';
 
 		$this->args = array(
 			'page_title' => __( 'PageNavi Settings', $this->textdomain ),

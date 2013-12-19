@@ -238,7 +238,7 @@ jQuery('#myModal').on('submit', 'form[name="checkout_address_shipping"]',functio
 	var state = jQuery('form[name="checkout_address_shipping"] input[name="state"]').val();
 
 if( typeof state !== 'undefined' || stateselect != '' ){
-if(  firstname.length < 3 || lastname.length < 3 || company.length < 3 || street_address.length < 13 || suburb.length < 3 || postcode.length < 3 || city.length < 3 )
+if(  firstname.length < 3 || lastname.length < 3 || street_address.length < 13 || suburb.length < 3 || postcode.length < 3 || city.length < 3 )
 {
 	var btn = jQuery('#save_new_shipping_address');
 	btn.button('reset');
@@ -333,7 +333,7 @@ jQuery('#myModal4').on('submit', 'form[name="checkout_address_payment"]',functio
 	var state = jQuery('form[name="checkout_address_payment"] input[name="state"]').val();
 
 if( typeof state !== 'undefined' || stateselect != '' ){
-if(  firstname.length < 3 || lastname.length < 3 || company.length < 3 || street_address.length < 13 || suburb.length < 3 || postcode.length < 3 || city.length < 3 )
+if(  firstname.length < 3 || lastname.length < 3 || street_address.length < 13 || suburb.length < 3 || postcode.length < 3 || city.length < 3 )
 {
 	var btn = jQuery('#save_new_payment_address');
 	btn.button('reset');
@@ -426,7 +426,7 @@ jQuery('#myModal2').on('submit', 'form[name="Edit_Shipping_Address"]',function( 
 	var city = jQuery('form[name="Edit_Shipping_Address"] input[name="city"]').val();
 	var state = jQuery('form[name="Edit_Shipping_Address"] input[name="state"]').val();
 
-if(  firstname.length < 3 || lastname.length < 3 || company.length < 3 || street_address.length < 13 || suburb.length < 3 || postcode.length < 3 || city.length < 3 )
+if(  firstname.length < 3 || lastname.length < 3 || street_address.length < 13 || suburb.length < 3 || postcode.length < 3 || city.length < 3 )
 {
 	
 	if(  firstname.length < 3 ){
@@ -554,7 +554,7 @@ jQuery('#myModal3').on('submit', 'form[name="Edit_Payment_Address"]',function( e
 	var state = jQuery('form[name="Edit_Payment_Address"] input[name="state"]').val();
 
 
-if( firstname.length < 3 || lastname.length < 3 || company.length < 3 || street_address.length < 13 || suburb.length < 3 || postcode.length < 3 || city.length < 3 )
+if( firstname.length < 3 || lastname.length < 3 || street_address.length < 13 || suburb.length < 3 || postcode.length < 3 || city.length < 3 )
 {
 	
 	if(  firstname.length < 3 ){
@@ -728,7 +728,7 @@ jQuery.ajax({
 
 //delete address book entry BEGIN
 
-jQuery('.btn-danger').click(function () {
+jQuery('.removeaddress').click(function () {
 
 	var adrID = jQuery(this).data("delete");
 if(confirm('Are You Sure to Delete Address?')){
@@ -1026,3 +1026,32 @@ var spins = [
 	    
 }
  //end  checkout shipping address JS
+ 
+ jQuery(".addtowishlist").live('click', function( event ){
+event.preventDefault();
+var pID =  jQuery( this ).data( "id" );
+jQuery( '*[data-id="'+pID+'"]' ).prop('disabled', true);
+jQuery.ajax({
+         type : "post",
+         dataType : "json",
+         url : myAjax.ajaxurl,
+         data : {action: "add_to_wishlist", pID: pID},
+         success: function(response) {
+       
+        jQuery( '*[data-id="'+pID+'"]' ).removeClass("btn-default");
+        jQuery( '*[data-id="'+pID+'"]' ).addClass(response.btn);
+        if(response.text != "") {
+	jQuery( '*[data-id="'+pID+'"] small'  ).text(response.text);
+	
+	}
+        
+        console.log(response.uswl)
+         if(response.type == "success") {
+
+	} else {
+         //      alert("error")
+	}
+	}
+      })
+
+}); 

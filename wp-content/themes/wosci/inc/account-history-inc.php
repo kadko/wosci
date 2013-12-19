@@ -21,9 +21,11 @@
     $history_query = tep_db_query($history_split->sql_query);
 
     while ($history = tep_db_fetch_array($history_query)) {
-      $products_query = tep_db_query("select count(*) as count from " . TABLE_ORDERS_PRODUCTS . " where orders_id = '" . (int)$history['orders_id'] . "'");
-      $products = tep_db_fetch_array($products_query);
-
+      $products_query = tep_db_query("select products_id from " . TABLE_ORDERS_PRODUCTS . " where orders_id = '" . (int)$history['orders_id'] . "'");
+      
+while ( $products = tep_db_fetch_array($products_query) ) {
+$productsid[] = $products['products_id'];
+}
       if (tep_not_null($history['delivery_name'])) {
         $order_type = __('Ship to:', 'wosci-language');
         $order_name = $history['delivery_name'];
@@ -43,7 +45,7 @@
               <td><table border="0" width="100%" cellspacing="2" cellpadding="4">
                 <tr>
                   <td class="main" width="50%" valign="top"><b><?php _e('Date','wosci-language'); ?>: </b> <small><?php echo tep_date_long($history['date_purchased']) . '</small><br><b>' . $order_type . '</b> ' . tep_output_string_protected($order_name); ?></td>
-                  <td class="main" width="30%" valign="top"><b><?php _e('Products Qty','wosci-language') ;?>: </b><?php echo $products['count'] ;?><br><b><?php _e('Order Total','wosci-language'); ?></b>: <?php echo strip_tags($history['order_total']); ?></td>
+                  <td class="main" width="30%" valign="top"><b><?php _e('Products Qty','wosci-language') ;?>: </b><?php echo count($productsid) ;?><br><b><?php _e('Order Total','wosci-language'); ?></b>: <?php echo strip_tags($history['order_total']); ?></td>
                   <td class="main" width="20%" align="right"><div class="btn-group"><a class="btn btn-sm btn-primary" href="<?php echo esc_url( home_url( '/' ) ); ?>pdf-invoice?order_id=<?php echo $history['orders_id']; ?>" target="_blank"><span class="glyphicon glyphicon-file"></span> <?php echo __('Printable Invoice','wosci-language'); ?></a>
                   
 <a class="btn btn-sm btn-info" href="<?php echo esc_url( home_url( '/' ) ); ?>account-history-info?order_id=<?php echo $history['orders_id']; ?>" target="_blank"><span class="glyphicon glyphicon-eye-open"></span> <?php echo __('View', 'wosci-language'); ?></a>                  
