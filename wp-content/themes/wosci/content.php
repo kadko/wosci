@@ -208,8 +208,8 @@ echo $bo_o;
 	}
    
    ?>
-   
-   <p><button data-id="<?php echo $post->ID; ?>" <?php echo $disable; ?> class="btn <?php echo $btnclass; ?> btn-xs addtowishlist"><small><?php echo $wltext; ?></small></button></p>
+   <?php  $nonce2 = wp_create_nonce("add_to_wish_list_nonce"); ?>
+   <p><button data-nonce="<?php echo $nonce2; ?>" data-id="<?php echo $post->ID; ?>" <?php echo $disable; ?> class="btn <?php echo $btnclass; ?> btn-xs addtowishlist"><small><?php echo $wltext; ?></small></button></p>
     
  
  </form>

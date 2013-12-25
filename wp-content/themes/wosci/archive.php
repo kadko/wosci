@@ -383,12 +383,13 @@ jQuery( "#cmp" ).append( colormatchratio );
 
 jQuery(".wishlist").live('click', function( event ){
 var pID =  jQuery( this ).data( "id" );
+var nonce = jQuery(this).attr("data-nonce");
 jQuery( '*[data-id="'+pID+'"]' ).prop('disabled', true);
 jQuery.ajax({
          type : "post",
          dataType : "json",
          url : myAjax.ajaxurl,
-         data : {action: "add_to_wishlist", pID: pID},
+         data : { action: "add_to_wishlist", pID: pID, nonce: nonce },
          success: function(response) {
        
         jQuery( '*[data-id="'+pID+'"]' ).removeClass("btn-default");
@@ -535,14 +536,14 @@ query_posts(
 
 ?>
 
-     
+        <?php  $nonce2 = wp_create_nonce("add_to_wish_list_nonce"); ?>
         <div class="col-sm-2">
            <div class="margin-top"></div> <div class="thumbnail">
             <a href="<?php echo get_permalink(); ?>"><?php echo the_post_thumbnail(array('116','200'), array('class' => 'img-responsive')); ?></a>
             <div class="caption">
               <h5><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h5>
               <p><?php echo $currencies->display_price($c[0], $f[0], tep_get_tax_rate($t[0])); ?></p>
-              <p><button data-id="<?php echo get_the_ID(); ?>" <?php echo $disable; ?> class="btn <?php echo $btnclass; ?> btn-xs wishlist"><small><?php echo $wltext; ?></small></button></p>
+              <p><button data-nonce="<?php echo $nonce2; ?>" data-id="<?php echo get_the_ID(); ?>" <?php echo $disable; ?> class="btn <?php echo $btnclass; ?> btn-xs wishlist"><small><?php echo $wltext; ?></small></button></p>
             </div>
           </div>
         </div>

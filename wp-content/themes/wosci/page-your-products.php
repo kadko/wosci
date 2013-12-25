@@ -51,7 +51,7 @@ $history_query_raw = "select o.orders_id, o.date_purchased, o.delivery_name, o.b
 	global $current_user;
 	
 	$loopcustom = new WP_Query( array( 'posts_per_page' => 180, 'post_type' => 'product' , 'post__in'=> $productsid ) );
-
+	if( count($productsid) > 0 ){
 	while ( $loopcustom->have_posts() ) : $loopcustom->the_post();
 	$c = get_post_custom_values('Currency');
 	$f = get_post_custom_values('Price');
@@ -77,11 +77,12 @@ $history_query_raw = "select o.orders_id, o.date_purchased, o.delivery_name, o.b
 
 
 <?php endwhile; ?>
+<?php } ?>
 
 
-<?php if( $alerttext != '' ){ ?>
+<?php if( count($productsid) == 0  ){ ?>
 
-<div class="alert alert-warning" id="cart-empty"><?php echo $alerttext;?></div>
+<div class="alert alert-warning" id="cart-empty"><?php echo __( 'You are not yet purchased any product!', 'wosci-language' ); ?></div>
 
 <?php } ?>
 </div><!-- .row -->

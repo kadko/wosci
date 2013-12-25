@@ -54,8 +54,8 @@ if ( in_array($installed_modules[$n], $temp_ot_array ) ) { $ot_array[] = $instal
 
         reset($this->modules);
         while (list(, $value) = each($this->modules)) {
-          include('/../languages/english/modules/order_total/' . $value);
-          include('/../modules/order_total/' . $value);
+          include(str_replace('classes/','',plugin_dir_path( __FILE__ )) . '/languages/english/modules/order_total/' . $value);
+          include(str_replace('classes/','',plugin_dir_path( __FILE__ )) . '/modules/order_total/' . $value);
 
           $class = substr($value, 0, strrpos($value, '.'));
           $GLOBALS[$class] = new $class;

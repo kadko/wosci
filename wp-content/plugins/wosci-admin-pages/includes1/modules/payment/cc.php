@@ -20,8 +20,8 @@
 
 */
 	
-	require_once('/posnet/posnet_oos_config.php');
-	require_once('/posnet/Posnet Modules/Posnet OOS/posnet_oos.php');
+	require_once(plugin_dir_path( __FILE__ ).'posnet/posnet_oos_config.php');
+	require_once(plugin_dir_path( __FILE__ ).'posnet/Posnet Modules/Posnet OOS/posnet_oos.php');
 
   class cc {
 

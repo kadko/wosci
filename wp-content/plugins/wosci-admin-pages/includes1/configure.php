@@ -1,20 +1,23 @@
 <?php
 
-	$rootdomain = substr( get_site_url(), 0, strrpos(get_site_url(),'/') );
-	$folder = substr( get_site_url(), strrpos(get_site_url(),'/') + 1 );
+	
+	$gsu = str_replace('http://','', get_site_url());
+	$rootdomain = substr( $gsu, 0, strrpos($gsu,'/') );
+	$folder = substr( $gsu, strrpos($gsu,'/') + 1 );
 	$dir = plugin_dir_path( __FILE__ );
 	$wordpress_path = substr($dir, 0, strpos($dir, 'wp-content'));
 	
-	define('HTTP_SERVER', $rootdomain );
-	define('HTTPS_SERVER', $rootdomain );
-	$rootcookiedomain = str_replace('http://','', $rootdomain);
+	
+	define('HTTP_SERVER', $_SERVER['HTTP_HOST'] );
+	define('HTTPS_SERVER', $_SERVER['HTTP_HOST'] );
+	$rootcookiedomain = str_replace('http://','', $_SERVER['HTTP_HOST']);
 	define('HTTP_COOKIE_DOMAIN', $rootcookiedomain );
 	define('HTTPS_COOKIE_DOMAIN', $rootcookiedomain );
   
-	define('HTTP_COOKIE_PATH', '/' . $folder . '/');
-	define('HTTPS_COOKIE_PATH', '/' . $folder . '/');
-	define('DIR_WS_HTTP_CATALOG', '/' . $folder . '/');
-	define('DIR_WS_HTTPS_CATALOG', '/' . $folder . '/');
+	define('HTTP_COOKIE_PATH', '/');
+	define('HTTPS_COOKIE_PATH', '/');
+	define('DIR_WS_HTTP_CATALOG', '/');
+	define('DIR_WS_HTTPS_CATALOG', '/');
   
 	define('DIR_WS_IMAGES', 'images/');
 	define('DIR_WS_ICONS', DIR_WS_IMAGES . 'icons/');

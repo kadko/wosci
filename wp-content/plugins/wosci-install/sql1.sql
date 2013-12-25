@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `address_book` (
 --
 
 INSERT INTO `address_book` (`address_book_id`, `customers_id`, `entry_gender`, `entry_company`, `entry_firstname`, `entry_lastname`, `entry_street_address`, `entry_suburb`, `entry_postcode`, `entry_city`, `entry_state`, `entry_country_id`, `entry_zone_id`) VALUES
-(1, 1, '', 'ACME Inc.', 'Roger', 'Waters', '1 Way Street One...', 'Hi! Way district', '12345', 'Never - Never', 'CA', 223, 12);
+(1, 1, '', '', 'John', 'Doe', 'One Way Street .', 'Ramp Way district', '95818', 'Sacramento', 'CA', 223, 12);
 
 CREATE TABLE IF NOT EXISTS `address_format` (
   `address_format_id` int(11) NOT NULL AUTO_INCREMENT,

@@ -492,7 +492,7 @@ function the_cart_add() {
 
 	if ( !wp_verify_nonce( $_REQUEST['nonce'], "add_to_cart_nonce")) {
 		exit("No naughty business please");
-	}   
+	}
 
 //$products_id_string = tep_get_uprid($_REQUEST["post_id"], $id);
    if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
@@ -2508,7 +2508,7 @@ $languages_id=1;
     case 'delete':
       $heading[] = array('text' => '<b>' . TEXT_INFO_HEADING_DELETE_ORDER . '</b>');
 
-      $contents = array('form' => tep_draw_form('orders', 'wp-admin/admin.php?'. tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $oInfo->orders_id . '&action=deleteconfirm'));
+      $contents = array('form' => tep_draw_form('orders', 'admin.php?'. tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $oInfo->orders_id . '&action=deleteconfirm'));
       $contents[] = array('text' => __('Are you sure you want to delete this order status?','wosci-language') . '<br><br><b>' . $cInfo->customers_firstname . ' ' . $cInfo->customers_lastname . '</b>');
       $contents[] = array('text' => '<br>' . tep_draw_checkbox_field('restock') . ' ' . TEXT_INFO_RESTOCK_PRODUCT_QUANTITY);
       $contents[] = array('align' => 'center', 'text' => '<br>' . '<input type="submit" value="'. __('Remove','wosci-language').'" class="button" />' . ' <a class="button" href="admin.php?'. tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $oInfo->orders_id . '">'. __('Cancel','wosci-language').'</a>');
@@ -4593,12 +4593,17 @@ add_action("wp_ajax_add_to_wishlist", "add_to_wishlist");
 
 function add_to_wishlist () {
 global $current_user;
+
+if ( !wp_verify_nonce( $_POST['nonce'], "add_to_wish_list_nonce")) {
+		exit("No naughty business please");
+	}
+
 $user_wishlist = get_user_meta( $current_user->ID, 'customer_wishlist' ); 
 
 $result['btn'] = 'btn-default';
 $result['text'] = '';
 if(empty($user_wishlist[0])){
-update_user_meta( $current_user->ID, 'customer_wishlist',  serialize($_POST['pID']) );
+update_user_meta( $current_user->ID, 'customer_wishlist',  serialize(array('0', $_POST['pID'])) );
 $result['btn'] = 'btn-success';
 $result['text'] = __('Added to wishlist', 'wosci-language');
 }else{

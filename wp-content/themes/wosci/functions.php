@@ -758,7 +758,7 @@ while ( $loop->have_posts() ) : $loop->the_post();
 ?>
 
 
-
+ <?php  $nonce2 = wp_create_nonce("add_to_wish_list_nonce"); ?>
 
 
 <div class="col-sm-2">
@@ -767,7 +767,7 @@ while ( $loop->have_posts() ) : $loop->the_post();
             <div class="caption">
               <h5><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h5>
               <p><?php echo $currencies->display_price($c[0], $f[0], tep_get_tax_rate($t[0])); ?></p>
-              <p><button data-id="<?php echo get_the_ID(); ?>" <?php echo $disable; ?> class="btn <?php echo $btnclass; ?> btn-xs wishlist"><small><?php echo $wltext; ?></small></button></p>
+              <p><button data-nonce="<?php echo $nonce2; ?>" data-id="<?php echo get_the_ID(); ?>" <?php echo $disable; ?> class="btn <?php echo $btnclass; ?> btn-xs wishlist"><small><?php echo $wltext; ?></small></button></p>
             </div>
           </div>
         </div>

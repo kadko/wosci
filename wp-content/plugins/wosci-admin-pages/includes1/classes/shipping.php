@@ -61,8 +61,8 @@ $customer_group_id = '0';
         }
 
         for ($i=0, $n=sizeof($include_modules); $i<$n; $i++) {
-          require('/../languages/english/modules/shipping/' . $include_modules[$i]['file']);
-          include('/../modules/shipping/' . $include_modules[$i]['file']);
+          require(str_replace('classes/','',plugin_dir_path( __FILE__ )).'/languages/english/modules/shipping/' . $include_modules[$i]['file']);
+          include(str_replace('classes/','',plugin_dir_path( __FILE__ )).'/modules/shipping/' . $include_modules[$i]['file']);
 
           $GLOBALS[$include_modules[$i]['class']] = new $include_modules[$i]['class'];
         }

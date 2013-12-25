@@ -62,8 +62,8 @@
         }
 
         for ($i=0, $n=sizeof($include_modules); $i<$n; $i++) {
-          include('/../languages/english/modules/payment/' . $include_modules[$i]['file']);
-          include('/../modules/payment/' . $include_modules[$i]['file']);
+          include(str_replace('classes/','',plugin_dir_path( __FILE__ )).'/languages/english/modules/payment/' . $include_modules[$i]['file']);
+          include(str_replace('classes/','',plugin_dir_path( __FILE__ )).'/modules/payment/' . $include_modules[$i]['file']);
 
           $GLOBALS[$include_modules[$i]['class']] = new $include_modules[$i]['class'];
         }

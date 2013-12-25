@@ -1029,13 +1029,14 @@ var spins = [
  
  jQuery(".addtowishlist").live('click', function( event ){
 event.preventDefault();
+var nonce = jQuery(this).attr("data-nonce");
 var pID =  jQuery( this ).data( "id" );
 jQuery( '*[data-id="'+pID+'"]' ).prop('disabled', true);
 jQuery.ajax({
          type : "post",
          dataType : "json",
          url : myAjax.ajaxurl,
-         data : {action: "add_to_wishlist", pID: pID},
+         data : { action: "add_to_wishlist", pID: pID, nonce: nonce },
          success: function(response) {
        
         jQuery( '*[data-id="'+pID+'"]' ).removeClass("btn-default");
