@@ -23,18 +23,18 @@ $cdai = get_user_meta($current_user->ID, 'customer_default_address_id');
 $customer_default_address_id = $cdai[0]; //$check_customer['customers_default_address_id'];
 
 
-tep_session_register('customer_default_address_id');
+//tep_session_register('customer_default_address_id');
 
 
 // if the customer is not logged on, redirect them to the login page
   if ($current_user->ID =='0') {
 //    $navigation->set_snapshot();
-    tep_redirect(tep_href_link(FILENAME_LOGIN, 'redirect_to=shipping-payment', 'SSL'));
+    wp_redirect('wp-login.php?redirect_to=shipping-payment');
   }
 
  
    if ( empty($customer_default_address_id) ) {
-    tep_redirect(tep_href_link(FILENAME_ADDRESS_BOOK_PROCESS, 'returnto=checkout_shipping.php', 'SSL'));
+    wp_redirect('address-book');
   }
  
 
