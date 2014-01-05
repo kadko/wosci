@@ -135,12 +135,12 @@
       global $HTTP_POST_VARS, $current_user, $sendto, $billto, $cart, $languages_id, $currency, $currencies, $shipping, $payment, $comments, $customer_default_address_id;
 
       $this->content_type = $cart->get_content_type();
-
+$cdai = get_user_meta($current_user->ID, 'customer_default_address_id');
+$customer_default_address_id = $cdai[0];
       if ( ($this->content_type != 'virtual') && ($sendto == false) ) {
         $sendto = $customer_default_address_id;
       }
-$cdai = get_user_meta($current_user->ID, 'customer_default_address_id');
-$customer_default_address_id = $cdai[0];
+
       $customer_address_query = tep_db_query("select ab.entry_company, ab.entry_street_address, ab.entry_suburb, ab.entry_postcode, ab.entry_city, ab.entry_zone_id, z.zone_name, co.countries_id, co.countries_name, co.countries_iso_code_2, co.countries_iso_code_3, co.address_format_id, ab.entry_state from wp_users c, " . TABLE_ADDRESS_BOOK . " ab left join " . TABLE_ZONES . " z on (ab.entry_zone_id = z.zone_id) left join " . TABLE_COUNTRIES . " co on (ab.entry_country_id = co.countries_id) where c.ID = '" . (int)$current_user->ID . "' and ab.customers_id = '" . (int)$current_user->ID . "' and ab.address_book_id='". $customer_default_address_id ."' ");
       $customer_address = tep_db_fetch_array($customer_address_query);
 
@@ -201,6 +201,8 @@ $customer_default_address_id = $cdai[0];
                                  'address_format_id' => $billto['address_format_id'],
                                  'entry_state' => $billto['zone_name']);
       } else {
+      $bill_to = get_user_meta( $current_user->ID, 'billto' ); 
+      $billto = $bill_to[0];
         $billing_address_query = tep_db_query("select ab.entry_firstname, ab.entry_lastname, ab.entry_company, ab.entry_street_address, ab.entry_suburb, ab.entry_postcode, ab.entry_city, ab.entry_zone_id, z.zone_name, ab.entry_country_id, c.countries_id, c.countries_name, c.countries_iso_code_2, c.countries_iso_code_3, c.address_format_id, ab.entry_state from " . TABLE_ADDRESS_BOOK . " ab left join " . TABLE_ZONES . " z on (ab.entry_zone_id = z.zone_id) left join " . TABLE_COUNTRIES . " c on (ab.entry_country_id = c.countries_id) where ab.customers_id = '" . (int)$current_user->ID . "' and ab.address_book_id = '" . (int)$billto . "'");
         $billing_address = tep_db_fetch_array($billing_address_query);
       }
@@ -212,7 +214,8 @@ $customer_default_address_id = $cdai[0];
         $tax_address = array('entry_country_id' => $shipping_address['entry_country_id'],
                              'entry_zone_id' => $shipping_address['entry_zone_id']);
       }
-
+$shipping_s = get_user_meta($current_user->ID, 'shipping');
+$shipping = unserialize($shipping_s[0]);
       $this->info = array('order_status' => DEFAULT_ORDERS_STATUS_ID,
                           'currency' => $currency,
                           'currency_value' => $currencies->currencies[$currency]['value'],

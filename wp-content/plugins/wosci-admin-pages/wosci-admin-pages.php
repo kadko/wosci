@@ -449,8 +449,8 @@ function your_function(){
  if ( is_page('checkout-process') ) {
 
 	include(DIR_WS_LANGUAGES . 'english' . '/' . FILENAME_CHECKOUT_PROCESS);
-	require(DIR_WS_CLASSES . 'payment.php');
 	require(DIR_WS_CLASSES . 'shipping.php');
+	require(DIR_WS_CLASSES . 'payment.php');
 	require(DIR_WS_CLASSES . 'order.php');  
 	require(DIR_WS_CLASSES . 'order_total.php');
  }
@@ -887,6 +887,9 @@ global $current_user, $order, $cart, $sendto, $billto;
 // if no shipping destination address was selected, use their own address as default
 
 if( $_POST['s_or_p'] == 's' ){
+
+update_user_meta($current_user->ID, 'sendto', $address_insert_id);
+
 	if (!tep_session_is_registered('sendto')) {
 	    tep_session_register('sendto');
 	    $sendto =  $address_insert_id;
@@ -898,6 +901,9 @@ $this_is = 'nsa';
 
 
 if( $_POST['s_or_p'] == 'p' ){
+
+update_user_meta($current_user->ID, 'billto', $address_insert_id);
+
 	if (!tep_session_is_registered('billto')) {
 	    tep_session_register('billto');
 	    $billto = $address_insert_id;
@@ -1080,21 +1086,25 @@ global $current_user, $order, $cart, $sendto,  $billto;
             update_user_meta( $current_user->ID, 'customer_default_address_id', $customer_default_address_id );
 
 if( $_POST['s_or_p'] == 's' ){
+
+update_user_meta($current_user->ID, 'sendto', $_POST['formdata'][11][value]);
+
+
 	if (!tep_session_is_registered('sendto')) {
 	    tep_session_register('sendto');
-	    $sendto = $customer_default_address_id;
-	} else {
-	    $sendto = $customer_default_address_id;
-	}
+	    $sendto = $_POST['formdata'][11][value];
+	} 
 }
 
 if( $_POST['s_or_p'] == 'p' ){
+
+update_user_meta($current_user->ID, 'billto', $_POST['formdata'][11][value]);
+
+
 	if (!tep_session_is_registered('billto')) {
 	    tep_session_register('billto');
-	    $billto = $customer_default_address_id;
-	} else {
-	    $billto = $customer_default_address_id;
-	}
+	    $billto = $_POST['formdata'][11][value];
+	} 
 }
 
           }
@@ -1152,14 +1162,14 @@ add_action("wp_ajax_nopriv_set_address", "set_address");
 add_action("wp_ajax_set_address", "set_address");
 
 function set_address () {
-global $total_count, $total_weight, $shipping_weight,$sendto, $billto, $currencies, $order,$cart;
+global $current_user, $total_count, $total_weight, $shipping_weight,$sendto, $billto, $currencies, $order,$cart;
 	
 	$total_weight = $cart->show_weight();
 	$shipping_weight = $shipping_weight;
 	$total_count = $cart->count_contents();
 if($_POST['register'] == 'shipping')
 {
-
+update_user_meta($current_user->ID, 'sendto', $_POST['adrID']);
 if (!tep_session_is_registered('sendto')) {
 	    tep_session_register('sendto');
 	    $sendto = $_POST['adrID'];
@@ -1172,7 +1182,7 @@ if (!tep_session_is_registered('sendto')) {
 
 if($_POST['register'] == 'payment')
 {
-
+update_user_meta($current_user->ID, 'billto', $_POST['adrID']);
 if (!tep_session_is_registered('billto')) {
 	    tep_session_register('billto');
 	    $billto = $_POST['adrID'];

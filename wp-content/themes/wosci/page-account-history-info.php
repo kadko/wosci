@@ -29,8 +29,8 @@ get_header();
 //  require('includes/application_top.php');
 $languages_id = 1;
   if ( $current_user->ID == '0' ) {
-    $navigation->set_snapshot();
-    wp_redirect(tep_href_link(FILENAME_LOGIN, '', 'SSL'));
+//    $navigation->set_snapshot();
+    wp_redirect( esc_url( home_url( '/' ) ).'wp-login.php');
   }
 
   if (!isset($_GET['order_id']) || (isset($_GET['order_id']) && !is_numeric($_GET['order_id']))) {

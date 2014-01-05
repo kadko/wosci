@@ -63,6 +63,7 @@
                                 'text' => $currencies->format($order->info['shipping_cost'], true, $order->info['currency'], $order->info['currency_value']),
                                 'value' => $order->info['shipping_cost']);
       }
+      
     }
 
     function check() {

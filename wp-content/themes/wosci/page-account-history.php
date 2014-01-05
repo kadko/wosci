@@ -11,7 +11,7 @@
 */
 
   if ( $current_user->ID == '0' ) {
-    wp_redirect(tep_href_link(FILENAME_LOGIN, 'redirect_to=account-history', 'SSL'));
+    wp_redirect( esc_url( home_url( '/' ) ).'wp-login.php?redirect_to=account-history');
   }
   
 get_header();

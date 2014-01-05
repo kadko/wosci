@@ -1,6 +1,6 @@
 <?php
 /*
-  $Id: shipping.php 1739 2007-12-20 00:52:16Z hpdl $
+  $Id$
 
   osCommerce, Open Source E-Commerce Solutions
   http://www.oscommerce.com
@@ -18,35 +18,7 @@
       global $language, $PHP_SELF;
 
       if (defined('MODULE_SHIPPING_INSTALLED') && tep_not_null(MODULE_SHIPPING_INSTALLED)) {
-
-// BOF Separate Pricing Per Customer, next line original code
-$this->modules = explode(';', MODULE_SHIPPING_INSTALLED);
-global $customer_id;
-if (isset($_SESSION['sppc_customer_group_id']) && $_SESSION['sppc_customer_group_id'] != '0') { $customer_group_id = $_SESSION['sppc_customer_group_id'];
-} else {
-$customer_group_id = '0';
- }
- $customer_shipment_query = tep_db_query("select IF(c.customers_shipment_allowed <> '', c.customers_shipment_allowed, cg.group_shipment_allowed) as shipment_allowed from " . TABLE_CUSTOMERS . " c, " . TABLE_CUSTOMERS_GROUPS . " cg where c.customers_id = '" . $customer_id . "' and cg.customers_group_id = '" . $customer_group_id . "'");
- if ($customer_shipment = tep_db_fetch_array($customer_shipment_query) ) {
- if (tep_not_null($customer_shipment['shipment_allowed']) ) {
- $temp_shipment_array = explode(';', $customer_shipment['shipment_allowed']);
- $installed_modules = explode(';', MODULE_SHIPPING_INSTALLED);
- for ($n = 0; $n < sizeof($installed_modules) ;
- $n++) {
-  // check to see if a shipping module is not de-installed
-  if ( in_array($installed_modules[$n], $temp_shipment_array ) ) {
-  $shipment_array[] = $installed_modules[$n]; }
-  }
-  // end for loop
-  $this->modules = $shipment_array;
-  } else {
-  $this->modules = explode(';', MODULE_SHIPPING_INSTALLED); }
-  } else {
-  // default
-  $this->modules = explode(';', MODULE_SHIPPING_INSTALLED);
-   }
-   // EOF Separate Pricing Per Customer
-
+        $this->modules = explode(';', MODULE_SHIPPING_INSTALLED);
 
         $include_modules = array();
 
@@ -61,7 +33,7 @@ $customer_group_id = '0';
         }
 
         for ($i=0, $n=sizeof($include_modules); $i<$n; $i++) {
-          require(str_replace('classes/','',plugin_dir_path( __FILE__ )).'/languages/english/modules/shipping/' . $include_modules[$i]['file']);
+          include(str_replace('classes/','',plugin_dir_path( __FILE__ )).'/languages/english/modules/shipping/' . $include_modules[$i]['file']);
           include(str_replace('classes/','',plugin_dir_path( __FILE__ )).'/modules/shipping/' . $include_modules[$i]['file']);
 
           $GLOBALS[$include_modules[$i]['class']] = new $include_modules[$i]['class'];

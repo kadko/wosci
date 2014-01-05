@@ -11,24 +11,22 @@
 */
 
 
-//require('/includes/application_top.php');
 
-
-
-
-//$check_customer_query = tep_db_query("select customers_id, customers_firstname, customers_password, customers_email_address, customers_default_address_id, customers_group_id, customers_specific_taxes_exempt from " . TABLE_CUSTOMERS . " where customers_email_address = '" . tep_db_input($current_user->user_email) . "'");
-  
-//$check_customer = tep_db_fetch_array($check_customer_query);
 $cdai = get_user_meta($current_user->ID, 'customer_default_address_id');
-$customer_default_address_id = $cdai[0]; //$check_customer['customers_default_address_id'];
+$customer_default_address_id = $cdai[0]; 
 
-
-//tep_session_register('customer_default_address_id');
+$bill_to = get_user_meta($current_user->ID, 'billto');
+$send_to = get_user_meta($current_user->ID, 'sendto');
+tep_session_register('billto');
+tep_session_register('sendto');
+if ( !empty( $bill_to[0] ) ) { $billto = $bill_to[0]; }else{ $billto = $customer_default_address_id; }
+if ( !empty( $send_to[0] ) ) { $sendto = $send_to[0]; }else{ $sendto = $customer_default_address_id; }
+update_user_meta($current_user->ID, 'billto', $billto);
+update_user_meta($current_user->ID, 'sendto', $sendto);
 
 
 // if the customer is not logged on, redirect them to the login page
   if ($current_user->ID =='0') {
-//    $navigation->set_snapshot();
     wp_redirect('wp-login.php?redirect_to=shipping-payment');
   }
 
@@ -243,7 +241,6 @@ if (tep_session_is_registered('shipping')) tep_session_unregister('shipping');
 //P
 
 get_header();
-
 
 ?>
 <script src="<?php echo get_bloginfo('template_url');?>/jquery.easing.1.3.js"></script>

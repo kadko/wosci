@@ -408,7 +408,7 @@ function widget( $args, $instance ) {
 		echo $before_widget;
 		if ( $title )
 			//echo $before_title . $title . $after_title; ?>
-<?php if( $slidethumbs == 1 ){ ?>		
+<?php if( $slidethumbs == 1 ){ ?>	<?php } ?>	
 <script type='text/javascript'>
 
 /* <![CDATA[ */
@@ -429,15 +429,17 @@ function equalheights()
 		jQuery(".thumbnail h4").each(function(){
 			
 			jQuery(this).each(function(i){
+			
 				if ( jQuery(this).height() > currentTallest ) { currentTallest = jQuery(this).height(); }
 			});
 			jQuery(".thumbnail h4").css({'min-height': currentTallest}); 
 			
 		});
 		
-		jQuery(".thumbnail img").each(function(){
+		jQuery(".thumbnail a img").each(function(){
 			var currentTallest = 0;
 			jQuery(this).each(function(i){
+			
 				if (jQuery(this).height() > currentTallest) { currentTallest = jQuery(this).height(); }
 			});
 			
@@ -459,7 +461,7 @@ equalheights();
 }
 .featuredwell{margin-bottom:6px;}
 </style>
-<?php } ?>
+
 
 <div class="well featuredwell" >
 <?php echo '<h3 style="margin-bottom:10px;">' . $title . '</h3>'; ?>
@@ -507,7 +509,7 @@ $max_p[] = $f[0];
 ?>
         
         <div class="col-sm-2">
-          <div class="thumbnail">
+         <div class="margin-top"></div> <div class="thumbnail">
             <a href="<?php echo get_permalink(); ?>"><?php echo the_post_thumbnail(array('200','150'), array('class' => 'img-responsive')); ?></a>
             <div class="caption">
               <h4><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h4>

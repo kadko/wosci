@@ -11,7 +11,7 @@
 */
 
   if ($current_user->ID =='0') {
-    $navigation->set_snapshot();
+//    $navigation->set_snapshot();
     wp_redirect( esc_url( home_url( '/' ) ).'wp-login.php?redirect_to=account');
   }
   

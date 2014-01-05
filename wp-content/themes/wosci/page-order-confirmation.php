@@ -13,9 +13,22 @@
 //  require('includes/application_top.php');
 //S
 // load all enabled shipping modules
+
+$cdai = get_user_meta($current_user->ID, 'customer_default_address_id');
+$customer_default_address_id = $cdai[0]; //$check_customer['customers_default_address_id'];
+
+$bill_to = get_user_meta($current_user->ID, 'billto');
+$send_to = get_user_meta($current_user->ID, 'sendto');
+
+tep_session_register('billto');
+tep_session_register('sendto');
+if ( !empty( $bill_to[0] ) ) { $billto = $bill_to[0]; }else{ wp_redirect('wp-login.php?redirect_to=shipping-payment'); }
+if ( !empty( $send_to[0] ) ) { $sendto = $send_to[0]; }else{ wp_redirect('wp-login.php?redirect_to=shipping-payment'); }
+
+  $shipping_modules = new shipping($shipping);
+
   $total_weight = $cart->show_weight();
-  $order = new order;
-  $shipping_modules = new shipping;
+  $total_count = $cart->count_contents();
   
 // process the selected shipping method
   if ( isset($_POST['action']) && ($_POST['action'] == 'process') ) { }
@@ -45,8 +58,8 @@
               $shipping = array('id' => $shipping,
                                 'title' => (($free_shipping == true) ?  $quote[0]['methods'][0]['title'] : $quote[0]['module'] . ' (' . $quote[0]['methods'][0]['title'] . ')'),
                                 'cost' => $quote[0]['methods'][0]['cost']);
-
-             // tep_redirect(tep_href_link(FILENAME_CHECKOUT_PAYMENT, '', 'SSL'));
+		
+	update_user_meta($current_user->ID, 'shipping', serialize($shipping));
             }
           }
         } else {
@@ -78,25 +91,25 @@
 
 //C
   if ($current_user->ID =='0') {
-    $navigation->set_snapshot(array('mode' => 'SSL', 'page' => FILENAME_CHECKOUT_PAYMENT));
-    tep_redirect(tep_href_link(FILENAME_LOGIN, '', 'SSL'));
+//    $navigation->set_snapshot(array('mode' => 'SSL', 'page' => FILENAME_CHECKOUT_PAYMENT));
+    wp_redirect( esc_url( home_url( '/' ) ).'wp-login.php');
   }
 
 // if there is nothing in the customers cart, redirect them to the shopping cart page
   if ($cart->count_contents() < 1) {
-    tep_redirect(tep_href_link('/cart'));
+    wp_redirect('cart');
   }
 
 // avoid hack attempts during the checkout procedure by checking the internal cartID
   if (isset($cart->cartID) && tep_session_is_registered('cartID')) {
     if ($cart->cartID != $cartID) {
-      tep_redirect(tep_href_link('shipping-payment', '', 'SSL'));
+      wp_redirect('shipping-payment');
     }
   }
 
 // if no shipping method has been selected, redirect the customer to the shipping method selection page
   if (!tep_session_is_registered('shipping')) {
-    tep_redirect(tep_href_link('shipping-payment', '', 'SSL'));
+    wp_redirect('shipping-payment');
   }
 
   if (!tep_session_is_registered('payment')) tep_session_register('payment');
@@ -113,11 +126,15 @@
 
 
 
+  $order = new order;
 
   $payment_modules->update_status();
 
+
+
+    
   if ( ( is_array($payment_modules->modules) && (sizeof($payment_modules->modules) > 1) && !is_object($$payment) ) || (is_object($$payment) && ($$payment->enabled == false)) ) {
-    tep_redirect(tep_href_link('shipping-payment', 'error_message=' . urlencode(__( 'Please select a payment method for your order.', 'wosci-language' )), 'SSL'));
+    wp_redirect('shipping-payment&error_message=' . urlencode(__( 'Please select a payment method for your order.', 'wosci-language' )));
   }
 
   if (is_array($payment_modules->modules)) {
@@ -141,12 +158,13 @@
     }
     // Out of Stock
     if ( (STOCK_ALLOW_CHECKOUT != 'true') && ($any_out_of_stock == true) ) {
-      tep_redirect(tep_href_link('cart'));
+      wp_redirect('cart');
     }
   }
 
 
 get_header();
+
 
 ?>
 <script type="text/javascript">

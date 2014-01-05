@@ -221,7 +221,7 @@
       $body = '';
 
       if (!class_exists('httpClient')) {
-        include('/../../classes/http_client.php');
+        include(str_replace('/modules/shipping','',plugin_dir_path( __FILE__ )).'/classes/http_client.php');
       }
 
       $http = new httpClient();
