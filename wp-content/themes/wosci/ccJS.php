@@ -4,7 +4,9 @@
  jQuery(document).ready(function(){
 
 jQuery('input[name="cc_number"],input[name="cc_checkcode"]').keypad({keypadOnly: false});
+<?php
 
+/*
 	jQuery('input[type="text"], select').live('click', function() {
 	
 	var name = jQuery(this).attr('name')
@@ -32,6 +34,8 @@ jQuery('input[name="cc_number"],input[name="cc_checkcode"]').keypad({keypadOnly:
 	}
 	});
 
+*/
+?>
 
 
 

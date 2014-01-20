@@ -69,7 +69,7 @@ function wp_pagenavi( $loop, $before = '', $after = '', $options = array() ) {
 				$out .= _wp_pagenavi_single( 1, 'first', $first_text, '%TOTAL_PAGES%' );
 
 				if ( !empty( $options['dotleft_text'] ) )
-					$out .= "<li class='pagenavipage2'>{$options['dotleft_text']}</li>";
+					$out .= "<li class='pagenavipage2'></li>";
 			}
 
 			$larger_pages_array = array();
@@ -110,7 +110,7 @@ function wp_pagenavi( $loop, $before = '', $after = '', $options = array() ) {
 
 			if ( $end_page < $total_pages ) {
 				if ( !empty( $options['dotright_text'] ) )
-					$out .= "<span class='extend'>{$options['dotright_text']}</span>";
+					$out .= "<span class='extend'></span>";
 
 				$out .= _wp_pagenavi_single( $total_pages, 'last', $options['last_text'], '%TOTAL_PAGES%' );
 			}

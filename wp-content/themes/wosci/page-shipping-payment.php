@@ -27,7 +27,7 @@ update_user_meta($current_user->ID, 'sendto', $sendto);
 
 // if the customer is not logged on, redirect them to the login page
   if ($current_user->ID =='0') {
-    wp_redirect('wp-login.php?redirect_to=shipping-payment');
+    wp_redirect(esc_url( home_url( '/' ) ).'wp-login.php?redirect_to=shipping-payment'); die;
   }
 
  
@@ -35,11 +35,11 @@ update_user_meta($current_user->ID, 'sendto', $sendto);
     wp_redirect('address-book');
   }
  
-
+  $payment_modules = new payment;
 
 // if there is nothing in the customers cart, redirect them to the shopping cart page
   if ($cart->count_contents() < 1) {
-    tep_redirect(tep_href_link('cart'));
+   wp_redirect('cart');
   }
 
 // if no shipping destination address was selected, use the customers own address as default
@@ -170,14 +170,11 @@ if (tep_session_is_registered('shipping')) tep_session_unregister('shipping');
   if ( !tep_session_is_registered('shipping') || ( tep_session_is_registered('shipping') && ($shipping == false) && (tep_count_shipping_modules() > 1) ) ) $shipping = $shipping_modules->cheapest();
 
 //P
-  if ($current_user->ID =='0') {
-    $navigation->set_snapshot();
-    tep_redirect(tep_href_link(FILENAME_LOGIN, '', 'SSL'));
-  }
+
 
 // if there is nothing in the customers cart, redirect them to the shopping cart page
   if ($cart->count_contents() < 1) {
-    tep_redirect(tep_href_link('cart'));
+    tep_redirect('cart');
   }
 
 // if no shipping method has been selected, redirect the customer to the shipping method selection page
@@ -197,7 +194,7 @@ if (tep_session_is_registered('shipping')) tep_session_unregister('shipping');
     $products = $cart->get_products();
     for ($i=0, $n=sizeof($products); $i<$n; $i++) {
       if (tep_check_stock($products[$i]['id'], $products[$i]['quantity'])) {
-        tep_redirect(tep_href_link('cart'));
+        tep_redirect('cart');
         break;
       }
     }
@@ -236,7 +233,7 @@ if (tep_session_is_registered('shipping')) tep_session_unregister('shipping');
 
 // load all enabled payment modules
 
-  $payment_modules = new payment;
+
 
 //P
 

@@ -442,7 +442,7 @@ $post = array(
 
 );  
 
-$page = get_page_by_name('wish-list');
+$page = get_page_by_name('your-products');
 if (!$page) { $post_id_yp = wp_insert_post( $post );  }
 
 //

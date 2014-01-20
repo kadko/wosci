@@ -517,8 +517,12 @@ if( typeof state !== 'undefined' ){
          success: processJson
       }) 
 
+
 jQuery('select[name="shipping_address_select"]').trigger( "change" );
 event.preventDefault();
+
+
+
 
 });
 

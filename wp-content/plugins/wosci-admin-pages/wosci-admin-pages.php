@@ -402,8 +402,8 @@ $buttons = '<div id="major-publishing-actions">
 
 }
 
-add_action('wp','your_function');
-function your_function(){
+add_action('wp','wosci_admin_pages');
+function wosci_admin_pages(){
  if ( is_page('cart') ) {
   // do you thing.
 	include(DIR_WS_CLASSES . 'payment.php');
@@ -1367,7 +1367,7 @@ die();
 }
 
 
-if (!class_exists('PasswordHash') && !in_array( $GLOBALS['pagenow'], array( 'wp-login.php', 'wp-register.php', 'user-new.php' ) )) {
+if (!class_exists('PasswordHash') && !in_array( $GLOBALS['pagenow'], array( 'wp-login.php', 'wp-register.php', 'user-new.php', 'user-edit.php' ) )) {
 include( 'includes1/classes/passwordhash.php');
 }
 if (!class_exists('cc') ) {
@@ -1573,7 +1573,7 @@ function packing_slip()
     <td><table border="0" width="100%" cellspacing="0" cellpadding="0">
       <tr>
         <td class="pageHeading"><?php echo nl2br(STORE_NAME_ADDRESS); ?></td>
-        <td class="pageHeading" align="right"><?php echo tep_image(DIR_WS_CATALOG_IMAGES . 'store_logo.png', STORE_NAME); ?></td>
+        <td class="pageHeading" align="right"><img src="<?php echo get_bloginfo( 'template_directory' );?>/images/logo-pdf-invoice.jpg"></td>
       </tr>
     </table></td>
   </tr>
@@ -1673,7 +1673,7 @@ function invoice()
     <td><table border="0" width="100%" cellspacing="0" cellpadding="0">
       <tr>
         <td class="pageHeading"><?php echo nl2br(STORE_NAME_ADDRESS); ?></td>
-        <td class="pageHeading" align="right"><?php echo tep_image(DIR_WS_CATALOG_IMAGES . 'store_logo.png', STORE_NAME); ?></td>
+        <td class="pageHeading" align="right"><img src="<?php echo get_bloginfo( 'template_directory' );?>/images/logo-pdf-invoice.jpg"></td>
       </tr>
     </table></td>
   </tr>
@@ -2148,7 +2148,7 @@ $languages_id = 1;
               $notify_comments = sprintf(EMAIL_TEXT_COMMENTS_UPDATE, $comments) . "\n\n";
             }
 
-            $email = STORE_NAME . "\n" . EMAIL_SEPARATOR . "\n" . EMAIL_TEXT_ORDER_NUMBER . ' ' . $oID . "\n" . EMAIL_TEXT_INVOICE_URL . ' ' . esc_url( home_url( '/' ) ) .'account-history-info?order_id=' . $oID  . "\n" . __('Printable Invoice URL','wosci-language') . ' ' . esc_url( home_url( '/' ) ) .'pdf-invoice?order_id=' . $oID  . "\n" . EMAIL_TEXT_DATE_ORDERED . ' ' . tep_date_long($check_status['date_purchased']) . "\n\n" . $notify_comments . sprintf(EMAIL_TEXT_STATUS_UPDATE, $orders_status_array[$status]);
+            $email = STORE_NAME . "\n" . EMAIL_SEPARATOR . "\n" . EMAIL_TEXT_ORDER_NUMBER . ' ' . $oID . "\n" . EMAIL_TEXT_INVOICE_URL . ' ' . esc_url( home_url( '/' ) ) .'account-history-info?order_id=' . $oID  . "\n" . __('Printable Invoice URL', 'wosci-language') . ' ' . esc_url( home_url( '/' ) ) .'pdf-invoice?order_id=' . $oID  . "\n" . EMAIL_TEXT_DATE_ORDERED . ' ' . tep_date_long($check_status['date_purchased']) . "\n\n" . $notify_comments . sprintf(EMAIL_TEXT_STATUS_UPDATE, $orders_status_array[$status]);
 
             tep_mail($check_status['customers_name'], $check_status['customers_email_address'], EMAIL_TEXT_SUBJECT, $email, STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS);
 
@@ -2203,7 +2203,7 @@ $languages_id = 1;
           <tr>
             <td class="wrap"><div id="icon-edit" class="icon32 icon32-posts-product"><br></div><h2><?php _e('Orders','wosci-language'); ?></h2></td>
             <td class="wrap" align="right"><h2><?php echo tep_draw_separator('pixel_trans.gif', 1, HEADING_IMAGE_HEIGHT); ?></h2></td>
-            <td class="pageHeading" align="right"><?php echo '<a class="button" href="' . esc_url( home_url( '/' )) .'pdf-invoice/?order_id='.$_GET['oID'] . '" TARGET="_blank">' . __('Printable Invoice') . '</a> <a class="button" href="admin.php?page=invoice&oID=' . $_GET['oID'] . '" TARGET="_blank">' . __('Invoice','wosci-language') . '</a> <a class="button" href="admin.php?page=packing_slip&oID=' . $_GET['oID'] . '" TARGET="_blank">' . __('Packing Slip','wosci-language') . '</a> <a class="button" href="admin.php?'. tep_get_all_get_params(array('action')) . '">' . __('Back','wosci-language') . '</a> '; ?></td>
+            <td class="pageHeading" align="right"><?php echo '<a class="button" href="' . esc_url( home_url( '/' )) .'pdf-invoice/?order_id='.$_GET['oID'] . '" TARGET="_blank">' . __('Printable Invoice', 'wosci-language') . '</a> <a class="button" href="admin.php?page=invoice&oID=' . $_GET['oID'] . '" TARGET="_blank">' . __('Invoice','wosci-language') . '</a> <a class="button" href="admin.php?page=packing_slip&oID=' . $_GET['oID'] . '" TARGET="_blank">' . __('Packing Slip','wosci-language') . '</a> <a class="button" href="admin.php?'. tep_get_all_get_params(array('action')) . '">' . __('Back','wosci-language') . '</a> '; ?></td>
           </tr>
         </table></td>
       </tr>
@@ -2416,7 +2416,7 @@ $languages_id = 1;
         </table></td>
       </form></tr>
       <tr>
-       <td colspan="2" align="right"><?php echo '<a class="button" href="' .esc_url( home_url( '/' ) ) .'pdf-invoice/?order_id='.$_GET['oID'] . '" TARGET="_blank">' . __('Printable Invoice') . '</a> <a class="button" href="admin.php?page=invoice&oID=' . $_GET['oID'] . '" TARGET="_blank">' . __('Invoice','wosci-language') . '</a> <a class="button" href="admin.php?page=packing_slip&oID=' . $_GET['oID'] . '" TARGET="_blank">' . __('Packing Slip','wosci-language') . '</a> <a class="button" href="admin.php?'. tep_get_all_get_params(array('action')) . '">' . __('Back','wosci-language') . '</a> '; ?></td>
+       <td colspan="2" align="right"><?php echo '<a class="button" href="' .esc_url( home_url( '/' ) ) .'pdf-invoice/?order_id='.$_GET['oID'] . '" TARGET="_blank">' . __('Printable Invoice', 'wosci-language') . '</a> <a class="button" href="admin.php?page=invoice&oID=' . $_GET['oID'] . '" TARGET="_blank">' . __('Invoice','wosci-language') . '</a> <a class="button" href="admin.php?page=packing_slip&oID=' . $_GET['oID'] . '" TARGET="_blank">' . __('Packing Slip','wosci-language') . '</a> <a class="button" href="admin.php?'. tep_get_all_get_params(array('action')) . '">' . __('Back','wosci-language') . '</a> '; ?></td>
       </tr>
 <?php
   } else {
@@ -2442,14 +2442,14 @@ $languages_id = 1;
           <tr>
             <td valign="top">
                             
-              <table class="widefat fixed" cellspacing="0">
+              <table class="widefat" cellspacing="0">
 <thead>
 <tr class="thead">
-	<th width="35%" style=""><?php _e('Customers','wosci-language'); ?></th>
+	<th width="25%" style=""><?php _e('Customers','wosci-language'); ?></th>
 	<th width="15%" scope="col" id="username" class="manage-column column-username" style=""><?php _e('Order Total','wosci-language'); ?></th>
-	<th width="20%" scope="col" id="name" class="manage-column column-name" style=""><?php _e('Date Purchased','wosci-language'); ?></th>
-	<th width="10%" scope="col" id="email" class="manage-column column-email" style=""><?php _e('Status','wosci-language'); ?></th>
-	<th width="20%" scope="col" id="role" class="manage-column column-role" style=""><?php _e('Action','wosci-language'); ?></th>
+	<th width="25%" scope="col" id="name" class="manage-column column-name" style=""><?php _e('Date Purchased','wosci-language'); ?></th>
+	<th width="15%" scope="col" id="email" class="manage-column column-email" style=""><?php _e('Status','wosci-language'); ?></th>
+	<th width="25%" scope="col" id="role" class="manage-column column-role" style=""><?php _e('Action','wosci-language'); ?></th>
 
 	
 </tr>
@@ -2457,10 +2457,10 @@ $languages_id = 1;
 
 <tfoot>
 <tr class="thead">
-	<th width="35%" scope="col" id="cb" class="" style=""><?php _e('Customers','wosci-language'); ?></th>
+	<th width="25%" scope="col" id="cb" class="" style=""><?php _e('Customers','wosci-language'); ?></th>
 	<th width="15%" scope="col" id="username" class="manage-column column-username" style=""><?php _e('Order Total','wosci-language'); ?></th>
-	<th width="20%" scope="col" id="name" class="manage-column column-name" style=""><?php _e('Date Purchased','wosci-language'); ?></th>
-	<th width="10%" scope="col" id="email" class="manage-column column-email" style=""><?php _e('Status','wosci-language'); ?></th>
+	<th width="25%" scope="col" id="name" class="manage-column column-name" style=""><?php _e('Date Purchased','wosci-language'); ?></th>
+	<th width="15%" scope="col" id="email" class="manage-column column-email" style=""><?php _e('Status','wosci-language'); ?></th>
 	<th width="20%" scope="col" id="role" class="manage-column column-role" style=""><?php _e('Action','wosci-language'); ?></th>
 
 	
@@ -2494,11 +2494,11 @@ $languages_id=1;
         echo '              <tr class="dataTableRow" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)">' . "\n";
       }
 ?>
-                <td class="dataTableContent"><?php echo '<a target="_blank" class="button" href="admin.php?'. tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $orders['orders_id'] . '&action=edit' . '">View</a>&nbsp;&nbsp;&nbsp;<span style="line-height:32px;text-align:middle;">' . $orders['customers_name']; ?></span></td>
+                <td class="dataTableContent"><?php echo '<span style="line-height:32px;text-align:middle;">' . $orders['customers_name']; ?></span></td>
                 <td class="dataTableContent"><span style="line-height:32px;text-align:middle;"><?php echo strip_tags($orders['order_total']); ?></span></td>
                 <td class="dataTableContent" >&nbsp;<span style="line-height:32px;text-align:middle;"><?php echo tep_datetime_short($orders['date_purchased']); ?></span></td>
                 <td class="dataTableContent"><span style="line-height:32px;text-align:middle;"><?php echo $orders['orders_status_name']; ?></span></td>
-                <td class="dataTableContent"><span style="line-height:32px;text-align:middle;"><?php if (isset($oInfo) && is_object($oInfo) && ($orders['orders_id'] == $oInfo->orders_id)) { echo '►'; } else { echo '<a class="button" href="admin.php?'. tep_get_all_get_params(array('oID')) . 'oID=' . $orders['orders_id'] . '">'. __('Options','wosci-language').'</a>'; } ?></span></td>
+                <td class="dataTableContent"><span style="line-height:32px;text-align:middle;"><?php if (isset($oInfo) && is_object($oInfo) && ($orders['orders_id'] == $oInfo->orders_id)) { echo '►'; } else { echo '<a class="button" href="admin.php?'. tep_get_all_get_params(array('oID')) . 'oID=' . $orders['orders_id'] . '">'. __('Options','wosci-language').'</a>'; } ?>&nbsp;<?php echo '<a target="_blank" class="button" href="admin.php?'. tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $orders['orders_id'] . '&action=edit' . '">View</a>'; ?></span></td>
               </tr>
 <?php
     }
@@ -4598,8 +4598,9 @@ $sql_data_array = array('customers_id' => $user_id,
 
 }
 
-add_action("wp_ajax_nopriv_add_to_wishlist", "add_to_wishlist");
+
 add_action("wp_ajax_add_to_wishlist", "add_to_wishlist");
+add_action("wp_ajax_nopriv_add_to_wishlist", "add_to_wishlist");
 
 function add_to_wishlist () {
 global $current_user;
@@ -4627,6 +4628,11 @@ $result['text'] = __('Added to wishlist', 'wosci-language');
 
 }
 
+if ( $current_user->ID == '0') {
+
+$result['btn'] = 'btn-danger';
+$result['text'] = __('Please login', 'wosci-language');
+}
 
 $result['result'] = __('Success', 'wosci-language');
 $result['uswl'] = $uswl;

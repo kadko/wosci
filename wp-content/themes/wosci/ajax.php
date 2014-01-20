@@ -4,22 +4,34 @@ header('Content-type: text/javascript');
 
 function equalheights()
 		{
-		jQuery(".thumbnail h5").each(function(){
+		var tallest = [];
+		jQuery(".product-list h5").each(function(index){
 			var currentTallest = 0;
-			jQuery(this).each(function(i){
+			jQuery(this).each(function(i){});
 				if (jQuery(this).height() > currentTallest) { currentTallest = jQuery(this).height(); }
-			});
-			jQuery(".thumbnail h5").css({'min-height': currentTallest}); 
 			
+			var total = tallest.push(currentTallest);
+			
+			var i = 0, m = tallest[0], mI = 0;
+
+			while(++i < tallest.length) {
+			    if(tallest[i] > m) {
+			        mI = i;
+			        m = tallest[i];
+			    }
+			}
+			jQuery(".product-list h5").css({'min-height': m}); 
 		});
+		jQuery(".product-list h5").css({'min-height': jQuery(".product-list h5").height()+1 });  //+1 added for firefox , internet explorer height fix
 		
-		jQuery(".thumbnail img").each(function(){
+		
+		jQuery(".product-list img").each(function(){
 			var currentTallest = 0;
 			jQuery(this).each(function(i){
 				if (jQuery(this).height() > currentTallest) { currentTallest = jQuery(this).height(); }
 			});
 			
-			jQuery(".thumbnail img").css({'height': currentTallest}); 
+			jQuery(".product-list img").css({'height': currentTallest}); 
 		});
 		}
 		
@@ -43,7 +55,7 @@ jQuery(".product_34").remove();
 jQuery(".pagenavipage2").live('click', function() {
 
 jQuery("#loading").css( {"display":"inline"});
-jQuery( "#tumbs .row" ).css( {"background-color":"#ffffff","opacity":0.50});
+jQuery( "#tumbs .col-xs-18" ).css( {"background-color":"#ffffff","opacity":0.50});
 		
 checked_values = jQuery.cookies.get( 'checked_mvs' );
 if(checked_values == null){cv3 = '';}
@@ -69,8 +81,10 @@ var price_to = jQuery( "#slider-range" ).slider( "values", 1 )//jQuery("#price_r
 	var orb = jQuery.cookies.get( 'sel_orderby' );
 	var or = jQuery.cookies.get( 'sel_order' );
 	var meta_key = jQuery.cookies.get( 'meta_key' );
-if(or == '+') { or = 'ASC' ;}else{or = 'DESC' ;}
-
+	
+	if(or == null ) {  or = 'ASC' ; }
+	if(or == '+'  ) {  or = 'ASC' ; }
+	if(or == '-'  ) {  or = 'DESC'; }
 
 	var map = jQuery( "#slider-range" ).slider( "values", 0 );
 	var mip = jQuery( "#slider-range" ).slider( "values", 1 );
@@ -107,7 +121,8 @@ jQuery.post(
 		posts_per_page:ppp,
 		rgb:selrgb,
 		mratio:maratio,
-		product_category: MyAjax.product_category,		
+		term: MyAjax.term,	
+		taxonomy: MyAjax.taxonomy,		
 		page_id: MyAjax.page_id,
 		price_from: price_from,
 		price_to: price_to,
@@ -116,12 +131,13 @@ jQuery.post(
 	},
 	function( response ) {
 		//alert( response );
-		jQuery("#tumbs .row").replaceWith("");
-		jQuery("#pagenavifirst").remove();
+		jQuery("#tumbs .col-xs-18").replaceWith("");
+jQuery("#pagenavifirst").remove();
 		
-
+jQuery("#pagenaviloaded").remove();
 		jQuery("#pagenavifirst2").remove();
 		jQuery("#tumbs").append(response);
+				
 		jQuery("#tumbs").css( {"opacity":"1"});
 		jQuery("#loading").css( {"display":"none"});
 			
@@ -209,15 +225,21 @@ if( order == '-'  ){ jQuery("#"+order_by + "order").text("+"); orderv = 'ASC'; }
 		mratio:colormatchratio,
 		price_from: price_from,
 		price_to: price_to,
-		product_category: MyAjax.product_category,		
+		term: MyAjax.term,	
+		taxonomy: MyAjax.taxonomy,		
 		page_id: MyAjax.page_id,
 		// send the nonce along with the request
 		postCommentNonce : MyAjax.postCommentNonce
 	},
 	function( response ) {
 		//alert( response );
-		jQuery("#tumbs .row").replaceWith("");
+		jQuery("#tumbs .col-xs-18").replaceWith("");
+		jQuery("#pagenavifirst").remove();
+		jQuery("#pagenaviloaded").remove();
+
+		jQuery("#pagenavifirst2").remove();
 		jQuery("#tumbs").append(response);
+				
 		jQuery("#tumbs").css( {"opacity":"1"});
 		jQuery("#loading").css( {"display":"none"});
 		
@@ -325,15 +347,21 @@ maratio = jQuery.cookies.get( 'matchratio' );
 		mratio:maratio,
 		price_from: price_from,
 		price_to: price_to,
-		product_category: MyAjax.product_category,		
+		term: MyAjax.term,	
+		taxonomy: MyAjax.taxonomy,			
 		page_id: MyAjax.page_id,
 		// send the nonce along with the request
 		postCommentNonce : MyAjax.postCommentNonce
 	},
 	function( response ) {
 		//alert( response );
-		jQuery("#tumbs .row").replaceWith("");
+		jQuery("#tumbs .col-xs-18").replaceWith("");
+		jQuery("#pagenavifirst").remove();
+		jQuery("#pagenaviloaded").remove();
+
+		jQuery("#pagenavifirst2").remove();
 		jQuery("#tumbs").append(response);
+				
 		jQuery("#tumbs").css( {"opacity":"1"});
 		jQuery("#loading").css( {"display":"none"});
 		
@@ -402,15 +430,21 @@ jQuery.post(
 		posts_per_page:ppp,
 		price_from: price_from,
 		price_to: price_to,
-		product_category: MyAjax.product_category,		
+		term: MyAjax.term,	
+		taxonomy: MyAjax.taxonomy,		
 		page_id: MyAjax.page_id,
 		// send the nonce along with the request
 		postCommentNonce : MyAjax.postCommentNonce
 	},
 	function( response ) {
 		//alert( response );
-		jQuery("#tumbs .row").replaceWith("");
+		jQuery("#tumbs .col-xs-18").replaceWith("");
+		jQuery("#pagenavifirst").remove();
+		jQuery("#pagenaviloaded").remove();
+
+		jQuery("#pagenavifirst2").remove();
 		jQuery("#tumbs").append(response);
+				
 		jQuery("#tumbs").css( {"opacity":"1"});
 		jQuery("#loading").css( {"display":"none"});
 		
@@ -434,6 +468,8 @@ var mk = jQuery(this).attr("class");
 
 	var orb2 = jQuery.cookies.get( 'sel_orderby' );
 	var or2 = jQuery.cookies.get( 'sel_order' );
+	if(or2 == null ) {  or2 = 'ASC' ; }
+
 
 var cv = ''; var comma = '';
 if(checked == "checked"){
@@ -533,15 +569,21 @@ jQuery.post(
 		posts_per_page:ppp,
 		price_from: price_from,
 		price_to: price_to,
-		product_category: MyAjax.product_category,		
+		term: MyAjax.term,	
+		taxonomy: MyAjax.taxonomy,		
 		page_id: MyAjax.page_id,
 		// send the nonce along with the request
 		postCommentNonce : MyAjax.postCommentNonce
 	},
 	function( response ) {
 		//alert( response );
-		jQuery("#tumbs .row").replaceWith("");
+		jQuery("#tumbs .col-xs-18").replaceWith("");
+		jQuery("#pagenavifirst").remove();
+		jQuery("#pagenaviloaded").remove();
+
+		jQuery("#pagenavifirst2").remove();
 		jQuery("#tumbs").append(response);
+				
 		jQuery("#tumbs").css( {"opacity":"1"});
 		jQuery("#loading").css( {"display":"none"});
 		

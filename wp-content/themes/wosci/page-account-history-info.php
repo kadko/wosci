@@ -35,6 +35,7 @@ $languages_id = 1;
 
   if (!isset($_GET['order_id']) || (isset($_GET['order_id']) && !is_numeric($_GET['order_id']))) {
     tep_redirect(tep_href_link(FILENAME_ACCOUNT_HISTORY, '', 'SSL'));
+    wp_redirect( 'account-history' );
   }
   
   $customer_info_query = tep_db_query("select o.customers_id from " . TABLE_ORDERS . " o, " . TABLE_ORDERS_STATUS . " s where o.orders_id = '". (int)$_GET['order_id'] . "' and o.orders_status = s.orders_status_id and s.language_id = '" . (int)$languages_id . "' and s.public_flag = '1'");

@@ -14,7 +14,7 @@
 
 // if the customer is not logged on, redirect them to the login page
   if ($current_user->ID =='0') {
-    wp_redirect('wp-login.php?redirect_to=shipping-payment');
+    wp_redirect(esc_url( home_url( '/' ) ).'wp-login.php?redirect_to=shipping-payment');
   }
 
 // if there is nothing in the customers cart, redirect them to the shopping cart page

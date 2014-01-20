@@ -72,7 +72,6 @@ if ( in_array($installed_modules[$n], $temp_ot_array ) ) { $ot_array[] = $instal
           if ($GLOBALS[$class]->enabled) {
             $GLOBALS[$class]->output = array();
             $GLOBALS[$class]->process();
-
             for ($i=0, $n=sizeof($GLOBALS[$class]->output); $i<$n; $i++) {
               if (tep_not_null($GLOBALS[$class]->output[$i]['title']) && tep_not_null($GLOBALS[$class]->output[$i]['text'])) {
                 $order_total_array[] = array('code' => $GLOBALS[$class]->code,

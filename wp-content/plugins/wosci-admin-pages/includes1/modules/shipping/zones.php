@@ -113,7 +113,7 @@
 
 // class methods
     function quote($method = '') {
-      global $order, $shipping_weight, $shipping_num_boxes;
+      global $order, $shipping_weight, $shipping_num_boxes,$current_user;
 
       $dest_country = $order->delivery['zone_id'];
       $dest_zone = 0;
@@ -133,16 +133,26 @@
       } else {
         $shipping = -1;
         $zones_cost = constant('MODULE_SHIPPING_ZONES_COST_' . $dest_zone);
-
+	$send_to = get_user_meta($current_user->ID, 'sendto');
+	
+	$delivery = tep_db_query("select * from " . TABLE_ADDRESS_BOOK . " where address_book_id = '" . $send_to[0] . "'");
+        $deliveryfetch = tep_db_fetch_array($delivery);
+	
         $zones_table = split("[:,]" , $zones_cost);
         $size = sizeof($zones_table);
-        $state_query = tep_db_query("select * from " . TABLE_ZONES . " where zone_id = '" . $order->delivery['zone_id'] . "'");
-        $zonedata = tep_db_fetch_array($state_query);
+        
 
         for ($i=0; $i<$size; $i+=2) {
           if ($shipping_weight <= $zones_table[$i]) {
             $shipping = $zones_table[$i+1];
-            $shipping_method = MODULE_SHIPPING_ZONES_TEXT_WAY . ' : <b>' . $zonedata['zone_name']. /*$order->delivery['state'].*/ '</b> ▶ '.__('Weight', 'wosci-language') . ' : '.$shipping_weight . ' ' . MODULE_SHIPPING_ZONES_TEXT_UNITS;
+ 
+if(is_page('order-confirmation')  || is_page('checkout-process') ){
+	$shipping_method = '';
+}else{
+	
+}
+ $shipping_method = MODULE_SHIPPING_ZONES_TEXT_WAY . ' : <b>' . $deliveryfetch['entry_state']./*$order->delivery['state'].*/ '</b> ▶ '.__('Weight', 'wosci-language') . ' : '.$shipping_weight . ' ' . MODULE_SHIPPING_ZONES_TEXT_UNITS;
+            
             break;
           }
         }

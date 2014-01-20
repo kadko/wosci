@@ -20,7 +20,7 @@
     }
 
     if ($$link) mysql_select_db($database);
-
+	//mysql_set_charset(DB_CHARSET,$$link);
     return $$link;
   }
 

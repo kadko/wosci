@@ -558,7 +558,7 @@ add_action( 'wp_ajax_myajax-submit', 'myajax_submit' );
 //do_action( 'wp_ajax_myajax-submit' . $_POST['action'] );
 
 function myajax_submit() {
-global $current_user, $currencies;
+global $current_user, $currencies, $wp_query;
 	$nonce = $_POST['postCommentNonce'];
 
 	// check to see if the submitted nonce matches with the
@@ -581,8 +581,8 @@ global $current_user, $currencies;
 	
 	
 
-
-<div class="row"> 
+<div class="col-xs-18">
+<ul class="product-list">
 
         <?php 
       
@@ -687,7 +687,7 @@ $orderby = 'post__in';
 }
 
 $args = array(
-	's'=> $_POST['search'], 'author_name'=> $_POST['author'], 'post_type' => 'product','meta_key' => 'Price', 'posts_per_page' => $_POST['posts_per_page'], 'product_category' => $_POST['product_category'], 
+	's'=> $_POST['search'], 'author_name'=> $_POST['author'], 'post_type' => 'product','meta_key' => 'Price', 'posts_per_page' => $_POST['posts_per_page'], $_POST['taxonomy'] => $_POST['term'], 
 	'post__in' => $post_in,
 	'orderby' => $orderby,    
 	'meta_query' => array(
@@ -737,7 +737,7 @@ while ( $loop->have_posts() ) : $loop->the_post();
 	$c = get_post_custom_values('Currency');
 	$f = get_post_custom_values('Price');
 	$b = get_post_custom_values('Badge');
-	$product_terms = wp_get_post_terms(get_the_ID(),'product_category');
+	$product_terms = wp_get_post_terms(get_the_ID(), $_POST['taxonomy']);
 
 	$user_wishlist = get_user_meta( $current_user->ID, 'customer_wishlist' ); 
 	$btnclass = 'btn-default';
@@ -760,7 +760,7 @@ while ( $loop->have_posts() ) : $loop->the_post();
 
  <?php  $nonce2 = wp_create_nonce("add_to_wish_list_nonce"); ?>
 
-
+<?php /* ?>
 <div class="col-sm-2">
           <div class="margin-top"></div> <div class="thumbnail">
             <a href="<?php echo get_permalink(); ?>"><?php echo the_post_thumbnail(array('116','200'), array('class' => 'img-responsive')); ?></a>
@@ -771,13 +771,21 @@ while ( $loop->have_posts() ) : $loop->the_post();
             </div>
           </div>
         </div>
-
-
+<?php */ ?>
+	<li>
+        <span class="product"><a href="<?php echo get_permalink(); ?>"><?php echo the_post_thumbnail(array('116','200'), array('class' => 'img-responsive')); ?></a></span>
+        <span class="product-class"><div class="caption">
+              <h5><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h5>
+              <p><?php echo $currencies->display_price($c[0], $f[0], tep_get_tax_rate($t[0])); ?></p>
+              <p><button data-nonce="<?php echo $nonce2; ?>" data-id="<?php echo get_the_ID(); ?>" <?php echo $disable; ?> class="btn <?php echo $btnclass; ?> btn-xs wishlist"><small><?php echo $wltext; ?></small></button></p>
+            </span>
+	</li>
 <?php endwhile;  ?>
 
 
 
-</div><!-- .row -->
+</ul>
+</div><!-- .col-xs-18-->
 
 
 
@@ -803,12 +811,12 @@ while ( $loop->have_posts() ) : $loop->the_post();
 
 
 
-<?php if( $loop->post_count !== 0 ){ ?>
+<?php if( $wp_query->max_num_pages > 1 ){ ?><?php } ?>
 <div id="pagenaviloaded" class="row">
-            <div class="col-lg-6"><?php wp_pagenavi($loop); ?></div>
+            <div class="col-lg-6"><?php wp_pagenavi($loop);?></div>
             <div class="col-lg-6"></div>
           </div>
-<?php } ?>
+
 
 
 <?php global $post; // required

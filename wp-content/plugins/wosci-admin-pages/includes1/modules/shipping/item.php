@@ -49,11 +49,15 @@
       global $order;
 
       $number_of_items = $this->getNumberOfItems();
-
+if(is_page('order-confirmation')  || is_page('checkout-process') ){
+$description = '';
+}else{
+$description = MODULE_SHIPPING_ITEM_TEXT_WAY;
+}
       $this->quotes = array('id' => $this->code,
                             'module' => MODULE_SHIPPING_ITEM_TEXT_TITLE,
                             'methods' => array(array('id' => $this->code,
-                                                     'title' => MODULE_SHIPPING_ITEM_TEXT_WAY,
+                                                     'title' => $description,
                                                      'cost' => (MODULE_SHIPPING_ITEM_COST * $number_of_items) + MODULE_SHIPPING_ITEM_HANDLING)));
 
       if ($this->tax_class > 0) {

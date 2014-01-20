@@ -29,7 +29,7 @@ hschart();
  */
 function my_wp_dashboard_setup() {
 if ( current_user_can('manage_categories') )
-	wp_add_dashboard_widget( 'my_wp_dashboard_test', __('Sales Chart'), 'my_wp_dashboard_test' );
+	wp_add_dashboard_widget( 'my_wp_dashboard_test', __('Monthly Sales Chart','wosci-language'), 'my_wp_dashboard_test' );
 }
  
 /**

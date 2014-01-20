@@ -2,7 +2,7 @@
 // embed the javascript file that makes the AJAX request
 wp_enqueue_script( 'my-ajax-request', get_bloginfo("template_url").'/ajax.php', array( 'jquery' ) );
 // declare the URL to the file that handles the AJAX request (wp-admin/admin-ajax.php)
-wp_localize_script( 'my-ajax-request', 'MyAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) , 'postCommentNonce' => wp_create_nonce( 'myajax-post-comment-nonce' )
+wp_localize_script( 'my-ajax-request', 'MyAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ,'term' => $term, 'taxonomy' => $taxonomy, 'postCommentNonce' => wp_create_nonce( 'myajax-post-comment-nonce' )
  ) );
 
 get_header();
@@ -15,7 +15,7 @@ get_header();
 $loopmain0 = new WP_Query( array( 'post_type' => 'product') );
 /*revised from $p=1*/
 for($p=0;$p < $loopmain0->max_num_pages+1;$p++){
-$loopmain_0 = new WP_Query( array( 'post_type' => 'product', 'meta_key' => 'Price', 'meta_type' => 'NUMERIC', 'orderby' => 'meta_value_num', 'order' => 'ASC', 'posts_per_page'=>-1,'product_category' => $term) );
+$loopmain_0 = new WP_Query( array( 'post_type' => 'product', 'meta_key' => 'Price', 'meta_type' => 'NUMERIC', 'orderby' => 'meta_value_num', 'order' => 'ASC', 'posts_per_page'=>-1, $taxonomy => $term) );
 while ( $loopmain_0->have_posts() ) : $loopmain_0->the_post();
 //$keys[] = array_keys(@get_post_meta($post->ID));
 $keys2[] = @get_post_meta($post->ID);
@@ -182,8 +182,9 @@ cv2 = checked_values[i] + " " + cv2;
 	var orb = jQuery.cookies.get( 'sel_orderby' );
 	var or = jQuery.cookies.get( 'sel_order' );
 
-	if(or == '+') { or = 'ASC' ;}else{or = 'DESC' ;}
-
+	if(or == null ) {  or = 'ASC' ; }
+	if(or == '+'  ) {  or = 'ASC' ; }
+	if(or == '-'  ) {  or = 'DESC'; }
 
 
 
@@ -209,7 +210,8 @@ jQuery.post(
 		order : or,
 		paged : '',
 		posts_per_page:ppp,
-		product_category: MyAjax.product_category,
+		taxonomy: '<?php echo $taxonomy; ?>',
+		term: '<?php echo $term; ?>',
 		page_id: MyAjax.page_id,
 		price_from: price_from,
 		price_to: price_to,
@@ -220,8 +222,13 @@ jQuery.post(
 		//alert( response );
 		//jQuery( "#amount" ).css( {"background-color":"#ffffff","color":"#000000","border":"solid 0px #000"});
 		jQuery("#loading").css( {"display":"none"});
-		jQuery("#tumbs .row").replaceWith("");
+		jQuery("#tumbs .col-xs-18").replaceWith("");
+		jQuery("#pagenavifirst").remove();
+		
+jQuery("#pagenaviloaded").remove();
+		jQuery("#pagenavifirst2").remove();
 		jQuery("#tumbs").append(response);
+		
 		jQuery("#tumbs").css( {"opacity":"1"});
 		
 		equalheights();
@@ -243,7 +250,10 @@ jQuery.post(
 
 
 jQuery("#"+orb + "order").text(or);
-	if(or == '+') { or = 'ASC' ;}else{or = 'DESC' ;}
+	
+	if(or == null ) {  or = 'ASC' ; }
+	if(or == '+'  ) {  or = 'ASC' ; }
+	if(or == '-'  ) {  or = 'DESC'; }	
 	
 	jQuery("#"+orb).addClass("selected");
 
@@ -272,7 +282,8 @@ if ( ( orb != null || cvh != '' ) || (pricef != null && pricet != null) ){
 
 	selrgb = jQuery.cookies.get( 'selectedrgb' );
 	maratio = jQuery.cookies.get( 'matchratio' );
-if(orb == null){ orb = 'date';  or = 'ASC';  }
+
+if(orb == null){ orb = 'name';  or = 'ASC';  }
 var ppp = jQuery.cookies.get( 'popepa' );
 
 jQuery.post(
@@ -283,22 +294,25 @@ jQuery.post(
 		meta_key : '',
 		meta_value : cvh,
 		orderby : orb,
-		order : or,
 		search : '<?php echo $_GET['search']; ?>',
+		order : or,
 		paged : '',
 		posts_per_page:ppp,
-		rgb:selrgb,
-		mratio:maratio,
-		product_category: MyAjax.product_category,		
+		taxonomy: '<?php echo $taxonomy; ?>',
+		term: '<?php echo $term; ?>',
+		page_id: MyAjax.page_id,
 		price_from: mip,
 		price_to: map,
-		page_id: MyAjax.page_id,
 		// send the nonce along with the request
 		postCommentNonce : MyAjax.postCommentNonce
 	},
 	function( response ) {
 		//alert(response);
-		jQuery("#tumbs .row").replaceWith("");
+		jQuery("#tumbs .col-xs-18").replaceWith("");
+		jQuery("#pagenavifirst").remove();
+		
+jQuery("#pagenaviloaded").remove();
+		jQuery("#pagenavifirst2").remove();
 		jQuery("#tumbs").append(response);
 		
 		equalheights();
@@ -391,7 +405,7 @@ jQuery.ajax({
          url : myAjax.ajaxurl,
          data : { action: "add_to_wishlist", pID: pID, nonce: nonce },
          success: function(response) {
-       
+
         jQuery( '*[data-id="'+pID+'"]' ).removeClass("btn-default");
         jQuery( '*[data-id="'+pID+'"]' ).addClass(response.btn);
         if(response.text != "") {
@@ -450,6 +464,8 @@ jQuery("#shfilter").attr("class", "btn btn-success btn-sm");
 jQuery("#filters").show();
 jQuery("#listingrow").removeAttr("class");
 jQuery("#listingrow").attr("class", "col-12 col-lg-10");
+
+
 jQuery(this).one("click", handler1);
 }
 jQuery("#shfilter").one("click", handler1);
@@ -479,7 +495,7 @@ query_posts(
 
 
 
-<?php $c_terms = get_term_by( 'slug', $term, 'product_category', $output, $filter ); ?>
+<?php $c_terms = get_term_by( 'slug', $term, $taxonomy, $output, $filter ); ?>
 <div class="well">
 
 
@@ -490,14 +506,15 @@ query_posts(
   if(!empty($c_terms->name)){ echo $c_terms->name; }
   if(!empty($_GET['author'])){ echo __( 'Products added by', 'wosci-language' ) . ' ' .$_GET['author']. ' ' ; }
   ?></h3></div>
-  <div class="col-xs-6 col-md-4" style="text-align:right;"><button id="shfilter" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-filter"></span> <?php echo __( 'Filters' , 'wosci-language' ); ?></button></div>
+  <div class="col-xs-6 col-md-4" style="text-align:right;"><button id="shfilter" class="btn btn-success btn-sm"><span class="product product-filter"></span> <?php echo __( 'Filters' , 'wosci-language' ); ?></button></div>
 </div>
 <hr>
 
 <div class="row">
         <div class="col-12 col-lg-10" id="listingrow">
 <div id="tumbs">
-<div class="row">
+<div class="col-xs-18">
+<ul class="product-list">
 <?php
 			/* Run the loop to output the posts.
 			 * If you want to overload this in a child theme then include a file
@@ -508,14 +525,14 @@ query_posts(
 
 
 	// ürün listelemesinde s?ralama düzeni için http://codex.wordpress.org/Template_Tags/query_posts#Order_Parameters
-	$loopmain = new WP_Query( array( 's'=> $_GET['search'], 'order' => 'ASC'/*'ASC'*/,'product_category' => $term, 'orderby' => 'date', 'paged' => $paged, 'post_type' => 'product','meta_key' => 'Price', 'meta_compare' => 'BETWEEN', 'meta_value' => '') );
+	$loopmain = new WP_Query( array( 's'=> $_GET['search'], 'order' => 'ASC'/*'ASC'*/,$taxonomy => $term, 'orderby' => 'name', 'paged' => $paged, 'post_type' => 'product','meta_key' => 'Price', 'meta_compare' => 'BETWEEN', 'meta_value' => '') );
 	global $current_user;
 	while ( $loopmain->have_posts() ) : $loopmain->the_post();
 	$c = get_post_custom_values('Currency');
 	$f = get_post_custom_values('Price');
 	$t = get_post_custom_values('Tax');
 	$b = get_post_custom_values('Badge');
-	$product_terms = wp_get_post_terms($post->ID,'product_category');
+	$product_terms = wp_get_post_terms($post->ID, $taxonomy);
 	$pr_arr[] = $f[0];
 
 	$user_wishlist = get_user_meta( $current_user->ID, 'customer_wishlist' ); 
@@ -537,6 +554,7 @@ query_posts(
 ?>
 
         <?php  $nonce2 = wp_create_nonce("add_to_wish_list_nonce"); ?>
+<?php /* ?>
         <div class="col-sm-2">
            <div class="margin-top"></div> <div class="thumbnail">
             <a href="<?php echo get_permalink(); ?>"><?php echo the_post_thumbnail(array('116','200'), array('class' => 'img-responsive')); ?></a>
@@ -548,10 +566,19 @@ query_posts(
           </div>
         </div>
 
+<?php */ ?>
+	<li>
+        <span class="product"><a href="<?php echo get_permalink(); ?>"><?php echo the_post_thumbnail(array('116','200'), array('class' => 'img-responsive')); ?></a></span>
+        <span class="product-class"><div class="caption">
+              <h5><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h5>
+              <p><?php echo $currencies->display_price($c[0], $f[0], tep_get_tax_rate($t[0])); ?></p>
+              <p><button data-nonce="<?php echo $nonce2; ?>" data-id="<?php echo get_the_ID(); ?>" <?php echo $disable; ?> class="btn <?php echo $btnclass; ?> btn-xs wishlist"><small><?php echo $wltext; ?></small></button></p>
+            </span>
+	</li>
 <?php endwhile; ?>
 
-</div><!-- .row -->
-
+</ul><!-- .row -->
+</div><!-- .col-xs-18 -->
 
 <div id="pagenavifirst" class="row">
             <div class="col-lg-6"><?php wp_pagenavi($loopmain); ?></div>

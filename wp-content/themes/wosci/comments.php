@@ -55,7 +55,21 @@ if ( post_password_required() )
 
 	<?php endif; // have_comments() ?>
 
-	<?php comment_form( array( 'comment_notes_after'=> '<p class="form-allowed-tags">' . sprintf( __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: %s' , 'wosci-language'), ' <code>' . allowed_tags() . '</code>' ) . '</p>', 'cancel_reply_link'=> __( 'Cancel reply', 'wosci-language' ), 'comment_field'=>'<p class="comment-form-comment"><label for="comment">' . __( 'Comment', 'wosci-language' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>', 'label_submit'=>__('Post Comment', 'wosci-language'), 'title_reply' => __('Leave a comment', 'wosci-language'), 'logged_in_as' =>  sprintf( __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>', 'wosci-language' ), admin_url( 'profile.php' ), $user_identity, wp_logout_url( apply_filters( 'the_permalink', get_permalink( ) ) ) ))); ?>
+	<?php comment_form( array( 
+	'comment_notes_after' => '<p class="form-allowed-tags">' . sprintf( __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: %s' , 'wosci-language'), ' <code>' . allowed_tags() . '</code>' ) . '</p>', 
+	
+	'cancel_reply_link' => __( 'Cancel reply', 'wosci-language' ), 
+	
+	'comment_field' => '<p class="comment-form-comment"><label for="comment">' . __( 'Comment', 'wosci-language' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>', 
+	
+	'label_submit'=>__('Post Comment', 'wosci-language'), 
+	
+	'title_reply' => __('Leave a comment', 'wosci-language'), 
+	
+	'logged_in_as' =>  sprintf( __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>', 'wosci-language' ), admin_url( 'profile.php' ), $user_identity, wp_logout_url( apply_filters( 'the_permalink', get_permalink( ) ) ) ),
+	
+	'comment_notes_before' => __( 'Your email address will not be published.', 'wosci-language' )
+	)); ?>
 
 
 

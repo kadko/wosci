@@ -98,7 +98,7 @@ function removeborder(resnum){
 
 
 <?php $fixtop = ' navbar-fixed-top'; ?>
-<nav class="navbar navbar-default <?php //echo $fixtop; ?>" role="navigation" style="margin-bottom:-4px;">
+<nav class="navbar navbar-default <?php //echo $fixtop; ?>" role="navigation" style="<?php if( is_home() ){ echo 'margin-bottom:0px;'; }else{ echo 'margin-bottom:6px;'; } ?>">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="container">
         <div class="navbar-header">
@@ -150,7 +150,7 @@ function removeborder(resnum){
           <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>wish-list"><?php echo __('Wish List','wosci-language'); ?></a></li>
           <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>your-products"><?php echo __('Your Products','wosci-language'); ?></a></li>
           <li class="divider"></li>
-          <li><a href=" <?php echo wp_logout_url(  ); ?> "><?php echo __('Log Out','wosci-language'); ?></a></li>
+          <li><a href=" <?php echo wp_logout_url(  ); ?> "><?php global $current_user; if ($current_user->ID =='0') { echo __('Log In','wosci-language'); }else{ echo __('Log Out','wosci-language'); } ?></a></li>
         </ul>
       </li>
     </ul>
@@ -299,7 +299,7 @@ $steps = array(0 => 'cart', 1 => 'shipping-payment', 2 => 'order-confirmation', 
 $current = $post->post_name;
 $key = array_search($current, $steps);
 ?>
-<div class="fuelux" style="margin-top:10px; " >
+<div class="fuelux margin-top2" >
 
   <div class="wizard">
     <ul class="steps">
@@ -332,7 +332,7 @@ $key = array_search($current, $steps);
 
 
 		
-		<div class="margin-top2"></div> 
+		<div style="margin-top:6px;"></div> 
 		 
 		
 		

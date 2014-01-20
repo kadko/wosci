@@ -1,49 +1,43 @@
 <?php
-/*
-  $Id: checkout_confirmation.php 1739 2007-12-20 00:52:16Z hpdl $
 
-  osCommerce, Open Source E-Commerce Solutions
-  http://www.oscommerce.com
-
-  Copyright (c) 2003 osCommerce
-
-  Released under the GNU General Public License
-*/
-
-//  require('includes/application_top.php');
 //S
 // load all enabled shipping modules
+	if ($current_user->ID =='0') {
+		wp_redirect( esc_url( home_url( '/' ) ).'wp-login.php?redirect_to=shipping-payment');
+	}
 
-$cdai = get_user_meta($current_user->ID, 'customer_default_address_id');
-$customer_default_address_id = $cdai[0]; //$check_customer['customers_default_address_id'];
+	if (empty($_POST['shipping'])) {
+		wp_redirect('shipping-payment?error_message=' . urlencode(__( 'Please select a shipping method for your order.', 'wosci-language' )));
+	}
+	
+	update_user_meta($current_user->ID, 'shipping_method', $_POST['shipping']);
+	$shipping_a = get_user_meta($current_user->ID, 'shipping_method');
+	$shipping = $shipping_a[0];
 
-$bill_to = get_user_meta($current_user->ID, 'billto');
-$send_to = get_user_meta($current_user->ID, 'sendto');
+	
+	$cdai = get_user_meta($current_user->ID, 'customer_default_address_id');
+	$customer_default_address_id = $cdai[0]; 
+	
+	$bill_to = get_user_meta($current_user->ID, 'billto');
+	$send_to = get_user_meta($current_user->ID, 'sendto');
 
-tep_session_register('billto');
-tep_session_register('sendto');
-if ( !empty( $bill_to[0] ) ) { $billto = $bill_to[0]; }else{ wp_redirect('wp-login.php?redirect_to=shipping-payment'); }
-if ( !empty( $send_to[0] ) ) { $sendto = $send_to[0]; }else{ wp_redirect('wp-login.php?redirect_to=shipping-payment'); }
+	
+	tep_session_register('billto');
+	tep_session_register('sendto');
+	if ( !empty( $bill_to[0] ) ) { $billto = $bill_to[0]; }else{ wp_redirect(esc_url( home_url( '/' ) ).'wp-login.php?redirect_to=shipping-payment'); }
+	if ( !empty( $send_to[0] ) ) { $sendto = $send_to[0]; }else{ wp_redirect(esc_url( home_url( '/' ) ).'wp-login.php?redirect_to=shipping-payment'); }
+	$shipping_modules = new shipping;
+	$total_weight = $cart->show_weight();
+	$total_count = $cart->count_contents();
 
-  $shipping_modules = new shipping($shipping);
-
-  $total_weight = $cart->show_weight();
-  $total_count = $cart->count_contents();
-  
-// process the selected shipping method
-  if ( isset($_POST['action']) && ($_POST['action'] == 'process') ) { }
-    if (!tep_session_is_registered('osc_comments')) tep_session_register('osc_comments');
-    if (tep_not_null($_POST['osc_comments'])) {
-      $osc_comments = tep_db_prepare_input($_POST['osc_comments']);
-    }
-
-    if (!tep_session_is_registered('shipping')) tep_session_register('shipping');
-
+    
     if ( (tep_count_shipping_modules() > 0) || ($free_shipping == true) ) {
       if ( (isset($_POST['shipping'])) && (strpos($_POST['shipping'], '_')) ) {
-        $shipping = $_POST['shipping'];
-
+        $shipping_a = get_user_meta($current_user->ID, 'shipping_method');
+	$shipping = $shipping_a[0];
         list($module, $method) = explode('_', $shipping);
+        
+        
         if ( is_object($$module) || ($shipping == 'free_free') ) {
           if ($shipping == 'free_free') {
             $quote[0]['methods'][0]['title'] = FREE_SHIPPING_TITLE;
@@ -51,15 +45,19 @@ if ( !empty( $send_to[0] ) ) { $sendto = $send_to[0]; }else{ wp_redirect('wp-log
           } else {
             $quote = $shipping_modules->quote($method, $module);
           }
+          
+          
           if (isset($quote['error'])) {
             tep_session_unregister('shipping');
           } else {
             if ( (isset($quote[0]['methods'][0]['title'])) && (isset($quote[0]['methods'][0]['cost'])) ) {
               $shipping = array('id' => $shipping,
-                                'title' => (($free_shipping == true) ?  $quote[0]['methods'][0]['title'] : $quote[0]['module'] . ' (' . $quote[0]['methods'][0]['title'] . ')'),
+                                'title' => (($free_shipping == true) ?  $quote[0]['methods'][0]['title'] : $quote[0]['module']. ' ' . $quote[0]['methods'][0]['title'] . ''),
                                 'cost' => $quote[0]['methods'][0]['cost']);
-		
+
 	update_user_meta($current_user->ID, 'shipping', serialize($shipping));
+            
+            
             }
           }
         } else {
@@ -70,7 +68,11 @@ if ( !empty( $send_to[0] ) ) { $sendto = $send_to[0]; }else{ wp_redirect('wp-log
       $shipping = false;
                 
       //tep_redirect(tep_href_link(FILENAME_CHECKOUT_PAYMENT, '', 'SSL'));
-    }    
+    }   
+	$payment_modules = new payment($_POST['payment']);
+
+$order = new order;	
+  
  
 
 // get all available shipping quotes
@@ -91,8 +93,7 @@ if ( !empty( $send_to[0] ) ) { $sendto = $send_to[0]; }else{ wp_redirect('wp-log
 
 //C
   if ($current_user->ID =='0') {
-//    $navigation->set_snapshot(array('mode' => 'SSL', 'page' => FILENAME_CHECKOUT_PAYMENT));
-    wp_redirect( esc_url( home_url( '/' ) ).'wp-login.php');
+    wp_redirect(esc_url( home_url( '/' ) ).'wp-login.php?redirect_to=order-confirmation');
   }
 
 // if there is nothing in the customers cart, redirect them to the shopping cart page
@@ -107,46 +108,42 @@ if ( !empty( $send_to[0] ) ) { $sendto = $send_to[0]; }else{ wp_redirect('wp-log
     }
   }
 
-// if no shipping method has been selected, redirect the customer to the shipping method selection page
-  if (!tep_session_is_registered('shipping')) {
-    wp_redirect('shipping-payment');
-  }
-
-  if (!tep_session_is_registered('payment')) tep_session_register('payment');
-  if (isset($_POST['payment'])) $payment = $_POST['payment'];
-
-  if (!tep_session_is_registered('osc_comments')) tep_session_register('osc_comments');
-  if (tep_not_null($_POST['osc_comments'])) {
-    $osc_comments = tep_db_prepare_input($_POST['osc_comments']);
-  }
-
-// load the selected payment module
- 
-  $payment_modules = new payment($payment);
 
 
+	if ( count($shipping) < 1 ) {
+	    wp_redirect('shipping-payment');
+	}
 
-  $order = new order;
+	if (!tep_session_is_registered('payment')) tep_session_register('payment');
+	if (isset($_POST['payment'])) $payment = $_POST['payment'];
 
-  $payment_modules->update_status();
+	if (!tep_session_is_registered('osc_comments')) tep_session_register('osc_comments');
+	
+	if (tep_not_null($_POST['osc_comments'])) {
+	$osc_comments = tep_db_prepare_input($_POST['osc_comments']);
+	}
+
+	// load the selected payment module
 
 
+
+	$payment_modules->update_status();
 
     
-  if ( ( is_array($payment_modules->modules) && (sizeof($payment_modules->modules) > 1) && !is_object($$payment) ) || (is_object($$payment) && ($$payment->enabled == false)) ) {
-    wp_redirect('shipping-payment&error_message=' . urlencode(__( 'Please select a payment method for your order.', 'wosci-language' )));
-  }
-
-  if (is_array($payment_modules->modules)) {
-    $payment_modules->pre_confirmation_check();
-  }
+	if ( ( is_array($payment_modules->modules) && (sizeof($payment_modules->modules) > 1) && !is_object($$payment) ) || (is_object($$payment) && ($$payment->enabled == false)) ) {
+	    wp_redirect('shipping-payment?error_message=' . urlencode(__( 'Please select a payment method for your order.', 'wosci-language' )));
+	}
+	
+	if (is_array($payment_modules->modules)) {
+	    $payment_modules->pre_confirmation_check();
+	}
 
 // load the selected shipping module
 
 
 
-  $order_total_modules = new order_total;
-  $order_total_modules->process();
+	$order_total_modules = new order_total;
+	$order_total_modules->process();
 
 // Stock Check
   $any_out_of_stock = false;

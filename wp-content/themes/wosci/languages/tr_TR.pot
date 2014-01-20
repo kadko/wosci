@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wosci 1.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/twentytwelve\n"
-"POT-Creation-Date: 2013-12-19 20:37+0200\n"
-"PO-Revision-Date: 2013-12-19 20:37+0200\n"
+"POT-Creation-Date: 2014-01-11 13:20+0200\n"
+"PO-Revision-Date: 2014-01-11 13:21+0200\n"
 "Last-Translator: kadir <kadir.korkmaz@gmail.com>\n"
 "Language-Team: Wosci Team <info@wosci.com>\n"
 "Language: tr\n"
@@ -24,6 +24,8 @@ msgstr ""
 "\\wosci-widgets\n"
 "X-Poedit-SearchPath-3: C:\\xampp\\htdocs\\eticaret2\\wp-content\\plugins\\wp-"
 "pagenavi\n"
+"X-Poedit-SearchPath-4: C:\\xampp\\htdocs\\eticaret2\\wp-content\\plugins"
+"\\wosci-chart\n"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/404.php:17
 msgid "This is somewhat embarrassing, isn&rsquo;t it?"
@@ -39,29 +41,29 @@ msgstr "Ulaşmaya çalıştığınızı bulamadık. Arama kutusunu deneyebilirsi
 msgid "Customers who bought this product also purchased"
 msgstr "Bu ürünü alanların satın aldığı diğer ürünler"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/archive.php:488
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/archive.php:498
 msgid "Search result for"
 msgstr "Aranan kelime"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/archive.php:490
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/archive.php:500
 msgid "Products added by"
 msgstr "Kullanıcı ürünleri:"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/archive.php:492
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/archive.php:502
 msgid "Filters"
 msgstr "Süzgeçler"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/archive.php:522
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/archive.php:533
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content.php:196
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/functions.php:744
 msgid "Add to wish list"
 msgstr "İstek listesine ekle"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/archive.php:531
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/archive.php:542
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content.php:205
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/functions.php:753
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4603
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4610
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4619
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4626
 msgid "Added to wishlist"
 msgstr "İstek listesinde"
 
@@ -141,6 +143,10 @@ msgstr ""
 "Giriş yapan kullanıcı: <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title="
 "\"Bu hesaptan çıkış yap\">Çıkış Yap</a>"
 
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/comments.php:58
+msgid "Your email address will not be published."
+msgstr "E-posta adresiniz gösterilmeyecek."
+
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-aside.php:15
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-image.php:13
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content-link.php:14
@@ -203,15 +209,15 @@ msgstr "% yorum"
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-shipping-inc.php:123
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-shipping-inc.php:323
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:330
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1501
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2791
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3052
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3257
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3424
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3727
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3765
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4075
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4452
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1511
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2801
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3062
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3267
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3434
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3737
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3775
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4085
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4462
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english.php:278
 msgid "Edit"
 msgstr "Düzenle"
@@ -250,7 +256,7 @@ msgid "Price"
 msgstr "Fiyat"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content.php:96
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2289
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2299
 msgid "Tax Included"
 msgstr "Vergi Dahildir"
 
@@ -268,7 +274,7 @@ msgid "Please Select Option"
 msgstr "Lütfen Ürün Seçeneğini Belirleyin"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content.php:182
-#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-edit-shipping-address.php:309
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-edit-shipping-address.php:310
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-new-shipping-address.php:221
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-payment-address-inc.php:5
 msgid "Loading..."
@@ -281,7 +287,7 @@ msgstr "Sepete Ekle"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/content.php:186
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/shopping-cart-inc.php:24
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2284
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2294
 msgid "Quantity"
 msgstr "Adet"
 
@@ -484,9 +490,14 @@ msgid "Wish List"
 msgstr "İstek Listesi"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/header.php:151
-#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-your-products.php:34
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-your-products.php:37
 msgid "Your Products"
 msgstr "Aldığınız Ürünler"
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/header.php:153
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english.php:61
+msgid "Log In"
+msgstr "Giriş yap"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/header.php:153
 msgid "Log Out"
@@ -560,13 +571,13 @@ msgid "Next &rarr;"
 msgstr "Sonraki &rarr;"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-address-book.php:78
-#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-edit-shipping-address.php:282
-#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-edit-shipping-address.php:297
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-edit-shipping-address.php:283
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-edit-shipping-address.php:298
 msgid "Edit Address"
 msgstr "Adresi Değiştir"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-address-book.php:84
-#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-edit-shipping-address.php:308
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-edit-shipping-address.php:309
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-new-payment-address.php:217
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-new-shipping-address.php:265
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-shipping-inc.php:22
@@ -574,38 +585,38 @@ msgstr "Adresi Değiştir"
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-shipping-inc.php:59
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-shipping-inc.php:78
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:276
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1495
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2514
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2759
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2777
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2785
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3023
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3039
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3046
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3232
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3244
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3252
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3401
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3410
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3418
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3704
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3713
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3721
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3742
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3751
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3759
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4014
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4068
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4171
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4240
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4399
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4442
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1505
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2524
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2769
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2787
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2795
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3033
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3049
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3056
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3242
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3254
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3262
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3411
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3420
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3428
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3714
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3723
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3731
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3752
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3761
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3769
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4024
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4078
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4181
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4250
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4409
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4452
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/modules/orders.php:429
 msgid "Cancel"
 msgstr "İptal"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-address-book.php:85
-#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-edit-shipping-address.php:309
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-edit-shipping-address.php:310
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-new-payment-address.php:218
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-new-shipping-address.php:266
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/address-book-process-p-inc.php:119
@@ -614,9 +625,9 @@ msgstr "İptal"
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-shipping-inc.php:41
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-shipping-inc.php:60
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-shipping-inc.php:79
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4068
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4240
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4399
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4078
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4250
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4409
 msgid "Save"
 msgstr "Kaydet"
 
@@ -628,11 +639,11 @@ msgstr "BİRİNCİL ADRES"
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-inc.php:113
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-info-inc.php:190
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-payment-address-inc.php:316
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2196
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2409
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3619
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4005
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4162
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2206
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2419
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3629
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4015
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4172
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english.php:254
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/modules/orders.php:112
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/modules/orders.php:325
@@ -644,7 +655,7 @@ msgstr "Geri"
 msgid "Sales And Purchase Agreement"
 msgstr "Satış Sözleşmesi"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-checkout-process.php:301
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-checkout-process.php:300
 msgid "Order Process"
 msgstr "Sipariş İşlemi"
 
@@ -653,14 +664,14 @@ msgstr "Sipariş İşlemi"
 msgid "Your order has been successfully placed. Thank you!"
 msgstr "Sipariş işlemi başarılı olarak tamamlanmıştır. Teşekkür ederiz."
 
-#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-edit-shipping-address.php:282
-#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-edit-shipping-address.php:297
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-edit-shipping-address.php:283
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-edit-shipping-address.php:298
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-shipping-inc.php:34
 msgid "Edit Shipping Address"
 msgstr "Teslimat Adresini Değiştir"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-edit-shipping-address.php:282
-#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-edit-shipping-address.php:297
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-edit-shipping-address.php:283
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-edit-shipping-address.php:298
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-shipping-inc.php:53
 msgid "Edit Payment Address"
 msgstr "Fatura Adresini Değiştir"
@@ -677,7 +688,11 @@ msgstr "Yeni Fatura Adresi"
 msgid "New Shipping Address"
 msgstr "Yeni Teslimat Adresi"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-order-confirmation.php:120
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-order-confirmation.php:21
+msgid "Please select a shipping method for your order."
+msgstr "Lütfen siparişiniz için bir teslimat metodu seçiniz"
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-order-confirmation.php:140
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english.php:156
 msgid "Please select a payment method for your order."
 msgstr "Lütfen siparişiniz için bir ödeme metodu seçiniz."
@@ -728,9 +743,9 @@ msgstr "TUTAR"
 msgid "Payment terms: payment due in 30 days"
 msgstr "Ödeme en geç 30 gün içinde yapılmalı"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-shipping-payment.php:138
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-shipping-payment.php:136
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-shipping-inc.php:183
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1261
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1271
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english/modules/order_total/ot_shipping.php:16
 msgid "Free Shipping"
 msgstr "Ücretsiz Kargo"
@@ -749,18 +764,22 @@ msgstr ""
 "Sipariş onayı eposta adresinize ulaşmadıysa  <b>spam</b> klasörünü gözden "
 "geçirin."
 
-#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-wish-list.php:58
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-wish-list.php:60
 msgid "Your Wishlist"
 msgstr "İstek Listeniz"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-wish-list.php:84
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4651
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-wish-list.php:86
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4672
 msgid "Your wishlist empty."
 msgstr "İstek listeniz boş."
 
-#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-wish-list.php:88
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-wish-list.php:90
 msgid "Remove from list"
 msgstr "Listeden sil"
+
+#: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/page-your-products.php:88
+msgid "You are not yet purchased any product!"
+msgstr "Henüz ürün satın almadınız."
 
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/search.php:20
 #, php-format
@@ -808,9 +827,9 @@ msgid "Order Number"
 msgstr "Sipariş No"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-inc.php:40
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2662
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2677
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2686
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2672
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2687
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2696
 msgid "Order Status"
 msgstr "Sipariş Durumu"
 
@@ -821,23 +840,23 @@ msgstr "Ürün Ad."
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-inc.php:48
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-info-inc.php:20
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-info-inc.php:68
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2439
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2451
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2449
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2461
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english/modules/order_total/ot_total.php:14
 msgid "Order Total"
 msgstr "Sipariş Toplam"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-inc.php:49
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-inc.php:65
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2196
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2409
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2521
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2206
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2419
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2531
 msgid "Printable Invoice"
 msgstr "Yazdırılabilir Fatura"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-inc.php:51
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-inc.php:67
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2520
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2530
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english.php:279
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/modules/orders.php:435
 msgid "View"
@@ -862,7 +881,7 @@ msgstr "Sipariş Tarihi"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-info-inc.php:35
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-confirmation-inc.php:46
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2225
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2235
 msgid "Shipping Address"
 msgstr "Teslimat Adresi"
 
@@ -875,14 +894,14 @@ msgstr "Kargo Metodu"
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-info-inc.php:77
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-confirmation-inc.php:74
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-confirmation-inc.php:82
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2285
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2295
 msgid "Products"
 msgstr "Ürünler"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-info-inc.php:67
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-confirmation-inc.php:75
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1723
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2287
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1733
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2297
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english/modules/order_total/ot_tax.php:13
 msgid "Tax"
 msgstr "Vergi"
@@ -894,16 +913,16 @@ msgstr "Fatura Detayları"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-info-inc.php:123
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-confirmation-inc.php:130
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2231
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2241
 msgid "Billing Address"
 msgstr "Fatura Adresi"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/account-history-info-inc.php:132
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-confirmation-inc.php:136
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1610
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1710
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2244
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2525
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1620
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1720
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2254
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2535
 msgid "Payment Method"
 msgstr "Ödeme Metodu"
 
@@ -929,19 +948,19 @@ msgstr "Profili Düzenle"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/address-book-process-p-inc.php:73
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/address-book-process-s-inc.php:60
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2520
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2791
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3046
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3052
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3257
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3424
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3727
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3765
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4014
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4075
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4171
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4248
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4452
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2530
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2801
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3056
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3062
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3267
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3434
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3737
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3775
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4024
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4085
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4181
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4258
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4462
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english.php:261
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english.php:277
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/modules/orders.php:435
@@ -996,13 +1015,13 @@ msgstr "Değiştirilen teslimat adresine göre kargo ve fiyatları güncellendi"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-shipping-inc.php:164
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-shipping-inc.php:172
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1244
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1251
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1254
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1261
 msgid "Shipping Methods"
 msgstr "Kargo Yöntemleri"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/checkout-shipping-inc.php:183
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1261
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1271
 msgid "Free Shipping Orders Over"
 msgstr "Ücretsiz Kargo"
 
@@ -1043,12 +1062,12 @@ msgstr "Alışverişe Devam"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/shopping-cart-inc.php:21
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:325
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2514
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2785
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3252
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3418
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3721
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3759
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2524
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2795
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3262
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3428
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3731
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3769
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/modules/orders.php:429
 msgid "Remove"
 msgstr "Sil"
@@ -1130,10 +1149,10 @@ msgstr "Şehir"
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/address/address_book_details_s.php:159
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/address/checkout_new_address_p.php:129
 #: C:\xampp\htdocs\eticaret2\wp-content\themes\wosci/inc/address/checkout_new_address_s.php:130
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3573
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3581
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3702
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3711
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3583
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3591
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3712
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3721
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english.php:203
 msgid "Country"
 msgstr "Ülke"
@@ -1157,14 +1176,14 @@ msgid "State"
 msgstr "Şehir"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:281
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1495
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2404
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2777
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3039
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3244
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3410
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3713
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3751
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1505
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2414
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2787
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3049
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3254
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3420
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3723
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3761
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english.php:273
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/modules/orders.php:320
 msgid "Update"
@@ -1182,446 +1201,446 @@ msgstr "Ad."
 msgid "Cart Total:"
 msgstr "Sepet Toplamı:"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1334
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1344
 msgid "Shipping methods and costs updated based on your selection"
 msgstr "Değiştirilen teslimat adresine göre kargo ve fiyatları güncellendi"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1335
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1345
 msgid "Billing Address Chanced"
 msgstr "Fatura Adresi Değiştirildi"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1422
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1431
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1432
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1441
 msgid "Configuration Title"
 msgstr "Konfigürasyon Başlığı"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1423
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1432
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1433
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1442
 msgid "Connfiguration Value"
 msgstr "Konfigürasyon Değeri"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1424
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1433
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2442
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2454
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2680
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2689
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2946
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2955
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3162
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3173
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3338
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3347
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3575
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3583
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3634
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3643
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4043
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4201
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4341
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1434
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1443
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2452
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2464
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2690
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2699
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2956
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2965
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3172
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3183
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3348
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3357
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3585
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3593
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3644
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3653
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4053
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4211
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4351
 msgid "Action"
 msgstr "İşlem"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1493
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3029
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1503
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3039
 msgid "Currency Details"
 msgstr "Para Birimi Detayı"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1503
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3258
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3425
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3728
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3767
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1513
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3268
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3435
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3738
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3777
 msgid "Date Added"
 msgstr "Eklenme Tarihi"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1504
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3259
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3426
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3729
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3768
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1514
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3269
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3436
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3739
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3778
 msgid "Last Modified"
 msgstr "Son Değişiklik"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1578
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1678
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1588
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1688
 msgid "Sold to"
-msgstr "Siparişi Veren"
+msgstr "Fatura Edilen"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1595
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1695
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1605
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1705
 msgid "Ship to"
-msgstr "Siparişi Veren"
+msgstr "Kargo alıcısı"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1621
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1721
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3979
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4137
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4336
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1631
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1731
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3989
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4147
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4346
 msgid "Product"
 msgstr "Ürün"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1622
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2286
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1632
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2296
 msgid "Model"
 msgstr "Model"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1722
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1732
 msgid "Product Model"
 msgstr "Ürünü Modeli"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1724
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1734
 msgid "Tax Excl."
 msgstr "Vergi Hariç"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1725
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1735
 msgid "Tax Incl."
 msgstr "Vergi Dahil"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1726
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1736
 msgid "Total Tax Excl."
 msgstr "Toplam (Vergi Hariç)"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1727
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:1737
 msgid "Total Tax Incl."
 msgstr "Toplam (Vergi Dahil)"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2141
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2151
 msgid "Printable Invoice URL"
 msgstr "Yazdırılabilir Fatura"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2194
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2417
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2204
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2427
 msgid "Orders"
 msgstr "Siparişler"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2196
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2409
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2521
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2206
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2419
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2531
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/modules/orders.php:112
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/modules/orders.php:325
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/modules/orders.php:436
 msgid "Invoice"
 msgstr "Fatura"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2196
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2409
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2521
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2206
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2419
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2531
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/modules/orders.php:112
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/modules/orders.php:325
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/modules/orders.php:436
 msgid "Packing Slip"
 msgstr "Paket Etiketi"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2208
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2218
 msgid "Customer"
 msgstr "Müşteri"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2215
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2225
 msgid "Phone Number"
 msgstr "Telefon Numarası"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2219
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2229
 msgid "Email Address"
 msgstr "Eposta Adresi"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2288
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2298
 msgid "Tax Excluded"
 msgstr "Vergi Dahil"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2291
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2301
 msgid "Total Excl. Tax"
 msgstr "Toplam (Vergi Hariç)"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2292
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2302
 msgid "Total Incl. Tax"
 msgstr "Toplam (Vergi Dahil)"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2347
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2357
 msgid "Notify Date"
 msgstr "Bildirim Tarihi"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2348
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2358
 msgid "Customer Notify"
 msgstr "Müşteri Bildirimi"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2349
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2424
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2441
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2453
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2359
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2434
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2451
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2463
 msgid "Status"
 msgstr "Durum"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2350
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2381
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2360
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2391
 msgid "Comments"
 msgstr "Yorumlar"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2397
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2407
 msgid "Select Status"
 msgstr "Durum Seç"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2400
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2410
 msgid "Notify Customer"
 msgstr "Müşteriye Bildir"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2401
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2411
 msgid "Notify With Comments"
 msgstr "Yorum ile birlikte müşteriye bildir"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2421
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2431
 msgid "Search by Order Number #"
 msgstr "Sipariş No'ya Göre Getir"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2424
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2434
 msgid "All Orders"
 msgstr "Tüm Siparişler"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2438
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2450
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2448
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2460
 msgid "Customers"
 msgstr "Müşteriler"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2440
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2452
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2450
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2462
 msgid "Date Purchased"
 msgstr "Sipariş Tarihi"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2491
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2501
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english.php:162
 msgid "Options"
 msgstr "Seçenekler"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2512
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2783
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3044
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2522
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2793
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3054
 msgid "Are you sure you want to delete this order status?"
 msgstr "Bu sipariş durumunu oluşturmak istediğinizden emin misiniz?"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2523
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2533
 msgid "Order Created"
 msgstr "Sipariş oluşturuldu"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2678
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2687
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2688
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2697
 msgid "Public Status"
 msgstr "Herkeze Açık Durum"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2679
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2688
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2689
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2698
 msgid "Download Status"
 msgstr "İndirme Durumu"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2732
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2759
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3023
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3232
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3401
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3619
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3684
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3704
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3742
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4102
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4282
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2742
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2769
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3033
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3242
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3411
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3629
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3694
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3714
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3752
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4112
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4292
 msgid "Insert"
 msgstr "Ekle"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2744
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2754
 msgid "New Orders Status"
 msgstr "Yeni Sipariş Durumu"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2747
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2765
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2757
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2775
 msgid "Please enter the new orders status with its related data"
 msgstr "Lütfen Sipariş Durum Bilgisini Giriniz"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2755
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2773
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2765
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2783
 msgid "Orders Status"
 msgstr "Sipariş Durumu"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2756
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2774
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2766
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2784
 msgid "Show the order to the customer at this order status level"
 msgstr "Bu sipariş durumundayken siparişi müşteriye göster"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2757
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2775
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2767
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2785
 msgid "Allow downloads of virtual products at this order status level"
 msgstr ""
 "Bu sipariş durumu halindeyken müşterinin sanal ürünü indirmesine izin ver"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2762
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2772
 msgid "Edit Order Status"
 msgstr "Sipariş Durumunu Düzenle"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2780
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2790
 msgid "Delete Orders Status"
 msgstr "Sipariş Durumunu Sil"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2929
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2939
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english.php:123
 msgid "Currencies"
 msgstr "Para Birimleri"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2943
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2952
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2953
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2962
 msgid "Currency Name"
 msgstr "Para Birimi Adı"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2944
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2953
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2954
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2963
 msgid "Currency Code"
 msgstr "Para Birimi Kodu"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2945
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2954
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2955
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2964
 msgid "Currency Value"
 msgstr "Para Birimi Değeri"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2997
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3007
 msgid "Update Currencies"
 msgstr "Para Birimi Güncelle"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:2998
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3008
 msgid "New Currency"
 msgstr "Yeni Para Birimi"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3013
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3023
 msgid "Please Fill Currency Details"
 msgstr "Lütfen Para Birimi Detaylarını Giriniz"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3014
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3030
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3053
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3024
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3040
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3063
 msgid "Title"
 msgstr "Başlık"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3015
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3031
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3054
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3025
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3041
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3064
 msgid "Code"
 msgstr "Kod"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3016
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3032
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3055
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3026
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3042
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3065
 msgid "Symbol Left"
 msgstr "Sola Sembol"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3017
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3033
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3056
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3027
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3043
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3066
 msgid "Symbol Right"
 msgstr "Sağa Sembol"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3018
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3034
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3057
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3028
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3044
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3067
 msgid "Decimal Point"
 msgstr "Ondalık İşareti"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3019
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3035
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3058
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3029
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3045
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3068
 msgid "Thousand Point"
 msgstr "Binlik Ondalık İşareti"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3020
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3036
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3059
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3030
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3046
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3069
 msgid "Decimal Places"
 msgstr "Ondalık Yeri"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3021
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3037
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3061
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3031
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3047
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3071
 msgid "Value"
 msgstr "Değer"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3022
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3038
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3032
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3048
 msgid "Set as Default"
 msgstr "Birincil Olarak Belirle"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3026
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3036
 msgid "Edit Currency"
 msgstr "Para Birimini Düzenle"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3060
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3070
 msgid "Last Update"
 msgstr "Son Güncelleme"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3062
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3072
 msgid "Example"
 msgstr "Örnek"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3144
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3154
 msgid "Tax Rates"
 msgstr "Vergi Oranı"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3158
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3169
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3168
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3179
 msgid "Priority"
 msgstr "Öncelik"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3159
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3170
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3227
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3239
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3399
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3408
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3169
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3180
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3237
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3249
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3409
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3418
 msgid "Tax Class Title"
 msgstr "Vergi Sınıfı Başlık"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3160
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3171
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3633
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3642
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3170
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3181
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3643
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3652
 msgid "Tax Zone"
 msgstr "Vergi Bölgesi"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3161
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3172
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3171
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3182
 msgid "Tax Rate"
 msgstr "Vergi Oranı"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3211
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3223
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3221
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3233
 msgid "New Tax Rate"
 msgstr "Yeni Vergi Oranı"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3226
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3398
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3236
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3408
 msgid "Please enter the new tax class with its related data"
 msgstr "Lütfen yeni vergi sınıfını ilgili bilgileri ile giriniz"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3228
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3240
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3703
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3712
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3238
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3250
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3713
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3722
 msgid "Zone"
 msgstr "Bölge"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3229
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3241
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3239
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3251
 msgid "Tax Rate (%)"
 msgstr "Vergi Oranı (%)"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3230
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3242
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3260
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3400
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3409
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3427
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3741
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3750
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3769
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3240
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3252
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3270
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3410
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3419
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3437
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3751
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3760
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3779
 msgid "Description"
 msgstr "Açıklama"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3231
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3243
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3241
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3253
 msgid ""
 "Tax rates at the same priority are added, others are compounded."
 "<br><br>Priority"
@@ -1629,190 +1648,194 @@ msgstr ""
 "Aynı öncelikteki vergi oranları eklendi, diğerleri "
 "birleştirildi<br><br>Öncelik"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3235
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3245
 msgid "Edit Tax Rate"
 msgstr "Vergi Oranını Düzenle"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3238
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3407
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3710
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3748
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3248
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3417
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3720
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3758
 msgid "Please make any necessary changes"
 msgstr "Lütfen Gerekli Değişiklikleri Yapınız"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3247
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3257
 msgid "Delete Tax Rate"
 msgstr "Vergi Oranını Sil"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3250
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3260
 msgid "Are you sure you want to delete this tax rate?"
 msgstr "Bu vergi oranını silmek istediğinizden emin misiniz?"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3320
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3337
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3346
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3330
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3347
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3356
 msgid "Tax Classes"
 msgstr "Vergi Sınıfları"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3383
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3395
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3393
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3405
 msgid "New Tax Class"
 msgstr "Yeni Vergi Sınıfı"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3404
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3414
 msgid "Edit Tax Class"
 msgstr "Vergi Sınıfını Düzenle"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3413
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3423
 msgid "Delete Tax Class"
 msgstr "Vergi Sınıfını Sil"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3416
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3426
 msgid "Are you sure you want to delete this tax class?"
 msgstr "Bu vergi sınıfını silmek istiyormusunuz?"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3554
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3564
 msgid "Tax Zones"
 msgstr "Vergi Bölgeleri"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3574
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3582
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3584
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3592
 msgid "Country Zone"
 msgstr "Ülke Bölgeleri"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3604
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3702
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3711
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3614
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3712
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3721
 msgid "All Countries"
 msgstr "Tüm Şehirler"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3605
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3615
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/functions/general.php:1702
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/functions/general.php:1705
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/functions/general.php:1739
 msgid "All Zones"
 msgstr "Tüm Bölgeler"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3698
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3708
 msgid "New Sub Zone"
 msgstr "Yeni Alt Bölge"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3701
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3711
 msgid "Please enter the new sub zone information"
 msgstr "Lütfen alt bölge bilgisiniz giriniz"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3707
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3717
 msgid "Edit Sub Zone"
 msgstr "Alt Bölgeyi Düzenle"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3716
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3726
 msgid "Delete Sub Zone"
 msgstr "Alt Bölgeyi Sil"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3719
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3729
 msgid "Are you sure you want to delete this sub zone?"
 msgstr "Bu alt bölgeyi silmek istiyormusunuz?"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3736
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3746
 msgid "New Zone"
 msgstr "Yeni Bölge"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3739
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3749
 msgid "Please enter the new zone information"
 msgstr "Lütfen Yeni Bölge Bilgisi Giriniz"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3740
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3749
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3750
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3759
 msgid "Zone Name"
 msgstr "Bölge Adı"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3745
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3755
 msgid "Edit Zone"
 msgstr "Bölgeyi Düzenle"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3754
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3764
 msgid "Delete Zone"
 msgstr "Bölgeyi Sil"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3757
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3767
 msgid "Are you sure you want to delete this zone?"
 msgstr "Bu bölgeyi silmek istediğinizden emin misiniz?"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3765
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3775
 msgid "Details"
 msgstr "Detaylar"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3766
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3776
 msgid "Number of Zones"
 msgstr "Bölge Sayısı"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3978
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4041
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4136
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4198
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4335
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3988
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4051
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4146
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4208
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4345
 msgid "ID"
 msgstr "ID"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3980
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4200
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4338
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:3990
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4210
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4348
 msgid "Option Value"
 msgstr "Seçenek Değeri"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4002
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4159
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4012
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4169
 msgid ""
 "This option has products and values linked to it - it is not safe to delete "
 "it."
 msgstr "Bu seçeneğe ürün atanmış silmeniz önerilmiyor"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4011
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4168
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4021
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4178
 msgid ""
 "This option has no products and values linked to it - it is safe to delete "
 "it."
 msgstr ""
 "Bu seçeneğin atandığı herhangi bir ürün bulunmuyor silmenizde sakınca yok."
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4025
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4035
 msgid "Product Options"
 msgstr "Ürünü Seçenekleri"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4042
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4138
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4199
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4337
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4052
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4148
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4209
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4347
 msgid "Option Name"
 msgstr "Seçenek Adı"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4182
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4192
 msgid "Option Values"
 msgstr "Seçenek Değerleri"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4306
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4316
 msgid "Products Attributes"
 msgstr "Ürün Özellikleri"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4339
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4349
 msgid "Option Price"
 msgstr "Seçenek Fiyatı"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4340
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4350
 msgid "Price Prefix"
 msgstr "Fiyat Ön Eki"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4495
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4505
 msgid "Add+"
 msgstr "Ekle+"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4616
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4634
+msgid "Please login"
+msgstr "Giriş yapınız"
+
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4637
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english.php:284
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:679
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:681
 msgid "Success"
 msgstr "Başarılı"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4653
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/wosci-admin-pages.php:4674
 msgid "Product removed from wishlist"
 msgstr "Ürün istek listenizden silindi"
 
@@ -1847,11 +1870,6 @@ msgstr ""
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english.php:60
 #, fuzzy
 msgid "Log Off"
-msgstr "Çıkış"
-
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english.php:61
-#, fuzzy
-msgid "Log In"
 msgstr "Çıkış"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english.php:64
@@ -2027,7 +2045,7 @@ msgstr ""
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english.php:134
 #, fuzzy
 msgid "Tell someone you know about this product."
-msgstr " %s hakkında"
+msgstr "Henüz ürün satın almadınız."
 
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english.php:137
 #, fuzzy
@@ -2087,7 +2105,7 @@ msgstr "Lütfen kredi kartı bilgilerini tekrar gözden geçirin"
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english.php:160
 #, fuzzy
 msgid "Your Address"
-msgstr "Adres Defteri"
+msgstr "E-posta adresiniz gösterilmeyecek."
 
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english.php:161
 #, fuzzy
@@ -2157,7 +2175,7 @@ msgstr "Tarih"
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english.php:178
 #, fuzzy
 msgid "Your Date of Birth must be in this format: MM/DD/YYYY (eg 05/21/1970)"
-msgstr "AA / YY"
+msgstr "Tarih"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english.php:179
 msgid "* (eg. 05/21/1970)"
@@ -2171,7 +2189,7 @@ msgstr "Adres Defteri"
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english.php:181
 #, fuzzy
 msgid "Your E-Mail Address must contain a minimum of "
-msgstr "Adres Defteri"
+msgstr "E-posta adresiniz gösterilmeyecek."
 
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english.php:182
 #, fuzzy
@@ -2185,7 +2203,7 @@ msgstr "Lütfen Gerekli Değişiklikleri Yapınız"
 msgid ""
 "Your E-Mail Address already exists in our records - please log in with the e-"
 "mail address or create an account with a different address."
-msgstr "Adres Defteri"
+msgstr "E-posta adresiniz gösterilmeyecek."
 
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english.php:185
 #, fuzzy
@@ -2498,7 +2516,7 @@ msgid "Error"
 msgstr "Kredi Kartı Hatası"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english.php:285
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:677
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:679
 msgid "Warning"
 msgstr "Uyarı"
 
@@ -2517,8 +2535,8 @@ msgid ""
 "<small>If you are not %s, please <a href=\"%s\"><u>log yourself in</u></a> "
 "with your account information.</small>"
 msgstr ""
-"Giriş yapan kullanıcı: <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title="
-"\"Bu hesaptan çıkış yap\">Çıkış Yap</a>"
+"Giriş yapan kullanıcı <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Bu "
+"hesaptan çıkış yap\">Çıkış Yap</a>"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english.php:289
 #, fuzzy, php-format
@@ -2730,7 +2748,7 @@ msgstr "Ödeme"
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english/modules/order_total/ot_fixed_payment_chg.php:14
 #, fuzzy
 msgid "Adds Additional Charges by Selected Payment"
-msgstr "Seçilen ülkeye kargo tutarı hesaplanamadı"
+msgstr "Ödeme"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english/modules/order_total/ot_loworderfee.php:13
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english/modules/order_total/ot_loworderfee.php:14
@@ -3139,8 +3157,8 @@ msgid ""
 "Error: A match of the Shipping Address City, State, and Postal Code failed. "
 "Please try again."
 msgstr ""
-"Girdiğiniz kart numarasının ilk dört hanesine göre bu tip kredi kartları "
-"sitemizde geçerli değildir. Tekrar gözden geçirip deneyiniz."
+"Melesef arama kriterlerinize uygun herhangi bir sonuç bulunamadı. Başka bir "
+"kelime ile tekrar deneyin."
 
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english/modules/payment/paypal_uk_direct.php:29
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english/modules/payment/paypal_uk_express.php:21
@@ -3221,7 +3239,7 @@ msgstr ""
 "birleştirildi<br><br>Öncelik"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english/modules/payment/psigate.php:18
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:656
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:658
 #, fuzzy
 msgid "Type:"
 msgstr ""
@@ -3317,7 +3335,8 @@ msgstr ""
 "tablomuzdan hesaplanmıştır."
 
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english/modules/shipping/table.php:16
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/modules/shipping/zones.php:145
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/modules/shipping/yurticikargo.php:145
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/modules/shipping/zones.php:148
 msgid "Weight"
 msgstr "Ağırlık"
 
@@ -3363,29 +3382,41 @@ msgstr ""
 "USPS kargo hesaplamasında bir sorun oluştu. <br />Eğer USPS ile kargo "
 "teslimi istiyorsanız lütfen mağaza yetkilisine başvurun."
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english/modules/shipping/zones.php:13
-msgid "Zone Rates"
-msgstr "Bölgesel Bazda Kargo Oranları"
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english/modules/shipping/yurticikargo.php:13
+msgid "Yurtici Kargo"
+msgstr ""
 
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english/modules/shipping/yurticikargo.php:14
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english/modules/shipping/zones.php:14
 msgid "Zone Based Rates"
 msgstr "Şehir Bazında Kargo Fiyatları"
 
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english/modules/shipping/yurticikargo.php:15
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english/modules/shipping/zones.php:15
 msgid "Shipping to"
 msgstr "Hesaplamaya baz alınan şehir"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english/modules/shipping/zones.php:16
-msgid "lb(s)"
-msgstr "lb(s)"
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english/modules/shipping/yurticikargo.php:16
+msgid "kg"
+msgstr ""
 
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english/modules/shipping/yurticikargo.php:17
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english/modules/shipping/zones.php:17
 msgid "No shipping available to the selected country"
 msgstr "Seçilen ülkeye bölge bazında kargo yöntemi seçeneği bulunmuyor"
 
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english/modules/shipping/yurticikargo.php:18
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english/modules/shipping/zones.php:18
 msgid "The shipping rate cannot be determined at this time"
 msgstr "Kargo tutarı hesaplanamadı"
+
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english/modules/shipping/zones.php:13
+msgid "Zone Rates"
+msgstr "Bölgesel Bazda Kargo Oranları"
+
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/languages/english/modules/shipping/zones.php:16
+msgid "lb(s)"
+msgstr "lb(s)"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-admin-pages/includes1/modules/featured_categories.php:106
 msgid "Like"
@@ -3423,8 +3454,8 @@ msgstr "Sürükle Bırak"
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:142
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:200
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:387
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:554
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:645
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:556
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:647
 msgid "Title:"
 msgstr "Başlık"
 
@@ -3487,67 +3518,67 @@ msgstr "Kampanya Ürünleri"
 msgid "Featured Categories"
 msgstr "Kampanya Kategorileri"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:557
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:559
 msgid "Featured Categories:"
 msgstr "Kampanya Kategorileri:"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:559
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:561
 msgid "Category IDs, separated by commas."
 msgstr "Virgüllerle ayrılmış kategori ID'leri"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:561
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:563
 msgid "Show thumbnails in slider caorusel"
 msgstr "Ürünleri kayan karuselde göster"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:574
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:576
 msgid "Arbitrary text or HTML 2"
 msgstr "İsteğe Bağlı Yazı veya HTML Kodu"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:576
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:578
 msgid "Text"
 msgstr "Metin"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:658
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:660
 msgid "Alert"
 msgstr "Uyarı"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:659
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:661
 msgid "Well Text"
 msgstr "Temiz Yazı Formatı"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:660
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:662
 msgid "Well Text Large"
 msgstr "Temiz Yazı Formatı Büyük"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:661
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:663
 msgid "Well Text Small"
 msgstr "Temiz Yazı Formatı Küçük"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:666
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:668
 msgid "Dismissability:"
 msgstr "İptal Edilebilirlik:"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:668
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:670
 msgid "Dismissable"
 msgstr "İptal Edilebilir"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:669
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:671
 msgid "Not Dismissable"
 msgstr "İptal Edilemez"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:675
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:677
 msgid "Color:"
 msgstr "Renk:"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:678
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:680
 msgid "Danger"
 msgstr "Tehlikeli"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:680
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:682
 msgid "Info"
 msgstr "Bilgi"
 
-#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:688
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-widgets/wosci-widgets.php:690
 msgid "Automatically add paragraphs"
 msgstr "Otomatik Olarak Paragraf Ekle"
 
@@ -3612,22 +3643,22 @@ msgstr "Metin"
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wp-pagenavi/admin.php:70
 #, fuzzy
 msgid "Text For Previous Page"
-msgstr "&larr;  Önceki"
+msgstr "Metin"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wp-pagenavi/admin.php:76
 #, fuzzy
 msgid "Text For Next Page"
-msgstr "Sonraki &rarr;"
+msgstr "Metin"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wp-pagenavi/admin.php:82
 #, fuzzy
 msgid "Text For Previous ..."
-msgstr "&larr;  Önceki"
+msgstr "Metin"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wp-pagenavi/admin.php:88
 #, fuzzy
 msgid "Text For Next ..."
-msgstr "Sonraki &rarr;"
+msgstr "Metin"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wp-pagenavi/admin.php:95
 #, fuzzy
@@ -3649,7 +3680,7 @@ msgstr ""
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wp-pagenavi/admin.php:108
 #, fuzzy
 msgid "Page Navigation Style"
-msgstr "Sayfa"
+msgstr "Yorum Navigasyon"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wp-pagenavi/admin.php:111
 msgid "Normal"
@@ -3663,12 +3694,12 @@ msgstr "İstek Listesi"
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wp-pagenavi/admin.php:116
 #, fuzzy
 msgid "Always Show Page Navigation"
-msgstr "Sayfa"
+msgstr "Yorum Navigasyon"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wp-pagenavi/admin.php:119
 #, fuzzy
 msgid "Show navigation even if there's only one page."
-msgstr "Sayfa"
+msgstr "Yorum Navigasyon"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wp-pagenavi/admin.php:123
 #, fuzzy
@@ -3678,7 +3709,7 @@ msgstr "Sayfa:"
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wp-pagenavi/admin.php:130
 #, fuzzy
 msgid "Number Of Larger Page Numbers To Show"
-msgstr "Sayfa"
+msgstr "Ürünleri kayan karuselde göster"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wp-pagenavi/admin.php:135
 #, fuzzy
@@ -3704,7 +3735,7 @@ msgstr "Yazıp enter tuşuna basınız"
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wp-pagenavi/admin.php:141
 #, fuzzy
 msgid "Show Larger Page Numbers In Multiples Of"
-msgstr "Sayfa"
+msgstr "Ürünleri kayan karuselde göster"
 
 #: C:\xampp\htdocs\eticaret2\wp-content\plugins\wp-pagenavi/admin.php:146
 #, fuzzy
@@ -3765,6 +3796,26 @@ msgstr ""
 "span> at <a href=\"%3$s\" title=\"Link to full-size image\">%4$s &times; "
 "%5$s</a> in <a href=\"%6$s\" title=\"Return to %7$s\" rel=\"gallery\">%8$s</"
 "a>."
+
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-chart/grafik_data.php:140
+msgid "Sales Chart With Daily Order Details"
+msgstr "Günlük Sipariş Toplamları Grafiği"
+
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-chart/grafik_data.php:202
+msgid "Daily total / Order qty."
+msgstr "Günlük toplam ciro / Sipariş Adet"
+
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-chart/grafik_data.php:227
+msgid "Daily Sales Total"
+msgstr "Günlük Ciro"
+
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-chart/grafik_data.php:232
+msgid "Order Qty."
+msgstr "Günlük Sipariş Adet"
+
+#: C:\xampp\htdocs\eticaret2\wp-content\plugins\wosci-chart/graph_dash_widget.php:32
+msgid "Monthly Sales Chart"
+msgstr "Aylık Satış Grafiği"
 
 #, fuzzy
 #~ msgid "Added to wish list"
@@ -4914,10 +4965,6 @@ msgstr ""
 #~ "\"Bu hesaptan çıkış yap\">Çıkış Yap</a>"
 
 #, fuzzy
-#~ msgid "Your email address will not be published."
-#~ msgstr "Eposta Adresi"
-
-#, fuzzy
 #~ msgid "Spam"
 #~ msgstr ""
 #~ "Sipariş onayı eposta adresinizine ulaşmadıysa  <b>spam</b> klasörünü "
@@ -5409,12 +5456,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Select a city"
 #~ msgstr "İlçe"
-
-#, fuzzy
-#~ msgid "Please log in again."
-#~ msgstr ""
-#~ "Melesef arama kriterlerinize uygun herhangi bir sonuç bulunamadı. Başka "
-#~ "bir kelime ile tekrar deneyin."
 
 #, fuzzy
 #~ msgid ""

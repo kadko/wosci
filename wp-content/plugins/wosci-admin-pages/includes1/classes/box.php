@@ -43,7 +43,7 @@
 
 
 
-<div style="margin:-10px 0  0 10px ;" id="poststuff" class="metabox-holder has-right-sidebar">
+<div style="margin:-10px 0  0 10px ;" class="metabox-holder has-right-sidebar">
 
 
 

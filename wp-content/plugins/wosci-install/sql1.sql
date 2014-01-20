@@ -1745,28 +1745,28 @@ INSERT INTO `zones` (`zone_id`, `zone_country_id`, `zone_code`, `zone_name`) VAL
 (207, 215, '21', 'Diyarbak?r'),
 (208, 215, '81', 'Düzce'),
 (209, 215, '22', 'Edirne'),
-(210, 215, '23', 'Elaz??'),
+(210, 215, '23', 'Elazığ'),
 (211, 215, '24', 'Erzincan'),
 (212, 215, '25', 'Erzurum'),
-(213, 215, '26', 'Eski?ehir'),
+(213, 215, '26', 'Eskişehir'),
 (214, 215, '27', 'Gaziantep'),
 (215, 215, '28', 'Giresun'),
-(216, 215, '29', 'Gümü?hane'),
+(216, 215, '29', 'Gümüşhane'),
 (217, 215, '30', 'Hakkari'),
 (218, 215, '31', 'Hatay'),
-(219, 215, '32', 'I?d?r'),
+(219, 215, '32', 'Iğdır'),
 (220, 215, '33', 'Isparta'),
-(221, 215, '34', '?stanbul'),
-(222, 215, '35', '?zmir'),
-(223, 215, '46', 'Kahramanmara?'),
+(221, 215, '34', 'İstanbul'),
+(222, 215, '35', 'İzmir'),
+(223, 215, '46', 'Kahramanmaraş'),
 (224, 215, '78', 'Karabük'),
 (225, 215, '70', 'Karaman'),
 (226, 215, '36', 'Kars'),
 (227, 215, '37', 'Kastamonu'),
 (228, 215, '38', 'Kayseri'),
-(229, 215, '71', 'K?r?kkale'),
-(230, 215, '39', 'K?rklareli'),
-(231, 215, '40', 'K?r?ehir'),
+(229, 215, '71', 'Kırıkkale'),
+(230, 215, '39', 'Kırklareli'),
+(231, 215, '40', 'Kırşehir'),
 (232, 215, '79', 'Kilis'),
 (233, 215, '41', 'Kocaeli'),
 (234, 215, '42', 'Konya'),
@@ -1853,7 +1853,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 
 INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES (NULL, 'widget_ppp', 'a:2:{i:2;a:5:{s:6:"images";i:0;s:4:"name";i:0;s:11:"description";i:0;s:6:"rating";i:0;s:8:"category";i:0;}s:12:"_multiwidget";i:1;}', 'yes');
 
-INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES (NULL, 'widget_vitrin', 'a:2:{i:2;a:3:{s:5:"title";s:0:"";s:10:"vitrin_ids";s:32:"4,6,8,10,12,14,16,18,20,22,24,26";s:11:"slidethumbs";b:1;}s:12:"_multiwidget";i:1;}', 'yes');
+INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES (NULL, 'widget_vitrin', 'a:2:{i:2;a:3:{s:5:"title";s:0:"";s:10:"vitrin_ids";s:32:"4,6,8,10,12,14,16,18,20,22,24,26";s:11:"slidethumbs";b:0;}s:12:"_multiwidget";i:1;}', 'yes');
 
 
 

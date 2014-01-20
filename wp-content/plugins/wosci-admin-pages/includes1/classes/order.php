@@ -214,22 +214,25 @@ $customer_default_address_id = $cdai[0];
         $tax_address = array('entry_country_id' => $shipping_address['entry_country_id'],
                              'entry_zone_id' => $shipping_address['entry_zone_id']);
       }
-$shipping_s = get_user_meta($current_user->ID, 'shipping');
-$shipping = unserialize($shipping_s[0]);
-      $this->info = array('order_status' => DEFAULT_ORDERS_STATUS_ID,
-                          'currency' => $currency,
-                          'currency_value' => $currencies->currencies[$currency]['value'],
-                          'payment_method' => $payment,
-                          'cc_type' => '',
-                          'cc_owner' => '',
-                          'cc_number' => '',
-                          'cc_expires' => '',
-                          'shipping_method' => $shipping['title'],
-                          'shipping_cost' => $shipping['cost'],
-                          'subtotal' => 0,
-                          'tax' => 0,
-                          'tax_groups' => array(),
-                          'comments' => (tep_session_is_registered('comments') && !empty($comments) ? $comments : ''));
+	$shipping_s = get_user_meta($current_user->ID, 'shipping');
+	$shipping = unserialize($shipping_s[0]);
+	$this->info = array(	
+				'order_status' => DEFAULT_ORDERS_STATUS_ID,
+				'currency' => $currency,
+				'currency_value' => $currencies->currencies[$currency]['value'],
+	                        'payment_method' => $payment,
+	                        'cc_type' => '',
+	                        'cc_owner' => '',
+	                        'cc_number' => '',
+	                        'cc_expires' => '',
+	                        'shipping_method' => $shipping['title'],
+	                        'shipping_cost' => $shipping['cost'],
+	                        'subtotal' => 0,
+	                        'tax' => 0,
+	                        'tax_groups' => array(),
+	                        'comments' => (tep_session_is_registered('comments') && !empty($comments) ? $comments : '')
+	                        
+	                        );
 
       if (isset($GLOBALS[$payment]) && is_object($GLOBALS[$payment])) {
         if (isset($GLOBALS[$payment]->public_title)) {
@@ -298,7 +301,7 @@ $phone = get_user_meta($current_user->ID, 'phone');
      // EOF Separate Pricing Per Customer
 
       for ($i=0, $n=sizeof($products); $i<$n; $i++) {
-      $t = get_post_custom_values('Tax_', $products[$i]['id']);
+      $t = get_post_custom_values('Tax', $products[$i]['id']);
 
         $this->products[$index] = array('qty' => $products[$i]['quantity'],
                                         'name' => $products[$i]['name'],
@@ -346,7 +349,7 @@ $phone = get_user_meta($current_user->ID, 'phone');
 
         $products_tax = $this->products[$index]['tax'];
         $products_tax_description = $this->products[$index]['tax_description'];
-                if ((DISPLAY_PRICE_WITH_TAX == 'true') && ($customer_group_show_tax == '1')) { // SPPC, show_tax modification
+              if (DISPLAY_PRICE_WITH_TAX == 'true') {
 
           $this->info['tax'] += $shown_price - ($shown_price / (($products_tax < 10) ? "1.0" . str_replace('.', '', $products_tax) : "1." . str_replace('.', '', $products_tax)));
           if (isset($this->info['tax_groups']["$products_tax_description"])) {

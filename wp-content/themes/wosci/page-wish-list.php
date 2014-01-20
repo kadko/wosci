@@ -10,7 +10,9 @@
   Released under the GNU General Public License
 */
 
-
+  if ($current_user->ID =='0') {
+    wp_redirect(esc_url( home_url( '/' ) ).'wp-login.php?redirect_to=wish-list'); die;
+  }
 get_header();
 
 ?>
