@@ -43,6 +43,7 @@ Optional Custom Field
 
 
 <code>Tax</code> (Custom filed value is tax ID to be added to product)
+<code>Weight</code> (Custom filed value is net weight of product)
 
 =========
 Custom Field Filters
