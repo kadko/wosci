@@ -42,9 +42,9 @@ When adding product some custom field required as follow
 Optional Custom Field
 
 
-<code>Tax</code> (Custom filed value is tax ID to be added to product)
+<code>Tax</code> (Custom field value is tax ID to be added to product)
 
-<code>Weight</code> (Custom filed value is net weight of product)
+<code>Weight</code> (Custom field value is net weight of product)
 
 =========
 Custom Field Filters
