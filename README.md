@@ -30,7 +30,7 @@ Add Product
 =====
 When adding product some custom field required as follow
 
-Price  (Custom filed value is product price)
+Price  (Custom field value is product price)
 
 Currency  (Custom field value is Curreny of product , USD  for Dollar )
 
