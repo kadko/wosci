@@ -30,11 +30,11 @@ Add Product
 =====
 When adding product some custom field required as follow
 
-Price  (Custom field value is product price)
+<code>Price</code>  (Custom field value is product price)
 
-Currency  (Custom field value is Curreny of product , USD  for Dollar )
+<code>Currency</code>  (Custom field value is Curreny of product , USD  for Dollar )
 
-Quantity  (Custom field value is stock quantity of product)
+<code>Quantity</code>  (Custom field value is stock quantity of product)
 
 
 =========
@@ -42,14 +42,14 @@ Quantity  (Custom field value is stock quantity of product)
 Optional Custom Field
 
 
-Tax (Custom filed value is tax ID to be added to product)
+<code>Tax</code> (Custom filed value is tax ID to be added to product)
 
 =========
 Custom Field Filters
 
 You can add custom fields as filter to your products such as color, size , model etc...
 
-Color : Blue
+<code>Color : Blue</code>
 
 
 Filters displayed to user allowing them to filter products while browsing by category, by search or by author products
