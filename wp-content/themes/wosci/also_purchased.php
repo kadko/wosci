@@ -30,7 +30,7 @@
           <div class="margin-top"></div> <div class="thumbnail">
             <a href="<?php echo get_permalink($orders['ID']); ?>"><?php echo get_the_post_thumbnail($orders['ID'], array('116','200'), array('class' => 'img-responsive')); ?></a>
             <div class="caption">
-              <h5><a href="<?php echo get_permalink($orders['ID']); ?>"><?php echo get_the_title($orders['ID']); ?></a></h5>
+              <h4><a href="<?php echo get_permalink($orders['ID']); ?>"><?php echo get_the_title($orders['ID']); ?></a></h4>
               <p><?php echo $currencies->display_price($c[0], $f[0], tep_get_tax_rate($t[0])); ?></p>
                </div>
           </div>

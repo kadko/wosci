@@ -264,7 +264,7 @@
   $email_order = STORE_NAME . "\n" . 
                  EMAIL_SEPARATOR . "\n" . 
                  EMAIL_TEXT_ORDER_NUMBER . ' ' . $insert_id . "\n" .
-                 EMAIL_TEXT_INVOICE_URL . ' ' . tep_href_link(FILENAME_ACCOUNT_HISTORY_INFO, 'order_id=' . $insert_id, 'SSL', false) . "\n" .
+                 EMAIL_TEXT_INVOICE_URL . ' ' . esc_url( home_url( '/' ) ).'account-history-info?order_id=' . $insert_id. "\n" .
                  EMAIL_TEXT_DATE_ORDERED . ' ' . strftime(DATE_FORMAT_LONG) . "\n\n";
   if ($order->info['comments']) {
     $email_order .= tep_db_output($order->info['comments']) . "\n\n";

@@ -518,7 +518,11 @@ if( typeof state !== 'undefined' ){
       }) 
 
 
-jQuery('select[name="shipping_address_select"]').trigger( "change" );
+function trig(){
+    jQuery('select[name="shipping_address_select"]').trigger( "change" )
+}
+setTimeout(trig, 5000);
+
 event.preventDefault();
 
 

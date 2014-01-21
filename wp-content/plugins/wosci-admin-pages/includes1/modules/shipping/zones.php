@@ -137,7 +137,9 @@
 	
 	$delivery = tep_db_query("select * from " . TABLE_ADDRESS_BOOK . " where address_book_id = '" . $send_to[0] . "'");
         $deliveryfetch = tep_db_fetch_array($delivery);
-	
+	$deliverytext = tep_db_query("select * from " . TABLE_ZONES . " where zone_code = '" . $deliveryfetch['entry_state'] . "'");
+        $deliverytextetch = tep_db_fetch_array($deliverytext);
+        
         $zones_table = split("[:,]" , $zones_cost);
         $size = sizeof($zones_table);
         
@@ -151,7 +153,7 @@ if(is_page('order-confirmation')  || is_page('checkout-process') ){
 }else{
 	
 }
- $shipping_method = MODULE_SHIPPING_ZONES_TEXT_WAY . ' : <b>' . $deliveryfetch['entry_state']./*$order->delivery['state'].*/ '</b> ▶ '.__('Weight', 'wosci-language') . ' : '.$shipping_weight . ' ' . MODULE_SHIPPING_ZONES_TEXT_UNITS;
+ $shipping_method = MODULE_SHIPPING_ZONES_TEXT_WAY . ' : <b>' . $deliverytextetch['zone_name'].'</b> ▶ '.__('Weight', 'wosci-language') . ' : '.$shipping_weight . ' ' . MODULE_SHIPPING_ZONES_TEXT_UNITS;
             
             break;
           }

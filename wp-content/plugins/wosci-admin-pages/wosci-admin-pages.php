@@ -4614,7 +4614,7 @@ $user_wishlist = get_user_meta( $current_user->ID, 'customer_wishlist' );
 $result['btn'] = 'btn-default';
 $result['text'] = '';
 if(empty($user_wishlist[0])){
-update_user_meta( $current_user->ID, 'customer_wishlist',  serialize(array('0', $_POST['pID'])) );
+update_user_meta( $current_user->ID, 'customer_wishlist',  serialize( array('0' => $_POST['pID']) ) );
 $result['btn'] = 'btn-success';
 $result['text'] = __('Added to wishlist', 'wosci-language');
 }else{

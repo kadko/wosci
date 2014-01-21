@@ -98,36 +98,38 @@
      if ($entry ['entry_zone_id'] != '' && is_numeric($entry['entry_zone_id'])) {
      $entry_state_has_zones = true; 
 
-     $z_query = tep_db_query("select zone_code, zone_name from " . TABLE_ZONES . " where zone_id = '" . (int)$entry['entry_zone_id'] . "'");
+     $z_query = tep_db_query("select zone_code, zone_name, zone_code from " . TABLE_ZONES . " where zone_id = '" . (int)$entry['entry_zone_id'] . "'");
      $zone_query = tep_db_fetch_array($z_query);
      
      }
-      if ($entry_state_has_zones == true) {
+      if ($entry_state_has_zones == true ) {
         $zones_array = array();
-        $zones_query = tep_db_query("select zone_name from " . TABLE_ZONES . " where zone_country_id = '" . (int)$entry ['entry_country_id'] . "' order by zone_name");
+        $zones_query = tep_db_query("select zone_name, zone_code from " . TABLE_ZONES . " where zone_country_id = '" . (int)$entry ['entry_country_id'] . "' order by zone_name");
         while ($zones_values = tep_db_fetch_array($zones_query)) {
-          $zones_array[] = array('id' => $zones_values['zone_name'], 'text' => $zones_values['zone_name']);
+          $zones_array[] = array('id' => $zones_values['zone_code'], 'text' => $zones_values['zone_name']);
         }
-         if( count($zones_array) > 0 ){
-	echo tep_draw_pull_down_menu('state', $zones_array, $zone_query['zone_name'],'class="form-control"'). '&nbsp;<span class="inputRequirement"></span>';
+	if( count($zones_array) > 0 ){
+	echo tep_draw_pull_down_menu('state', $zones_array, $zone_query['zone_code'],'class="form-control"'). '&nbsp;<span class="inputRequirement"></span>';
 	} else {
         echo tep_draw_input_field('state',   $entry['entry_state'], 'class="form-control" ') . '&nbsp;<span class="inputRequirement"></span>';
       }
       }
     } else {
 	$zones_array = array();
-        $zones_query = tep_db_query("select zone_name from " . TABLE_ZONES . " where zone_country_id = '" . (int)$entry ['entry_country_id'] . "' order by zone_name");
+        $zones_query = tep_db_query("select zone_name, zone_code from " . TABLE_ZONES . " where zone_country_id = '" . (int)$entry ['entry_country_id'] . "' order by zone_name");
         while ($zones_values = tep_db_fetch_array($zones_query)) {
-          $zones_array[] = array('id' => $zones_values['zone_name'], 'text' => $zones_values['zone_name']);
+          $zones_array[] = array('id' => $zones_values['zone_code'], 'text' => $zones_values['zone_name']);
         }
       
-	if( count($zones_array) > 0 ){ echo tep_draw_pull_down_menu('state', $zones_array,$entry ['entry_state'],'class="form-control" '); }else{
-	echo tep_draw_input_field('state',$entry ['entry_state'],'class="form-control" ');
+	if( count($zones_array) > 0 ){
+	echo tep_draw_pull_down_menu('state', $zones_array,$entry ['entry_state'],'class="form-control" '). '&nbsp;<span class="inputRequirement"></span>'; 
+	}else{
+	echo tep_draw_input_field('state',$entry ['entry_state'],'class="form-control" '); 
 	}
       
     }
 
-   // if (tep_not_null(ENTRY_STATE_TEXT)) echo '&nbsp;<span class="inputRequirement">' . ENTRY_STATE_TEXT;
+    if (tep_not_null(ENTRY_STATE_TEXT)) ;
 ?>
     </div>
   </div>

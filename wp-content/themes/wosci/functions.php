@@ -811,13 +811,13 @@ while ( $loop->have_posts() ) : $loop->the_post();
 
 
 
-<?php if( $wp_query->max_num_pages > 1 ){ ?><?php } ?>
+<?php if( $loop->max_num_pages > 1 ){ ?>
 <div id="pagenaviloaded" class="row">
             <div class="col-lg-6"><?php wp_pagenavi($loop);?></div>
             <div class="col-lg-6"></div>
           </div>
 
-
+<?php } ?>
 
 <?php global $post; // required
 $args2 = array('post_type' => 'product'); // exclude category 9

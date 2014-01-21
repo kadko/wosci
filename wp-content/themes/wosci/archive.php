@@ -500,15 +500,15 @@ query_posts(
 
 
 
-<div class="row">
-  <div class="col-xs-12 col-sm-6 col-md-8"><h3 class="assistive-text" style=""><?php 
+<div class="row" >
+  <div class="col-xs-12 col-sm-6 col-md-8"><h3 class="assistive-text" style="line-height:40px;vertical-align:middle;"><?php 
   if(!empty($_GET['search'])){ echo __( 'Search result for', 'wosci-language' ).': '.$_GET['search'];}
   if(!empty($c_terms->name)){ echo $c_terms->name; }
   if(!empty($_GET['author'])){ echo __( 'Products added by', 'wosci-language' ) . ' ' .$_GET['author']. ' ' ; }
   ?></h3></div>
-  <div class="col-xs-6 col-md-4" style="text-align:right;"><button id="shfilter" class="btn btn-success btn-sm"><span class="product product-filter"></span> <?php echo __( 'Filters' , 'wosci-language' ); ?></button></div>
+  <div class="col-xs-6 col-md-4" style="text-align:right;"><button id="shfilter" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-filter"></span> <?php echo __( 'Filters' , 'wosci-language' ); ?></button></div>
 </div>
-<hr>
+<div style="margin-top:12px;"></div>
 
 <div class="row">
         <div class="col-12 col-lg-10" id="listingrow">
@@ -579,11 +579,12 @@ query_posts(
 
 </ul><!-- .row -->
 </div><!-- .col-xs-18 -->
-
+<?php if( $loopmain->max_num_pages > 1 ){ ?>
 <div id="pagenavifirst" class="row">
             <div class="col-lg-6"><?php wp_pagenavi($loopmain); ?></div>
             <div class="col-lg-6"></div>
           </div>
+<?php } ?>
 
 </div><!-- #tumbs -->
 

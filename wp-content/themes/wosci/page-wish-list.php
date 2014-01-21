@@ -113,7 +113,7 @@ if( $alerttext == '' ){
            <div class="margin-top"></div> <div class="thumbnail">
             <a href="<?php echo get_permalink(); ?>"><?php echo the_post_thumbnail(array('116','200'), array('class' => 'img-responsive')); ?></a>
             <div class="caption">
-              <h5><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h5>
+              <h4><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h4>
               <p><?php echo $currencies->display_price($c[0], $f[0], tep_get_tax_rate($t[0])); ?></p>
               <p><button data-id="<?php echo get_the_ID(); ?>" <?php echo $disable; ?> class="btn <?php echo $btnclass; ?> btn-xs removewishlist"><small><?php echo $wltext; ?></small></button></p>
             </div>
