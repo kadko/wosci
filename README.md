@@ -2,7 +2,7 @@ Wosci eCommerce System 0.98 Beta
 =====
 Wosci is simple, user friendly, responsive and modern e-commerce system for Wordpress.
 
-Files contains Wordpress theme, required plugins set and sample product images
+ZIP file contains Wordpress theme, required plugins set and sample product images
 
 
 Installation
